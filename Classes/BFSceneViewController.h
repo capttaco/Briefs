@@ -7,16 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "BFSceneManager.h"
 
 @interface BFSceneViewController : UIViewController 
 {
-	UIImageView			*view;
 	BFSceneManager	*dataManager;
+	UIImageView			*imageView;
 }
 
-@property (nonatomic, retain) UIImageView			*view;
 @property (nonatomic, retain) BFSceneManager	*dataManager;
+@property (nonatomic, retain) UIImageView			*imageView;
 
 - (id) initWithSceneManager:(BFSceneManager*)manager;
 

@@ -13,13 +13,13 @@
 {
 	UIImage		*bg;
 	NSString	*name;
-	CGRect		*size;
+	CGRect		size;
 }
 
-@property (nonatomic, retain) UIImage		*bg;
-@property (nonatomic, retain) NSString	*name;
-@property (nonatomic, retain) CGRect		*size;
+@property (nonatomic, retain) UIImage			*bg;
+@property (nonatomic, readonly) NSString	*name;
+@property (nonatomic, readonly) CGRect		size;
 
-- (id)init:(String*)name withDictionary:(NSDictionary*)dict;
+- (id)init:(NSString*)name withDictionary:(NSDictionary*)dict;
 
 @end

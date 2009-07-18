@@ -7,15 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "BFScene.h"
 
 @interface BFSceneManager : NSObject 
 {
-	NSDictionary	*source;
-	NSArray				*scene_graph;
+	NSDictionary		*source;
+	NSMutableArray	*scene_graph;
+	NSArray					*scene_desc;
 }
 
-@property (nonatomic, readonly) NSArray *scene_graph;
+@property (nonatomic, retain) NSDictionary		*source;
+@property (nonatomic, retain) NSMutableArray	*scene_graph;
+@property (nonatomic, retain) NSArray					*scene_desc;
 
 
 - (id) initWithPathToDictionary:(NSString*)path;
