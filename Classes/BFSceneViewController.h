@@ -12,11 +12,9 @@
 @interface BFSceneViewController : UIViewController 
 {
 	BFSceneManager	*dataManager;
-	UIImageView			*imageView;
 }
 
 @property (nonatomic, retain) BFSceneManager	*dataManager;
-@property (nonatomic, retain) UIImageView			*imageView;
 
 - (id) initWithSceneManager:(BFSceneManager*)manager;
 

@@ -11,17 +11,17 @@
 
 @implementation BFSceneViewController
 
-@synthesize dataManager, imageView;
+@synthesize dataManager;
 
 - (id) initWithSceneManager:(BFSceneManager*)manager
 {
-	self = [super init];
-	
-	self.dataManager = manager;
-	UIImageView *image_view = [[UIImageView alloc] initWithImage:[[self.dataManager openingScene] bg]];
-	self.imageView = image_view;
-	
-	[image_view release];
+	if (self = [super init]) {
+		self.dataManager = manager;
+		UIImageView *image_view = [[UIImageView alloc] initWithImage:[[self.dataManager openingScene] bg]];
+		self.view = image_view;
+		
+		[image_view release];
+	}
 	return self;
 }
 
@@ -47,7 +47,7 @@
 
 - (void)dealloc 
 {
-	[imageView release];
+	[self.view release];
 	[dataManager release];
 	[super dealloc];
 }

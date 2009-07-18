@@ -18,6 +18,9 @@
 - (id)init:(NSString*)name withDictionary:(NSDictionary*)dict
 {
 	// TODO: do something interesting with actors
-	return self = [super init];
+	if (self = [super init]) {
+	
+	}
+	return self;
 }
 @end

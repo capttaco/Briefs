@@ -12,22 +12,20 @@
 
 @implementation BriefsAppDelegate
 
-@synthesize window, sceneController, dataManager;
+@synthesize window, sceneController;
 
 
 - (void) applicationDidFinishLaunching:(UIApplication *)application 
 {	
 	NSString *pathToDictionary = [[NSBundle mainBundle] pathForResource:@"sample-brief" ofType:@"plist"];
 	BFSceneManager *manager = [[BFSceneManager alloc] initWithPathToDictionary:pathToDictionary];
-	self.dataManager = manager;
-	
-	BFSceneViewController *controller = [[BFSceneViewController alloc] initWithSceneManager:self.dataManager];
+	BFSceneViewController *controller = [[BFSceneViewController alloc] initWithSceneManager:manager];
 	self.sceneController = controller;
 	
 	[manager release];
 	[controller release];
 	
-	[window addSubview:sceneController.imageView];
+	[window addSubview:sceneController.view];
 	[window makeKeyAndVisible];
 }
 

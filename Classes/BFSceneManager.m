@@ -16,21 +16,20 @@
 
 - (id) initWithPathToDictionary:(NSString*)path
 {
-	self = [super init];
-	
-	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile: path];
-	NSLog(@"Is the dictionary getting loaded? %@", dict);
-	NSArray *scenes = [dict valueForKey:@"scenes"];
-	
-	self.source = dict;
-	self.scene_desc = scenes;
-	
-	// TODO: Figure out how scenes will be loaded.
-	self.scene_graph = [NSMutableArray arrayWithCapacity:[scene_desc count]];
-	
-	[dict release];
-	[scenes release];
-	
+	if (self = [super init]) {
+		NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile: path];
+		NSLog(@"Is the dictionary getting loaded? %@", dict);
+		NSArray *scenes = [dict valueForKey:@"scenes"];
+		
+		self.source = dict;
+		self.scene_desc = scenes;
+		
+		// TODO: Figure out how scenes will be loaded.
+		self.scene_graph = [NSMutableArray arrayWithCapacity:[scene_desc count]];
+		
+		[dict release];
+		[scenes release];
+	}
 	return self;
 }
 
