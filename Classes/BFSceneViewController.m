@@ -25,7 +25,6 @@
 	return self;
 }
 
-// TODO do stuff after view is loaded.
 - (void)loadView 
 {
 }

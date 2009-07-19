@@ -23,4 +23,11 @@
 	}
 	return self;
 }
+
+- (void)dealloc 
+{
+	[bg release];
+	[name release];
+	[super dealloc];
+}
 @end

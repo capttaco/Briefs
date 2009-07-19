@@ -33,6 +33,13 @@
 	return self;
 }
 
+- (void)dealloc 
+{	
+	[scene_desc release];
+	[scene_graph release];
+	[source release];
+	[super dealloc];
+}
 
 /** Scene Management */
 - (int) totalNumberOfScenes 
@@ -56,5 +63,8 @@
 	// TODO: implement getting scene by number
 	return nil;
 }
+
+
+
 
 @end

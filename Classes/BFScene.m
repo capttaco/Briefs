@@ -18,7 +18,6 @@
 	if (self = [super init]) {
 		NSString *path = [dict valueForKey:@"img"];
 		NSString *pathToImage = [[NSBundle mainBundle] pathForResource:path ofType:nil];
-		NSLog(@"The path I got from the plist was: %@", pathToImage);
 		
 		UIImage *image = [UIImage imageWithContentsOfFile:pathToImage];
 		self.bg = image;
@@ -27,8 +26,17 @@
 		
 		[image release];
 		[path release];
+		
 	}
   return self;	
+}
+
+- (void)dealloc 
+{
+	[name release];
+	[actors release];
+	[bg release];
+	[super dealloc];
 }
 
 @end
