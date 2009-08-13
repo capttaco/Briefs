@@ -18,4 +18,13 @@
 
 - (id) initWithSceneManager:(BFSceneManager*)manager;
 
+// Local Dispatch Methods
+- (BOOL) willLoadSceneWithIndex:(int)index;
+- (BOOL) willToggleActorWithIndex:(int)index;
+- (BOOL) willResizeActorWithIndex:(int)index toSize:(CGRect)size;
+- (BOOL) willMoveActorWithIndex:(int)index toPoint:(CGPoint)point;
+
+// Global Dispatch Methods
+- (BOOL) willShowKeyboard:(NSString *)type;
+
 @end

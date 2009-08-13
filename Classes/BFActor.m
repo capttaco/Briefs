@@ -12,7 +12,12 @@
 
 @implementation BFActor
 
-@synthesize bg, name, size;
+@synthesize bg, name, size, action, touchedBg, disabledBg, releasedBg;
+
++ (NSArray *)availableActions {
+	// TODO: return available actions (as NSStrings) for actors
+	return nil;
+}
 
 
 - (id)init:(NSString*)name withDictionary:(NSDictionary*)dict

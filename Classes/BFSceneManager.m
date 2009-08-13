@@ -41,7 +41,7 @@
 	[super dealloc];
 }
 
-/** Scene Management */
+// Scene Management
 - (int) totalNumberOfScenes 
 {
 	return [self.scene_desc count];

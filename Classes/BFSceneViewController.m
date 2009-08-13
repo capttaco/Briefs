@@ -43,12 +43,50 @@
 	// e.g. self.myOutlet = nil;
 }
 
-
 - (void)dealloc 
 {
 	[self.view release];
 	[dataManager release];
 	[super dealloc];
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark Local Dispatch Methods
+
+- (BOOL) willLoadSceneWithIndex:(int)index
+{
+	// TODO: implement scene loading, by index
+	return false;
+}
+
+- (BOOL) willToggleActorWithIndex:(int)index 
+{
+	// TODO: implement actor toggling, by index
+	return false;
+}
+
+- (BOOL) willResizeActorWithIndex:(int)index toSize:(CGRect)size 
+{
+	// TODO: implement actor resizing, by index
+	return false;
+}
+
+- (BOOL) willMoveActorWithIndex:(int)index toPoint:(CGPoint)point 
+{
+	// TODO: implement actor movement, by index
+	return false;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark Global Dispatch Methods
+
+- (BOOL) willShowKeyboard:(NSString *)type {
+	// TODO: implement keyboard display
+	return false;
 }
 
 

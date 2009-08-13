@@ -24,7 +24,7 @@
 - (id) initWithPathToDictionary:(NSString*)path;
 
 
-/** Scene Management */
+// Scene Management
 - (int) totalNumberOfScenes;
 - (BFScene*) openingScene;
 - (BFScene*) sceneByNumber:(int)index;

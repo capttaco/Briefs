@@ -1,0 +1,102 @@
+//
+//  BFPresentationController.m
+//  Briefs
+//
+//  Created by Rob Rhyne on 8/4/09.
+//  Copyright Digital Arch Design, 2009. See LICENSE file for details.
+//
+
+#import "BFPresentationDispatch.h"
+#import "SynthesizeSingleton.h"
+
+@implementation BFPresentationDispatch
+
+@synthesize viewController;
+
+SYNTHESIZE_SINGLETON_FOR_CLASS(BFPresentationDispatch);
+
+
+///////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark Singleton Accessor Methods
+
++ (id<BFLocalActionDispatch>)sharedLocalDispatch
+{
+	return [BFPresentationDispatch sharedBFPresentationDispatch];
+}
+
++ (id<BFGlobalActionDispatch>)sharedGlobalDispatch
+{
+	return (<BFGlobalActionDispatch>) [BFPresentationDispatch sharedBFPresentationDispatch];
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark Local Dispatch Methods
+
+- (void) gotoScene:(int)indexOfScene
+{
+	if (self.viewController != nil) {
+		if ([self.viewController willLoadSceneWithIndex:indexOfScene] == false)
+			// TODO: throw exception
+			NSLog(@"Throw an exception, because the scene did not load!");
+		else {
+			NSLog(@"Scene %d was just loaded", indexOfScene);
+		}
+	}
+}
+
+- (void) toggleActor:(int)indexOfActor
+{	
+	if (self.viewController != nil) {
+		if ([self.viewController willToggleActorWithIndex:indexOfActor] == false)
+			// TODO: throw exception
+			NSLog(@"Throw an exception, because the actor was not toggled!");
+		else {
+			NSLog(@"Actor %d was just toggled", indexOfActor);
+		}
+	}
+}
+
+- (void)resize:(int)indexOfActor withSize:(CGRect)size
+{
+	if (self.viewController != nil) {
+		if ([self.viewController willResizeActorWithIndex:indexOfActor toSize:size] == false)
+			// TODO: throw exception
+			NSLog(@"Throw an exception, because I was not able to resize the actor!");
+		else {
+			NSLog(@"Resized Actor %d, to the size %@", indexOfActor, NSStringFromCGRect(size));
+		}
+	}
+}
+
+- (void)move:(int)indexOfActor toPoint:(CGPoint)point
+{
+	if (self.viewController != nil) {
+		if ([self.viewController willMoveActorWithIndex:indexOfActor toPoint:point] == false)
+			// TODO: throw exception
+			NSLog(@"Throw an exception, because I was not able to move the actor");
+		else {
+			NSLog(@"Moved ACtor %d, to the point %@", indexOfActor, NSStringFromCGPoint(point));
+		}
+	}
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark Global Dispatch Methods
+
+- (void)toggleKeyboard:(NSString *)type {
+	// TODO: toggle keyboard in current view
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+- (void)release
+{
+	[viewController release];
+}
+
+@end

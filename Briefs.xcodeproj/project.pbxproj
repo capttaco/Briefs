@@ -19,6 +19,7 @@
 		D49E5F5E1011696200B7EEBB /* BFSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D49E5F5D1011696200B7EEBB /* BFSceneViewController.m */; };
 		D49E5F61101169D700B7EEBB /* BFSceneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D49E5F60101169D700B7EEBB /* BFSceneManager.m */; };
 		D4C9C6A0101171A800C87AA7 /* BFScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C9C69F101171A800C87AA7 /* BFScene.m */; };
+		D4E2CEB71028F11D0039600E /* BFPresentationDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E2CEB61028F11D0039600E /* BFPresentationDispatch.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,10 @@
 		D49E5F60101169D700B7EEBB /* BFSceneManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFSceneManager.m; sourceTree = "<group>"; };
 		D4C9C69E101171A800C87AA7 /* BFScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFScene.h; sourceTree = "<group>"; };
 		D4C9C69F101171A800C87AA7 /* BFScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFScene.m; sourceTree = "<group>"; };
+		D4E2CEB51028F11D0039600E /* BFPresentationDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFPresentationDispatch.h; sourceTree = "<group>"; };
+		D4E2CEB61028F11D0039600E /* BFPresentationDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFPresentationDispatch.m; sourceTree = "<group>"; };
+		D4E2CEB91028F1A00039600E /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
+		D4E2CEBF102F19A90039600E /* BFDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFDispatch.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +66,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D4E2CEBE102F19850039600E /* control */,
+				D4E2CEB81028F18B0039600E /* util */,
 				D49E5F591011690100B7EEBB /* ui */,
 				D49E5F58101168FA00B7EEBB /* data */,
 				1D3623240D0F684500981E51 /* BriefsAppDelegate.h */,
@@ -165,6 +172,24 @@
 			name = views;
 			sourceTree = "<group>";
 		};
+		D4E2CEB81028F18B0039600E /* util */ = {
+			isa = PBXGroup;
+			children = (
+				D4E2CEB91028F1A00039600E /* SynthesizeSingleton.h */,
+			);
+			name = util;
+			sourceTree = "<group>";
+		};
+		D4E2CEBE102F19850039600E /* control */ = {
+			isa = PBXGroup;
+			children = (
+				D4E2CEB51028F11D0039600E /* BFPresentationDispatch.h */,
+				D4E2CEB61028F11D0039600E /* BFPresentationDispatch.m */,
+				D4E2CEBF102F19A90039600E /* BFDispatch.h */,
+			);
+			name = control;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -226,6 +251,7 @@
 				D49E5F61101169D700B7EEBB /* BFSceneManager.m in Sources */,
 				D4C9C6A0101171A800C87AA7 /* BFScene.m in Sources */,
 				D40E4680101179AB000D4830 /* BFActor.m in Sources */,
+				D4E2CEB71028F11D0039600E /* BFPresentationDispatch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
