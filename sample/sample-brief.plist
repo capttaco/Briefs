@@ -27,9 +27,17 @@
 					<key>name</key>
 					<string>Actor1</string>
 					<key>action</key>
-					<dict/>
+					<string>goto(2)</string>
 				</dict>
 			</array>
+		</dict>
+		<dict>
+			<key>img</key>
+			<string>scene2.png</string>
+			<key>name</key>
+			<string>Scene2</string>
+			<key>actors</key>
+			<array/>
 		</dict>
 	</array>
 </dict>

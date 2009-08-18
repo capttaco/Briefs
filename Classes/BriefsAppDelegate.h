@@ -12,11 +12,9 @@
 @interface BriefsAppDelegate : NSObject <UIApplicationDelegate> 
 {
 	IBOutlet UIWindow			*window;
-	BFSceneViewController *sceneController;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow			*window;
-@property (nonatomic, retain) BFSceneViewController *sceneController;
 
 @end
 

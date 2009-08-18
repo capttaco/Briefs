@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-
 @interface BFActor : NSObject 
 {
 	
@@ -16,6 +15,7 @@
 	NSString	*name;
 	CGRect		size;
 	NSString	*action;
+	bool			isActive;
 	
 	// Optional behavior states
 	UIImage *touchedBg;
@@ -24,20 +24,27 @@
 	
 }
 
-@property (nonatomic, retain)		UIImage		*bg;
-@property (nonatomic, readonly) NSString	*name;
-@property (nonatomic, readonly) CGRect		size;
-@property (nonatomic, retain)		NSString	*action;
+@property (nonatomic, retain)	UIImage		*bg;
+@property (nonatomic, retain)	NSString	*name;
+@property (nonatomic)					CGRect		size;
+@property (nonatomic, retain)	NSString	*action;
 
 @property (nonatomic, retain)	UIImage *touchedBg;
 @property (nonatomic, retain) UIImage *releasedBg;
 @property (nonatomic, retain) UIImage *disabledBg;
 
 
-+ (NSArray *)availableActions;
-
 // initialization
 - (id)init:(NSString*)name withDictionary:(NSDictionary*)dict;
+
+// state management
+- (void) activate;
+- (void) deactivate;
+- (UIImage *) background;
+
+// Actions
++ (NSArray *)availableActions;
+
 
 
 @end

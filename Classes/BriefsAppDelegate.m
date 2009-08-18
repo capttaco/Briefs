@@ -9,30 +9,40 @@
 #import "BriefsAppDelegate.h"
 #import "BFSceneManager.h"
 #import "BFSceneViewController.h"
+#import "BFPresentationDispatch.h"
 
 @implementation BriefsAppDelegate
 
-@synthesize window, sceneController;
+@synthesize window;
 
 
 - (void) applicationDidFinishLaunching:(UIApplication *)application 
 {	
+	// setup scene view controller
 	NSString *pathToDictionary = [[NSBundle mainBundle] pathForResource:@"sample-brief" ofType:@"plist"];
 	BFSceneManager *manager = [[BFSceneManager alloc] initWithPathToDictionary:pathToDictionary];
 	BFSceneViewController *controller = [[BFSceneViewController alloc] initWithSceneManager:manager];
-	self.sceneController = controller;
 	
+	// wire dispatch
+	[[BFPresentationDispatch sharedBFPresentationDispatch] setViewController:controller]; 
+	
+	// stub, switch to scene 2
+	//[[BFPresentationDispatch sharedBFPresentationDispatch] gotoScene:1];
+	
+	// launch view
+	[window addSubview:[[[BFPresentationDispatch sharedBFPresentationDispatch] viewController] view]];
+	[window makeKeyAndVisible];
+	
+	// cleanup memory
 	[manager release];
 	[controller release];
 	
-	[window addSubview:sceneController.view];
-	[window makeKeyAndVisible];
+	NSLog(@"Am I breaking before this?");
 }
 
 
 - (void) dealloc 
 {
-	[sceneController release];
 	[window release];
 	[super dealloc];
 }

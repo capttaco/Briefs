@@ -94,9 +94,10 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFPresentationDispatch);
 
 ///////////////////////////////////////////////////////////////////////////////
 
-- (void)release
+- (void)dealloc
 {
 	[viewController release];
+	[super dealloc];
 }
 
 @end

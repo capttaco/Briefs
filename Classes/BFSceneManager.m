@@ -8,13 +8,15 @@
 
 #import "BFSceneManager.h"
 
-
-
 @implementation BFSceneManager
 
 @synthesize source, scene_graph, scene_desc;
 
-- (id) initWithPathToDictionary:(NSString*)path
+///////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark NSObject overrides
+
+- (id)initWithPathToDictionary:(NSString*)path
 {
 	if (self = [super init]) {
 		NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile: path];
@@ -23,44 +25,59 @@
 		
 		self.source = dict;
 		self.scene_desc = scenes;
-		
-		// TODO: Figure out how scenes will be loaded.
-		self.scene_graph = [NSMutableArray arrayWithCapacity:[scene_desc count]];
+		currentIndex = 0;
 		
 		[dict release];
 		[scenes release];
+		
+		// TODO: Figure out how scenes will be loaded.
+		self.scene_graph = [NSMutableArray arrayWithCapacity:[scene_desc count]];
+		int index = 0;
+		for (NSDictionary *dictionary in self.scene_desc) {
+			BFScene *scene = [[BFScene alloc] init:[dictionary valueForKey:@"name"] withDictionary:dictionary];
+			[self.scene_graph insertObject:scene atIndex:index];
+			index++;
+			[scene release];
+		}
+		
+		
 	}
 	return self;
 }
 
 - (void)dealloc 
 {	
-	[scene_desc release];
 	[scene_graph release];
+	[scene_desc release];
 	[source release];
 	[super dealloc];
 }
 
-// Scene Management
-- (int) totalNumberOfScenes 
+///////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark Scene Management
+
+- (int)totalNumberOfScenes 
 {
 	return [self.scene_desc count];
 }
 
-- (BFScene*) openingScene
+- (BFScene *)openingScene
 {
-	if ([self.scene_graph count] <= 0 || [self.scene_graph objectAtIndex:0] == nil) {
-		NSDictionary *dict = [self.scene_desc objectAtIndex:0];
-		BFScene *openingScene = [[BFScene alloc] init:@"Scene 1" withDictionary:dict];
-		[self.scene_graph insertObject:openingScene atIndex:0];
-		return [self.scene_graph objectAtIndex:0];
-	}
-	else return nil;
+	return [self sceneByNumber:0];
 }
 
-- (BFScene*) sceneByNumber:(int)index
+- (BFScene *)currentScene
 {
-	// TODO: implement getting scene by number
+	return [self sceneByNumber:currentIndex];
+}
+
+- (BFScene *)sceneByNumber:(int)index
+{
+	currentIndex = index;
+	if ([self.scene_graph count] >= index || [self.scene_graph objectAtIndex:index] != nil) {
+		return [self.scene_graph objectAtIndex:index];
+	}
 	return nil;
 }
 

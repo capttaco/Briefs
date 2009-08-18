@@ -8,13 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "BFSceneManager.h"
+#import "BFSceneView.h"
 
 @interface BFSceneViewController : UIViewController 
 {
 	BFSceneManager	*dataManager;
+	BFSceneView			*current_scene;
 }
 
 @property (nonatomic, retain) BFSceneManager	*dataManager;
+@property (nonatomic, retain) BFSceneView			*current_scene;
 
 - (id) initWithSceneManager:(BFSceneManager*)manager;
 

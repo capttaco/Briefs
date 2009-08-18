@@ -34,7 +34,7 @@
 - (void)dealloc 
 {
 	[name release];
-	[actors release];
+	//[actors release];
 	[bg release];
 	[super dealloc];
 }

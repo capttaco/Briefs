@@ -11,22 +11,30 @@
 
 @implementation BFSceneViewController
 
-@synthesize dataManager;
+@synthesize dataManager, current_scene;
 
-- (id) initWithSceneManager:(BFSceneManager*)manager
+///////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark UIViewController overrides
+
+- (id)initWithSceneManager:(BFSceneManager*)manager
 {
 	if (self = [super init]) {
 		self.dataManager = manager;
-		UIImageView *image_view = [[UIImageView alloc] initWithImage:[[self.dataManager openingScene] bg]];
-		self.view = image_view;
+		self.view = [[UIView alloc] init];
 		
-		[image_view release];
+		BFSceneView *scene_view = [[BFSceneView alloc] initWithScene:[self.dataManager currentScene]];
+		self.current_scene = scene_view;
+		[self.view addSubview:scene_view];
+		
+		[scene_view release];
 	}
 	return self;
 }
 
 - (void)loadView 
 {
+
 }
 
 - (void)didReceiveMemoryWarning 
@@ -45,7 +53,8 @@
 
 - (void)dealloc 
 {
-	[self.view release];
+	//[self.view release];
+	[self.current_scene release];
 	[dataManager release];
 	[super dealloc];
 }
@@ -55,25 +64,44 @@
 #pragma mark -
 #pragma mark Local Dispatch Methods
 
-- (BOOL) willLoadSceneWithIndex:(int)index
+- (BOOL)willLoadSceneWithIndex:(int)index
 {
-	// TODO: implement scene loading, by index
-	return false;
+	BFScene *scene = [dataManager sceneByNumber:index];
+	if (scene == nil) {
+		return false;
+	} else {
+		
+		// remove from old scene
+		// TODO: need to remove this according to scene transition
+		if (self.current_scene != nil) {
+			[self.current_scene removeFromSuperview];
+			[self.current_scene release];
+		}
+		
+		BFSceneView *scene_view = [[BFSceneView alloc] initWithScene:scene];
+		self.current_scene = scene_view;
+		[self.view addSubview:scene_view];
+		
+		[scene_view	release];
+		[scene release];
+		
+		return true;
+	}
 }
 
-- (BOOL) willToggleActorWithIndex:(int)index 
+- (BOOL)willToggleActorWithIndex:(int)index 
 {
 	// TODO: implement actor toggling, by index
 	return false;
 }
 
-- (BOOL) willResizeActorWithIndex:(int)index toSize:(CGRect)size 
+- (BOOL)willResizeActorWithIndex:(int)index toSize:(CGRect)size 
 {
 	// TODO: implement actor resizing, by index
 	return false;
 }
 
-- (BOOL) willMoveActorWithIndex:(int)index toPoint:(CGPoint)point 
+- (BOOL)willMoveActorWithIndex:(int)index toPoint:(CGPoint)point 
 {
 	// TODO: implement actor movement, by index
 	return false;

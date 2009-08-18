@@ -14,6 +14,8 @@
 	NSDictionary		*source;
 	NSMutableArray	*scene_graph;
 	NSArray					*scene_desc;
+	
+	int currentIndex;
 }
 
 @property (nonatomic, retain) NSDictionary		*source;
@@ -21,13 +23,14 @@
 @property (nonatomic, retain) NSArray					*scene_desc;
 
 
-- (id) initWithPathToDictionary:(NSString*)path;
+- (id)initWithPathToDictionary:(NSString*)path;
 
 
 // Scene Management
-- (int) totalNumberOfScenes;
-- (BFScene*) openingScene;
-- (BFScene*) sceneByNumber:(int)index;
+- (int)totalNumberOfScenes;
+- (BFScene *)openingScene;
+- (BFScene *)currentScene;
+- (BFScene *)sceneByNumber:(int)index;
 
 
 
