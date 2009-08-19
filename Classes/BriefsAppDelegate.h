@@ -11,10 +11,10 @@
 
 @interface BriefsAppDelegate : NSObject <UIApplicationDelegate> 
 {
-	IBOutlet UIWindow			*window;
+	IBOutlet UIWindow	*window;
 }
 
-@property (nonatomic, retain) IBOutlet UIWindow			*window;
+@property (nonatomic, retain) IBOutlet UIWindow	*window;
 
 @end
 

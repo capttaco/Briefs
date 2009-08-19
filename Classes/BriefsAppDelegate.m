@@ -36,8 +36,6 @@
 	// cleanup memory
 	[manager release];
 	[controller release];
-	
-	NSLog(@"Am I breaking before this?");
 }
 
 

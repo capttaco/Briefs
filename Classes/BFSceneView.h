@@ -3,8 +3,9 @@
 //  Briefs
 //
 //  Created by Rob Rhyne on 8/18/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright Digital Arch Design, 2009. See LICENSE file for details.
 //
+
 
 #import <UIKit/UIKit.h>
 #import "BFScene.h"

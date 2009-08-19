@@ -23,10 +23,10 @@
 		self.dataManager = manager;
 		self.view = [[UIView alloc] init];
 		
+		// load current view, according to data model
 		BFSceneView *scene_view = [[BFSceneView alloc] initWithScene:[self.dataManager currentScene]];
 		self.current_scene = scene_view;
 		[self.view addSubview:scene_view];
-		
 		[scene_view release];
 	}
 	return self;
@@ -34,7 +34,7 @@
 
 - (void)loadView 
 {
-
+	// TODO: do I need to add view allocation here?
 }
 
 - (void)didReceiveMemoryWarning 
@@ -49,6 +49,7 @@
 {	
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
+	self.current_scene = nil;
 }
 
 - (void)dealloc 
