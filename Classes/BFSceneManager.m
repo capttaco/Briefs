@@ -20,27 +20,20 @@
 {
 	if (self = [super init]) {
 		NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile: path];
-		NSLog(@"Is the dictionary getting loaded? %@", dict);
 		NSArray *scenes = [dict valueForKey:@"scenes"];
 		
 		self.source = dict;
 		self.scene_desc = scenes;
 		currentIndex = 0;
 		
-		[dict release];
-		[scenes release];
-		
-		// TODO: Figure out how scenes will be loaded.
-		self.scene_graph = [NSMutableArray arrayWithCapacity:[scene_desc count]];
-		int index = 0;
-		for (NSDictionary *dictionary in self.scene_desc) {
-			BFScene *scene = [[BFScene alloc] init:[dictionary valueForKey:@"name"] withDictionary:dictionary];
-			[self.scene_graph insertObject:scene atIndex:index];
-			index++;
-			[scene release];
+		NSMutableArray *graph = [NSMutableArray arrayWithCapacity:[self.scene_desc count]];
+		for (NSDictionary *dictionary in scenes) {
+			[graph addObject:[[BFScene alloc] init:[dictionary valueForKey:@"name"] withDictionary:dictionary]];
 		}
+		self.scene_graph = graph;
 		
-		
+		// memory cleanup
+		[scenes release];		
 	}
 	return self;
 }
