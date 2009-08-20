@@ -37,12 +37,16 @@
 
 - (id)init:(NSString*)name withDictionary:(NSDictionary*)dict
 {
+	isActive = true; 
+	
 	// TODO: Refactor this into a Briefs data formatter
 	if (self = [super init]) {
 		self.name = [dict valueForKey:@"name"];
 
 		// backgrounds
-		self.bg = [dict valueForKey:@"img"];
+		NSString *pathToImage = [[NSBundle mainBundle] pathForResource:[dict valueForKey:@"img"] ofType:nil];
+		self.bg = [UIImage imageWithContentsOfFile:pathToImage];
+		
 		self.touchedBg = [dict valueForKey:@"touched"];
 		self.disabledBg = [dict	valueForKey:@"disabled"];
 		self.releasedBg = [dict	valueForKey:@"released"];

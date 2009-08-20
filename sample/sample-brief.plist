@@ -15,15 +15,15 @@
 			<array>
 				<dict>
 					<key>img</key>
-					<string></string>
+					<string>actor1.png</string>
 					<key>x</key>
-					<integer>0</integer>
+					<integer>60</integer>
 					<key>y</key>
-					<integer>0</integer>
+					<integer>350</integer>
 					<key>width</key>
-					<integer>0</integer>
+					<integer>200</integer>
 					<key>height</key>
-					<integer>0</integer>
+					<integer>50</integer>
 					<key>name</key>
 					<string>Actor1</string>
 					<key>action</key>

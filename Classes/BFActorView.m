@@ -7,6 +7,7 @@
 //
 
 #import "BFActorView.h"
+#import "BFPresentationDispatch.h"
 
 
 @implementation BFActorView
@@ -17,11 +18,12 @@
 {
 	if (self = [super initWithImage:[source background]]) {
 		// enable user interaction, per documentation
-		self.userInteractionEnabled = YES;
+		[self setUserInteractionEnabled:YES];
 		
 		// initialize the view
-		self.bounds = [source size];
+		self.frame = [source size];
 	}
+
 	return self;
 }
 
@@ -30,5 +32,16 @@
 	[super dealloc];
 }
 
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+	UITouch* touch = [touches anyObject];
+	NSUInteger numTaps = [touch tapCount];
+	if (numTaps > 1) {
+		[self.nextResponder touchesBegan:touches withEvent:event];
+	} else {
+		// FIXME: stubbed, look at Actor action and do that instead
+		[[BFPresentationDispatch sharedBFPresentationDispatch] gotoScene:1];
+	}
+}
 
 @end

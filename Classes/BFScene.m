@@ -7,6 +7,7 @@
 //
 
 #import "BFScene.h"
+#import "BFActor.h"
 
 
 @implementation BFScene
@@ -22,9 +23,15 @@
 		UIImage *image = [UIImage imageWithContentsOfFile:pathToImage];
 		self.bg = image;
 		self.name = nameOfScene;
-		self.actors = nil;
 		
-		[image release];
+		// Load actors
+		NSArray *actor_dicts = [dict valueForKey:@"actors"];
+		NSMutableArray *actors_tree = [NSMutableArray arrayWithCapacity:[actor_dicts count]];
+		for (NSDictionary *dictionary in actor_dicts) {
+			[actors_tree addObject:[[BFActor alloc] init:[dictionary valueForKey:@"name"] withDictionary:dictionary]];
+		}
+		self.actors = actors_tree;
+		
 		[path release];
 		
 	}
@@ -34,7 +41,7 @@
 - (void)dealloc 
 {
 	[name release];
-	//[actors release];
+	[actors release];
 	[bg release];
 	[super dealloc];
 }

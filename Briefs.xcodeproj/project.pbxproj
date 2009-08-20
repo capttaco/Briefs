@@ -15,6 +15,8 @@
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		D40C3DD31039FA520033CC65 /* BFActorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D40C3DD21039FA520033CC65 /* BFActorView.m */; };
 		D40C3F6B103B44EA0033CC65 /* BFSceneView.m in Sources */ = {isa = PBXBuildFile; fileRef = D40C3F6A103B44EA0033CC65 /* BFSceneView.m */; };
+		D40C420A103C94730033CC65 /* actor1.png in Resources */ = {isa = PBXBuildFile; fileRef = D40C4209103C94730033CC65 /* actor1.png */; };
+		D40C43C4103D015F0033CC65 /* BFRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = D40C43C3103D015F0033CC65 /* BFRootView.m */; };
 		D40E4680101179AB000D4830 /* BFActor.m in Sources */ = {isa = PBXBuildFile; fileRef = D40E467F101179AB000D4830 /* BFActor.m */; };
 		D41766F91002F9AD0032D6FB /* sample-brief.plist in Resources */ = {isa = PBXBuildFile; fileRef = D41766F81002F9AD0032D6FB /* sample-brief.plist */; };
 		D43863930FFAD0EE0041D688 /* scene1.png in Resources */ = {isa = PBXBuildFile; fileRef = D43863920FFAD0EE0041D688 /* scene1.png */; };
@@ -40,6 +42,9 @@
 		D40C3DD21039FA520033CC65 /* BFActorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFActorView.m; sourceTree = "<group>"; };
 		D40C3F69103B44EA0033CC65 /* BFSceneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFSceneView.h; sourceTree = "<group>"; };
 		D40C3F6A103B44EA0033CC65 /* BFSceneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFSceneView.m; sourceTree = "<group>"; };
+		D40C4209103C94730033CC65 /* actor1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = actor1.png; path = sample/actor1.png; sourceTree = "<group>"; };
+		D40C43C2103D015F0033CC65 /* BFRootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFRootView.h; sourceTree = "<group>"; };
+		D40C43C3103D015F0033CC65 /* BFRootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFRootView.m; sourceTree = "<group>"; };
 		D40E467E101179AB000D4830 /* BFActor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFActor.h; sourceTree = "<group>"; };
 		D40E467F101179AB000D4830 /* BFActor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFActor.m; sourceTree = "<group>"; };
 		D41766F81002F9AD0032D6FB /* sample-brief.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "sample-brief.plist"; path = "sample/sample-brief.plist"; sourceTree = "<group>"; };
@@ -147,6 +152,7 @@
 		D43863910FFAD0D30041D688 /* Sample */ = {
 			isa = PBXGroup;
 			children = (
+				D40C4209103C94730033CC65 /* actor1.png */,
 				D4E3753F1039F029000D8677 /* scene2.png */,
 				D41766F81002F9AD0032D6FB /* sample-brief.plist */,
 				D43863920FFAD0EE0041D688 /* scene1.png */,
@@ -181,6 +187,8 @@
 				D40C3DD21039FA520033CC65 /* BFActorView.m */,
 				D40C3F69103B44EA0033CC65 /* BFSceneView.h */,
 				D40C3F6A103B44EA0033CC65 /* BFSceneView.m */,
+				D40C43C2103D015F0033CC65 /* BFRootView.h */,
+				D40C43C3103D015F0033CC65 /* BFRootView.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -249,6 +257,7 @@
 				D43863930FFAD0EE0041D688 /* scene1.png in Resources */,
 				D41766F91002F9AD0032D6FB /* sample-brief.plist in Resources */,
 				D4E375401039F029000D8677 /* scene2.png in Resources */,
+				D40C420A103C94730033CC65 /* actor1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +277,7 @@
 				D4E2CEB71028F11D0039600E /* BFPresentationDispatch.m in Sources */,
 				D40C3DD31039FA520033CC65 /* BFActorView.m in Sources */,
 				D40C3F6B103B44EA0033CC65 /* BFSceneView.m in Sources */,
+				D40C43C4103D015F0033CC65 /* BFRootView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

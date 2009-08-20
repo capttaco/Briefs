@@ -13,9 +13,11 @@
 @interface BFSceneView : UIImageView 
 {
 	BFScene *scene;
+	NSArray *actor_views;
 }
 
 @property (nonatomic, retain) BFScene *scene;
+@property (nonatomic, retain) NSArray *actor_views;
 
 // initialization
 - (id)initWithScene:(BFScene *)source;

@@ -7,6 +7,7 @@
 //
 
 #import "BFSceneViewController.h"
+#import "BFRootView.h"
 
 
 @implementation BFSceneViewController
@@ -21,7 +22,7 @@
 {
 	if (self = [super init]) {
 		self.dataManager = manager;
-		self.view = [[UIView alloc] init];
+		self.view = [[BFRootView alloc] initWithFrame:CGRectMake(0.0f,0.0f,320.0f,480.0f)];
 		
 		// load current view, according to data model
 		BFSceneView *scene_view = [[BFSceneView alloc] initWithScene:[self.dataManager currentScene]];

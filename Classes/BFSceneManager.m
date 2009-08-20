@@ -68,8 +68,9 @@
 - (BFScene *)sceneByNumber:(int)index
 {
 	currentIndex = index;
-	if ([self.scene_graph count] >= index || [self.scene_graph objectAtIndex:index] != nil) {
-		return [self.scene_graph objectAtIndex:index];
+	BFScene *scene = [self.scene_graph objectAtIndex:index];
+	if ([self.scene_graph count] >= index || scene != nil) {
+		return scene;
 	}
 	return nil;
 }

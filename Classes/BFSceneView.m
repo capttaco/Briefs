@@ -8,20 +8,31 @@
 
 
 #import "BFSceneView.h"
+#import "BFActor.h"
+#import "BFActorView.h"
+#import "BFPresentationDispatch.h"
 
 
 @implementation BFSceneView
-@synthesize scene;
+@synthesize scene, actor_views;
 
 - (id)initWithScene:(BFScene *)source
 {
-	self.scene = source;
-	if (self = [super initWithImage:[self.scene bg]]) {
-		// enable user interaction, per documentation
-		self.userInteractionEnabled = YES;
+	if (self = [super initWithImage:[source bg]]) {
+		self.scene = source;
 		
-		// initialize the view
-		self.bounds = CGRectMake(0, 0, [[self.scene bg] size].width, [[self.scene bg] size].height);
+		// enable user interaction, per documentation
+		[self setUserInteractionEnabled:YES];
+		
+		// display actors
+		NSMutableArray *subViews = [NSMutableArray arrayWithCapacity:[[self.scene actors] count]];
+		for (BFActor *actor in [self.scene actors]) {
+			BFActorView *view = [[BFActorView alloc] initWithActor:actor];
+			[subViews addObject:view];
+			[self addSubview:view];
+			
+			[view release];
+		}
 	}
 	return self;
 }
@@ -31,6 +42,7 @@
 	[scene release];
 	[super dealloc];
 }
+
 
 
 @end
