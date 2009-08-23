@@ -11,12 +11,12 @@
 
 @interface BFScene : NSObject 
 {
-	UIImage		*bg;
+	NSString	*bg;
 	NSArray		*actors;
 	NSString	*name;
 }
 
-@property (nonatomic, retain) UIImage		*bg;
+@property (nonatomic, retain) NSString	*bg;
 @property (nonatomic, retain) NSArray		*actors;
 @property (nonatomic, retain) NSString	*name;
 

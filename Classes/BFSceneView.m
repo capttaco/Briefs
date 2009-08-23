@@ -18,7 +18,8 @@
 
 - (id)initWithScene:(BFScene *)source
 {
-	if (self = [super initWithImage:[source bg]]) {
+	NSString *pathToImage = [[NSBundle mainBundle] pathForResource:[source bg] ofType:nil];
+	if (self = [super initWithImage:[UIImage imageWithContentsOfFile:pathToImage]]) {
 		self.scene = source;
 		
 		// enable user interaction, per documentation
