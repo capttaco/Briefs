@@ -44,8 +44,9 @@
 		self.name = [dict valueForKey:@"name"];
 
 		// backgrounds
-		NSString *pathToImage = [[NSBundle mainBundle] pathForResource:[dict valueForKey:@"img"] ofType:nil];
-		self.bg = [UIImage imageWithContentsOfFile:pathToImage];
+		//NSString *pathToImage = [[NSBundle mainBundle] pathForResource:[dict valueForKey:@"img"] ofType:nil];
+		//self.bg = [UIImage imageWithContentsOfFile:pathToImage];
+		self.bg = [dict valueForKey:@"img"];
 		
 		self.touchedBg = [dict valueForKey:@"touched"];
 		self.disabledBg = [dict	valueForKey:@"disabled"];
@@ -98,7 +99,7 @@
 	isActive = false;
 }
 
-- (UIImage *) background
+- (NSString *) background
 {
 	if (isActive)
 		return [self bg];
