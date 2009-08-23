@@ -25,10 +25,7 @@
 	
 	// wire dispatch
 	[[BFPresentationDispatch sharedBFPresentationDispatch] setViewController:controller]; 
-	
-	// stub, switch to scene 2
-	//[[BFPresentationDispatch sharedBFPresentationDispatch] gotoScene:1];
-	
+		
 	// launch view
 	[window addSubview:[[[BFPresentationDispatch sharedBFPresentationDispatch] viewController] view]];
 	[window makeKeyAndVisible];
