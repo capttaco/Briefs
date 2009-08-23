@@ -44,8 +44,6 @@
 		self.name = [dict valueForKey:@"name"];
 
 		// backgrounds
-		//NSString *pathToImage = [[NSBundle mainBundle] pathForResource:[dict valueForKey:@"img"] ofType:nil];
-		//self.bg = [UIImage imageWithContentsOfFile:pathToImage];
 		self.bg = [dict valueForKey:@"img"];
 		
 		self.touchedBg = [dict valueForKey:@"touched"];

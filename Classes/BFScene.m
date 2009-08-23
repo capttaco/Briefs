@@ -17,11 +17,6 @@
 - (id)init:(NSString*)nameOfScene withDictionary:(NSDictionary*)dict
 {
 	if (self = [super init]) {
-		//NSString *path = [dict valueForKey:@"img"];
-		//NSString *pathToImage = [[NSBundle mainBundle] pathForResource:path ofType:nil];
-		
-		//UIImage *image = [UIImage imageWithContentsOfFile:pathToImage];
-		//self.bg = image;
 		self.bg = [dict valueForKey:@"img"];
 		self.name = nameOfScene;
 		

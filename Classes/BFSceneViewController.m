@@ -55,7 +55,6 @@
 
 - (void)dealloc 
 {
-	//[self.view release];
 	[self.current_scene release];
 	[dataManager release];
 	[super dealloc];
