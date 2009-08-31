@@ -54,11 +54,6 @@
 		NSNumber *height = [dict valueForKey:@"height"];
 		self.size = CGRectMake([x floatValue], [y floatValue], [width floatValue], [height floatValue]);
 		
-		//[x release];
-		//[y release];
-		//[width release];
-		//[height	release];
-		
 		// Action
 		// TODO: generalize this as well?
 		self.action = [dict valueForKey:@"action"];

@@ -18,4 +18,7 @@
 // initialization
 - (id)initWithActor:(BFActor *)source;
 
+// action handling
+- (void)executeAction:(NSString *)action;
+
 @end

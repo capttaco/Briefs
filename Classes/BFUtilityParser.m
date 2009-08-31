@@ -41,6 +41,14 @@
 + (NSArray *)parseActionArgsIntoArray:(NSString *)action withPrefix:(NSString *)prefix
 {
   NSString *lowered = [action lowercaseString]; 
+  
+  NSRange start = [lowered rangeOfString:@"("];
+  NSRange end = [lowered rangeOfString:@")"];
+  
+  NSString *argumentsAsString = [[lowered substringToIndex:end.location] substringFromIndex:start.location+1];
+  NSArray *argumentsAsArray = [argumentsAsString componentsSeparatedByString:@","];
+  
+  return argumentsAsArray;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
