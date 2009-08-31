@@ -43,7 +43,7 @@
 - (NSString *) background;
 
 // Actions
-+ (NSArray *)availableActions;
++ (NSArray *)copyOfAvailableActions;
 
 
 

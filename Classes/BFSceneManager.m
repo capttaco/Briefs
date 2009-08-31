@@ -28,12 +28,14 @@
 		
 		NSMutableArray *graph = [NSMutableArray arrayWithCapacity:[self.scene_desc count]];
 		for (NSDictionary *dictionary in scenes) {
-			[graph addObject:[[BFScene alloc] init:[dictionary valueForKey:@"name"] withDictionary:dictionary]];
+      BFScene *scene = [[BFScene alloc] init:[dictionary valueForKey:@"name"] withDictionary:dictionary];
+			[graph addObject:scene];
+      [scene release];
 		}
 		self.scene_graph = graph;
 		
 		// memory cleanup
-		[scenes release];		
+		[scenes release];
 	}
 	return self;
 }

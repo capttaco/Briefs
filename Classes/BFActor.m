@@ -7,7 +7,7 @@
 //
 
 #import "BFActor.h"
-#import "BFActionParser.h"
+#import "BFUtilityParser.h"
 #import "BFDispatch.h"
 
 
@@ -21,7 +21,7 @@
 #pragma mark -
 #pragma mark Action Support
 
-+ (NSArray *)availableActions {
++ (NSArray *)copyOfAvailableActions {
 	// FIXME Best way to represent this?
 	return [[NSArray alloc] initWithObjects:kBFACTOR_GOTO_ACTION, kBFACTOR_TOGGLE_ACTION,
 					kBFACTOR_RESIZE_ACTION, kBFACTOR_MOVE_ACTION, nil];
@@ -54,10 +54,10 @@
 		NSNumber *height = [dict valueForKey:@"height"];
 		self.size = CGRectMake([x floatValue], [y floatValue], [width floatValue], [height floatValue]);
 		
-		[x release];
-		[y release];
-		[width release];
-		[height	release];
+		//[x release];
+		//[y release];
+		//[width release];
+		//[height	release];
 		
 		// Action
 		// TODO: generalize this as well?

@@ -84,7 +84,7 @@
 		[self.view addSubview:scene_view];
 		
 		[scene_view	release];
-		[scene release];
+		//[scene release];
 		
 		return true;
 	}
