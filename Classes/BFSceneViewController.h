@@ -24,7 +24,7 @@
 // Local Dispatch Methods
 - (BOOL) willLoadSceneWithIndex:(int)index;
 - (BOOL) willToggleActorWithIndex:(int)index;
-- (BOOL) willResizeActorWithIndex:(int)index toSize:(CGRect)size;
+- (BOOL) willResizeActorWithIndex:(int)index toSize:(CGSize)size;
 - (BOOL) willMoveActorWithIndex:(int)index toPoint:(CGPoint)point;
 
 // Global Dispatch Methods

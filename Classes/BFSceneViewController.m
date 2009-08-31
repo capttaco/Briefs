@@ -84,7 +84,6 @@
 		[self.view addSubview:scene_view];
 		
 		[scene_view	release];
-		//[scene release];
 		
 		return true;
 	}
@@ -96,7 +95,7 @@
 	return false;
 }
 
-- (BOOL)willResizeActorWithIndex:(int)index toSize:(CGRect)size 
+- (BOOL)willResizeActorWithIndex:(int)index toSize:(CGSize)size 
 {
 	// TODO: implement actor resizing, by index
 	return false;

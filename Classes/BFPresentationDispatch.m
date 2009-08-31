@@ -59,14 +59,14 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFPresentationDispatch);
 	}
 }
 
-- (void)resize:(int)indexOfActor withSize:(CGRect)size
+- (void)resize:(int)indexOfActor withSize:(CGSize)size
 {
 	if (self.viewController != nil) {
 		if ([self.viewController willResizeActorWithIndex:indexOfActor toSize:size] == false)
 			// TODO: throw exception
 			NSLog(@"Throw an exception, because I was not able to resize the actor!");
 		else {
-			NSLog(@"Resized Actor %d, to the size %@", indexOfActor, NSStringFromCGRect(size));
+			NSLog(@"Resized Actor %d, to the size %@", indexOfActor, NSStringFromCGSize(size));
 		}
 	}
 }

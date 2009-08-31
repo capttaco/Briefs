@@ -13,7 +13,7 @@
 - (void)gotoScene:(int)indexOfScene;
 - (void)toggleActor:(int)indexOfActor;
 
-- (void)resize:(int)indexOfActor withSize:(CGRect)size;
+- (void)resize:(int)indexOfActor withSize:(CGSize)size;
 - (void)move:(int)indexOfActor toPoint:(CGPoint)point;
 
 @end 
