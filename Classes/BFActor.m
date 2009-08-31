@@ -7,12 +7,9 @@
 //
 
 #import "BFActor.h"
+#import "BFActionParser.h"
 #import "BFDispatch.h"
 
-#define	kBFACTOR_GOTO_ACTION		@"goto"
-#define	kBFACTOR_TOGGLE_ACTION	@"toggle"
-#define	kBFACTOR_RESIZE_ACTION	@"resize"
-#define	kBFACTOR_MOVE_ACTION		@"move"
 
 @implementation BFActor
 
