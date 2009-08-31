@@ -14,10 +14,19 @@
 #define	kBFACTOR_RESIZE_ACTION  @"resize"
 #define	kBFACTOR_MOVE_ACTION    @"move"
 
+#define kBFSCENE_TRANSITION_FADE  @"fade"
+#define kBFSCENE_TRANSITION_SLIDE @"slide"
+#define kBFSCENE_TRANSITION_ZOOM  @"zoom"
+
 
 @interface BFUtilityParser : NSObject {}
 
+// Actor Actions
 + (NSString *)parseActionCommand:(NSString *)action;
 + (NSArray  *)parseActionArgsIntoArray:(NSString *)action withPrefix:(NSString *)prefix;
+
+// Scene Transitions
++ (NSString *)parseSceneTransitionCommand:(NSString *)transition;
++ (NSArray  *)parseSceneTransitionOptionsIntoArray:(NSString *)transition withPrefix:(NSString *)prefix;
 
 @end
