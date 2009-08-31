@@ -40,13 +40,12 @@
 	UITouch* touch = [touches anyObject];
 	NSUInteger numTaps = [touch tapCount];
 	
-	// multiple taps are forwareded
 	if (numTaps > 1) {
+    // multiple taps are forwareded
 		[self.nextResponder touchesBegan:touches withEvent:event];
 	
-	// single tap launches the actor's action
 	} else {
-		// FIXME: stubbed, look at Actor action and do that instead
+    // single tap launches the actor's action
 		[self executeAction:[self.actor action]];
 	}
 }
@@ -58,16 +57,50 @@
   
   if (typeOfAction == kBFACTOR_GOTO_ACTION) {
 
-    // GOTO action contains one argument: the index of the scene to goto
+    // GOTO (index)
+    //   action contains one argument: the index of the scene to goto
     //   scene is not zero-based, so convert.
     
     NSString *arg1 = [actionArguments objectAtIndex:0];
     [[BFPresentationDispatch sharedBFPresentationDispatch] gotoScene:[arg1 intValue]-1];
   }
   
-  else if (typeOfAction == kBFACTOR_MOVE_ACTION) {
-    // TODO: execute move action
+  else if (typeOfAction == kBFACTOR_TOGGLE_ACTION) {
+    
+    // TOGGLE (index)
+    //   action contains one argument: the index of the actor 
+    //   is not zero-based, so convert.
+    
+    NSString *arg1 = [actionArguments objectAtIndex:0];
+    [[BFPresentationDispatch sharedBFPresentationDispatch] toggleActor:[arg1 intValue]-1];
   }
+    
+  else if (typeOfAction == kBFACTOR_MOVE_ACTION) {
+    
+    // MOVE (index, x, y) 
+    //   action contains two arguments, broken over three passed arguments:
+    //   actor index is not zero-based, so convert. Convert x, y into CGPoint
+    
+    NSString *arg1 = [actionArguments objectAtIndex:0];
+    NSString *arg2 = [actionArguments objectAtIndex:1];
+    NSString *arg3 = [actionArguments objectAtIndex:2];
+    CGPoint arg2AsPoint = CGPointMake([arg2 floatValue], [arg3 floatValue]);
+    [[BFPresentationDispatch sharedBFPresentationDispatch] move:[arg1 intValue]-1 toPoint:arg2AsPoint];
+  }
+  
+  else if (typeOfAction == kBFACTOR_RESIZE_ACTION) {
+    
+    // RESIZE (index, w, h) 
+    //   action contains two arguments, broken over three passed arguments:
+    //   actor index is not zero-based, so convert. Convert x, y into CGPoint
+    
+    NSString *arg1 = [actionArguments objectAtIndex:0];
+    NSString *arg2 = [actionArguments objectAtIndex:1];
+    NSString *arg3 = [actionArguments objectAtIndex:2];
+    CGSize arg2AsSize = CGSizeMake([arg2 floatValue], [arg3 floatValue]);
+    [[BFPresentationDispatch sharedBFPresentationDispatch] resize:[arg1 intValue]-1 withSize:arg2AsSize];
+  }
+  
 }
 
 
