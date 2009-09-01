@@ -44,7 +44,6 @@
 {	
 	[scene_graph release];
 	[scene_desc release];
-	[source release];
 	[super dealloc];
 }
 

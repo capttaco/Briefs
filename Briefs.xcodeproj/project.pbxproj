@@ -12,7 +12,9 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
-		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
+		76FD02EF104CAF96002E96FA /* BFBrowseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76FD02ED104CAF96002E96FA /* BFBrowseViewController.m */; };
+		76FD047E104CD159002E96FA /* BFBrowseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76FD047D104CD159002E96FA /* BFBrowseViewController.xib */; };
+		76FD0483104CD1F1002E96FA /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76FD0482104CD1F1002E96FA /* MainWindow.xib */; };
 		D40C3DD31039FA520033CC65 /* BFActorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D40C3DD21039FA520033CC65 /* BFActorView.m */; };
 		D40C3F6B103B44EA0033CC65 /* BFSceneView.m in Sources */ = {isa = PBXBuildFile; fileRef = D40C3F6A103B44EA0033CC65 /* BFSceneView.m */; };
 		D40C420A103C94730033CC65 /* actor1.png in Resources */ = {isa = PBXBuildFile; fileRef = D40C4209103C94730033CC65 /* actor1.png */; };
@@ -35,9 +37,12 @@
 		1D6058910D05DD3D006BFB54 /* Briefs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Briefs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Briefs_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Briefs_Prefix.pch; sourceTree = "<group>"; };
+		76FD02EC104CAF96002E96FA /* BFBrowseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFBrowseViewController.h; sourceTree = "<group>"; };
+		76FD02ED104CAF96002E96FA /* BFBrowseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFBrowseViewController.m; sourceTree = "<group>"; };
+		76FD047D104CD159002E96FA /* BFBrowseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BFBrowseViewController.xib; sourceTree = "<group>"; };
+		76FD0482104CD1F1002E96FA /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Briefs-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Briefs-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		D40C3DD11039FA520033CC65 /* BFActorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFActorView.h; sourceTree = "<group>"; };
 		D40C3DD21039FA520033CC65 /* BFActorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFActorView.m; sourceTree = "<group>"; };
@@ -124,8 +129,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				76FD02EB104CAF4E002E96FA /* nib */,
 				D43863910FFAD0D30041D688 /* Sample */,
-				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* Briefs-Info.plist */,
 			);
 			name = Resources;
@@ -139,6 +144,15 @@
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		76FD02EB104CAF4E002E96FA /* nib */ = {
+			isa = PBXGroup;
+			children = (
+				76FD047D104CD159002E96FA /* BFBrowseViewController.xib */,
+				76FD0482104CD1F1002E96FA /* MainWindow.xib */,
+			);
+			name = nib;
 			sourceTree = "<group>";
 		};
 		D40E467D1011792D000D4830 /* models */ = {
@@ -181,6 +195,8 @@
 				D49E5F5B1011693500B7EEBB /* views */,
 				D49E5F5C1011696200B7EEBB /* BFSceneViewController.h */,
 				D49E5F5D1011696200B7EEBB /* BFSceneViewController.m */,
+				76FD02EC104CAF96002E96FA /* BFBrowseViewController.h */,
+				76FD02ED104CAF96002E96FA /* BFBrowseViewController.m */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -258,11 +274,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				D43863930FFAD0EE0041D688 /* scene1.png in Resources */,
 				D41766F91002F9AD0032D6FB /* sample-brief.plist in Resources */,
 				D4E375401039F029000D8677 /* scene2.png in Resources */,
 				D40C420A103C94730033CC65 /* actor1.png in Resources */,
+				76FD047E104CD159002E96FA /* BFBrowseViewController.xib in Resources */,
+				76FD0483104CD1F1002E96FA /* MainWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +301,7 @@
 				D40C3F6B103B44EA0033CC65 /* BFSceneView.m in Sources */,
 				D40C43C4103D015F0033CC65 /* BFRootView.m in Sources */,
 				D40C459B1040CFA80033CC65 /* BFUtilityParser.m in Sources */,
+				76FD02EF104CAF96002E96FA /* BFBrowseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,14 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BFSceneViewController.h"
 
 @interface BriefsAppDelegate : NSObject <UIApplicationDelegate> 
 {
-	IBOutlet UIWindow	*window;
+	UINavigationController	*navigationController;
+  UIWindow *window;
 }
 
-@property (nonatomic, retain) IBOutlet UIWindow	*window;
+@property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
+@property (nonatomic, retain) IBOutlet UIWindow *window;
 
 @end
 

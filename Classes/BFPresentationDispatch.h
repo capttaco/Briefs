@@ -15,7 +15,7 @@
 	BFSceneViewController *viewController;
 }
 
-@property (retain) BFSceneViewController *viewController;
+@property (assign) BFSceneViewController *viewController;
 
 
 // Singleton Accessors

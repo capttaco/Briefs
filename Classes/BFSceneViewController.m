@@ -28,6 +28,7 @@
 		BFSceneView *scene_view = [[BFSceneView alloc] initWithScene:[self.dataManager currentScene]];
 		self.current_scene = scene_view;
 		[self.view addSubview:scene_view];
+    
 		[scene_view release];
 	}
 	return self;
@@ -36,6 +37,7 @@
 - (void)loadView 
 {
 	// TODO: do I need to add view allocation here?
+  
 }
 
 - (void)didReceiveMemoryWarning 
@@ -55,7 +57,9 @@
 
 - (void)dealloc 
 {
-	[self.current_scene release];
+	if (current_scene != nil) {
+    [current_scene release];
+  }
 	[dataManager release];
 	[super dealloc];
 }
@@ -76,7 +80,7 @@
 		// TODO: need to remove this according to scene transition
 		if (self.current_scene != nil) {
 			[self.current_scene removeFromSuperview];
-			[self.current_scene release];
+			//[self.current_scene release];
 		}
 		
 		BFSceneView *scene_view = [[BFSceneView alloc] initWithScene:scene];

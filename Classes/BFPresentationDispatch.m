@@ -78,7 +78,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFPresentationDispatch);
 			// TODO: throw exception
 			NSLog(@"Throw an exception, because I was not able to move the actor");
 		else {
-			NSLog(@"Moved ACtor %d, to the point %@", indexOfActor, NSStringFromCGPoint(point));
+			NSLog(@"Moved Actor %d, to the point %@", indexOfActor, NSStringFromCGPoint(point));
 		}
 	}
 }
@@ -96,7 +96,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFPresentationDispatch);
 
 - (void)dealloc
 {
-	[viewController release];
+	//[viewController release];
 	[super dealloc];
 }
 
