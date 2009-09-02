@@ -3,7 +3,7 @@
 //  Briefs
 //
 //  Created by Rob Rhyne on 8/31/09.
-//  Copyright 2009 Digital Arch Design Corporation. All rights reserved.
+//  Copyright Digital Arch Design, 2009. See LICENSE file for details.
 //
 
 #import "BFBrowseViewController.h"
