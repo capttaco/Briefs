@@ -11,6 +11,13 @@
 
 @interface BFBrowseViewController : UITableViewController 
 {
+  NSDictionary *knownBriefs;
 }
+
+@property (nonatomic, retain) NSDictionary *knownBriefs;
+
+- (NSArray *)localBriefLocations;
+- (NSArray *)storedBriefcastLocations;
+
 
 @end

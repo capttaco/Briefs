@@ -14,10 +14,16 @@
 
 @implementation BFBrowseViewController
 
+@synthesize knownBriefs;
+
 - (void)viewDidLoad
 {
   [super viewDidLoad];
   self.title = @"My Briefs";
+  
+  NSArray *values = [NSArray arrayWithObjects:[self localBriefLocations], [self storedBriefcastLocations], nil];
+  NSArray *keys = [NSArray arrayWithObjects:@"local", @"briefcast", nil];
+  self.knownBriefs = [NSDictionary dictionaryWithObjects:values forKeys:keys];
 }
 
 - (void)viewDidUnload 
@@ -48,6 +54,29 @@
 }
 
 
+
+- (NSArray *)localBriefLocations
+{
+  NSDirectoryEnumerator *enumerator = [[NSFileManager defaultManager] enumeratorAtPath:[[NSBundle mainBundle] resourcePath]];
+  NSMutableArray *arrayOfLocals = [NSMutableArray arrayWithCapacity:5];
+  
+  NSString *next;
+  while (next = [enumerator nextObject])
+  {
+    if ([[next pathExtension] isEqualToString:@"brieflist"]) {
+      [arrayOfLocals addObject:next];
+    }
+  }
+  return arrayOfLocals;
+}
+
+- (NSArray *)storedBriefcastLocations
+{
+  return [NSArray arrayWithObjects:@"Sample Briefcast", @"Killer Briefcast", nil];
+}
+                                   
+
+
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -
 #pragma mark Table view data source methods
@@ -60,8 +89,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
 {
-  // TODO: calculate number of available briefcasts and local briefs
-  return 2;
+  // Locally stored Briefcasts
+  if (section == 0) {
+    return [[self.knownBriefs valueForKey:@"local"] count];
+  }
+  else {
+    return [[self.knownBriefs valueForKey:@"briefcast"] count];
+  }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tv cellForRowAtIndexPath:(NSIndexPath *)indexPath 
@@ -71,10 +105,18 @@
     cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:@"BriefsCell"] autorelease];
   }
   
-  // TODO: need to get name of brief from a directory 
-  //       listing or something
-	cell.text = @"The Brief Title";
-	
+  // Brief stored locally
+  if (indexPath.section == 0) {
+    NSArray *locals = [[self knownBriefs] valueForKey:@"local"];
+    cell.text = [locals objectAtIndex:indexPath.row];
+  }
+  
+  // Briefcast listing
+  else {
+    NSArray *briefcasts = [[self knownBriefs] valueForKey:@"briefcast"];
+    cell.text = [briefcasts objectAtIndex:indexPath.row];
+  }
+  
   return cell;
 }
 
@@ -90,26 +132,31 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
 {
-  // setup scene view controller
-	NSString *pathToDictionary = [[NSBundle mainBundle] pathForResource:@"sample-brief" ofType:@"plist"];
-  BFSceneManager *manager = [[BFSceneManager alloc] initWithPathToDictionary:pathToDictionary];
-  BFSceneViewController *controller = [[BFSceneViewController alloc] initWithSceneManager:manager];
-   
-  // wire dispatch
-  if ([[BFPresentationDispatch sharedBFPresentationDispatch] viewController] != nil)
-    [BFPresentationDispatch sharedBFPresentationDispatch].viewController = nil;
+  if (indexPath.section == 0) {
+    NSString *currentBrief = [[self.knownBriefs valueForKey:@"local"] objectAtIndex:indexPath.row];
+    NSString *pathToDictionary = [[[NSBundle mainBundle] resourcePath] stringByAppendingFormat:@"/%@", currentBrief];
     
-  [[BFPresentationDispatch sharedBFPresentationDispatch] setViewController:controller]; 
-	
-  [self.navigationController pushViewController:[[BFPresentationDispatch sharedBFPresentationDispatch] viewController] animated:YES];
+    // setup scene view controller
+    BFSceneManager *manager = [[BFSceneManager alloc] initWithPathToDictionary:pathToDictionary];
+    BFSceneViewController *controller = [[BFSceneViewController alloc] initWithSceneManager:manager];
+    
+    // wire dispatch
+    if ([[BFPresentationDispatch sharedBFPresentationDispatch] viewController] != nil)
+      [BFPresentationDispatch sharedBFPresentationDispatch].viewController = nil;
+    
+    [[BFPresentationDispatch sharedBFPresentationDispatch] setViewController:controller]; 
+    
+    [self.navigationController pushViewController:[[BFPresentationDispatch sharedBFPresentationDispatch] viewController] animated:YES];
+    
+    // TODO: making navigation bar disappear, need to figure out a way
+    //       to make it re-appear.
+    //[self.navigationController setNavigationBarHidden:YES animated:YES];
+    
+    
+    [controller release];
+    [manager release];
+  }
   
-  // TODO: making navigation bar disappear, need to figure out a way
-  //       to make it re-appear.
-  //[self.navigationController setNavigationBarHidden:YES animated:YES];
-  
-  
-	[controller release];
-  [manager release];
 }
  
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath 

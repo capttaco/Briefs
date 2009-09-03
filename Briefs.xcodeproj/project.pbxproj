@@ -12,6 +12,7 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		761627D3104F632C008FDF67 /* sample-brief.brieflist in Resources */ = {isa = PBXBuildFile; fileRef = 761627D2104F632C008FDF67 /* sample-brief.brieflist */; };
 		76FD02EF104CAF96002E96FA /* BFBrowseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76FD02ED104CAF96002E96FA /* BFBrowseViewController.m */; };
 		76FD047E104CD159002E96FA /* BFBrowseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76FD047D104CD159002E96FA /* BFBrowseViewController.xib */; };
 		76FD0483104CD1F1002E96FA /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76FD0482104CD1F1002E96FA /* MainWindow.xib */; };
@@ -21,13 +22,10 @@
 		D40C43C4103D015F0033CC65 /* BFRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = D40C43C3103D015F0033CC65 /* BFRootView.m */; };
 		D40C459B1040CFA80033CC65 /* BFUtilityParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D40C459A1040CFA80033CC65 /* BFUtilityParser.m */; };
 		D40E4680101179AB000D4830 /* BFActor.m in Sources */ = {isa = PBXBuildFile; fileRef = D40E467F101179AB000D4830 /* BFActor.m */; };
-		D41766F91002F9AD0032D6FB /* sample-brief.plist in Resources */ = {isa = PBXBuildFile; fileRef = D41766F81002F9AD0032D6FB /* sample-brief.plist */; };
-		D43863930FFAD0EE0041D688 /* scene1.png in Resources */ = {isa = PBXBuildFile; fileRef = D43863920FFAD0EE0041D688 /* scene1.png */; };
 		D49E5F5E1011696200B7EEBB /* BFSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D49E5F5D1011696200B7EEBB /* BFSceneViewController.m */; };
 		D49E5F61101169D700B7EEBB /* BFSceneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D49E5F60101169D700B7EEBB /* BFSceneManager.m */; };
 		D4C9C6A0101171A800C87AA7 /* BFScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C9C69F101171A800C87AA7 /* BFScene.m */; };
 		D4E2CEB71028F11D0039600E /* BFPresentationDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E2CEB61028F11D0039600E /* BFPresentationDispatch.m */; };
-		D4E375401039F029000D8677 /* scene2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4E3753F1039F029000D8677 /* scene2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +37,7 @@
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Briefs_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Briefs_Prefix.pch; sourceTree = "<group>"; };
+		761627D2104F632C008FDF67 /* sample-brief.brieflist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "sample-brief.brieflist"; path = "sample/sample-brief.brieflist"; sourceTree = "<group>"; };
 		76FD02EC104CAF96002E96FA /* BFBrowseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFBrowseViewController.h; sourceTree = "<group>"; };
 		76FD02ED104CAF96002E96FA /* BFBrowseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFBrowseViewController.m; sourceTree = "<group>"; };
 		76FD047D104CD159002E96FA /* BFBrowseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BFBrowseViewController.xib; sourceTree = "<group>"; };
@@ -55,7 +54,6 @@
 		D40C459A1040CFA80033CC65 /* BFUtilityParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFUtilityParser.m; sourceTree = "<group>"; };
 		D40E467E101179AB000D4830 /* BFActor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFActor.h; sourceTree = "<group>"; };
 		D40E467F101179AB000D4830 /* BFActor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFActor.m; sourceTree = "<group>"; };
-		D41766F81002F9AD0032D6FB /* sample-brief.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "sample-brief.plist"; path = "sample/sample-brief.plist"; sourceTree = "<group>"; };
 		D43863920FFAD0EE0041D688 /* scene1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scene1.png; path = sample/scene1.png; sourceTree = "<group>"; };
 		D49E5F5C1011696200B7EEBB /* BFSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFSceneViewController.h; sourceTree = "<group>"; };
 		D49E5F5D1011696200B7EEBB /* BFSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFSceneViewController.m; sourceTree = "<group>"; };
@@ -169,9 +167,9 @@
 		D43863910FFAD0D30041D688 /* Sample */ = {
 			isa = PBXGroup;
 			children = (
+				761627D2104F632C008FDF67 /* sample-brief.brieflist */,
 				D40C4209103C94730033CC65 /* actor1.png */,
 				D4E3753F1039F029000D8677 /* scene2.png */,
-				D41766F81002F9AD0032D6FB /* sample-brief.plist */,
 				D43863920FFAD0EE0041D688 /* scene1.png */,
 			);
 			name = Sample;
@@ -274,9 +272,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D43863930FFAD0EE0041D688 /* scene1.png in Resources */,
-				D41766F91002F9AD0032D6FB /* sample-brief.plist in Resources */,
-				D4E375401039F029000D8677 /* scene2.png in Resources */,
+				761627D3104F632C008FDF67 /* sample-brief.brieflist in Resources */,
 				D40C420A103C94730033CC65 /* actor1.png in Resources */,
 				76FD047E104CD159002E96FA /* BFBrowseViewController.xib in Resources */,
 				76FD0483104CD1F1002E96FA /* MainWindow.xib in Resources */,
