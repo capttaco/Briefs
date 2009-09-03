@@ -42,7 +42,7 @@
 	
 	if (numTaps > 1) {
     // multiple taps are forwareded
-		[self.nextResponder touchesBegan:touches withEvent:event];
+		[self.nextResponder touchesEnded:touches withEvent:event];
 	
 	} else {
     // single tap launches the actor's action

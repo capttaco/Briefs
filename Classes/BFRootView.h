@@ -11,7 +11,9 @@
 
 @interface BFRootView : UIView 
 {
-
+  UIViewController* viewController;
 }
+
+- (id)initWithFrame:(CGRect)frame andViewController:(UIViewController *)controller;
 
 @end

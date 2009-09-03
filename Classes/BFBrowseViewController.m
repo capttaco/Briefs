@@ -19,6 +19,7 @@
   [super viewDidLoad];
   self.title = @"My Briefs";
 }
+
 - (void)viewDidUnload 
 {
 	// Release any retained subviews of the main view.
@@ -104,7 +105,8 @@
   
   // TODO: making navigation bar disappear, need to figure out a way
   //       to make it re-appear.
-  [self.navigationController setNavigationBarHidden:YES animated:YES];
+  //[self.navigationController setNavigationBarHidden:YES animated:YES];
+  
   
 	[controller release];
   [manager release];
