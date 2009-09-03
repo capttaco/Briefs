@@ -17,19 +17,49 @@
 @synthesize navigationController, window;
 
 
-- (void) applicationDidFinishLaunching:(UIApplication *)application 
-{	  
+- (void)applicationDidFinishLaunching:(UIApplication *)application 
+{
   [window addSubview:[self.navigationController view]];
   [window makeKeyAndVisible];
 }
 
 
-- (void) dealloc 
+- (void)dealloc 
 {
   [navigationController release];
 	[window release];
 	[super dealloc];
 }
+
+
+///////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark Navigation Controller Delegate
+
+- (void)navigationController:(UINavigationController *)nav willShowViewController:(UIViewController *)view 
+                    animated:(BOOL)animated
+{
+  if ([view isKindOfClass:[BFSceneViewController class]]) {
+    [[nav navigationBar] setBarStyle:UIBarStyleBlack];
+    [[nav navigationBar] setTranslucent:YES];
+    [nav setNavigationBarHidden:YES animated:animated];
+  } 
+  else {
+    [[nav navigationBar] setBarStyle:UIBarStyleDefault];
+    [[nav navigationBar] setTranslucent:NO];
+    [[nav navigationBar].backItem setTitle:@"My Briefs"];
+  }
+}
+
+- (void)navigationController:(UINavigationController *)nav didShowViewController:(UIViewController *)view 
+                    animated:(BOOL)animated
+{
+  if ([view isKindOfClass:[BFSceneViewController class]]) {
+    [[nav navigationBar].backItem setTitle:@"Exit"];
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////////
 
 
 @end
