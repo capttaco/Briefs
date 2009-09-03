@@ -22,12 +22,12 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFPresentationDispatch);
 
 + (id<BFLocalActionDispatch>)sharedLocalDispatch
 {
-	return [BFPresentationDispatch sharedBFPresentationDispatch];
+	return (id<BFLocalActionDispatch>) [BFPresentationDispatch sharedBFPresentationDispatch];
 }
 
 + (id<BFGlobalActionDispatch>)sharedGlobalDispatch
 {
-	return (<BFGlobalActionDispatch>) [BFPresentationDispatch sharedBFPresentationDispatch];
+	return (id<BFGlobalActionDispatch>) [BFPresentationDispatch sharedBFPresentationDispatch];
 }
 
 
