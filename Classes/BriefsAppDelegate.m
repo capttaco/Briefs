@@ -45,6 +45,7 @@
     [nav setNavigationBarHidden:YES animated:animated];
   } 
   else {
+    [[UIApplication sharedApplication] setStatusBarHidden:NO animated:YES];
     [[nav navigationBar] setBarStyle:UIBarStyleDefault];
     [[nav navigationBar] setTranslucent:NO];
     [[nav navigationBar].backItem setTitle:@"My Briefs"];
@@ -56,6 +57,7 @@
 {
   if ([view isKindOfClass:[BFSceneViewController class]]) {
     [[nav navigationBar].backItem setTitle:@"Exit"];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES animated:YES];
   }
 }
 
