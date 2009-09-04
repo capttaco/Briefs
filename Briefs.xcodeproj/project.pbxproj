@@ -13,6 +13,11 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		761627D3104F632C008FDF67 /* sample-brief.brieflist in Resources */ = {isa = PBXBuildFile; fileRef = 761627D2104F632C008FDF67 /* sample-brief.brieflist */; };
+		7616285610505B6A008FDF67 /* BFSceneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D49E5F60101169D700B7EEBB /* BFSceneManager.m */; };
+		7616285710505B6A008FDF67 /* BFScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C9C69F101171A800C87AA7 /* BFScene.m */; };
+		7616285810505B6A008FDF67 /* BFActor.m in Sources */ = {isa = PBXBuildFile; fileRef = D40E467F101179AB000D4830 /* BFActor.m */; };
+		7616292E10505FDA008FDF67 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7616292D10505FDA008FDF67 /* Foundation.framework */; };
+		7616293B105061EF008FDF67 /* brief-compact.m in Sources */ = {isa = PBXBuildFile; fileRef = 7616293210506098008FDF67 /* brief-compact.m */; };
 		76FD02EF104CAF96002E96FA /* BFBrowseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76FD02ED104CAF96002E96FA /* BFBrowseViewController.m */; };
 		76FD047E104CD159002E96FA /* BFBrowseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76FD047D104CD159002E96FA /* BFBrowseViewController.xib */; };
 		76FD0483104CD1F1002E96FA /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76FD0482104CD1F1002E96FA /* MainWindow.xib */; };
@@ -38,6 +43,8 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Briefs_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Briefs_Prefix.pch; sourceTree = "<group>"; };
 		761627D2104F632C008FDF67 /* sample-brief.brieflist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "sample-brief.brieflist"; path = "sample/sample-brief.brieflist"; sourceTree = "<group>"; };
+		7616292D10505FDA008FDF67 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7616293210506098008FDF67 /* brief-compact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "brief-compact.m"; sourceTree = "<group>"; };
 		76FD02EC104CAF96002E96FA /* BFBrowseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFBrowseViewController.h; sourceTree = "<group>"; };
 		76FD02ED104CAF96002E96FA /* BFBrowseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFBrowseViewController.m; sourceTree = "<group>"; };
 		76FD047D104CD159002E96FA /* BFBrowseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BFBrowseViewController.xib; sourceTree = "<group>"; };
@@ -79,6 +86,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7616282E10505870008FDF67 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7616292E10505FDA008FDF67 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -109,6 +124,7 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				7616292D10505FDA008FDF67 /* Foundation.framework */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -127,8 +143,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D43863910FFAD0D30041D688 /* sample briefs */,
 				76FD02EB104CAF4E002E96FA /* nib */,
-				D43863910FFAD0D30041D688 /* Sample */,
 				8D1107310486CEB800E47090 /* Briefs-Info.plist */,
 			);
 			name = Resources;
@@ -144,11 +160,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		76162936105061C5008FDF67 /* tools */ = {
+			isa = PBXGroup;
+			children = (
+				7616293210506098008FDF67 /* brief-compact.m */,
+			);
+			name = tools;
+			sourceTree = "<group>";
+		};
 		76FD02EB104CAF4E002E96FA /* nib */ = {
 			isa = PBXGroup;
 			children = (
-				76FD047D104CD159002E96FA /* BFBrowseViewController.xib */,
 				76FD0482104CD1F1002E96FA /* MainWindow.xib */,
+				76FD047D104CD159002E96FA /* BFBrowseViewController.xib */,
 			);
 			name = nib;
 			sourceTree = "<group>";
@@ -164,7 +188,7 @@
 			name = models;
 			sourceTree = "<group>";
 		};
-		D43863910FFAD0D30041D688 /* Sample */ = {
+		D43863910FFAD0D30041D688 /* sample briefs */ = {
 			isa = PBXGroup;
 			children = (
 				761627D2104F632C008FDF67 /* sample-brief.brieflist */,
@@ -172,12 +196,13 @@
 				D4E3753F1039F029000D8677 /* scene2.png */,
 				D43863920FFAD0EE0041D688 /* scene1.png */,
 			);
-			name = Sample;
+			name = "sample briefs";
 			sourceTree = "<group>";
 		};
 		D49E5F58101168FA00B7EEBB /* data */ = {
 			isa = PBXGroup;
 			children = (
+				76162936105061C5008FDF67 /* tools */,
 				D40E467D1011792D000D4830 /* models */,
 				D49E5F5F101169D700B7EEBB /* BFSceneManager.h */,
 				D49E5F60101169D700B7EEBB /* BFSceneManager.m */,
@@ -250,6 +275,21 @@
 			productReference = 1D6058910D05DD3D006BFB54 /* Briefs.app */;
 			productType = "com.apple.product-type.application";
 		};
+		7616282F10505870008FDF67 /* BriefsCompactor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 76162832105058A7008FDF67 /* Build configuration list for PBXNativeTarget "BriefsCompactor" */;
+			buildPhases = (
+				7616282D10505870008FDF67 /* Sources */,
+				7616282E10505870008FDF67 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BriefsCompactor;
+			productName = BriefsCompactor;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -263,6 +303,7 @@
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* Briefs */,
+				7616282F10505870008FDF67 /* BriefsCompactor */,
 			);
 		};
 /* End PBXProject section */
@@ -301,6 +342,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7616282D10505870008FDF67 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7616293B105061EF008FDF67 /* brief-compact.m in Sources */,
+				7616285610505B6A008FDF67 /* BFSceneManager.m in Sources */,
+				7616285710505B6A008FDF67 /* BFScene.m in Sources */,
+				7616285810505B6A008FDF67 /* BFActor.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
@@ -313,6 +365,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Briefs_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "Briefs-Info.plist";
 				PRODUCT_NAME = Briefs;
 			};
@@ -327,6 +380,57 @@
 				GCC_PREFIX_HEADER = Briefs_Prefix.pch;
 				INFOPLIST_FILE = "Briefs-Info.plist";
 				PRODUCT_NAME = Briefs;
+			};
+			name = Release;
+		};
+		7616283010505871008FDF67 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "compact-briefs";
+				SDKROOT = macosx10.5;
+			};
+			name = Debug;
+		};
+		7616283110505871008FDF67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = BriefsCompactor;
+				SDKROOT = macosx10.5;
+				ZERO_LINK = NO;
 			};
 			name = Release;
 		};
@@ -365,6 +469,15 @@
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
 				1D6058950D05DD3E006BFB54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		76162832105058A7008FDF67 /* Build configuration list for PBXNativeTarget "BriefsCompactor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7616283010505871008FDF67 /* Debug */,
+				7616283110505871008FDF67 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
