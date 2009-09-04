@@ -73,7 +73,19 @@
 	[super dealloc];
 }
 
+- (NSDictionary *)copyAsDictionary
+{
+  NSNumber *x = [NSNumber numberWithDouble:[self size].origin.x];
+  NSNumber *y = [NSNumber numberWithDouble:[self size].origin.y];
+  NSNumber *width = [NSNumber numberWithDouble:[self size].size.width];
+  NSNumber *height = [NSNumber numberWithDouble:[self size].size.height];
+  
+  NSArray *keys = [NSArray arrayWithObjects:@"img", @"x", @"y", @"width", @"height", @"name", @"action", nil];
+  NSArray *values = [NSArray arrayWithObjects:[self bg], x, y, width, height, [self name], [self action], nil];
 
+  NSDictionary *dict = [[NSDictionary dictionaryWithObjects:values forKeys:keys] retain];
+  return dict;
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -

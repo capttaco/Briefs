@@ -36,6 +36,7 @@
 
 // initialization
 - (id)init:(NSString*)name withDictionary:(NSDictionary*)dict;
+- (NSDictionary *)copyAsDictionary;
 
 // state management
 - (void) activate;
@@ -44,6 +45,7 @@
 
 // Actions
 + (NSArray *)copyOfAvailableActions;
+
 
 
 

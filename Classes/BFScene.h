@@ -21,6 +21,8 @@
 @property (nonatomic, retain) NSString	*name;
 
 
-- (id)init:(NSString*)name withDictionary:(NSDictionary*)dict;
+- (id)init:(NSString *)name withDictionary:(NSDictionary *)dict;
+
+- (NSDictionary *)copyAsDictionary;
 
 @end

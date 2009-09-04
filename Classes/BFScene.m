@@ -42,4 +42,24 @@
 	[super dealloc];
 }
 
+- (NSDictionary *)copyAsDictionary
+{
+  NSArray *keys = [NSArray arrayWithObjects:@"img", @"name", @"actors", nil];
+  
+  // Serialize actors
+  NSMutableArray *serializedActors = [NSMutableArray arrayWithCapacity:[[self actors] count]];
+  for (BFActor *actor in [self actors]) {
+    NSDictionary *actorAsDictionary = [actor copyAsDictionary];
+    [serializedActors addObject:actorAsDictionary];
+    
+    //[actor release];
+    [actorAsDictionary release];
+  }
+  NSArray *values = [NSArray arrayWithObjects:[self bg], [self name], serializedActors, nil];
+
+  NSDictionary *dict = [[NSDictionary dictionaryWithObjects:values forKeys:keys] retain];
+  return dict;
+}
+
+
 @end
