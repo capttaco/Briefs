@@ -55,7 +55,7 @@ int main (int argc, const char * argv[])
     [scene release];
   }
   
-  // 4. Collected compacted contents 
+  // 4. Collect compacted contents 
   [dict setObject:scenes forKey:@"scenes"];
   
   // 5. Write out compacted brief to file. If no output

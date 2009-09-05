@@ -17,8 +17,7 @@
 
 - (id) initWithActor:(BFActor *)source 
 {
-	NSString *pathToImage = [[NSBundle mainBundle] pathForResource:[source background] ofType:nil];
-	if (self = [super initWithImage:[UIImage imageWithContentsOfFile:pathToImage]]) {
+  if (self = [super initWithImage:[BFUtilityParser parseImageFromRepresentation:[source background]]]) {
 		// enable user interaction, per documentation
 		[self setUserInteractionEnabled:YES];
 		

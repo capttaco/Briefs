@@ -18,6 +18,9 @@
 		7616285810505B6A008FDF67 /* BFActor.m in Sources */ = {isa = PBXBuildFile; fileRef = D40E467F101179AB000D4830 /* BFActor.m */; };
 		7616292E10505FDA008FDF67 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7616292D10505FDA008FDF67 /* Foundation.framework */; };
 		7616293B105061EF008FDF67 /* brief-compact.m in Sources */ = {isa = PBXBuildFile; fileRef = 7616293210506098008FDF67 /* brief-compact.m */; };
+		76E8699A1051FCE800EB06C9 /* compacted.brieflist in Resources */ = {isa = PBXBuildFile; fileRef = 76E869931051FCD700EB06C9 /* compacted.brieflist */; };
+		76E8699B1051FCF200EB06C9 /* scene2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4E3753F1039F029000D8677 /* scene2.png */; };
+		76E8699C1051FCF200EB06C9 /* scene1.png in Resources */ = {isa = PBXBuildFile; fileRef = D43863920FFAD0EE0041D688 /* scene1.png */; };
 		76FD02EF104CAF96002E96FA /* BFBrowseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76FD02ED104CAF96002E96FA /* BFBrowseViewController.m */; };
 		76FD047E104CD159002E96FA /* BFBrowseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76FD047D104CD159002E96FA /* BFBrowseViewController.xib */; };
 		76FD0483104CD1F1002E96FA /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76FD0482104CD1F1002E96FA /* MainWindow.xib */; };
@@ -45,6 +48,7 @@
 		761627D2104F632C008FDF67 /* sample-brief.brieflist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "sample-brief.brieflist"; path = "sample/sample-brief.brieflist"; sourceTree = "<group>"; };
 		7616292D10505FDA008FDF67 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7616293210506098008FDF67 /* brief-compact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "brief-compact.m"; sourceTree = "<group>"; };
+		76E869931051FCD700EB06C9 /* compacted.brieflist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = compacted.brieflist; path = sample/compacted.brieflist; sourceTree = "<group>"; };
 		76FD02EC104CAF96002E96FA /* BFBrowseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFBrowseViewController.h; sourceTree = "<group>"; };
 		76FD02ED104CAF96002E96FA /* BFBrowseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFBrowseViewController.m; sourceTree = "<group>"; };
 		76FD047D104CD159002E96FA /* BFBrowseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BFBrowseViewController.xib; sourceTree = "<group>"; };
@@ -191,6 +195,7 @@
 		D43863910FFAD0D30041D688 /* sample briefs */ = {
 			isa = PBXGroup;
 			children = (
+				76E869931051FCD700EB06C9 /* compacted.brieflist */,
 				761627D2104F632C008FDF67 /* sample-brief.brieflist */,
 				D40C4209103C94730033CC65 /* actor1.png */,
 				D4E3753F1039F029000D8677 /* scene2.png */,
@@ -313,6 +318,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76E8699B1051FCF200EB06C9 /* scene2.png in Resources */,
+				76E8699C1051FCF200EB06C9 /* scene1.png in Resources */,
+				76E8699A1051FCE800EB06C9 /* compacted.brieflist in Resources */,
 				761627D3104F632C008FDF67 /* sample-brief.brieflist in Resources */,
 				D40C420A103C94730033CC65 /* actor1.png in Resources */,
 				76FD047E104CD159002E96FA /* BFBrowseViewController.xib in Resources */,

@@ -10,6 +10,7 @@
 #import "BFSceneView.h"
 #import "BFActor.h"
 #import "BFActorView.h"
+#import "BFUtilityParser.h"
 #import "BFPresentationDispatch.h"
 
 
@@ -18,8 +19,7 @@
 
 - (id)initWithScene:(BFScene *)source
 {
-	NSString *pathToImage = [[NSBundle mainBundle] pathForResource:[source bg] ofType:nil];
-	if (self = [super initWithImage:[UIImage imageWithContentsOfFile:pathToImage]]) {
+  if (self = [super initWithImage:[BFUtilityParser parseImageFromRepresentation:[source bg]]]) {
 		self.scene = source;
 		
 		// enable user interaction, per documentation
