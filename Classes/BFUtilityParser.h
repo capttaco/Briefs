@@ -8,17 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-
-#define	kBFACTOR_GOTO_ACTION    @"goto"
-#define	kBFACTOR_TOGGLE_ACTION  @"toggle"
-#define	kBFACTOR_RESIZE_ACTION  @"resize"
-#define	kBFACTOR_MOVE_ACTION    @"move"
-
-#define kBFSCENE_TRANSITION_FADE  @"fade"
-#define kBFSCENE_TRANSITION_SLIDE @"slide"
-#define kBFSCENE_TRANSITION_ZOOM  @"zoom"
-
-
 @interface BFUtilityParser : NSObject {}
 
 // General Parsing

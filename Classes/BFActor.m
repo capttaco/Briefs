@@ -7,8 +7,8 @@
 //
 
 #import "BFActor.h"
-#import "BFUtilityParser.h"
 #import "BFDispatch.h"
+#import "BFConstants.h"
 
 
 @implementation BFActor

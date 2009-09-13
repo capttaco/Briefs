@@ -8,6 +8,7 @@
 
 
 #import "BFUtilityParser.h"
+#import "BFConstants.h"
 
 
 @implementation BFUtilityParser

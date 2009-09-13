@@ -100,14 +100,15 @@ NSDictionary* __process(BFScene *scene, NSString *directory)
   [unpackedDictionary setObject:imageData forKey:@"img"];
   
   int count = 0;
-  NSMutableArray *arrayOfActors = [unpackedDictionary objectForKey:@"actors"];
+  NSArray *arrayOfActors = [unpackedDictionary objectForKey:@"actors"];
+  NSMutableArray *newActorsArray = [NSMutableArray arrayWithCapacity:[arrayOfActors count]];
   for (BFActor *actor in [scene actors]) {
     __pp(@"           %@", [actor name]);
     
     NSMutableDictionary *unpackedActor = [NSMutableDictionary dictionaryWithDictionary:[arrayOfActors objectAtIndex:count]];
     NSData *actorImageData = __image_data([actor bg], directory);
     [unpackedActor setObject:actorImageData forKey:@"img"];
-    [arrayOfActors insertObject:unpackedActor atIndex:count++];
+    [newActorsArray addObject:unpackedActor]; //insertObject:unpackedActor atIndex:count++];
   }
   [unpackedDictionary setObject:arrayOfActors forKey:@"actors"];
   

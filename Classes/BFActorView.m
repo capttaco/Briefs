@@ -9,6 +9,7 @@
 #import "BFActorView.h"
 #import "BFPresentationDispatch.h"
 #import "BFUtilityParser.h"
+#import "BFConstants.h"
 
 
 @implementation BFActorView
