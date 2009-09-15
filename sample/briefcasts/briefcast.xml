@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+   <channel>
+      <title>Example Briefcast</title>
+      <link>http://digitalarch.net/briefcast/</link>
+      <description>Demonstrate the structure of an example briefcast</description>
+      <language>en-us</language>
+      <pubDate>Sun, 13 Sep 2009 03:05:00 GMT</pubDate>
+      <lastBuildDate>Sun, 13 Sep 2009 03:05:00 GMT</lastBuildDate>
+
+      <item>
+         <title>How to Build a Brief</title>
+         <enclosure url="http://digitalarch.net/briefcast/howto-cmpct.brieflist" length="29230" type="application/brief" />
+         <description>An example brief that describes how to build a brief.</description>
+         <pubDate>Sun, 13 Sep 2009 03:05:00 GMT</pubDate>
+         <guid>http://giveabrief.com/briefcast/1#item1</guid>
+      </item>
+      
+      <item>
+         <title>Famous Quotes</title>
+         <enclosure url="http://digitalarch.net/briefcast/quotes-cmpct.brieflist" length="" type="application/brief" />
+         <description>An example brief, that features a variety of famous quotes.</description>
+         <pubDate>Sun, 13 Sep 2009 03:05:00 GMT</pubDate>
+         <guid>http://giveabrief.com/briefcast/2#item2</guid>
+      </item>
+      
+   </channel>
+</rss>

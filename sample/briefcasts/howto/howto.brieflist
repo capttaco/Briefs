@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>start_scene</key>
+	<integer>0</integer>
+	<key>scenes</key>
+	<array>
+		<dict>
+			<key>img</key>
+			<string>step1.png</string>
+			<key>name</key>
+			<string>Step #1</string>
+			<key>actors</key>
+			<array>
+				<dict>
+					<key>img</key>
+					<string>control-left.png</string>
+					<key>x</key>
+					<integer>107</integer>
+					<key>y</key>
+					<integer>395</integer>
+					<key>width</key>
+					<integer>54</integer>
+					<key>height</key>
+					<integer>45</integer>
+					<key>name</key>
+					<string>Left Control</string>
+					<key>action</key>
+					<string>goto(1)</string>
+				</dict>
+				<dict>
+					<key>img</key>
+					<string>control-right.png</string>
+					<key>x</key>
+					<integer>161</integer>
+					<key>y</key>
+					<integer>395</integer>
+					<key>width</key>
+					<integer>53</integer>
+					<key>height</key>
+					<integer>45</integer>
+					<key>name</key>
+					<string>Right Control</string>
+					<key>action</key>
+					<string>goto(2)</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>img</key>
+			<string>step2.png</string>
+			<key>name</key>
+			<string>Step #2</string>
+			<key>actors</key>
+			<array>
+				<dict>
+					<key>img</key>
+					<string>control-left.png</string>
+					<key>x</key>
+					<integer>107</integer>
+					<key>y</key>
+					<integer>395</integer>
+					<key>width</key>
+					<integer>54</integer>
+					<key>height</key>
+					<integer>45</integer>
+					<key>name</key>
+					<string>Left Control</string>
+					<key>action</key>
+					<string>goto(1)</string>
+				</dict>
+				<dict>
+					<key>img</key>
+					<string>control-right.png</string>
+					<key>x</key>
+					<integer>161</integer>
+					<key>y</key>
+					<integer>395</integer>
+					<key>width</key>
+					<integer>53</integer>
+					<key>height</key>
+					<integer>45</integer>
+					<key>name</key>
+					<string>Right Control</string>
+					<key>action</key>
+					<string>goto(3)</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>img</key>
+			<string>step3.png</string>
+			<key>name</key>
+			<string>Step #3</string>
+			<key>actors</key>
+			<array>
+				<dict>
+					<key>img</key>
+					<string>control-left.png</string>
+					<key>x</key>
+					<integer>107</integer>
+					<key>y</key>
+					<integer>395</integer>
+					<key>width</key>
+					<integer>54</integer>
+					<key>height</key>
+					<integer>45</integer>
+					<key>name</key>
+					<string>Left Control</string>
+					<key>action</key>
+					<string>goto(2)</string>
+				</dict>
+				<dict>
+					<key>img</key>
+					<string>control-right.png</string>
+					<key>x</key>
+					<integer>161</integer>
+					<key>y</key>
+					<integer>395</integer>
+					<key>width</key>
+					<integer>53</integer>
+					<key>height</key>
+					<integer>45</integer>
+					<key>name</key>
+					<string>Right Control</string>
+					<key>action</key>
+					<string>goto(4)</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>img</key>
+			<string>step4.png</string>
+			<key>name</key>
+			<string>Step #4</string>
+			<key>actors</key>
+			<array>
+				<dict>
+					<key>img</key>
+					<string>control-left.png</string>
+					<key>x</key>
+					<integer>107</integer>
+					<key>y</key>
+					<integer>395</integer>
+					<key>width</key>
+					<integer>54</integer>
+					<key>height</key>
+					<integer>45</integer>
+					<key>name</key>
+					<string>Left Control</string>
+					<key>action</key>
+					<string>goto(3)</string>
+				</dict>
+				<dict>
+					<key>img</key>
+					<string>control-right.png</string>
+					<key>x</key>
+					<integer>161</integer>
+					<key>y</key>
+					<integer>395</integer>
+					<key>width</key>
+					<integer>53</integer>
+					<key>height</key>
+					<integer>45</integer>
+					<key>name</key>
+					<string>Right Control</string>
+					<key>action</key>
+					<string>goto(4)</string>
+				</dict>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>
