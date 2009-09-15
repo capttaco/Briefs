@@ -10,6 +10,7 @@
 #import "BFSceneManager.h"
 #import "BFSceneViewController.h"
 #import "BFPresentationDispatch.h"
+#import "BFBriefcastViewController.h"
 
 
 @implementation BFBrowseViewController
@@ -148,13 +149,16 @@
     
     [self.navigationController pushViewController:[[BFPresentationDispatch sharedBFPresentationDispatch] viewController] animated:YES];
     
-    // TODO: making navigation bar disappear, need to figure out a way
-    //       to make it re-appear.
-    //[self.navigationController setNavigationBarHidden:YES animated:YES];
-    
     
     [controller release];
     [manager release];
+  }
+  
+  // Briefcast support stub
+  else {
+    BFBriefcastViewController *controller = [[BFBriefcastViewController alloc] init];
+    controller.locationOfBriefcast = @"http://digitalarch.net/briefcast/briefcast.xml";
+    [self.navigationController pushViewController:controller animated:YES];
   }
   
 }
