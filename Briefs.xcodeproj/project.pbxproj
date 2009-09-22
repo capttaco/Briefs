@@ -45,6 +45,10 @@
 		D415B235105C989E008A3541 /* howto-cmpct.brieflist in Resources */ = {isa = PBXBuildFile; fileRef = D415B234105C989E008A3541 /* howto-cmpct.brieflist */; };
 		D46410F9105F2BD8001522F6 /* BFBriefcastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D46410F7105F2BD8001522F6 /* BFBriefcastViewController.m */; };
 		D46410FA105F2BD8001522F6 /* BFBriefcastViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D46410F8105F2BD8001522F6 /* BFBriefcastViewController.xib */; };
+		D464117110606DDE001522F6 /* BFTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D464117010606DDE001522F6 /* BFTableViewController.m */; };
+		D46411931065CF8C001522F6 /* BFBriefCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D46411921065CF8C001522F6 /* BFBriefCellController.m */; };
+		D46411971065D59D001522F6 /* BFBriefcastCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D46411961065D59D001522F6 /* BFBriefcastCellController.m */; };
+		D464119A1065D6F8001522F6 /* BFBriefcast.m in Sources */ = {isa = PBXBuildFile; fileRef = D46411991065D6F8001522F6 /* BFBriefcast.m */; };
 		D49E5F5E1011696200B7EEBB /* BFSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D49E5F5D1011696200B7EEBB /* BFSceneViewController.m */; };
 		D49E5F61101169D700B7EEBB /* BFSceneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D49E5F60101169D700B7EEBB /* BFSceneManager.m */; };
 		D4C9C6A0101171A800C87AA7 /* BFScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C9C69F101171A800C87AA7 /* BFScene.m */; };
@@ -122,6 +126,15 @@
 		D46410F6105F2BD8001522F6 /* BFBriefcastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BFBriefcastViewController.h; path = ../BFBriefcastViewController.h; sourceTree = "<group>"; };
 		D46410F7105F2BD8001522F6 /* BFBriefcastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BFBriefcastViewController.m; path = ../BFBriefcastViewController.m; sourceTree = "<group>"; };
 		D46410F8105F2BD8001522F6 /* BFBriefcastViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BFBriefcastViewController.xib; sourceTree = "<group>"; };
+		D464116F10606DDE001522F6 /* BFTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFTableViewController.h; sourceTree = "<group>"; };
+		D464117010606DDE001522F6 /* BFTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFTableViewController.m; sourceTree = "<group>"; };
+		D464118D10606F38001522F6 /* BFCellController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFCellController.h; sourceTree = "<group>"; };
+		D46411911065CF8C001522F6 /* BFBriefCellController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFBriefCellController.h; sourceTree = "<group>"; };
+		D46411921065CF8C001522F6 /* BFBriefCellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFBriefCellController.m; sourceTree = "<group>"; };
+		D46411951065D59D001522F6 /* BFBriefcastCellController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFBriefcastCellController.h; sourceTree = "<group>"; };
+		D46411961065D59D001522F6 /* BFBriefcastCellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFBriefcastCellController.m; sourceTree = "<group>"; };
+		D46411981065D6F8001522F6 /* BFBriefcast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFBriefcast.h; sourceTree = "<group>"; };
+		D46411991065D6F8001522F6 /* BFBriefcast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFBriefcast.m; sourceTree = "<group>"; };
 		D49E5F5C1011696200B7EEBB /* BFSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFSceneViewController.h; sourceTree = "<group>"; };
 		D49E5F5D1011696200B7EEBB /* BFSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFSceneViewController.m; sourceTree = "<group>"; };
 		D49E5F5F101169D700B7EEBB /* BFSceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFSceneManager.h; sourceTree = "<group>"; };
@@ -245,6 +258,8 @@
 				D4C9C69F101171A800C87AA7 /* BFScene.m */,
 				D40E467E101179AB000D4830 /* BFActor.h */,
 				D40E467F101179AB000D4830 /* BFActor.m */,
+				D46411981065D6F8001522F6 /* BFBriefcast.h */,
+				D46411991065D6F8001522F6 /* BFBriefcast.m */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -346,6 +361,28 @@
 			name = samples;
 			sourceTree = "<group>";
 		};
+		D464115210606AA1001522F6 /* tables */ = {
+			isa = PBXGroup;
+			children = (
+				D46411901065CEC2001522F6 /* cells */,
+				D464116F10606DDE001522F6 /* BFTableViewController.h */,
+				D464117010606DDE001522F6 /* BFTableViewController.m */,
+				D464118D10606F38001522F6 /* BFCellController.h */,
+			);
+			name = tables;
+			sourceTree = "<group>";
+		};
+		D46411901065CEC2001522F6 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				D46411911065CF8C001522F6 /* BFBriefCellController.h */,
+				D46411921065CF8C001522F6 /* BFBriefCellController.m */,
+				D46411951065D59D001522F6 /* BFBriefcastCellController.h */,
+				D46411961065D59D001522F6 /* BFBriefcastCellController.m */,
+			);
+			name = cells;
+			sourceTree = "<group>";
+		};
 		D49E5F58101168FA00B7EEBB /* data */ = {
 			isa = PBXGroup;
 			children = (
@@ -363,6 +400,7 @@
 		D49E5F591011690100B7EEBB /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				D464115210606AA1001522F6 /* tables */,
 				D49E5F5B1011693500B7EEBB /* views */,
 				D49E5F5C1011696200B7EEBB /* BFSceneViewController.h */,
 				D49E5F5D1011696200B7EEBB /* BFSceneViewController.m */,
@@ -508,6 +546,10 @@
 				D415B217105C7BD8008A3541 /* FPExtensionNode.m in Sources */,
 				D415B218105C7BD8008A3541 /* FPExtensionTextNode.m in Sources */,
 				D46410F9105F2BD8001522F6 /* BFBriefcastViewController.m in Sources */,
+				D464117110606DDE001522F6 /* BFTableViewController.m in Sources */,
+				D46411931065CF8C001522F6 /* BFBriefCellController.m in Sources */,
+				D46411971065D59D001522F6 /* BFBriefcastCellController.m in Sources */,
+				D464119A1065D6F8001522F6 /* BFBriefcast.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

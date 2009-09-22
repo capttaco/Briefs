@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BFTableViewController.h"
 
-
-@interface BFBrowseViewController : UITableViewController 
+@interface BFBrowseViewController : BFTableViewController 
 {
-  NSDictionary *knownBriefs;
+  //NSDictionary *knownBriefs;
 }
 
-@property (nonatomic, retain) NSDictionary *knownBriefs;
+//@property (nonatomic, retain) NSDictionary *knownBriefs;
 
 - (NSArray *)localBriefLocations;
 - (NSArray *)storedBriefcastLocations;
