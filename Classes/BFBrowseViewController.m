@@ -14,20 +14,26 @@
 #import "BFBriefcast.h"
 #import "BFBriefcastCellController.h"
 #import "BFBriefCellController.h"
+#import "BFAddBriefcastViewController.h"
 
 
 @implementation BFBrowseViewController
 
 
+///////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark NSObject Methods
+
 - (void)viewDidLoad
 {
   [super viewDidLoad];
   self.title = @"My Briefs";
-}
-
-- (void)constructTableGroups
-{
-  tableGroups = [[NSArray arrayWithObjects:[self localBriefLocations], [self storedBriefcastLocations], nil] retain];
+  
+  // Configure the add button.
+  UIBarButtonItem *addButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
+                                                                             target:self 
+                                                                             action:@selector(addBriefcast)] autorelease];
+  self.navigationItem.rightBarButtonItem = addButton;
 }
 
 - (void)didReceiveMemoryWarning 
@@ -36,6 +42,15 @@
   [super didReceiveMemoryWarning];
 	
 	// Release any cached data, images, etc that aren't in use.
+}
+
+///////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark BFTableViewController methods
+
+- (void)constructTableGroups
+{
+  tableGroups = [[NSArray arrayWithObjects:[self localBriefLocations], [self storedBriefcastLocations], nil] retain];
 }
 
 - (NSArray *)localBriefLocations
@@ -74,6 +89,23 @@
   
 }                                   
 
+///////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark Adding New Briefcasts
+
+- (IBAction)addBriefcast
+{
+  BFAddBriefcastViewController *controller = [[BFAddBriefcastViewController alloc] init];
+  controller.delegate = self;
+  UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:controller];
+  [self.navigationController presentModalViewController:navigation animated:YES];
+}
+
+- (void)addViewController:(BFAddBriefcastViewController *)controller didFinishWithSave:(BOOL)save
+{
+  // TODO: Save the briefcast definitions locally
+  [self dismissModalViewControllerAnimated:YES];
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -

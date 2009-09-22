@@ -49,6 +49,9 @@
 		D46411931065CF8C001522F6 /* BFBriefCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D46411921065CF8C001522F6 /* BFBriefCellController.m */; };
 		D46411971065D59D001522F6 /* BFBriefcastCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D46411961065D59D001522F6 /* BFBriefcastCellController.m */; };
 		D464119A1065D6F8001522F6 /* BFBriefcast.m in Sources */ = {isa = PBXBuildFile; fileRef = D46411991065D6F8001522F6 /* BFBriefcast.m */; };
+		D4641313106879AF001522F6 /* BFAddBriefcastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4641311106879AF001522F6 /* BFAddBriefcastViewController.m */; };
+		D4641314106879AF001522F6 /* BFAddBriefcastViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4641312106879AF001522F6 /* BFAddBriefcastViewController.xib */; };
+		D464133E10695048001522F6 /* BFTextCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D464133D10695048001522F6 /* BFTextCellController.m */; };
 		D49E5F5E1011696200B7EEBB /* BFSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D49E5F5D1011696200B7EEBB /* BFSceneViewController.m */; };
 		D49E5F61101169D700B7EEBB /* BFSceneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D49E5F60101169D700B7EEBB /* BFSceneManager.m */; };
 		D4C9C6A0101171A800C87AA7 /* BFScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C9C69F101171A800C87AA7 /* BFScene.m */; };
@@ -135,6 +138,11 @@
 		D46411961065D59D001522F6 /* BFBriefcastCellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFBriefcastCellController.m; sourceTree = "<group>"; };
 		D46411981065D6F8001522F6 /* BFBriefcast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFBriefcast.h; sourceTree = "<group>"; };
 		D46411991065D6F8001522F6 /* BFBriefcast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFBriefcast.m; sourceTree = "<group>"; };
+		D4641310106879AF001522F6 /* BFAddBriefcastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFAddBriefcastViewController.h; sourceTree = "<group>"; };
+		D4641311106879AF001522F6 /* BFAddBriefcastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFAddBriefcastViewController.m; sourceTree = "<group>"; };
+		D4641312106879AF001522F6 /* BFAddBriefcastViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BFAddBriefcastViewController.xib; path = Classes/BFAddBriefcastViewController.xib; sourceTree = "<group>"; };
+		D464133C10695048001522F6 /* BFTextCellController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFTextCellController.h; sourceTree = "<group>"; };
+		D464133D10695048001522F6 /* BFTextCellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFTextCellController.m; sourceTree = "<group>"; };
 		D49E5F5C1011696200B7EEBB /* BFSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFSceneViewController.h; sourceTree = "<group>"; };
 		D49E5F5D1011696200B7EEBB /* BFSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFSceneViewController.m; sourceTree = "<group>"; };
 		D49E5F5F101169D700B7EEBB /* BFSceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFSceneManager.h; sourceTree = "<group>"; };
@@ -244,6 +252,7 @@
 		76FD02EB104CAF4E002E96FA /* nib */ = {
 			isa = PBXGroup;
 			children = (
+				D4641312106879AF001522F6 /* BFAddBriefcastViewController.xib */,
 				76FD0482104CD1F1002E96FA /* MainWindow.xib */,
 				76FD047D104CD159002E96FA /* BFBrowseViewController.xib */,
 				D46410F8105F2BD8001522F6 /* BFBriefcastViewController.xib */,
@@ -379,8 +388,25 @@
 				D46411921065CF8C001522F6 /* BFBriefCellController.m */,
 				D46411951065D59D001522F6 /* BFBriefcastCellController.h */,
 				D46411961065D59D001522F6 /* BFBriefcastCellController.m */,
+				D464133C10695048001522F6 /* BFTextCellController.h */,
+				D464133D10695048001522F6 /* BFTextCellController.m */,
 			);
 			name = cells;
+			sourceTree = "<group>";
+		};
+		D464130F10687553001522F6 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D49E5F5C1011696200B7EEBB /* BFSceneViewController.h */,
+				D49E5F5D1011696200B7EEBB /* BFSceneViewController.m */,
+				76FD02EC104CAF96002E96FA /* BFBrowseViewController.h */,
+				76FD02ED104CAF96002E96FA /* BFBrowseViewController.m */,
+				D46410F6105F2BD8001522F6 /* BFBriefcastViewController.h */,
+				D46410F7105F2BD8001522F6 /* BFBriefcastViewController.m */,
+				D4641310106879AF001522F6 /* BFAddBriefcastViewController.h */,
+				D4641311106879AF001522F6 /* BFAddBriefcastViewController.m */,
+			);
+			name = controllers;
 			sourceTree = "<group>";
 		};
 		D49E5F58101168FA00B7EEBB /* data */ = {
@@ -400,14 +426,9 @@
 		D49E5F591011690100B7EEBB /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				D464130F10687553001522F6 /* controllers */,
 				D464115210606AA1001522F6 /* tables */,
 				D49E5F5B1011693500B7EEBB /* views */,
-				D49E5F5C1011696200B7EEBB /* BFSceneViewController.h */,
-				D49E5F5D1011696200B7EEBB /* BFSceneViewController.m */,
-				76FD02EC104CAF96002E96FA /* BFBrowseViewController.h */,
-				76FD02ED104CAF96002E96FA /* BFBrowseViewController.m */,
-				D46410F6105F2BD8001522F6 /* BFBriefcastViewController.h */,
-				D46410F7105F2BD8001522F6 /* BFBriefcastViewController.m */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -511,6 +532,7 @@
 				76FD0483104CD1F1002E96FA /* MainWindow.xib in Resources */,
 				D415B235105C989E008A3541 /* howto-cmpct.brieflist in Resources */,
 				D46410FA105F2BD8001522F6 /* BFBriefcastViewController.xib in Resources */,
+				D4641314106879AF001522F6 /* BFAddBriefcastViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,6 +572,8 @@
 				D46411931065CF8C001522F6 /* BFBriefCellController.m in Sources */,
 				D46411971065D59D001522F6 /* BFBriefcastCellController.m in Sources */,
 				D464119A1065D6F8001522F6 /* BFBriefcast.m in Sources */,
+				D4641313106879AF001522F6 /* BFAddBriefcastViewController.m in Sources */,
+				D464133E10695048001522F6 /* BFTextCellController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

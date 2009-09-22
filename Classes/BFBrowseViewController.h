@@ -8,16 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "BFTableViewController.h"
+#import "BFAddBriefcastViewController.h"
 
-@interface BFBrowseViewController : BFTableViewController 
+@interface BFBrowseViewController : BFTableViewController <BFAddBriefcastViewDelegate>
 {
-  //NSDictionary *knownBriefs;
 }
-
-//@property (nonatomic, retain) NSDictionary *knownBriefs;
 
 - (NSArray *)localBriefLocations;
 - (NSArray *)storedBriefcastLocations;
 
+- (IBAction)addBriefcast;
 
 @end
