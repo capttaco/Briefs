@@ -110,7 +110,7 @@ NSDictionary* __process(BFScene *scene, NSString *directory)
     [unpackedActor setObject:actorImageData forKey:@"img"];
     [newActorsArray addObject:unpackedActor]; //insertObject:unpackedActor atIndex:count++];
   }
-  [unpackedDictionary setObject:arrayOfActors forKey:@"actors"];
+  [unpackedDictionary setObject:newActorsArray forKey:@"actors"];
   
   [dict release];
   
