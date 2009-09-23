@@ -16,6 +16,7 @@
 	NSArray					*scene_desc;
 	
 	int currentIndex;
+  int openingScene;
 }
 
 @property (nonatomic, retain) NSDictionary		*source;

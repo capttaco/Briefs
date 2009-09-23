@@ -22,6 +22,8 @@
 		NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile: path];
 		NSArray *scenes = [dict valueForKey:@"scenes"];
 		
+    int openingScene = [dict valueForKey:@"start_scene"];
+    
 		self.source = dict;
 		self.scene_desc = scenes;
 		currentIndex = 0;
@@ -58,7 +60,7 @@
 
 - (BFScene *)openingScene
 {
-	return [self sceneByNumber:0];
+	return [self sceneByNumber:openingScene];
 }
 
 - (BFScene *)currentScene
