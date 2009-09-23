@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>start_scene</key>
+	<integer>0</integer>
+	<key>scenes</key>
+	<array>
+		<dict>
+			<key>img</key>
+			<string>scene1.png</string>
+			<key>name</key>
+			<string>Scene1</string>
+			<key>actors</key>
+			<array>
+				<dict>
+					<key>img</key>
+					<string>actor1.png</string>
+					<key>x</key>
+					<integer>60</integer>
+					<key>y</key>
+					<integer>350</integer>
+					<key>width</key>
+					<integer>200</integer>
+					<key>height</key>
+					<integer>50</integer>
+					<key>name</key>
+					<string>Actor1</string>
+					<key>action</key>
+					<string>goto(2)</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>img</key>
+			<string>scene2.png</string>
+			<key>name</key>
+			<string>Scene2</string>
+			<key>actors</key>
+			<array/>
+		</dict>
+	</array>
+</dict>
+</plist>
