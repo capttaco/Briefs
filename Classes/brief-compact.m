@@ -105,7 +105,7 @@ NSDictionary* __process(BFScene *scene, NSString *directory)
   for (BFActor *actor in [scene actors]) {
     __pp(@"           %@", [actor name]);
     
-    NSMutableDictionary *unpackedActor = [NSMutableDictionary dictionaryWithDictionary:[arrayOfActors objectAtIndex:count]];
+    NSMutableDictionary *unpackedActor = [NSMutableDictionary dictionaryWithDictionary:[arrayOfActors objectAtIndex:count++]];
     NSData *actorImageData = __image_data([actor bg], directory);
     [unpackedActor setObject:actorImageData forKey:@"img"];
     [newActorsArray addObject:unpackedActor]; //insertObject:unpackedActor atIndex:count++];
