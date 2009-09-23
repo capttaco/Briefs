@@ -22,11 +22,11 @@
 		NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile: path];
 		NSArray *scenes = [dict valueForKey:@"scenes"];
 		
-    int openingScene = [dict valueForKey:@"start_scene"];
+    openingScene = [[dict valueForKey:@"start_scene"] intValue];
     
 		self.source = dict;
 		self.scene_desc = scenes;
-		currentIndex = 0;
+		currentIndex = openingScene;
 		
 		NSMutableArray *graph = [NSMutableArray arrayWithCapacity:[self.scene_desc count]];
 		for (NSDictionary *dictionary in scenes) {
