@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BFTableViewController.h"
+#import "BFBriefcast.h"
 
 @protocol BFAddBriefcastViewDelegate;
 
@@ -21,6 +22,8 @@
 
 - (IBAction)save;
 - (IBAction)cancel;
+
+- (BFBriefcast *)briefcastFromExistingValues;
 
 @end
 

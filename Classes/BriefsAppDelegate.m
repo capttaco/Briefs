@@ -7,10 +7,8 @@
 //
 
 #import "BriefsAppDelegate.h"
-#import "BFSceneManager.h"
 #import "BFSceneViewController.h"
-#import "BFBrowseViewController.h"
-#import "BFPresentationDispatch.h"
+#import "BFDataManager.h"
 
 @implementation BriefsAppDelegate
 
@@ -19,6 +17,7 @@
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application 
 {
+  [[BFDataManager sharedBFDataManager] load];
   [window addSubview:[self.navigationController view]];
   [window makeKeyAndVisible];
 }

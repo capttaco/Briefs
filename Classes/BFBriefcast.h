@@ -21,5 +21,8 @@
 @property (nonatomic, retain) NSString *description;
 
 - (id)initWithName:(NSString *)name andURL:(NSString *)url;
+- (id)initWithDictionary:(NSDictionary *)dict;
+
+- (NSDictionary *)dictionary;
 
 @end

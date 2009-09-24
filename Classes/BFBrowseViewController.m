@@ -15,6 +15,7 @@
 #import "BFBriefcastCellController.h"
 #import "BFBriefCellController.h"
 #import "BFAddBriefcastViewController.h"
+#import "BFDataManager.h"
 
 
 @implementation BFBrowseViewController
@@ -50,43 +51,17 @@
 
 - (void)constructTableGroups
 {
-  tableGroups = [[NSArray arrayWithObjects:[self localBriefLocations], [self storedBriefcastLocations], nil] retain];
+  self.tableGroups = [NSArray arrayWithObjects:[self localBriefLocations], [self storedBriefcastLocations], nil];
 }
 
 - (NSArray *)localBriefLocations
 {
-  NSDirectoryEnumerator *enumerator = [[NSFileManager defaultManager] enumeratorAtPath:[[NSBundle mainBundle] resourcePath]];
-  NSMutableArray *arrayOfLocals = [NSMutableArray array];
-  
-  NSString *next;
-  while (next = [enumerator nextObject])
-  {
-    if ([[next pathExtension] isEqualToString:@"brieflist"]) {
-      BFBriefCellController *controller = [[BFBriefCellController alloc] initWithNameOfBrief:next];
-      [arrayOfLocals addObject:controller];
-      [controller release];
-    }
-  }
-  return arrayOfLocals;
+  return [[BFDataManager sharedBFDataManager] listOfLocalBriefsWithExtension:@"brieflist"];
 }
 
 - (NSArray *)storedBriefcastLocations
 {
-  BFBriefcast *sample = [[BFBriefcast alloc] initWithName:@"Sample Briefcast" 
-                                                   andURL:@"http://digitalarch.net/briefcast/briefcast.xml"];
-  BFBriefcast *killer = [[BFBriefcast alloc] initWithName:@"Killer Briefcast" 
-                                                   andURL:@"http://digitalarch.net/briefcast/briefcast.xml"];
-  
-  BFBriefcastCellController *sample_cast = [[BFBriefcastCellController alloc] initWithBriefcast:sample];
-  BFBriefcastCellController *killer_cast = [[BFBriefcastCellController alloc] initWithBriefcast:killer];
-  
-  NSArray *array = [NSArray arrayWithObjects:sample_cast, killer_cast, nil];
-  
-  [sample_cast release];
-  [killer_cast release];
-  
-  return array;
-  
+  return [[BFDataManager sharedBFDataManager] listOfKnownBriefcasts];
 }                                   
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -99,12 +74,20 @@
   controller.delegate = self;
   UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:controller];
   [self.navigationController presentModalViewController:navigation animated:YES];
+
+  [controller release];
+  [navigation release];
 }
 
 - (void)addViewController:(BFAddBriefcastViewController *)controller didFinishWithSave:(BOOL)save
 {
-  // TODO: Save the briefcast definitions locally
+  if (save) {
+    BFBriefcast *briefcast = [controller briefcastFromExistingValues];
+    [[BFDataManager sharedBFDataManager] addBriefcastInformation:briefcast];
+  }
   [self dismissModalViewControllerAnimated:YES];
+  [super updateAndReload];
+  //NSLog(@"%@", tableGroups);
 }
 
 ///////////////////////////////////////////////////////////////////////////////

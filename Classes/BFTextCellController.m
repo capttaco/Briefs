@@ -10,19 +10,28 @@
 
 
 @implementation BFTextCellController
+@synthesize savedValue, labelText;
 
 - (id)initWithLabel:(NSString *)label
 {
   self = [super init];
   if (self != nil) {
-    labelText = label;
+    self.labelText = label;
+    self.savedValue = [NSString string];
   }
   return self;
 }
 
-- (NSString *)savedValue
+//- (NSString *)savedValue
+//{
+//  return self.savedValue;
+//}
+
+- (void)dealloc 
 {
-  return savedValue;
+  [self.labelText release];
+  [self.savedValue release];
+  [super dealloc];
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -37,27 +46,22 @@
     CGRect textFrame = CGRectMake(20, 10, 280, 25);
     
     cell = [[[UITableViewCell alloc] initWithFrame:cellFrame reuseIdentifier:@"TextCell"] autorelease];
-    UITextField *textField = [[[UITextField alloc] initWithFrame:textFrame] autorelease];
-    textField.placeholder = labelText;
-    textField.text = savedValue;
+    UITextField *textField = [[UITextField alloc] initWithFrame:textFrame];
+    textField.placeholder = self.labelText;
+    textField.text = self.savedValue;
     cell.accessoryView = textField;
-    [textField addTarget:self action:@selector(textChanged:) forControlEvents:UIControlEventValueChanged];
+    [textField addTarget:self action:@selector(textChanged:) forControlEvents:UIControlEventEditingChanged];
   }
   
   return cell;
 }
 
-- (void) textChanged:(UITextField *)source 
+- (void)textChanged:(UITextField *)source 
 {
-  savedValue = source.text;
+  if (![self.savedValue isEqual:source.text]) {
+    self.savedValue = source.text;
+  }
 }
-
-
-- (void)tableView:(UITableView *)tv didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-
-}
-
 
 ///////////////////////////////////////////////////////////////////////////////
 

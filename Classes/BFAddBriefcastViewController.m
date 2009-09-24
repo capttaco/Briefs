@@ -15,8 +15,7 @@
 
 - (id)init
 {
-	if (self = [super initWithNibName:@"BFAddBriefcastViewController" bundle:nil])
-	{
+	if (self = [super initWithNibName:@"BFAddBriefcastViewController" bundle:nil]) {
     self.title = @"Add Briefcast";
     
     // Configure the save button.
@@ -53,7 +52,19 @@
                                [[[BFTextCellController alloc] initWithLabel:@"Description"] autorelease],
                                nil];
                                     
-  tableGroups = [[NSArray arrayWithObjects:briefcastDescriptors, nil] retain];
+  self.tableGroups = [NSArray arrayWithObjects:briefcastDescriptors, nil];
+}
+
+- (BFBriefcast *)briefcastFromExistingValues
+{
+  if (self.tableGroups != nil) {
+    NSArray *cells = [tableGroups objectAtIndex:0];
+    BFBriefcast *briefcast = [[[BFBriefcast alloc] initWithName:[[cells objectAtIndex:0] savedValue] 
+                                                        andURL:[[cells objectAtIndex:1] savedValue]] autorelease];
+    briefcast.description = [[cells objectAtIndex:2] savedValue];
+    return briefcast;
+  }
+  else return nil;
 }
 
 - (void)didReceiveMemoryWarning 
@@ -66,7 +77,9 @@
 
 - (void)viewDidUnload 
 {
-	// Release any retained subviews of the main view.
+  self.delegate = nil;
+	[super viewDidUnload];
+  // Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
 }
 

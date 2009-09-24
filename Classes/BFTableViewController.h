@@ -26,4 +26,8 @@
 	NSArray *tableGroups;
 }
 
+@property (nonatomic, retain) NSArray *tableGroups;
+
+- (void)updateAndReload;
+
 @end

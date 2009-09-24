@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>briefcasts</key>
+	<array>
+		<dict>
+			<key>description</key>
+			<string>An example of a briefcast feed, that provides access to briefs on the phone.</string>
+			<key>url</key>
+			<string>http://digitalarch.net/briefcast/briefcast.xml</string>
+			<key>title</key>
+			<string>Example Briefcast</string>
+		</dict>
+	</array>
+</dict>
+</plist>

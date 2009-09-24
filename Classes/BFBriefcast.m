@@ -23,4 +23,30 @@
   return self;
 }
 
+- (id)initWithDictionary:(NSDictionary *)dict
+{
+  self = [self initWithName:[dict valueForKey:@"title"] andURL:[dict valueForKey:@"url"]];
+  if (self != nil) {
+    self.description = [dict valueForKey:@"description"];
+  }
+  return self;
+}
+
+- (NSDictionary *)dictionary
+{
+  return [NSDictionary dictionaryWithObjectsAndKeys:
+          self.title, @"title", 
+          self.url, @"url",
+          self.description, @"description", 
+          nil];
+}
+
+- (void)dealloc
+{
+  [title release];
+  [url release];
+  [description release];
+  [super dealloc];
+}
+
 @end
