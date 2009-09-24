@@ -602,7 +602,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Briefs_Prefix.pch;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = 4.2;
 				INFOPLIST_FILE = "Briefs-Info.plist";
 				PRODUCT_NAME = Briefs;
 			};
