@@ -22,6 +22,10 @@
   [window makeKeyAndVisible];
 }
 
+- (void)applicationWillTerminate:(UIApplication *)application
+{
+  [[BFDataManager sharedBFDataManager] save];
+}
 
 - (void)dealloc 
 {
