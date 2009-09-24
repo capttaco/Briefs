@@ -15,7 +15,10 @@
   NSString *labelText;
 }
 
+@property (nonatomic, retain) NSString *savedValue;
+@property (nonatomic, retain) NSString *labelText;
+
 - (id)initWithLabel:(NSString *)label;
-- (NSString *)savedValue;
+
 
 @end

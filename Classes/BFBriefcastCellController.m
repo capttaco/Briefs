@@ -12,6 +12,7 @@
 
 
 @implementation BFBriefcastCellController
+@synthesize briefcast;
 
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -
@@ -21,7 +22,7 @@
 {
   self = [super init];
   if (self != nil) {
-    briefcast = bcast;
+    self.briefcast = bcast;
   }
   return self;
 }
@@ -37,14 +38,14 @@
   if (cell == nil) {
     cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:@"BriefcastCell"] autorelease];
   }
-  cell.text = briefcast.title;
+  cell.textLabel.text = self.briefcast.title;
   return cell;
 }
 
 - (void)tableView:(UITableView *)tv didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
   BFBriefcastViewController *controller = [[BFBriefcastViewController alloc] init];
-  controller.locationOfBriefcast = briefcast.url;
+  controller.locationOfBriefcast = self.briefcast.url;
   if ([[tv delegate] isKindOfClass:[UITableViewController class]]) {
     UITableViewController *tvc = (UITableViewController *) [tv delegate];
     [tvc.navigationController pushViewController:controller animated:YES];

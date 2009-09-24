@@ -77,5 +77,23 @@
 }
 
 ///////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark Scene Transition Parse Methods
+
++ (NSString *)parseSceneTransitionCommand:(NSString *)transition
+{
+  // TODO: Do something here.
+  return nil;
+}
+
++ (NSArray  *)parseSceneTransitionOptionsIntoArray:(NSString *)transition withPrefix:(NSString *)prefix
+{
+  // TODO: Do something here.
+  return nil;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+
 
 @end

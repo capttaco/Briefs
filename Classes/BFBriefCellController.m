@@ -39,7 +39,7 @@
   if (cell == nil) {
     cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:@"BriefsCell"] autorelease];
   }
-  cell.text = brief;
+  cell.textLabel.text = brief;
   return cell;
 }
 

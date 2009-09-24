@@ -24,6 +24,7 @@
 
 @implementation BFTableViewController
 
+@synthesize tableGroups;
 
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -
@@ -31,13 +32,12 @@
 
 - (void)constructTableGroups
 {
-	tableGroups = [[NSArray arrayWithObject:[NSArray array]] retain];
+	self.tableGroups = [NSArray arrayWithObject:[NSArray array]];
 }
 
 - (void)clearTableGroups
 {
-	[tableGroups release];
-	tableGroups = nil;
+	self.tableGroups = nil;
 }
 
 - (void)updateAndReload
@@ -55,17 +55,17 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-	if (!tableGroups)
+	if (!self.tableGroups)
 		[self constructTableGroups];
 	
-	return [tableGroups count];
+	return [self.tableGroups count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	if (!tableGroups)
+	if (!self.tableGroups)
 		[self constructTableGroups];
-	return [[tableGroups objectAtIndex:section] count];
+	return [[self.tableGroups objectAtIndex:section] count];
 }
 
 
@@ -75,20 +75,20 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	if (!tableGroups) {
+	if (!self.tableGroups) {
 		[self constructTableGroups];
 	}
-	
-	return [[[tableGroups objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] tableView:(UITableView *)tableView cellForRowAtIndexPath:indexPath];
+	NSLog(@"%@", indexPath);
+	return [[[self.tableGroups objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] tableView:(UITableView *)tableView cellForRowAtIndexPath:indexPath];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	if (!tableGroups)	{
+	if (!self.tableGroups)	{
 		[self constructTableGroups];
 	}
 	
-	NSObject<BFCellController> *cellData = [[tableGroups objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+	NSObject<BFCellController> *cellData = [[self.tableGroups objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
 	if ([cellData respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]){
 		[cellData tableView:tableView didSelectRowAtIndexPath:indexPath];
 	}

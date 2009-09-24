@@ -15,6 +15,8 @@
 	BFBriefcast *briefcast;
 }
 
+@property (retain) BFBriefcast *briefcast;
+
 - (id)initWithBriefcast:(BFBriefcast *)bcast;
 
 @end

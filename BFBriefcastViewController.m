@@ -34,7 +34,7 @@
   if (locationOfBriefcast != nil) {
     // Load Briefcast url
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[self locationOfBriefcast]]];
-    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
+    [[[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES] autorelease];
   }
   
 }
