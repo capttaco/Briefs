@@ -27,7 +27,7 @@
 					<key>name</key>
 					<string>Actor1</string>
 					<key>action</key>
-					<string>goto(2)</string>
+					<string>goto(1)</string>
 				</dict>
 			</array>
 		</dict>

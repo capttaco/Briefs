@@ -62,7 +62,7 @@
     //   scene is not zero-based, so convert.
     
     NSString *arg1 = [actionArguments objectAtIndex:0];
-    [[BFPresentationDispatch sharedBFPresentationDispatch] gotoScene:[arg1 intValue]-1];
+    [[BFPresentationDispatch sharedBFPresentationDispatch] gotoScene:[arg1 intValue]];
   }
   
   else if (typeOfAction == kBFACTOR_TOGGLE_ACTION) {
@@ -72,7 +72,7 @@
     //   is not zero-based, so convert.
     
     NSString *arg1 = [actionArguments objectAtIndex:0];
-    [[BFPresentationDispatch sharedBFPresentationDispatch] toggleActor:[arg1 intValue]-1];
+    [[BFPresentationDispatch sharedBFPresentationDispatch] toggleActor:[arg1 intValue]];
   }
     
   else if (typeOfAction == kBFACTOR_MOVE_ACTION) {
@@ -85,7 +85,7 @@
     NSString *arg2 = [actionArguments objectAtIndex:1];
     NSString *arg3 = [actionArguments objectAtIndex:2];
     CGPoint arg2AsPoint = CGPointMake([arg2 floatValue], [arg3 floatValue]);
-    [[BFPresentationDispatch sharedBFPresentationDispatch] move:[arg1 intValue]-1 toPoint:arg2AsPoint];
+    [[BFPresentationDispatch sharedBFPresentationDispatch] move:[arg1 intValue] toPoint:arg2AsPoint];
   }
   
   else if (typeOfAction == kBFACTOR_RESIZE_ACTION) {
@@ -98,7 +98,7 @@
     NSString *arg2 = [actionArguments objectAtIndex:1];
     NSString *arg3 = [actionArguments objectAtIndex:2];
     CGSize arg2AsSize = CGSizeMake([arg2 floatValue], [arg3 floatValue]);
-    [[BFPresentationDispatch sharedBFPresentationDispatch] resize:[arg1 intValue]-1 withSize:arg2AsSize];
+    [[BFPresentationDispatch sharedBFPresentationDispatch] resize:[arg1 intValue] withSize:arg2AsSize];
   }
   
 }
