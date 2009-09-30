@@ -20,36 +20,36 @@
 
 + (NSString *)parseActionCommand:(NSString *)action
 {
-  NSString *lowered = [action lowercaseString];
-  
-  if ([lowered hasPrefix:kBFACTOR_GOTO_ACTION]) {
-    return kBFACTOR_GOTO_ACTION;
+    NSString *lowered = [action lowercaseString];
     
-  } else if ([lowered hasPrefix:kBFACTOR_TOGGLE_ACTION]) {
-    return kBFACTOR_TOGGLE_ACTION;
+    if ([lowered hasPrefix:kBFACTOR_GOTO_ACTION]) {
+        return kBFACTOR_GOTO_ACTION;
+        
+    } else if ([lowered hasPrefix:kBFACTOR_TOGGLE_ACTION]) {
+        return kBFACTOR_TOGGLE_ACTION;
+        
+    } else if ([lowered hasPrefix:kBFACTOR_RESIZE_ACTION]) {
+        return kBFACTOR_RESIZE_ACTION;
+        
+    } else if ([lowered hasPrefix:kBFACTOR_MOVE_ACTION]) {
+        return kBFACTOR_MOVE_ACTION;
+    }
     
-  } else if ([lowered hasPrefix:kBFACTOR_RESIZE_ACTION]) {
-    return kBFACTOR_RESIZE_ACTION;
-    
-  } else if ([lowered hasPrefix:kBFACTOR_MOVE_ACTION]) {
-    return kBFACTOR_MOVE_ACTION;
-  }
-  
-  // TODO: throw exception?
-  return nil;
+    // TODO: throw exception?
+    return nil;
 }
 
 + (NSArray *)parseActionArgsIntoArray:(NSString *)action withPrefix:(NSString *)prefix
 {
-  NSString *lowered = [action lowercaseString]; 
-  
-  NSRange start = [lowered rangeOfString:@"("];
-  NSRange end = [lowered rangeOfString:@")"];
-  
-  NSString *argumentsAsString = [[lowered substringToIndex:end.location] substringFromIndex:start.location+1];
-  NSArray *argumentsAsArray = [argumentsAsString componentsSeparatedByString:@","];
-  
-  return argumentsAsArray;
+    NSString *lowered = [action lowercaseString]; 
+    
+    NSRange start = [lowered rangeOfString:@"("];
+    NSRange end = [lowered rangeOfString:@")"];
+    
+    NSString *argumentsAsString = [[lowered substringToIndex:end.location] substringFromIndex:start.location+1];
+    NSArray *argumentsAsArray = [argumentsAsString componentsSeparatedByString:@","];
+    
+    return argumentsAsArray;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -58,14 +58,14 @@
 
 + (NSString *)parseSceneTransitionCommand:(NSString *)transition
 {
-  // TODO: Do something here.
-  return nil;
+    // TODO: Do something here.
+    return nil;
 }
 
 + (NSArray  *)parseSceneTransitionOptionsIntoArray:(NSString *)transition withPrefix:(NSString *)prefix
 {
-  // TODO: Do something here.
-  return nil;
+    // TODO: Do something here.
+    return nil;
 }
 
 ///////////////////////////////////////////////////////////////////////////////

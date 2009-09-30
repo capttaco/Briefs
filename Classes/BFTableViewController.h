@@ -23,7 +23,7 @@
 
 @interface BFTableViewController : UITableViewController
 {
-	NSArray *tableGroups;
+    NSArray *tableGroups;
 }
 
 @property (nonatomic, retain) NSArray *tableGroups;

@@ -10,12 +10,12 @@
 
 
 @interface BFBriefcastViewController : UIViewController {
-  IBOutlet UITableView *table;
-  IBOutlet UIButton *refresh;
-  IBOutlet UILabel *channelTitle;
-  IBOutlet UILabel *channelLink;
-  
-  NSString *locationOfBriefcast;
+    IBOutlet UITableView *table;
+    IBOutlet UIButton *refresh;
+    IBOutlet UILabel *channelTitle;
+    IBOutlet UILabel *channelLink;
+    
+    NSString *locationOfBriefcast;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *table;

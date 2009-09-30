@@ -11,17 +11,17 @@
 
 @interface BFSceneManager : NSObject 
 {
-	NSDictionary		*source;
-	NSMutableArray	*scene_graph;
-	NSArray					*scene_desc;
-	
-	int currentIndex;
-  int openingScene;
+    NSDictionary    *source;
+    NSMutableArray  *scene_graph;
+    NSArray         *scene_desc;
+    
+    int currentIndex;
+    int openingScene;
 }
 
-@property (nonatomic, retain) NSDictionary		*source;
-@property (nonatomic, retain) NSMutableArray	*scene_graph;
-@property (nonatomic, retain) NSArray					*scene_desc;
+@property (nonatomic, retain) NSDictionary      *source;
+@property (nonatomic, retain) NSMutableArray    *scene_graph;
+@property (nonatomic, retain) NSArray           *scene_desc;
 
 
 - (id)initWithPathToDictionary:(NSString*)path;

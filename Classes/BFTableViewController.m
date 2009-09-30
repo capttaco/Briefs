@@ -32,19 +32,19 @@
 
 - (void)constructTableGroups
 {
-	self.tableGroups = [NSArray arrayWithObject:[NSArray array]];
+    self.tableGroups = [NSArray arrayWithObject:[NSArray array]];
 }
 
 - (void)clearTableGroups
 {
-	self.tableGroups = nil;
+    self.tableGroups = nil;
 }
 
 - (void)updateAndReload
 {
-	[self clearTableGroups];
-	[self constructTableGroups];
-	[self.tableView reloadData];
+    [self clearTableGroups];
+    [self constructTableGroups];
+    [self.tableView reloadData];
 }
 
 
@@ -55,17 +55,17 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-	if (!self.tableGroups)
-		[self constructTableGroups];
-	
-	return [self.tableGroups count];
+    if (!self.tableGroups)
+        [self constructTableGroups];
+    
+    return [self.tableGroups count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	if (!self.tableGroups)
-		[self constructTableGroups];
-	return [[self.tableGroups objectAtIndex:section] count];
+    if (!self.tableGroups)
+        [self constructTableGroups];
+    return [[self.tableGroups objectAtIndex:section] count];
 }
 
 
@@ -75,23 +75,22 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	if (!self.tableGroups) {
-		[self constructTableGroups];
-	}
-	NSLog(@"%@", indexPath);
-	return [[[self.tableGroups objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] tableView:(UITableView *)tableView cellForRowAtIndexPath:indexPath];
+    if (!self.tableGroups) {
+        [self constructTableGroups];
+    }
+    return [[[self.tableGroups objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] tableView:(UITableView *)tableView cellForRowAtIndexPath:indexPath];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	if (!self.tableGroups)	{
-		[self constructTableGroups];
-	}
-	
-	NSObject<BFCellController> *cellData = [[self.tableGroups objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-	if ([cellData respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]){
-		[cellData tableView:tableView didSelectRowAtIndexPath:indexPath];
-	}
+    if (!self.tableGroups)  {
+        [self constructTableGroups];
+    }
+    
+    NSObject<BFCellController> *cellData = [[self.tableGroups objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    if ([cellData respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]){
+        [cellData tableView:tableView didSelectRowAtIndexPath:indexPath];
+    }
 }
 
 
@@ -101,14 +100,14 @@
 
 - (void)didReceiveMemoryWarning
 {
-	[super didReceiveMemoryWarning];	
-	[self clearTableGroups];
+    [super didReceiveMemoryWarning];    
+    [self clearTableGroups];
 }
 
 - (void)dealloc
 {
-	[self clearTableGroups];
-	[super dealloc];
+    [self clearTableGroups];
+    [super dealloc];
 }
 
 ///////////////////////////////////////////////////////////////////////////////

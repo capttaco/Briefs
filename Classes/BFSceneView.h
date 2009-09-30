@@ -12,8 +12,8 @@
 
 @interface BFSceneView : UIImageView 
 {
-	BFScene *scene;
-	NSArray *actor_views;
+    BFScene *scene;
+    NSArray *actor_views;
 }
 
 @property (nonatomic, retain) BFScene *scene;

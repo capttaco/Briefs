@@ -11,9 +11,9 @@
 
 @interface BFBriefcast : NSObject 
 {
-  NSString *url;
-  NSString *title;
-  NSString *description;
+    NSString *url;
+    NSString *title;
+    NSString *description;
 }
 
 @property (nonatomic, retain) NSString *url;

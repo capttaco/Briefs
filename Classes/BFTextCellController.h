@@ -11,8 +11,8 @@
 
 @interface BFTextCellController : NSObject<BFCellController> 
 {
-  NSString *savedValue;
-  NSString *labelText;
+    NSString *savedValue;
+    NSString *labelText;
 }
 
 @property (nonatomic, retain) NSString *savedValue;

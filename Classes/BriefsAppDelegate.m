@@ -17,21 +17,21 @@
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application 
 {
-  [[BFDataManager sharedBFDataManager] load];
-  [window addSubview:[self.navigationController view]];
-  [window makeKeyAndVisible];
+    [[BFDataManager sharedBFDataManager] load];
+    [window addSubview:[self.navigationController view]];
+    [window makeKeyAndVisible];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-  [[BFDataManager sharedBFDataManager] save];
+    [[BFDataManager sharedBFDataManager] save];
 }
 
 - (void)dealloc 
 {
-  [navigationController release];
-	[window release];
-	[super dealloc];
+    [navigationController release];
+    [window release];
+    [super dealloc];
 }
 
 
@@ -42,29 +42,28 @@
 - (void)navigationController:(UINavigationController *)nav willShowViewController:(UIViewController *)view 
                     animated:(BOOL)animated
 {
-  if ([view isKindOfClass:[BFSceneViewController class]]) {
-    [[nav navigationBar] setBarStyle:UIBarStyleBlack];
-    [[nav navigationBar] setTranslucent:YES];
-    [nav setNavigationBarHidden:YES animated:animated];
-  } 
-  else {
-    [[UIApplication sharedApplication] setStatusBarHidden:NO animated:YES];
-    [[nav navigationBar] setBarStyle:UIBarStyleDefault];
-    [[nav navigationBar] setTranslucent:NO];
-    [[nav navigationBar].backItem setTitle:@"My Briefs"];
-  }
+    if ([view isKindOfClass:[BFSceneViewController class]]) {
+        [[nav navigationBar] setBarStyle:UIBarStyleBlack];
+        [[nav navigationBar] setTranslucent:YES];
+        [nav setNavigationBarHidden:YES animated:animated];
+    } 
+    else {
+        [[UIApplication sharedApplication] setStatusBarHidden:NO animated:YES];
+        [[nav navigationBar] setBarStyle:UIBarStyleDefault];
+        [[nav navigationBar] setTranslucent:NO];
+        [[nav navigationBar].backItem setTitle:@"My Briefs"];
+    }
 }
 
 - (void)navigationController:(UINavigationController *)nav didShowViewController:(UIViewController *)view 
                     animated:(BOOL)animated
 {
-  if ([view isKindOfClass:[BFSceneViewController class]]) {
-    [[nav navigationBar].backItem setTitle:@"Exit"];
-    [[UIApplication sharedApplication] setStatusBarHidden:YES animated:YES];
-  }
+    if ([view isKindOfClass:[BFSceneViewController class]]) {
+        [[nav navigationBar].backItem setTitle:@"Exit"];
+        [[UIApplication sharedApplication] setStatusBarHidden:YES animated:YES];
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-
 
 @end

@@ -22,12 +22,12 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFPresentationDispatch);
 
 + (id<BFLocalActionDispatch>)sharedLocalDispatch
 {
-	return (id<BFLocalActionDispatch>) [BFPresentationDispatch sharedBFPresentationDispatch];
+    return (id<BFLocalActionDispatch>) [BFPresentationDispatch sharedBFPresentationDispatch];
 }
 
 + (id<BFGlobalActionDispatch>)sharedGlobalDispatch
 {
-	return (id<BFGlobalActionDispatch>) [BFPresentationDispatch sharedBFPresentationDispatch];
+    return (id<BFGlobalActionDispatch>) [BFPresentationDispatch sharedBFPresentationDispatch];
 }
 
 
@@ -37,50 +37,50 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFPresentationDispatch);
 
 - (void) gotoScene:(int)indexOfScene
 {
-	if (self.viewController != nil) {
-		if ([self.viewController willLoadSceneWithIndex:indexOfScene] == false)
-			// TODO: throw exception
-			NSLog(@"Throw an exception, because the scene did not load!");
-		else {
-			NSLog(@"Scene %d was just loaded", indexOfScene);
-		}
-	}
+    if (self.viewController != nil) {
+        if ([self.viewController willLoadSceneWithIndex:indexOfScene] == false)
+            // TODO: throw exception
+            NSLog(@"Throw an exception, because the scene did not load!");
+        else {
+            NSLog(@"Scene %d was just loaded", indexOfScene);
+        }
+    }
 }
 
 - (void) toggleActor:(int)indexOfActor
-{	
-	if (self.viewController != nil) {
-		if ([self.viewController willToggleActorWithIndex:indexOfActor] == false)
-			// TODO: throw exception
-			NSLog(@"Throw an exception, because the actor was not toggled!");
-		else {
-			NSLog(@"Actor %d was just toggled", indexOfActor);
-		}
-	}
+{ 
+    if (self.viewController != nil) {
+        if ([self.viewController willToggleActorWithIndex:indexOfActor] == false)
+            // TODO: throw exception
+            NSLog(@"Throw an exception, because the actor was not toggled!");
+        else {
+            NSLog(@"Actor %d was just toggled", indexOfActor);
+        }
+    }
 }
 
 - (void)resize:(int)indexOfActor withSize:(CGSize)size
 {
-	if (self.viewController != nil) {
-		if ([self.viewController willResizeActorWithIndex:indexOfActor toSize:size] == false)
-			// TODO: throw exception
-			NSLog(@"Throw an exception, because I was not able to resize the actor!");
-		else {
-			NSLog(@"Resized Actor %d, to the size %@", indexOfActor, NSStringFromCGSize(size));
-		}
-	}
+    if (self.viewController != nil) {
+        if ([self.viewController willResizeActorWithIndex:indexOfActor toSize:size] == false)
+            // TODO: throw exception
+            NSLog(@"Throw an exception, because I was not able to resize the actor!");
+        else {
+            NSLog(@"Resized Actor %d, to the size %@", indexOfActor, NSStringFromCGSize(size));
+        }
+    }
 }
 
 - (void)move:(int)indexOfActor toPoint:(CGPoint)point
 {
-	if (self.viewController != nil) {
-		if ([self.viewController willMoveActorWithIndex:indexOfActor toPoint:point] == false)
-			// TODO: throw exception
-			NSLog(@"Throw an exception, because I was not able to move the actor");
-		else {
-			NSLog(@"Moved Actor %d, to the point %@", indexOfActor, NSStringFromCGPoint(point));
-		}
-	}
+    if (self.viewController != nil) {
+        if ([self.viewController willMoveActorWithIndex:indexOfActor toPoint:point] == false)
+            // TODO: throw exception
+            NSLog(@"Throw an exception, because I was not able to move the actor");
+        else {
+            NSLog(@"Moved Actor %d, to the point %@", indexOfActor, NSStringFromCGPoint(point));
+        }
+    }
 }
 
 
@@ -89,15 +89,14 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFPresentationDispatch);
 #pragma mark Global Dispatch Methods
 
 - (void)toggleKeyboard:(NSString *)type {
-	// TODO: toggle keyboard in current view
+    // TODO: toggle keyboard in current view
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 
 - (void)dealloc
 {
-	//[viewController release];
-	[super dealloc];
+    [super dealloc];
 }
 
 @end

@@ -12,14 +12,14 @@
 
 @interface BFPresentationDispatch : NSObject <BFLocalActionDispatch, BFGlobalActionDispatch>
 {
-	BFSceneViewController *viewController;
+    BFSceneViewController *viewController;
 }
 
 @property (assign) BFSceneViewController *viewController;
 
 
 // Singleton Accessors
-+ (BFPresentationDispatch	*) sharedBFPresentationDispatch;
++ (BFPresentationDispatch *) sharedBFPresentationDispatch;
 + (id<BFLocalActionDispatch>) sharedLocalDispatch;
 + (id<BFGlobalActionDispatch>) sharedGlobalDispatch;
 

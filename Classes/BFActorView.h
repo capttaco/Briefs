@@ -10,7 +10,7 @@
 #import "BFActor.h"
 
 @interface BFActorView : UIImageView {
-	BFActor *actor;
+    BFActor *actor;
 }
 
 @property (nonatomic, retain) BFActor *actor;

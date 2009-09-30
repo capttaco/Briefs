@@ -10,8 +10,8 @@
 
 @interface BriefsAppDelegate : NSObject <UIApplicationDelegate, UINavigationControllerDelegate> 
 {
-	UINavigationController	*navigationController;
-  UIWindow *window;
+    UINavigationController  *navigationController;
+    UIWindow *window;
 }
 
 @property (nonatomic, retain) IBOutlet UINavigationController *navigationController;

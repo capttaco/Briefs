@@ -21,11 +21,11 @@
 
 - (id)initWithNameOfBrief:(NSString *)name
 {
-  self = [super init];
-  if (self != nil) {
-    brief = name;
-  }
-  return self;
+    self = [super init];
+    if (self != nil) {
+        brief = name;
+    }
+    return self;
 }
 
 
@@ -35,37 +35,35 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tv cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  UITableViewCell *cell = [tv dequeueReusableCellWithIdentifier:@"BriefsCell"];
-  if (cell == nil) {
-    cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:@"BriefsCell"] autorelease];
-  }
-  cell.textLabel.text = brief;
-  return cell;
+    UITableViewCell *cell = [tv dequeueReusableCellWithIdentifier:@"BriefsCell"];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:@"BriefsCell"] autorelease];
+    }
+    cell.textLabel.text = brief;
+    return cell;
 }
 
 - (void)tableView:(UITableView *)tv didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  NSString *pathToDictionary = [[[NSBundle mainBundle] resourcePath] stringByAppendingFormat:@"/%@", brief];
-  
-  // setup scene view controller
-  BFSceneManager *manager = [[BFSceneManager alloc] initWithPathToDictionary:pathToDictionary];
-  BFSceneViewController *controller = [[BFSceneViewController alloc] initWithSceneManager:manager];
-  
-  // wire dispatch
-  if ([[BFPresentationDispatch sharedBFPresentationDispatch] viewController] != nil)
-    [BFPresentationDispatch sharedBFPresentationDispatch].viewController = nil;
-  
-  [[BFPresentationDispatch sharedBFPresentationDispatch] setViewController:controller]; 
-  
-  if ([[tv delegate] isKindOfClass:[UITableViewController class]]) {
-    UITableViewController *tvc = (UITableViewController *) [tv delegate];
-    [tvc.navigationController pushViewController:[[BFPresentationDispatch sharedBFPresentationDispatch] viewController] animated:YES];
-  }
-  
-  
-  
-  [controller release];
-  [manager release];
+    NSString *pathToDictionary = [[[NSBundle mainBundle] resourcePath] stringByAppendingFormat:@"/%@", brief];
+    
+    // setup scene view controller
+    BFSceneManager *manager = [[BFSceneManager alloc] initWithPathToDictionary:pathToDictionary];
+    BFSceneViewController *controller = [[BFSceneViewController alloc] initWithSceneManager:manager];
+    
+    // wire dispatch
+    if ([[BFPresentationDispatch sharedBFPresentationDispatch] viewController] != nil)
+        [BFPresentationDispatch sharedBFPresentationDispatch].viewController = nil;
+    
+    [[BFPresentationDispatch sharedBFPresentationDispatch] setViewController:controller]; 
+    
+    if ([[tv delegate] isKindOfClass:[UITableViewController class]]) {
+        UITableViewController *tvc = (UITableViewController *) [tv delegate];
+        [tvc.navigationController pushViewController:[[BFPresentationDispatch sharedBFPresentationDispatch] viewController] animated:YES];
+    }
+    
+    [controller release];
+    [manager release];
 }
 
 ///////////////////////////////////////////////////////////////////////////////

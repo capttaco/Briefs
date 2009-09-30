@@ -19,29 +19,29 @@
 
 - (id)initWithScene:(BFScene *)source
 {
-  if (self = [super initWithImage:[BFViewUtilityParser parseImageFromRepresentation:[source bg]]]) {
-		self.scene = source;
-		
-		// enable user interaction, per documentation
-		[self setUserInteractionEnabled:YES];
-		
-		// display actors
-		NSMutableArray *subViews = [NSMutableArray arrayWithCapacity:[[self.scene actors] count]];
-		for (BFActor *actor in [self.scene actors]) {
-			BFActorView *view = [[BFActorView alloc] initWithActor:actor];
-			[subViews addObject:view];
-			[self addSubview:view];
-			
-			[view release];
-		}
-	}
-	return self;
+    if (self = [super initWithImage:[BFViewUtilityParser parseImageFromRepresentation:[source bg]]]) {
+        self.scene = source;
+        
+        // enable user interaction, per documentation
+        [self setUserInteractionEnabled:YES];
+        
+        // display actors
+        NSMutableArray *subViews = [NSMutableArray arrayWithCapacity:[[self.scene actors] count]];
+        for (BFActor *actor in [self.scene actors]) {
+            BFActorView *view = [[BFActorView alloc] initWithActor:actor];
+            [subViews addObject:view];
+            [self addSubview:view];
+            
+            [view release];
+        }
+    }
+    return self;
 }
 
 - (void)dealloc 
 {
-	[scene release];
-	[super dealloc];
+    [scene release];
+    [super dealloc];
 }
 
 

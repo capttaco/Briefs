@@ -12,7 +12,7 @@
 
 @interface BFBriefCellController : NSObject<BFCellController> 
 {
-	NSString *brief;
+    NSString *brief;
 }
 
 - (id)initWithNameOfBrief:(NSString *)name;

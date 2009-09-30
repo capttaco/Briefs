@@ -14,24 +14,19 @@
 
 - (id)initWithLabel:(NSString *)label
 {
-  self = [super init];
-  if (self != nil) {
-    self.labelText = label;
-    self.savedValue = [NSString string];
-  }
-  return self;
+    self = [super init];
+    if (self != nil) {
+        self.labelText = label;
+        self.savedValue = [NSString string];
+    }
+    return self;
 }
-
-//- (NSString *)savedValue
-//{
-//  return self.savedValue;
-//}
 
 - (void)dealloc 
 {
-  [self.labelText release];
-  [self.savedValue release];
-  [super dealloc];
+    [self.labelText release];
+    [self.savedValue release];
+    [super dealloc];
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -40,27 +35,27 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tv cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  UITableViewCell *cell = [tv dequeueReusableCellWithIdentifier:@"TextCell"];
-  if (cell == nil) {
-    CGRect cellFrame = CGRectMake(0, 0, 300, 45);
-    CGRect textFrame = CGRectMake(20, 10, 280, 25);
+    UITableViewCell *cell = [tv dequeueReusableCellWithIdentifier:@"TextCell"];
+    if (cell == nil) {
+        CGRect cellFrame = CGRectMake(0, 0, 300, 45);
+        CGRect textFrame = CGRectMake(20, 10, 280, 25);
+        
+        cell = [[[UITableViewCell alloc] initWithFrame:cellFrame reuseIdentifier:@"TextCell"] autorelease];
+        UITextField *textField = [[UITextField alloc] initWithFrame:textFrame];
+        textField.placeholder = self.labelText;
+        textField.text = self.savedValue;
+        cell.accessoryView = textField;
+        [textField addTarget:self action:@selector(textChanged:) forControlEvents:UIControlEventEditingChanged];
+    }
     
-    cell = [[[UITableViewCell alloc] initWithFrame:cellFrame reuseIdentifier:@"TextCell"] autorelease];
-    UITextField *textField = [[UITextField alloc] initWithFrame:textFrame];
-    textField.placeholder = self.labelText;
-    textField.text = self.savedValue;
-    cell.accessoryView = textField;
-    [textField addTarget:self action:@selector(textChanged:) forControlEvents:UIControlEventEditingChanged];
-  }
-  
-  return cell;
+    return cell;
 }
 
 - (void)textChanged:(UITextField *)source 
 {
-  if (![self.savedValue isEqual:source.text]) {
-    self.savedValue = source.text;
-  }
+    if (![self.savedValue isEqual:source.text]) {
+        self.savedValue = source.text;
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////

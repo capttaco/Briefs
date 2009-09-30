@@ -14,40 +14,40 @@
 
 - (id)initWithFrame:(CGRect)frame andViewController:(UIViewController *)controller
 {
-  if (self = [super initWithFrame:frame]) {
-    // enable user interaction, per documentation
-		[self setUserInteractionEnabled:YES];
-    viewController = controller;
+    if (self = [super initWithFrame:frame]) {
+        // enable user interaction, per documentation
+        [self setUserInteractionEnabled:YES];
+        viewController = controller;
 
-  }
-  return self;
+    }
+    return self;
 }
 
 - (void)dealloc 
 {
-  [super dealloc];
+    [super dealloc];
 }
 
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-	UITouch* touch = [touches anyObject];
-	NSUInteger numTaps = [touch tapCount];
-	
-	if (numTaps > 1) {
-    // show navigation controller
-    if ([viewController navigationController].navigationBarHidden == YES) {
-      [[viewController navigationController] setNavigationBarHidden:NO animated:YES];
-    }
+    UITouch* touch = [touches anyObject];
+    NSUInteger numTaps = [touch tapCount];
+    
+    if (numTaps > 1) {
+        // show navigation controller
+        if ([viewController navigationController].navigationBarHidden == YES) {
+            [[viewController navigationController] setNavigationBarHidden:NO animated:YES];
+        }
+        else {
+            [[viewController navigationController] setNavigationBarHidden:YES animated:YES];
+        }
+            
+    } 
+    
     else {
-      [[viewController navigationController] setNavigationBarHidden:YES animated:YES];
+        // single taps are forwareded
+        [self.nextResponder touchesEnded:touches withEvent:event];
     }
-      
-	} 
-  
-  else {
-    // single taps are forwareded
-		[self.nextResponder touchesEnded:touches withEvent:event];
-  }
 }
 
 @end

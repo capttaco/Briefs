@@ -15,7 +15,7 @@
 
 @interface BFAddBriefcastViewController : BFTableViewController 
 {
-  id <BFAddBriefcastViewDelegate> delegate;
+    id <BFAddBriefcastViewDelegate> delegate;
 }
 
 @property (nonatomic, assign) id <BFAddBriefcastViewDelegate> delegate;

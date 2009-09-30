@@ -12,7 +12,7 @@
 
 @interface BFBriefcastCellController : NSObject<BFCellController> 
 {
-	BFBriefcast *briefcast;
+    BFBriefcast *briefcast;
 }
 
 @property (retain) BFBriefcast *briefcast;

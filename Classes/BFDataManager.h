@@ -11,10 +11,10 @@
 
 @interface BFDataManager : NSObject
 {
-  NSMutableDictionary *data_store;
-  
-  NSArray *knownBriefs;
-  NSArray *knownBriefcasts;
+    NSMutableDictionary *data_store;
+    
+    NSArray *knownBriefs;
+    NSArray *knownBriefcasts;
 }
 
 @property (retain) NSMutableDictionary *data_store;

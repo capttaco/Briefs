@@ -10,28 +10,26 @@
 
 @interface BFActor : NSObject 
 {
-	
-	id        bg;
-	NSString	*name;
-	CGRect		size;
-	NSString	*action;
-	bool			isActive;
-	
-	// Optional behavior states
-	id touchedBg;
-	id releasedBg;
-	id disabledBg;
-	
+    id          bg;
+    NSString    *name;
+    CGRect      size;
+    NSString    *action;
+    bool        isActive;
+    
+    // Optional behavior states
+    id touchedBg;
+    id releasedBg;
+    id disabledBg;   
 }
 
-@property (nonatomic, retain)	id        bg;
-@property (nonatomic, retain)	NSString	*name;
-@property (nonatomic)					CGRect		size;
-@property (nonatomic, retain)	NSString	*action;
+@property (nonatomic, retain)   id          bg;
+@property (nonatomic, retain)   NSString    *name;
+@property (nonatomic)           CGRect      size;
+@property (nonatomic, retain)   NSString    *action;
 
-@property (nonatomic, retain)	id touchedBg;
-@property (nonatomic, retain) id releasedBg;
-@property (nonatomic, retain) id disabledBg;
+@property (nonatomic, retain)   id touchedBg;
+@property (nonatomic, retain)   id releasedBg;
+@property (nonatomic, retain)   id disabledBg;
 
 
 // initialization
@@ -45,9 +43,6 @@
 
 // Actions
 + (NSArray *)copyOfAvailableActions;
-
-
-
 
 @end
 

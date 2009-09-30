@@ -1,11 +1,11 @@
-/*
- *  BFDispatch.h
- *  Briefs
- *
- *  Created by Rob Rhyne on 8/9/09.
- *  Copyright Digital Arch Design, 2009. See LICENSE file for details.
- *
- */
+//
+//  BFDispatch.h
+//  Briefs
+//
+//  Created by Rob Rhyne on 8/9/09.
+//  Copyright Digital Arch Design, 2009. See LICENSE file for details.
+//
+
 
 @protocol BFLocalActionDispatch
 
