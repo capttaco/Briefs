@@ -13,30 +13,6 @@
 
 @implementation BFUtilityParser
 
-///////////////////////////////////////////////////////////////////////////////
-#pragma mark -
-#pragma mark General Parsing Methods
-
-+ (UIImage *)parseImageFromRepresentation:(id)representation
-{
-  UIImage *image;
-  
-  // U N C O M P A C T E D
-  // Image is specified as a path to a local file
-  if ([representation isKindOfClass:[NSString class]]) {    
-    NSString *pathToImage = [[NSBundle mainBundle] pathForResource:representation ofType:nil];
-    image = [UIImage imageWithContentsOfFile:pathToImage];
-  }
-  
-  // C O M P A C T E D
-  // Image is specified as an embedded data blob
-  else {
-    NSData *imageData = representation;
-    image = [UIImage imageWithData:imageData];
-  }
-  
-  return image;
-}
 
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -

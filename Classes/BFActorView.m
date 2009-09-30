@@ -8,6 +8,7 @@
 
 #import "BFActorView.h"
 #import "BFPresentationDispatch.h"
+#import "BFViewUtilityParser.h"
 #import "BFUtilityParser.h"
 #import "BFConstants.h"
 
@@ -18,7 +19,7 @@
 
 - (id) initWithActor:(BFActor *)source 
 {
-  if (self = [super initWithImage:[BFUtilityParser parseImageFromRepresentation:[source background]]]) {
+  if (self = [super initWithImage:[BFViewUtilityParser parseImageFromRepresentation:[source background]]]) {
 		// enable user interaction, per documentation
 		[self setUserInteractionEnabled:YES];
 		

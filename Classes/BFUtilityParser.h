@@ -10,9 +10,6 @@
 
 @interface BFUtilityParser : NSObject {}
 
-// General Parsing
-+ (UIImage *)parseImageFromRepresentation:(id)representation;
-
 // Actor Actions
 + (NSString *)parseActionCommand:(NSString *)action;
 + (NSArray  *)parseActionArgsIntoArray:(NSString *)action withPrefix:(NSString *)prefix;

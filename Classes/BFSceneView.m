@@ -10,7 +10,7 @@
 #import "BFSceneView.h"
 #import "BFActor.h"
 #import "BFActorView.h"
-#import "BFUtilityParser.h"
+#import "BFViewUtilityParser.h"
 #import "BFPresentationDispatch.h"
 
 
@@ -19,7 +19,7 @@
 
 - (id)initWithScene:(BFScene *)source
 {
-  if (self = [super initWithImage:[BFUtilityParser parseImageFromRepresentation:[source bg]]]) {
+  if (self = [super initWithImage:[BFViewUtilityParser parseImageFromRepresentation:[source bg]]]) {
 		self.scene = source;
 		
 		// enable user interaction, per documentation

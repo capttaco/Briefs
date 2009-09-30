@@ -40,6 +40,8 @@
 		D415B218105C7BD8008A3541 /* FPExtensionTextNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D415B20C105C7BD8008A3541 /* FPExtensionTextNode.m */; };
 		D4309741106AB75B00C1EC5E /* BFDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D4309740106AB75B00C1EC5E /* BFDataManager.m */; };
 		D4309743106AC10B00C1EC5E /* Briefs-data.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4309742106AC10B00C1EC5E /* Briefs-data.plist */; };
+		D463E8FF107310170075CCCE /* BFBriefcastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D463E8FE107310170075CCCE /* BFBriefcastViewController.m */; };
+		D463E9021073131D0075CCCE /* BFViewUtilityParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D463E9011073131D0075CCCE /* BFViewUtilityParser.m */; };
 		D46410FA105F2BD8001522F6 /* BFBriefcastViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D46410F8105F2BD8001522F6 /* BFBriefcastViewController.xib */; };
 		D464117110606DDE001522F6 /* BFTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D464117010606DDE001522F6 /* BFTableViewController.m */; };
 		D46411931065CF8C001522F6 /* BFBriefCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D46411921065CF8C001522F6 /* BFBriefCellController.m */; };
@@ -125,6 +127,10 @@
 		D4309740106AB75B00C1EC5E /* BFDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFDataManager.m; sourceTree = "<group>"; };
 		D4309742106AC10B00C1EC5E /* Briefs-data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Briefs-data.plist"; sourceTree = "<group>"; };
 		D43863920FFAD0EE0041D688 /* scene1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scene1.png; path = sample/scene1.png; sourceTree = "<group>"; };
+		D463E8FD107310170075CCCE /* BFBriefcastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFBriefcastViewController.h; sourceTree = "<group>"; };
+		D463E8FE107310170075CCCE /* BFBriefcastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFBriefcastViewController.m; sourceTree = "<group>"; };
+		D463E9001073131D0075CCCE /* BFViewUtilityParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFViewUtilityParser.h; sourceTree = "<group>"; };
+		D463E9011073131D0075CCCE /* BFViewUtilityParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFViewUtilityParser.m; sourceTree = "<group>"; };
 		D46410F8105F2BD8001522F6 /* BFBriefcastViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BFBriefcastViewController.xib; sourceTree = "<group>"; };
 		D464116F10606DDE001522F6 /* BFTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFTableViewController.h; sourceTree = "<group>"; };
 		D464117010606DDE001522F6 /* BFTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFTableViewController.m; sourceTree = "<group>"; };
@@ -453,6 +459,8 @@
 				D4E2CEB91028F1A00039600E /* SynthesizeSingleton.h */,
 				D430973F106AB75B00C1EC5E /* BFDataManager.h */,
 				D4309740106AB75B00C1EC5E /* BFDataManager.m */,
+				D463E9001073131D0075CCCE /* BFViewUtilityParser.h */,
+				D463E9011073131D0075CCCE /* BFViewUtilityParser.m */,
 			);
 			name = util;
 			sourceTree = "<group>";
@@ -574,6 +582,7 @@
 				D464133E10695048001522F6 /* BFTextCellController.m in Sources */,
 				D4309741106AB75B00C1EC5E /* BFDataManager.m in Sources */,
 				D463E8FF107310170075CCCE /* BFBriefcastViewController.m in Sources */,
+				D463E9021073131D0075CCCE /* BFViewUtilityParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
