@@ -46,6 +46,7 @@
         textField.text = self.savedValue;
         cell.accessoryView = textField;
         [textField addTarget:self action:@selector(textChanged:) forControlEvents:UIControlEventEditingChanged];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
     return cell;
