@@ -19,8 +19,6 @@
 		7616293B105061EF008FDF67 /* brief-compact.m in Sources */ = {isa = PBXBuildFile; fileRef = 7616293210506098008FDF67 /* brief-compact.m */; };
 		76E8699A1051FCE800EB06C9 /* sample-brief.brieflist in Resources */ = {isa = PBXBuildFile; fileRef = 76E869931051FCD700EB06C9 /* sample-brief.brieflist */; };
 		76FD02EF104CAF96002E96FA /* BFBrowseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76FD02ED104CAF96002E96FA /* BFBrowseViewController.m */; };
-		76FD047E104CD159002E96FA /* BFBrowseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76FD047D104CD159002E96FA /* BFBrowseViewController.xib */; };
-		76FD0483104CD1F1002E96FA /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76FD0482104CD1F1002E96FA /* MainWindow.xib */; };
 		D40C3DD31039FA520033CC65 /* BFActorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D40C3DD21039FA520033CC65 /* BFActorView.m */; };
 		D40C3F6B103B44EA0033CC65 /* BFSceneView.m in Sources */ = {isa = PBXBuildFile; fileRef = D40C3F6A103B44EA0033CC65 /* BFSceneView.m */; };
 		D40C43C4103D015F0033CC65 /* BFRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = D40C43C3103D015F0033CC65 /* BFRootView.m */; };
@@ -42,7 +40,6 @@
 		D4309743106AC10B00C1EC5E /* Briefs-data.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4309742106AC10B00C1EC5E /* Briefs-data.plist */; };
 		D463E8FF107310170075CCCE /* BFBriefcastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D463E8FE107310170075CCCE /* BFBriefcastViewController.m */; };
 		D463E9021073131D0075CCCE /* BFViewUtilityParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D463E9011073131D0075CCCE /* BFViewUtilityParser.m */; };
-		D46410FA105F2BD8001522F6 /* BFBriefcastViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D46410F8105F2BD8001522F6 /* BFBriefcastViewController.xib */; };
 		D464117110606DDE001522F6 /* BFTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D464117010606DDE001522F6 /* BFTableViewController.m */; };
 		D46411931065CF8C001522F6 /* BFBriefCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D46411921065CF8C001522F6 /* BFBriefCellController.m */; };
 		D46411971065D59D001522F6 /* BFBriefcastCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D46411961065D59D001522F6 /* BFBriefcastCellController.m */; };
@@ -54,6 +51,8 @@
 		D49E5F5E1011696200B7EEBB /* BFSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D49E5F5D1011696200B7EEBB /* BFSceneViewController.m */; };
 		D49E5F61101169D700B7EEBB /* BFSceneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D49E5F60101169D700B7EEBB /* BFSceneManager.m */; };
 		D4C9C6A0101171A800C87AA7 /* BFScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C9C69F101171A800C87AA7 /* BFScene.m */; };
+		D4CA29381076F60500AA84FE /* BFBriefcastViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CA29351076F60500AA84FE /* BFBriefcastViewController.xib */; };
+		D4CA293A1076F60500AA84FE /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CA29371076F60500AA84FE /* MainWindow.xib */; };
 		D4E2CEB71028F11D0039600E /* BFPresentationDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E2CEB61028F11D0039600E /* BFPresentationDispatch.m */; };
 /* End PBXBuildFile section */
 
@@ -72,8 +71,6 @@
 		76E869931051FCD700EB06C9 /* sample-brief.brieflist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = "sample-brief.brieflist"; path = "sample/sample-brief.brieflist"; sourceTree = "<group>"; };
 		76FD02EC104CAF96002E96FA /* BFBrowseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFBrowseViewController.h; sourceTree = "<group>"; };
 		76FD02ED104CAF96002E96FA /* BFBrowseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFBrowseViewController.m; sourceTree = "<group>"; };
-		76FD047D104CD159002E96FA /* BFBrowseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BFBrowseViewController.xib; sourceTree = "<group>"; };
-		76FD0482104CD1F1002E96FA /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Briefs-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Briefs-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		D40C3DD11039FA520033CC65 /* BFActorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFActorView.h; sourceTree = "<group>"; };
 		D40C3DD21039FA520033CC65 /* BFActorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFActorView.m; sourceTree = "<group>"; };
@@ -131,7 +128,6 @@
 		D463E8FE107310170075CCCE /* BFBriefcastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFBriefcastViewController.m; sourceTree = "<group>"; };
 		D463E9001073131D0075CCCE /* BFViewUtilityParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFViewUtilityParser.h; sourceTree = "<group>"; };
 		D463E9011073131D0075CCCE /* BFViewUtilityParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFViewUtilityParser.m; sourceTree = "<group>"; };
-		D46410F8105F2BD8001522F6 /* BFBriefcastViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BFBriefcastViewController.xib; sourceTree = "<group>"; };
 		D464116F10606DDE001522F6 /* BFTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFTableViewController.h; sourceTree = "<group>"; };
 		D464117010606DDE001522F6 /* BFTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFTableViewController.m; sourceTree = "<group>"; };
 		D464118D10606F38001522F6 /* BFCellController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFCellController.h; sourceTree = "<group>"; };
@@ -153,6 +149,9 @@
 		D49E5F60101169D700B7EEBB /* BFSceneManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFSceneManager.m; sourceTree = "<group>"; };
 		D4C9C69E101171A800C87AA7 /* BFScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFScene.h; sourceTree = "<group>"; };
 		D4C9C69F101171A800C87AA7 /* BFScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFScene.m; sourceTree = "<group>"; };
+		D4CA29351076F60500AA84FE /* BFBriefcastViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BFBriefcastViewController.xib; path = Classes/BFBriefcastViewController.xib; sourceTree = "<group>"; };
+		D4CA29361076F60500AA84FE /* BFBrowseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BFBrowseViewController.xib; path = Classes/BFBrowseViewController.xib; sourceTree = "<group>"; };
+		D4CA29371076F60500AA84FE /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainWindow.xib; path = Classes/MainWindow.xib; sourceTree = "<group>"; };
 		D4E2CEB51028F11D0039600E /* BFPresentationDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFPresentationDispatch.h; sourceTree = "<group>"; };
 		D4E2CEB61028F11D0039600E /* BFPresentationDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFPresentationDispatch.m; sourceTree = "<group>"; };
 		D4E2CEB91028F1A00039600E /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
@@ -258,10 +257,10 @@
 		76FD02EB104CAF4E002E96FA /* nib */ = {
 			isa = PBXGroup;
 			children = (
+				D4CA29351076F60500AA84FE /* BFBriefcastViewController.xib */,
+				D4CA29361076F60500AA84FE /* BFBrowseViewController.xib */,
+				D4CA29371076F60500AA84FE /* MainWindow.xib */,
 				D4641312106879AF001522F6 /* BFAddBriefcastViewController.xib */,
-				76FD0482104CD1F1002E96FA /* MainWindow.xib */,
-				76FD047D104CD159002E96FA /* BFBrowseViewController.xib */,
-				D46410F8105F2BD8001522F6 /* BFBriefcastViewController.xib */,
 			);
 			name = nib;
 			sourceTree = "<group>";
@@ -534,12 +533,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				76E8699A1051FCE800EB06C9 /* sample-brief.brieflist in Resources */,
-				76FD047E104CD159002E96FA /* BFBrowseViewController.xib in Resources */,
-				76FD0483104CD1F1002E96FA /* MainWindow.xib in Resources */,
-				D46410FA105F2BD8001522F6 /* BFBriefcastViewController.xib in Resources */,
 				D4641314106879AF001522F6 /* BFAddBriefcastViewController.xib in Resources */,
 				D464141A1069AB25001522F6 /* howto.brieflist in Resources */,
 				D4309743106AC10B00C1EC5E /* Briefs-data.plist in Resources */,
+				D4CA29381076F60500AA84FE /* BFBriefcastViewController.xib in Resources */,
+				D4CA29391076F60500AA84FE /* BFBrowseViewController.xib in Resources */,
+				D4CA293A1076F60500AA84FE /* MainWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
