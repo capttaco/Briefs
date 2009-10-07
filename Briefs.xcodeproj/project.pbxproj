@@ -12,9 +12,6 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
-		7616285610505B6A008FDF67 /* BFSceneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D49E5F60101169D700B7EEBB /* BFSceneManager.m */; };
-		7616285710505B6A008FDF67 /* BFScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C9C69F101171A800C87AA7 /* BFScene.m */; };
-		7616285810505B6A008FDF67 /* BFActor.m in Sources */ = {isa = PBXBuildFile; fileRef = D40E467F101179AB000D4830 /* BFActor.m */; };
 		7616292E10505FDA008FDF67 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7616292D10505FDA008FDF67 /* Foundation.framework */; };
 		7616293B105061EF008FDF67 /* brief-compact.m in Sources */ = {isa = PBXBuildFile; fileRef = 7616293210506098008FDF67 /* brief-compact.m */; };
 		76E8699A1051FCE800EB06C9 /* sample-brief.brieflist in Resources */ = {isa = PBXBuildFile; fileRef = 76E869931051FCD700EB06C9 /* sample-brief.brieflist */; };
@@ -22,8 +19,6 @@
 		D40C3DD31039FA520033CC65 /* BFActorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D40C3DD21039FA520033CC65 /* BFActorView.m */; };
 		D40C3F6B103B44EA0033CC65 /* BFSceneView.m in Sources */ = {isa = PBXBuildFile; fileRef = D40C3F6A103B44EA0033CC65 /* BFSceneView.m */; };
 		D40C43C4103D015F0033CC65 /* BFRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = D40C43C3103D015F0033CC65 /* BFRootView.m */; };
-		D40C459B1040CFA80033CC65 /* BFUtilityParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D40C459A1040CFA80033CC65 /* BFUtilityParser.m */; };
-		D40E4680101179AB000D4830 /* BFActor.m in Sources */ = {isa = PBXBuildFile; fileRef = D40E467F101179AB000D4830 /* BFActor.m */; };
 		D415B20D105C7BD8008A3541 /* NSDate_FeedParserExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D415B1F0105C7BD8008A3541 /* NSDate_FeedParserExtensions.m */; };
 		D415B20E105C7BD8008A3541 /* NSString_extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D415B1F2105C7BD8008A3541 /* NSString_extensions.m */; };
 		D415B20F105C7BD8008A3541 /* FPEnclosure.m in Sources */ = {isa = PBXBuildFile; fileRef = D415B1F5105C7BD8008A3541 /* FPEnclosure.m */; };
@@ -43,17 +38,19 @@
 		D464117110606DDE001522F6 /* BFTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D464117010606DDE001522F6 /* BFTableViewController.m */; };
 		D46411931065CF8C001522F6 /* BFBriefCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D46411921065CF8C001522F6 /* BFBriefCellController.m */; };
 		D46411971065D59D001522F6 /* BFBriefcastCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D46411961065D59D001522F6 /* BFBriefcastCellController.m */; };
-		D464119A1065D6F8001522F6 /* BFBriefcast.m in Sources */ = {isa = PBXBuildFile; fileRef = D46411991065D6F8001522F6 /* BFBriefcast.m */; };
 		D4641313106879AF001522F6 /* BFAddBriefcastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4641311106879AF001522F6 /* BFAddBriefcastViewController.m */; };
 		D4641314106879AF001522F6 /* BFAddBriefcastViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4641312106879AF001522F6 /* BFAddBriefcastViewController.xib */; };
 		D464133E10695048001522F6 /* BFTextCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D464133D10695048001522F6 /* BFTextCellController.m */; };
 		D464141A1069AB25001522F6 /* howto.brieflist in Resources */ = {isa = PBXBuildFile; fileRef = D46414191069AB25001522F6 /* howto.brieflist */; };
 		D49E5F5E1011696200B7EEBB /* BFSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D49E5F5D1011696200B7EEBB /* BFSceneViewController.m */; };
-		D49E5F61101169D700B7EEBB /* BFSceneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D49E5F60101169D700B7EEBB /* BFSceneManager.m */; };
-		D4C9C6A0101171A800C87AA7 /* BFScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C9C69F101171A800C87AA7 /* BFScene.m */; };
 		D4CA29381076F60500AA84FE /* BFBriefcastViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CA29351076F60500AA84FE /* BFBriefcastViewController.xib */; };
 		D4CA293A1076F60500AA84FE /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CA29371076F60500AA84FE /* MainWindow.xib */; };
 		D4E2CEB71028F11D0039600E /* BFPresentationDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E2CEB61028F11D0039600E /* BFPresentationDispatch.m */; };
+		D4FF1AA2107C23EF00956488 /* BFActor.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FF1A9D107C23EF00956488 /* BFActor.m */; };
+		D4FF1AA3107C23EF00956488 /* BFBriefcast.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FF1A9F107C23EF00956488 /* BFBriefcast.m */; };
+		D4FF1AA4107C23EF00956488 /* BFScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FF1AA1107C23EF00956488 /* BFScene.m */; };
+		D4FF1AAA107C240600956488 /* BFSceneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FF1AA7107C240600956488 /* BFSceneManager.m */; };
+		D4FF1AAB107C240600956488 /* BFUtilityParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FF1AA9107C240600956488 /* BFUtilityParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,10 +76,6 @@
 		D40C4209103C94730033CC65 /* actor1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = actor1.png; path = sample/actor1.png; sourceTree = "<group>"; };
 		D40C43C2103D015F0033CC65 /* BFRootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFRootView.h; sourceTree = "<group>"; };
 		D40C43C3103D015F0033CC65 /* BFRootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFRootView.m; sourceTree = "<group>"; };
-		D40C45991040CFA80033CC65 /* BFUtilityParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFUtilityParser.h; sourceTree = "<group>"; };
-		D40C459A1040CFA80033CC65 /* BFUtilityParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFUtilityParser.m; sourceTree = "<group>"; };
-		D40E467E101179AB000D4830 /* BFActor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFActor.h; sourceTree = "<group>"; };
-		D40E467F101179AB000D4830 /* BFActor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFActor.m; sourceTree = "<group>"; };
 		D415B1EF105C7BD8008A3541 /* NSDate_FeedParserExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDate_FeedParserExtensions.h; sourceTree = "<group>"; };
 		D415B1F0105C7BD8008A3541 /* NSDate_FeedParserExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDate_FeedParserExtensions.m; sourceTree = "<group>"; };
 		D415B1F1105C7BD8008A3541 /* NSString_extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSString_extensions.h; sourceTree = "<group>"; };
@@ -119,7 +112,6 @@
 		D415B224105C91A5008A3541 /* step2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = step2.png; sourceTree = "<group>"; };
 		D415B225105C91A5008A3541 /* step3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = step3.png; sourceTree = "<group>"; };
 		D415B226105C91A5008A3541 /* step4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = step4.png; sourceTree = "<group>"; };
-		D415B25D105CA15F008A3541 /* BFConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFConstants.h; sourceTree = "<group>"; };
 		D430973F106AB75B00C1EC5E /* BFDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFDataManager.h; sourceTree = "<group>"; };
 		D4309740106AB75B00C1EC5E /* BFDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFDataManager.m; sourceTree = "<group>"; };
 		D4309742106AC10B00C1EC5E /* Briefs-data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Briefs-data.plist"; sourceTree = "<group>"; };
@@ -135,8 +127,6 @@
 		D46411921065CF8C001522F6 /* BFBriefCellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFBriefCellController.m; sourceTree = "<group>"; };
 		D46411951065D59D001522F6 /* BFBriefcastCellController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFBriefcastCellController.h; sourceTree = "<group>"; };
 		D46411961065D59D001522F6 /* BFBriefcastCellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFBriefcastCellController.m; sourceTree = "<group>"; };
-		D46411981065D6F8001522F6 /* BFBriefcast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFBriefcast.h; sourceTree = "<group>"; };
-		D46411991065D6F8001522F6 /* BFBriefcast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFBriefcast.m; sourceTree = "<group>"; };
 		D4641310106879AF001522F6 /* BFAddBriefcastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFAddBriefcastViewController.h; sourceTree = "<group>"; };
 		D4641311106879AF001522F6 /* BFAddBriefcastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFAddBriefcastViewController.m; sourceTree = "<group>"; };
 		D4641312106879AF001522F6 /* BFAddBriefcastViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BFAddBriefcastViewController.xib; path = Classes/BFAddBriefcastViewController.xib; sourceTree = "<group>"; };
@@ -145,10 +135,6 @@
 		D46414191069AB25001522F6 /* howto.brieflist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = howto.brieflist; sourceTree = "<group>"; };
 		D49E5F5C1011696200B7EEBB /* BFSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFSceneViewController.h; sourceTree = "<group>"; };
 		D49E5F5D1011696200B7EEBB /* BFSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFSceneViewController.m; sourceTree = "<group>"; };
-		D49E5F5F101169D700B7EEBB /* BFSceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFSceneManager.h; sourceTree = "<group>"; };
-		D49E5F60101169D700B7EEBB /* BFSceneManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFSceneManager.m; sourceTree = "<group>"; };
-		D4C9C69E101171A800C87AA7 /* BFScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFScene.h; sourceTree = "<group>"; };
-		D4C9C69F101171A800C87AA7 /* BFScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFScene.m; sourceTree = "<group>"; };
 		D4CA29351076F60500AA84FE /* BFBriefcastViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BFBriefcastViewController.xib; path = Classes/BFBriefcastViewController.xib; sourceTree = "<group>"; };
 		D4CA29361076F60500AA84FE /* BFBrowseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BFBrowseViewController.xib; path = Classes/BFBrowseViewController.xib; sourceTree = "<group>"; };
 		D4CA29371076F60500AA84FE /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainWindow.xib; path = Classes/MainWindow.xib; sourceTree = "<group>"; };
@@ -157,6 +143,17 @@
 		D4E2CEB91028F1A00039600E /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
 		D4E2CEBF102F19A90039600E /* BFDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFDispatch.h; sourceTree = "<group>"; };
 		D4E3753F1039F029000D8677 /* scene2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scene2.png; path = sample/scene2.png; sourceTree = "<group>"; };
+		D4FF1A9C107C23EF00956488 /* BFActor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BFActor.h; path = data/BFActor.h; sourceTree = SOURCE_ROOT; };
+		D4FF1A9D107C23EF00956488 /* BFActor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BFActor.m; path = data/BFActor.m; sourceTree = SOURCE_ROOT; };
+		D4FF1A9E107C23EF00956488 /* BFBriefcast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BFBriefcast.h; path = data/BFBriefcast.h; sourceTree = SOURCE_ROOT; };
+		D4FF1A9F107C23EF00956488 /* BFBriefcast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BFBriefcast.m; path = data/BFBriefcast.m; sourceTree = SOURCE_ROOT; };
+		D4FF1AA0107C23EF00956488 /* BFScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BFScene.h; path = data/BFScene.h; sourceTree = SOURCE_ROOT; };
+		D4FF1AA1107C23EF00956488 /* BFScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BFScene.m; path = data/BFScene.m; sourceTree = SOURCE_ROOT; };
+		D4FF1AA5107C240600956488 /* BFConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BFConstants.h; path = data/BFConstants.h; sourceTree = SOURCE_ROOT; };
+		D4FF1AA6107C240600956488 /* BFSceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BFSceneManager.h; path = data/BFSceneManager.h; sourceTree = SOURCE_ROOT; };
+		D4FF1AA7107C240600956488 /* BFSceneManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BFSceneManager.m; path = data/BFSceneManager.m; sourceTree = SOURCE_ROOT; };
+		D4FF1AA8107C240600956488 /* BFUtilityParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BFUtilityParser.h; path = data/BFUtilityParser.h; sourceTree = SOURCE_ROOT; };
+		D4FF1AA9107C240600956488 /* BFUtilityParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BFUtilityParser.m; path = data/BFUtilityParser.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +185,11 @@
 				D4E2CEB81028F18B0039600E /* util */,
 				D49E5F591011690100B7EEBB /* ui */,
 				D49E5F58101168FA00B7EEBB /* data */,
+				D4FF1AA6107C240600956488 /* BFSceneManager.h */,
+				D4FF1AA7107C240600956488 /* BFSceneManager.m */,
+				D4FF1AA8107C240600956488 /* BFUtilityParser.h */,
+				D4FF1AA9107C240600956488 /* BFUtilityParser.m */,
+				D4FF1AA5107C240600956488 /* BFConstants.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -268,12 +270,12 @@
 		D40E467D1011792D000D4830 /* models */ = {
 			isa = PBXGroup;
 			children = (
-				D4C9C69E101171A800C87AA7 /* BFScene.h */,
-				D4C9C69F101171A800C87AA7 /* BFScene.m */,
-				D40E467E101179AB000D4830 /* BFActor.h */,
-				D40E467F101179AB000D4830 /* BFActor.m */,
-				D46411981065D6F8001522F6 /* BFBriefcast.h */,
-				D46411991065D6F8001522F6 /* BFBriefcast.m */,
+				D4FF1A9C107C23EF00956488 /* BFActor.h */,
+				D4FF1A9D107C23EF00956488 /* BFActor.m */,
+				D4FF1A9E107C23EF00956488 /* BFBriefcast.h */,
+				D4FF1A9F107C23EF00956488 /* BFBriefcast.m */,
+				D4FF1AA0107C23EF00956488 /* BFScene.h */,
+				D4FF1AA1107C23EF00956488 /* BFScene.m */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -419,11 +421,6 @@
 			children = (
 				76162936105061C5008FDF67 /* tools */,
 				D40E467D1011792D000D4830 /* models */,
-				D49E5F5F101169D700B7EEBB /* BFSceneManager.h */,
-				D49E5F60101169D700B7EEBB /* BFSceneManager.m */,
-				D40C45991040CFA80033CC65 /* BFUtilityParser.h */,
-				D40C459A1040CFA80033CC65 /* BFUtilityParser.m */,
-				D415B25D105CA15F008A3541 /* BFConstants.h */,
 			);
 			name = data;
 			sourceTree = "<group>";
@@ -552,14 +549,10 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* BriefsAppDelegate.m in Sources */,
 				D49E5F5E1011696200B7EEBB /* BFSceneViewController.m in Sources */,
-				D49E5F61101169D700B7EEBB /* BFSceneManager.m in Sources */,
-				D4C9C6A0101171A800C87AA7 /* BFScene.m in Sources */,
-				D40E4680101179AB000D4830 /* BFActor.m in Sources */,
 				D4E2CEB71028F11D0039600E /* BFPresentationDispatch.m in Sources */,
 				D40C3DD31039FA520033CC65 /* BFActorView.m in Sources */,
 				D40C3F6B103B44EA0033CC65 /* BFSceneView.m in Sources */,
 				D40C43C4103D015F0033CC65 /* BFRootView.m in Sources */,
-				D40C459B1040CFA80033CC65 /* BFUtilityParser.m in Sources */,
 				76FD02EF104CAF96002E96FA /* BFBrowseViewController.m in Sources */,
 				D415B20D105C7BD8008A3541 /* NSDate_FeedParserExtensions.m in Sources */,
 				D415B20E105C7BD8008A3541 /* NSString_extensions.m in Sources */,
@@ -576,12 +569,16 @@
 				D464117110606DDE001522F6 /* BFTableViewController.m in Sources */,
 				D46411931065CF8C001522F6 /* BFBriefCellController.m in Sources */,
 				D46411971065D59D001522F6 /* BFBriefcastCellController.m in Sources */,
-				D464119A1065D6F8001522F6 /* BFBriefcast.m in Sources */,
 				D4641313106879AF001522F6 /* BFAddBriefcastViewController.m in Sources */,
 				D464133E10695048001522F6 /* BFTextCellController.m in Sources */,
 				D4309741106AB75B00C1EC5E /* BFDataManager.m in Sources */,
 				D463E8FF107310170075CCCE /* BFBriefcastViewController.m in Sources */,
 				D463E9021073131D0075CCCE /* BFViewUtilityParser.m in Sources */,
+				D4FF1AA2107C23EF00956488 /* BFActor.m in Sources */,
+				D4FF1AA3107C23EF00956488 /* BFBriefcast.m in Sources */,
+				D4FF1AA4107C23EF00956488 /* BFScene.m in Sources */,
+				D4FF1AAA107C240600956488 /* BFSceneManager.m in Sources */,
+				D4FF1AAB107C240600956488 /* BFUtilityParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,9 +587,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7616293B105061EF008FDF67 /* brief-compact.m in Sources */,
-				7616285610505B6A008FDF67 /* BFSceneManager.m in Sources */,
-				7616285710505B6A008FDF67 /* BFScene.m in Sources */,
-				7616285810505B6A008FDF67 /* BFActor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
