@@ -7,25 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BFTableViewController.h"
 
-
-@interface BFBriefcastViewController : UIViewController {
-    IBOutlet UITableView *table;
-    IBOutlet UIButton *refresh;
-    IBOutlet UILabel *channelTitle;
-    IBOutlet UILabel *channelLink;
+@interface BFBriefcastViewController : BFTableViewController {
+    NSString *channelTitle;
+    NSString *channelLink;
+    NSString *channelDescription;
+    NSMutableArray *enclosedBriefs;
     
     NSString *locationOfBriefcast;
+    UIActivityIndicatorView *spinner;
 }
 
-@property (nonatomic, retain) IBOutlet UITableView *table;
-@property (nonatomic, retain) IBOutlet UIButton *refresh;
-@property (nonatomic, retain) IBOutlet UILabel *channelTitle;
-@property (nonatomic, retain) IBOutlet UILabel *channelLink;
-
+@property (nonatomic, retain) NSString *channelTitle;
+@property (nonatomic, retain) NSString *channelLink;
+@property (nonatomic, retain) NSString *channelDescription;
+@property (nonatomic, retain) NSMutableArray *enclosedBriefs;
 @property (nonatomic, retain) NSString *locationOfBriefcast;
 
-
-- (IBAction)refreshBriefListing; 
 
 @end

@@ -93,6 +93,18 @@
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (!self.tableGroups)  {
+        [self constructTableGroups];
+    }
+    
+    NSObject<BFCellController> *cellData = [[self.tableGroups objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    if ([cellData respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)]){
+        return [cellData tableView:tableView heightForRowAtIndexPath:indexPath];
+    }
+    else return 45.0;
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -

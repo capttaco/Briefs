@@ -8,53 +8,89 @@
 
 #import "BFBriefcastViewController.h"
 #import "FeedParser.h"
+#import "BFTitleCellController.h"
+#import "BFLabelCellController.h"
+#import "BFParagraphCellController.h"
+#import "BFHeaderCellController.h"
 
 
 @implementation BFBriefcastViewController
 
-@synthesize table, refresh, channelTitle, channelLink, locationOfBriefcast;
+@synthesize channelTitle, channelLink, channelDescription, locationOfBriefcast, enclosedBriefs;
 
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -
 #pragma mark UI Methods
 
-- (IBAction)refreshBriefListing
-{
-    // TODO: Do something here.
-}
 
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -
-#pragma mark UIViewController overrides
+#pragma mark BFTableViewController overrides
 
-- (void)viewDidLoad 
+- (void)constructTableGroups
 {
-    [super viewDidLoad];
-
-    if (locationOfBriefcast != nil) {
-        // Load Briefcast url
-        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[self locationOfBriefcast]]];
-        [[[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES] autorelease];
+    if (self.channelTitle != nil) {
+        NSMutableArray *groups = [NSMutableArray arrayWithCapacity:[self.enclosedBriefs count]+1];
+        
+        
+        // Briefcast Information
+        // =============================================
+        // The details, & description views
+        
+        NSArray *briefsData = [NSArray arrayWithObjects: 
+                               [[[BFTitleCellController alloc] initWithTitle:self.channelTitle] autorelease],
+                               [[[BFHeaderCellController alloc] initWithHeader:self.channelLink] autorelease],
+                               [[[BFParagraphCellController alloc] initWithBodyText:self.channelDescription andImage:@"37-suitcase.png"] autorelease],
+                               nil];
+        //self.tableGroups = [NSArray arrayWithObjects:briefsData, nil];
+        [groups addObject:briefsData];
+        
+        
+        // Enclosed Briefs
+        // =============================================
+        // Display the info on the enclosed briefs, 
+        // including links to download locally
+        
+        for (FPItem *item in self.enclosedBriefs) {
+            NSArray *itemInfo = [NSArray arrayWithObjects:
+                                 [[[BFTitleCellController alloc] initWithTitle:item.title] autorelease],
+//                                 [[[BFHeaderCellController alloc] initWithHeader:[item.pubDate description]] autorelease],
+                                 [[[BFParagraphCellController alloc] initWithBodyText:item.content andImage:@"58-bookmark.png"] autorelease],
+                                 nil];
+            [groups addObject:itemInfo];
+        }
+        
+        self.tableGroups = [NSArray arrayWithArray:groups];
     }
     
 }
 
-- (void)didReceiveMemoryWarning 
+- (void)viewDidLoad 
 {
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
+    [super viewDidLoad];
     
-    // Release any cached data, images, etc that aren't in use.
+    if (locationOfBriefcast != nil) {
+        // Display "loading..." message and a spinner
+        self.title = @"Loading...";
+        spinner = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite] autorelease];
+        spinner.hidesWhenStopped = YES;
+        [spinner startAnimating];
+        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:spinner] autorelease];
+        
+        // Load Briefcast url
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[self locationOfBriefcast]]];
+        [[[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES] autorelease];
+    }
 }
 
-- (void)viewDidUnload 
-{
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
 
 - (void)dealloc 
 {
+    [self.channelLink release];
+    [self.channelTitle release];
+    [self.channelDescription release];
+    [self.enclosedBriefs release];
+    [self.locationOfBriefcast release];
     [super dealloc];
 }
 
@@ -64,11 +100,18 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-    NSError *error = [[NSError alloc] init];
+    NSError *error = [[[NSError alloc] init] autorelease];
     FPFeed *feed = [FPParser parsedFeedWithData:data error:&error];
     
-    [self channelTitle].text = [feed title];
-    [self channelLink].text = [[feed link] href];
+    self.channelTitle = [feed title];
+    self.channelLink = [[feed link] href];
+    self.channelDescription = [feed feedDescription];    
+    self.enclosedBriefs = [feed items];
+    
+    // Update the UI
+    self.title = [NSString stringWithFormat:@"%i Briefs", [[feed items] count]];
+    [super updateAndReload];
+    [spinner stopAnimating];
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error

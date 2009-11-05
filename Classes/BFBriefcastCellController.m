@@ -44,7 +44,7 @@
 
 - (void)tableView:(UITableView *)tv didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    BFBriefcastViewController *controller = [[BFBriefcastViewController alloc] init];
+    BFBriefcastViewController *controller = [[BFBriefcastViewController alloc] initWithStyle:UITableViewStyleGrouped];
     controller.locationOfBriefcast = self.briefcast.url;
     if ([[tv delegate] isKindOfClass:[UITableViewController class]]) {
         UITableViewController *tvc = (UITableViewController *) [tv delegate];
