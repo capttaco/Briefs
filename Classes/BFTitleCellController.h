@@ -15,5 +15,6 @@
 
 - (id)initWithTitle:(NSString *)titleText;
 - (id)initWithTitle:(NSString *)titleText andLabel:(NSString *)label;
+- (id)initWithSelectableTitle:(NSString *)titleText;
 
 @end

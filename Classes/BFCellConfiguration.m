@@ -15,7 +15,7 @@
 #pragma mark -
 #pragma mark Access Methods
 
-@synthesize color, font, detailsColor, detailsFont, style, alignment;
+@synthesize color, font, detailsColor, detailsFont, style, alignment, isSelectable, accessoryType;
 
 - (NSString *)reuseIdentifier
 {
@@ -75,6 +75,7 @@
         self.detailsColor = nil;
         self.alignment = UITextAlignmentLeft;
         accessory = nil;
+        self.accessoryType = UITableViewCellAccessoryNone;
     }
     return self;
 }
@@ -84,6 +85,7 @@
     self = [self initWithColor:col withFont:face andStyle:tableStyle];
     if (self != nil) {
         isSelectable = YES;
+        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     return self;
 }

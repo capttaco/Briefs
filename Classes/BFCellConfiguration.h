@@ -21,6 +21,7 @@
     BOOL isSelectable;
     UITableViewCellStyle style;
     UITextAlignment alignment;
+    UITableViewCellAccessoryType accessoryType;
     
     
 }
@@ -32,10 +33,11 @@
 @property (nonatomic, retain) UIFont *detailsFont;
 @property (nonatomic) UITableViewCellStyle style;
 @property (nonatomic) UITextAlignment alignment;
+@property (nonatomic) BOOL isSelectable;
+@property (nonatomic) UITableViewCellAccessoryType accessoryType;
 
 - (NSString *)reuseIdentifier;
 - (void)setIdentifier:(NSString *)iden;
-- (BOOL)isSelectable;
 - (void)addAcessoryImage:(NSString *)path;
 - (UIImageView *)accessory;
 

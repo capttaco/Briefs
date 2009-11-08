@@ -15,6 +15,8 @@
     NSString *brief;
 }
 
+@property (nonatomic, retain) NSString *brief;
+
 - (id)initWithNameOfBrief:(NSString *)name;
 
 @end

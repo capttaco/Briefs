@@ -37,6 +37,11 @@
     self.navigationItem.rightBarButtonItem = addButton;
 }
 
+- (void)viewWillAppear:(BOOL)animated 
+{
+    [self updateAndReload];
+}
+
 - (void)didReceiveMemoryWarning 
 {
     // Releases the view if it doesn't have a superview.

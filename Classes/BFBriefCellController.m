@@ -13,7 +13,7 @@
 
 
 @implementation BFBriefCellController
-
+@synthesize brief;
 
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -
@@ -23,7 +23,7 @@
 {
     self = [super init];
     if (self != nil) {
-        brief = name;
+        self.brief = name;
     }
     return self;
 }
@@ -39,7 +39,7 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:@"BriefsCell"] autorelease];
     }
-    cell.textLabel.text = brief;
+    cell.textLabel.text = self.brief;
     return cell;
 }
 

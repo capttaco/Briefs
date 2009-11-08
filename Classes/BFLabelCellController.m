@@ -66,6 +66,7 @@
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         
+        cell.accessoryType = config.accessoryType;
         UIImageView *accessory = [config accessory];
         if (accessory != nil)
             cell.imageView.image = accessory.image;

@@ -8,22 +8,27 @@
 
 #import <UIKit/UIKit.h>
 #import "BFTableViewController.h"
+#import "BFRemoteBriefEventDelegate.h"
+#import "BFLoadingViewController.h"
 
-@interface BFBriefcastViewController : BFTableViewController {
-    NSString *channelTitle;
-    NSString *channelLink;
-    NSString *channelDescription;
-    NSMutableArray *enclosedBriefs;
+@interface BFBriefcastViewController : BFTableViewController <BFRemoteBriefEventDelegate, BFLoadingViewDelegate> 
+{
+    NSMutableArray  *enclosedBriefs;
+    NSString        *channelTitle;
+    NSString        *channelLink;
+    NSString        *channelDescription;
+    NSMutableData   *recievedData;
     
-    NSString *locationOfBriefcast;
+    NSString                *locationOfBriefcast;
     UIActivityIndicatorView *spinner;
 }
 
-@property (nonatomic, retain) NSString *channelTitle;
-@property (nonatomic, retain) NSString *channelLink;
-@property (nonatomic, retain) NSString *channelDescription;
-@property (nonatomic, retain) NSMutableArray *enclosedBriefs;
-@property (nonatomic, retain) NSString *locationOfBriefcast;
+@property (nonatomic, retain) NSMutableArray    *enclosedBriefs;
+@property (nonatomic, retain) NSString          *channelTitle;
+@property (nonatomic, retain) NSString          *channelLink;
+@property (nonatomic, retain) NSString          *channelDescription;
+@property (nonatomic, retain) NSString          *locationOfBriefcast;
+@property (nonatomic, retain) NSMutableData     *recievedData;
 
 
 @end

@@ -12,15 +12,56 @@
 #import "BFLabelCellController.h"
 #import "BFParagraphCellController.h"
 #import "BFHeaderCellController.h"
+#import "BFRemoteBriefCellController.h"
+#import "BFDataManager.h"
 
 
 @implementation BFBriefcastViewController
 
-@synthesize channelTitle, channelLink, channelDescription, locationOfBriefcast, enclosedBriefs;
+@synthesize channelTitle, channelLink, channelDescription, locationOfBriefcast, enclosedBriefs, recievedData;
 
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -
-#pragma mark UI Methods
+#pragma mark BFRemoteBriefEventDelegate Methods
+
+- (void)shouldDownloadBrief:(id)sender atURL:(NSString *)url
+{
+    BFLoadingViewController *loader = [[BFLoadingViewController alloc] init];
+    [loader setDelegate:self];
+    
+    loader.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentModalViewController:loader animated:YES];
+    [loader load:url withInitialStatus:@"Downloading the Brief..." animated:YES];
+}
+
+- (void)shouldLaunchBrief:(id)sender atURL:(NSString *)url
+{
+    
+}
+
+///////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark BFRemoteBriefEventDelegate Methods
+
+- (void)loadingView:(BFLoadingViewController *)controller didCompleteWithData:(NSData *)data
+{
+    // TODO: capture the data
+    NSString *fileName = [controller.locationOfRequest lastPathComponent];
+    NSString *pathToBrieflist = [[[NSBundle mainBundle] resourcePath] stringByAppendingFormat:@"/%@", fileName];
+    [data writeToFile:pathToBrieflist atomically:YES];
+    
+    [BFDataManager sharedBFDataManager].knownBriefs = nil;
+}
+
+- (void)loadingView:(BFLoadingViewController *)controller didNotCompleteWithError:(NSError *)error
+{
+    
+}
+
+- (void)loadingView:(BFLoadingViewController *)controller shouldCloseView:(BOOL)animated
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -34,29 +75,26 @@
         
         
         // Briefcast Information
-        // =============================================
+        // ================================
         // The details, & description views
         
         NSArray *briefsData = [NSArray arrayWithObjects: 
-                               [[[BFTitleCellController alloc] initWithTitle:self.channelTitle] autorelease],
-                               [[[BFHeaderCellController alloc] initWithHeader:self.channelLink] autorelease],
-                               [[[BFParagraphCellController alloc] initWithBodyText:self.channelDescription andImage:@"37-suitcase.png"] autorelease],
-                               nil];
-        //self.tableGroups = [NSArray arrayWithObjects:briefsData, nil];
+                [[[BFTitleCellController alloc] initWithTitle:self.channelTitle] autorelease],
+                [[[BFHeaderCellController alloc] initWithHeader:self.channelLink] autorelease],
+                [[[BFParagraphCellController alloc] initWithBodyText:self.channelDescription andImage:@"37-suitcase.png"] autorelease], nil];
         [groups addObject:briefsData];
         
         
         // Enclosed Briefs
-        // =============================================
+        // ========================================
         // Display the info on the enclosed briefs, 
         // including links to download locally
         
         for (FPItem *item in self.enclosedBriefs) {
             NSArray *itemInfo = [NSArray arrayWithObjects:
-                                 [[[BFTitleCellController alloc] initWithTitle:item.title] autorelease],
-//                                 [[[BFHeaderCellController alloc] initWithHeader:[item.pubDate description]] autorelease],
-                                 [[[BFParagraphCellController alloc] initWithBodyText:item.content andImage:@"58-bookmark.png"] autorelease],
-                                 nil];
+                    [[[BFTitleCellController alloc] initWithSelectableTitle:item.title] autorelease],
+                    [[[BFParagraphCellController alloc] initWithBodyText:item.content andImage:@"58-bookmark.png"] autorelease],
+                    [[[BFRemoteBriefCellController alloc] initWithLocationOfBrief:item.enclosure.url andDelegate:self] autorelease], nil];
             [groups addObject:itemInfo];
         }
         
@@ -77,6 +115,8 @@
         [spinner startAnimating];
         self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:spinner] autorelease];
         
+        self.recievedData = [[NSMutableData alloc] initWithLength:0];
+        
         // Load Briefcast url
         NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[self locationOfBriefcast]]];
         [[[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES] autorelease];
@@ -96,12 +136,26 @@
 
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -
+#pragma mark Table view data source methods
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section 
+{
+    return (section == 1 ? @"Enclosed Briefs" : nil);
+}
+
+///////////////////////////////////////////////////////////////////////////////
+#pragma mark -
 #pragma mark NSURLConnectionDelegate Methods
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
+    [self.recievedData appendData:data];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{    
     NSError *error = [[[NSError alloc] init] autorelease];
-    FPFeed *feed = [FPParser parsedFeedWithData:data error:&error];
+    FPFeed *feed = [FPParser parsedFeedWithData:self.recievedData error:&error];
     
     self.channelTitle = [feed title];
     self.channelLink = [[feed link] href];

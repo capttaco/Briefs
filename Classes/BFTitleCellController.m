@@ -29,4 +29,14 @@
     return self;
 }
 
+- (id)initWithSelectableTitle:(NSString *)titleText
+{
+    self = [self initWithTitle:titleText];
+    if (self != nil) {
+        self.config.isSelectable = YES;
+        self.config.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+    return self;
+}
+
 @end
