@@ -29,18 +29,19 @@
 }
 
 
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    UITouch* touch = [touches anyObject];
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event 
+{
+    UITouch *touch = [touches anyObject];
     NSUInteger numTaps = [touch tapCount];
     
     if (numTaps > 1) {
-        // show navigation controller
-        if ([viewController navigationController].navigationBarHidden == YES) {
-            [[viewController navigationController] setNavigationBarHidden:NO animated:YES];
-        }
-        else {
-            [[viewController navigationController] setNavigationBarHidden:YES animated:YES];
-        }
+        UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Do you want to close the Brief?" 
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Nevermind"
+                                             destructiveButtonTitle:@"Stop the Brief" 
+                                                  otherButtonTitles:nil];
+        sheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+        [sheet showInView:self];
             
     } 
     
@@ -48,6 +49,12 @@
         // single taps are forwareded
         [self.nextResponder touchesEnded:touches withEvent:event];
     }
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0)
+        [[viewController navigationController] popViewControllerAnimated:YES];
 }
 
 @end

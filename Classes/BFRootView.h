@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface BFRootView : UIView 
+@interface BFRootView : UIView <UIActionSheetDelegate>
 {
     UIViewController* viewController;
 }
