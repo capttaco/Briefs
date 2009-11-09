@@ -23,6 +23,7 @@
 
 // Access & Initialization
 + (BFDataManager *)sharedBFDataManager;
+- (NSString *)documentDirectory;
 
 - (void)load;
 - (void)save;

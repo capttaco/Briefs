@@ -10,6 +10,7 @@
 #import "BFSceneManager.h"
 #import "BFSceneViewController.h"
 #import "BFPresentationDispatch.h"
+#import "BFDataManager.h"
 
 
 @implementation BFBriefCellController
@@ -45,7 +46,7 @@
 
 - (void)tableView:(UITableView *)tv didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *pathToDictionary = [[[NSBundle mainBundle] resourcePath] stringByAppendingFormat:@"/%@", brief];
+    NSString *pathToDictionary = [[[BFDataManager sharedBFDataManager] documentDirectory] stringByAppendingPathComponent:brief];
     
     // setup scene view controller
     BFSceneManager *manager = [[BFSceneManager alloc] initWithPathToDictionary:pathToDictionary];

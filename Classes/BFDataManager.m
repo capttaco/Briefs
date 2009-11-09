@@ -23,12 +23,38 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
 #pragma mark -
 #pragma mark Initialization
 
+- (NSString *)documentDirectory
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    return [paths objectAtIndex:0];
+}
+
 - (void)load
 {
     // load the file
     NSString *pathToDictionary = [[[NSBundle mainBundle] resourcePath] 
                                                                 stringByAppendingFormat:@"/%@", kBFDATAMANAGER_STORE_LOCATION];
     self.data_store = [NSMutableDictionary dictionaryWithContentsOfFile: pathToDictionary];
+    
+    // Manually Installed Briefs
+    // =====================================
+    // look for manually installed Briefs
+    // and copy them into the documents
+    // directory with the rest of the briefs
+    
+    // TODO: Make this run on first load only.
+    NSString *bundleDirectory = [[NSBundle mainBundle] resourcePath];
+    NSDirectoryEnumerator *enumerator = [[NSFileManager defaultManager] enumeratorAtPath:bundleDirectory];
+    NSString *next;
+    while (next = [enumerator nextObject]) {
+        if ([[next pathExtension] isEqualToString:@"brieflist"]) {
+            NSString *newPath = [[self documentDirectory] stringByAppendingPathComponent:next];
+            NSString *oldPath = [bundleDirectory stringByAppendingPathComponent:next];
+            NSError *error = [[NSError alloc] init];
+            if(![[NSFileManager defaultManager] copyItemAtPath:oldPath toPath:newPath error:&error])
+                NSLog(@"ERROR! - %@", error);
+        }
+    }
     
 }
 
@@ -60,7 +86,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
 - (NSArray *)listOfLocalBriefsWithExtension:(NSString *)extension
 {
     if (self.knownBriefs == nil) {
-        NSDirectoryEnumerator *enumerator = [[NSFileManager defaultManager] enumeratorAtPath:[[NSBundle mainBundle] resourcePath]];
+        NSDirectoryEnumerator *enumerator = [[NSFileManager defaultManager] enumeratorAtPath:[self documentDirectory]];
         NSMutableArray *arrayOfLocals = [NSMutableArray array];
         
         NSString *next;
