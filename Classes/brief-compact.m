@@ -37,8 +37,10 @@ int main (int argc, const char * argv[])
     }
 
     // 1. Convert local paths into absolute paths & 
-    //      derive the working directory of the brief
+    //    derive the working directory of the brief
+    
     NSString *path = [args objectAtIndex:1];
+    //NSString *path = @"~/Desktop/demo/demo-source.brieflist"; //[args objectAtIndex:1];
     if (![path isAbsolutePath]) {
         path = [[[NSFileManager defaultManager] currentDirectoryPath] stringByAppendingFormat:@"/%@", path];
     }
@@ -62,7 +64,7 @@ int main (int argc, const char * argv[])
     //      path is passed, default to "output.brieflist"
     NSString *output;
     if ([args count] > 2) {
-        output = [args objectAtIndex:2];
+        output = /*@"~/Desktop/demo/demo.brieflist";*/ [args objectAtIndex:2];
         if (![output isAbsolutePath]) {
             output = [[[NSFileManager defaultManager] currentDirectoryPath] stringByAppendingFormat:@"/%@", output];
         }
@@ -94,6 +96,7 @@ NSDictionary* __process(BFScene *scene, NSString *directory)
     
     // compact scene images
     NSData *imageData = __image_data([scene bg], directory);
+    //__pp(@"getting Scene image data: %@", imageData);
     [unpackedDictionary setObject:imageData forKey:@"img"];
     
     int count = 0;
@@ -103,9 +106,12 @@ NSDictionary* __process(BFScene *scene, NSString *directory)
         __pp(@"                     %@", [actor name]);
         
         NSMutableDictionary *unpackedActor = [NSMutableDictionary dictionaryWithDictionary:[arrayOfActors objectAtIndex:count++]];
-        NSData *actorImageData = __image_data([actor bg], directory);
-        [unpackedActor setObject:actorImageData forKey:@"img"];
-        [newActorsArray addObject:unpackedActor]; //insertObject:unpackedActor atIndex:count++];
+        if (actor.bg != nil && ![actor.bg isEqual:@""]) {
+            NSData *actorImageData = __image_data([actor bg], directory);
+            [unpackedActor setObject:actorImageData forKey:@"img"];
+        }
+        
+        [newActorsArray addObject:unpackedActor];
     }
     [unpackedDictionary setObject:newActorsArray forKey:@"actors"];
     
@@ -122,6 +128,7 @@ NSData* __image_data(NSString *path, NSString *directory)
     if (![path isAbsolutePath]) {
         imagePath = [directory stringByAppendingFormat:@"/%@", imagePath];
     }
+    __pp(@"looking in this path for image files: %@", imagePath);
     return [NSData dataWithContentsOfFile:imagePath];
 }
 

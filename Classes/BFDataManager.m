@@ -46,11 +46,27 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
     NSString *bundleDirectory = [[NSBundle mainBundle] resourcePath];
     NSDirectoryEnumerator *enumerator = [[NSFileManager defaultManager] enumeratorAtPath:bundleDirectory];
     NSString *next;
+    
     while (next = [enumerator nextObject]) {
+        // Only move briefs
         if ([[next pathExtension] isEqualToString:@"brieflist"]) {
             NSString *newPath = [[self documentDirectory] stringByAppendingPathComponent:next];
             NSString *oldPath = [bundleDirectory stringByAppendingPathComponent:next];
             NSError *error = [[NSError alloc] init];
+            
+            // check if installed prior
+            if ([[NSFileManager defaultManager] fileExistsAtPath:newPath isDirectory:NO]) {
+                
+                // if it does exist, remove it
+                // ==================================
+                // This allows for new versions to be
+                // loaded, when the user is testing 
+                // in the simulator.
+                
+                if (![[NSFileManager defaultManager] removeItemAtPath:newPath error:&error])
+                    NSLog(@"ERROR! - %@", error);
+            }
+            
             if(![[NSFileManager defaultManager] copyItemAtPath:oldPath toPath:newPath error:&error])
                 NSLog(@"ERROR! - %@", error);
         }

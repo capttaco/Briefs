@@ -52,6 +52,11 @@
 		D472018F10A294BA00601755 /* 58-bookmark.png in Resources */ = {isa = PBXBuildFile; fileRef = D472018E10A294BA00601755 /* 58-bookmark.png */; };
 		D4991095109FEA85008C5E17 /* BFParagraphCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4991094109FEA85008C5E17 /* BFParagraphCellController.m */; };
 		D49E5F5E1011696200B7EEBB /* BFSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D49E5F5D1011696200B7EEBB /* BFSceneViewController.m */; };
+		D4C3264A10B1DCBD00AB1F5E /* BFActor.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FF1A9D107C23EF00956488 /* BFActor.m */; };
+		D4C3264C10B1DCBD00AB1F5E /* BFBriefcast.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FF1A9F107C23EF00956488 /* BFBriefcast.m */; };
+		D4C3264E10B1DCBD00AB1F5E /* BFScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FF1AA1107C23EF00956488 /* BFScene.m */; };
+		D4C3265010B1DCBD00AB1F5E /* BFSceneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FF1AA7107C240600956488 /* BFSceneManager.m */; };
+		D4C3265210B1DCBD00AB1F5E /* BFUtilityParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FF1AA9107C240600956488 /* BFUtilityParser.m */; };
 		D4CA28EC1076EDFA00AA84FE /* BFLabelCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CA28EB1076EDFA00AA84FE /* BFLabelCellController.m */; };
 		D4CA29381076F60500AA84FE /* BFBriefcastViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CA29351076F60500AA84FE /* BFBriefcastViewController.xib */; };
 		D4CA29391076F60500AA84FE /* BFBrowseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CA29361076F60500AA84FE /* BFBrowseViewController.xib */; };
@@ -676,6 +681,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4C3264A10B1DCBD00AB1F5E /* BFActor.m in Sources */,
+				D4C3264C10B1DCBD00AB1F5E /* BFBriefcast.m in Sources */,
+				D4C3264E10B1DCBD00AB1F5E /* BFScene.m in Sources */,
+				D4C3265010B1DCBD00AB1F5E /* BFSceneManager.m in Sources */,
+				D4C3265210B1DCBD00AB1F5E /* BFUtilityParser.m in Sources */,
 				7616293B105061EF008FDF67 /* brief-compact.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
