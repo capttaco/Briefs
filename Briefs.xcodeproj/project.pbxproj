@@ -41,11 +41,8 @@
 		D4641313106879AF001522F6 /* BFAddBriefcastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4641311106879AF001522F6 /* BFAddBriefcastViewController.m */; };
 		D4641314106879AF001522F6 /* BFAddBriefcastViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4641312106879AF001522F6 /* BFAddBriefcastViewController.xib */; };
 		D464133E10695048001522F6 /* BFTextCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D464133D10695048001522F6 /* BFTextCellController.m */; };
-		D464141A1069AB25001522F6 /* howto.brieflist in Resources */ = {isa = PBXBuildFile; fileRef = D46414191069AB25001522F6 /* howto.brieflist */; };
 		D46B795F10A615F800CCD698 /* BFButtonCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D46B795E10A615F800CCD698 /* BFButtonCellController.m */; };
 		D46B799210A61B3D00CCD698 /* BFRemoteBriefCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D46B799110A61B3D00CCD698 /* BFRemoteBriefCellController.m */; };
-		D46B7A1210A65DBC00CCD698 /* BFLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D46B7A1010A65DBC00CCD698 /* BFLoadingViewController.m */; };
-		D46B7A1310A65DBC00CCD698 /* BFLoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D46B7A1110A65DBC00CCD698 /* BFLoadingViewController.xib */; };
 		D47200A810A1139500601755 /* 37-suitcase.png in Resources */ = {isa = PBXBuildFile; fileRef = D47200A710A1139500601755 /* 37-suitcase.png */; };
 		D47200BA10A11A0500601755 /* small-gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = D47200B910A11A0500601755 /* small-gradient.png */; };
 		D47200BD10A11A5100601755 /* BFHeaderCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D47200BC10A11A5100601755 /* BFHeaderCellController.m */; };
@@ -57,6 +54,8 @@
 		D4C3264E10B1DCBD00AB1F5E /* BFScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FF1AA1107C23EF00956488 /* BFScene.m */; };
 		D4C3265010B1DCBD00AB1F5E /* BFSceneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FF1AA7107C240600956488 /* BFSceneManager.m */; };
 		D4C3265210B1DCBD00AB1F5E /* BFUtilityParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FF1AA9107C240600956488 /* BFUtilityParser.m */; };
+		D4C3275310B20DC600AB1F5E /* BFLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C3275110B20DC600AB1F5E /* BFLoadingViewController.m */; };
+		D4C3275410B20DC600AB1F5E /* BFLoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4C3275210B20DC600AB1F5E /* BFLoadingViewController.xib */; };
 		D4CA28EC1076EDFA00AA84FE /* BFLabelCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CA28EB1076EDFA00AA84FE /* BFLabelCellController.m */; };
 		D4CA29381076F60500AA84FE /* BFBriefcastViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CA29351076F60500AA84FE /* BFBriefcastViewController.xib */; };
 		D4CA29391076F60500AA84FE /* BFBrowseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CA29361076F60500AA84FE /* BFBrowseViewController.xib */; };
@@ -156,9 +155,6 @@
 		D46B799010A61B3D00CCD698 /* BFRemoteBriefCellController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFRemoteBriefCellController.h; sourceTree = "<group>"; };
 		D46B799110A61B3D00CCD698 /* BFRemoteBriefCellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFRemoteBriefCellController.m; sourceTree = "<group>"; };
 		D46B799310A6239900CCD698 /* BFRemoteBriefEventDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFRemoteBriefEventDelegate.h; sourceTree = "<group>"; };
-		D46B7A0F10A65DBC00CCD698 /* BFLoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BFLoadingViewController.h; path = ../BFLoadingViewController.h; sourceTree = "<group>"; };
-		D46B7A1010A65DBC00CCD698 /* BFLoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BFLoadingViewController.m; path = ../BFLoadingViewController.m; sourceTree = "<group>"; };
-		D46B7A1110A65DBC00CCD698 /* BFLoadingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BFLoadingViewController.xib; sourceTree = "<group>"; };
 		D47200A710A1139500601755 /* 37-suitcase.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "37-suitcase.png"; path = "images/37-suitcase.png"; sourceTree = "<group>"; };
 		D47200B910A11A0500601755 /* small-gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "small-gradient.png"; path = "images/small-gradient.png"; sourceTree = "<group>"; };
 		D47200BB10A11A5100601755 /* BFHeaderCellController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFHeaderCellController.h; sourceTree = "<group>"; };
@@ -168,6 +164,9 @@
 		D4991094109FEA85008C5E17 /* BFParagraphCellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFParagraphCellController.m; sourceTree = "<group>"; };
 		D49E5F5C1011696200B7EEBB /* BFSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFSceneViewController.h; sourceTree = "<group>"; };
 		D49E5F5D1011696200B7EEBB /* BFSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFSceneViewController.m; sourceTree = "<group>"; };
+		D4C3275010B20DC600AB1F5E /* BFLoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFLoadingViewController.h; sourceTree = "<group>"; };
+		D4C3275110B20DC600AB1F5E /* BFLoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFLoadingViewController.m; sourceTree = "<group>"; };
+		D4C3275210B20DC600AB1F5E /* BFLoadingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BFLoadingViewController.xib; path = Classes/BFLoadingViewController.xib; sourceTree = "<group>"; };
 		D4CA28EA1076EDFA00AA84FE /* BFLabelCellController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFLabelCellController.h; sourceTree = "<group>"; };
 		D4CA28EB1076EDFA00AA84FE /* BFLabelCellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFLabelCellController.m; sourceTree = "<group>"; };
 		D4CA29351076F60500AA84FE /* BFBriefcastViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BFBriefcastViewController.xib; path = Classes/BFBriefcastViewController.xib; sourceTree = "<group>"; };
@@ -299,11 +298,11 @@
 		76FD02EB104CAF4E002E96FA /* nib */ = {
 			isa = PBXGroup;
 			children = (
+				D4C3275210B20DC600AB1F5E /* BFLoadingViewController.xib */,
 				D4CA29351076F60500AA84FE /* BFBriefcastViewController.xib */,
 				D4CA29361076F60500AA84FE /* BFBrowseViewController.xib */,
 				D4CA29371076F60500AA84FE /* MainWindow.xib */,
 				D4641312106879AF001522F6 /* BFAddBriefcastViewController.xib */,
-				D46B7A1110A65DBC00CCD698 /* BFLoadingViewController.xib */,
 			);
 			name = nib;
 			sourceTree = "<group>";
@@ -456,8 +455,8 @@
 		D464130F10687553001522F6 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D46B7A0F10A65DBC00CCD698 /* BFLoadingViewController.h */,
-				D46B7A1010A65DBC00CCD698 /* BFLoadingViewController.m */,
+				D4C3275010B20DC600AB1F5E /* BFLoadingViewController.h */,
+				D4C3275110B20DC600AB1F5E /* BFLoadingViewController.m */,
 				D463E8FD107310170075CCCE /* BFBriefcastViewController.h */,
 				D463E8FE107310170075CCCE /* BFBriefcastViewController.m */,
 				D49E5F5C1011696200B7EEBB /* BFSceneViewController.h */,
@@ -614,7 +613,6 @@
 			files = (
 				76E8699A1051FCE800EB06C9 /* sample-brief.brieflist in Resources */,
 				D4641314106879AF001522F6 /* BFAddBriefcastViewController.xib in Resources */,
-				D464141A1069AB25001522F6 /* howto.brieflist in Resources */,
 				D4309743106AC10B00C1EC5E /* Briefs-data.plist in Resources */,
 				D4CA29381076F60500AA84FE /* BFBriefcastViewController.xib in Resources */,
 				D4CA29391076F60500AA84FE /* BFBrowseViewController.xib in Resources */,
@@ -622,7 +620,7 @@
 				D47200A810A1139500601755 /* 37-suitcase.png in Resources */,
 				D47200BA10A11A0500601755 /* small-gradient.png in Resources */,
 				D472018F10A294BA00601755 /* 58-bookmark.png in Resources */,
-				D46B7A1310A65DBC00CCD698 /* BFLoadingViewController.xib in Resources */,
+				D4C3275410B20DC600AB1F5E /* BFLoadingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -673,7 +671,7 @@
 				D47200BD10A11A5100601755 /* BFHeaderCellController.m in Sources */,
 				D46B795F10A615F800CCD698 /* BFButtonCellController.m in Sources */,
 				D46B799210A61B3D00CCD698 /* BFRemoteBriefCellController.m in Sources */,
-				D46B7A1210A65DBC00CCD698 /* BFLoadingViewController.m in Sources */,
+				D4C3275310B20DC600AB1F5E /* BFLoadingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
