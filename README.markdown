@@ -9,7 +9,7 @@ Follow updates on Twitter: <a href="http://twitter.com/briefsapp">@briefsapp</a>
 Rob Rhyne  
 <a href="mailto:rob@robrhyne.com">rob@robrhyne.com</a>
 
---
+***
 
 Installation Notes
 ==================
