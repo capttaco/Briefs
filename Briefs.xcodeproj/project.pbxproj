@@ -763,7 +763,7 @@
 					AppKit,
 				);
 				PREBINDING = NO;
-				PRODUCT_NAME = BriefsCompactor;
+				PRODUCT_NAME = "compact-briefs";
 				SDKROOT = macosx10.5;
 				ZERO_LINK = NO;
 			};
