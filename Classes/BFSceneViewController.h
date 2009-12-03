@@ -23,11 +23,15 @@
 
 // Local Dispatch Methods
 - (BOOL) willLoadSceneWithIndex:(int)index;
+- (BOOL) willLoadSceneWithIndex:(int)index usingTransition:(NSString *)transition;
 - (BOOL) willToggleActorWithIndex:(int)index;
 - (BOOL) willResizeActorWithIndex:(int)index toSize:(CGSize)size;
 - (BOOL) willMoveActorWithIndex:(int)index toPoint:(CGPoint)point;
 
 // Global Dispatch Methods
 - (BOOL) willShowKeyboard:(NSString *)type;
+
+// Convenience Methods
+- (void)performTransition:(NSString *)transition onEnteringView:(BFSceneView *)entering removingOldView:(BFSceneView *)exiting;
 
 @end

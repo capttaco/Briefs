@@ -35,7 +35,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFPresentationDispatch);
 #pragma mark -
 #pragma mark Local Dispatch Methods
 
-- (void) gotoScene:(int)indexOfScene
+- (void)gotoScene:(int)indexOfScene
 {
     if (self.viewController != nil) {
         if ([self.viewController willLoadSceneWithIndex:indexOfScene] == false)
@@ -47,7 +47,19 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFPresentationDispatch);
     }
 }
 
-- (void) toggleActor:(int)indexOfActor
+- (void)gotoScene:(int)indexOfScene usingTransition:(NSString *)transition
+{
+    if (self.viewController != nil) {
+        if ([self.viewController willLoadSceneWithIndex:indexOfScene usingTransition:transition] == false)
+            // TODO: throw exception
+            NSLog(@"Throw an exception, because the scene did not load!");
+        else {
+            NSLog(@"Scene %d was just loaded using the transition %@", indexOfScene, transition);
+        }
+    }
+}
+
+- (void)toggleActor:(int)indexOfActor
 { 
     if (self.viewController != nil) {
         if ([self.viewController willToggleActorWithIndex:indexOfActor] == false)

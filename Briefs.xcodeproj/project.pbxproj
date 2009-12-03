@@ -12,7 +12,6 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
-		7616292E10505FDA008FDF67 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7616292D10505FDA008FDF67 /* Foundation.framework */; };
 		7616293B105061EF008FDF67 /* brief-compact.m in Sources */ = {isa = PBXBuildFile; fileRef = 7616293210506098008FDF67 /* brief-compact.m */; };
 		76E8699A1051FCE800EB06C9 /* sample-brief.brieflist in Resources */ = {isa = PBXBuildFile; fileRef = 76E869931051FCD700EB06C9 /* sample-brief.brieflist */; };
 		76FD02EF104CAF96002E96FA /* BFBrowseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76FD02ED104CAF96002E96FA /* BFBrowseViewController.m */; };
@@ -49,6 +48,7 @@
 		D472018F10A294BA00601755 /* 58-bookmark.png in Resources */ = {isa = PBXBuildFile; fileRef = D472018E10A294BA00601755 /* 58-bookmark.png */; };
 		D4991095109FEA85008C5E17 /* BFParagraphCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4991094109FEA85008C5E17 /* BFParagraphCellController.m */; };
 		D49E5F5E1011696200B7EEBB /* BFSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D49E5F5D1011696200B7EEBB /* BFSceneViewController.m */; };
+		D4C0F3A810C7710A008E8DE5 /* transition-sample.brieflist in Resources */ = {isa = PBXBuildFile; fileRef = D4C0F3A710C7710A008E8DE5 /* transition-sample.brieflist */; };
 		D4C3264A10B1DCBD00AB1F5E /* BFActor.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FF1A9D107C23EF00956488 /* BFActor.m */; };
 		D4C3264C10B1DCBD00AB1F5E /* BFBriefcast.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FF1A9F107C23EF00956488 /* BFBriefcast.m */; };
 		D4C3264E10B1DCBD00AB1F5E /* BFScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FF1AA1107C23EF00956488 /* BFScene.m */; };
@@ -80,7 +80,6 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Briefs_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Briefs_Prefix.pch; sourceTree = "<group>"; };
 		761627D2104F632C008FDF67 /* sample-brief-source.brieflist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "sample-brief-source.brieflist"; path = "sample/sample-brief-source.brieflist"; sourceTree = "<group>"; };
-		7616292D10505FDA008FDF67 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7616293210506098008FDF67 /* brief-compact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "brief-compact.m"; sourceTree = "<group>"; };
 		76E869931051FCD700EB06C9 /* sample-brief.brieflist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = "sample-brief.brieflist"; path = "sample/sample-brief.brieflist"; sourceTree = "<group>"; };
 		76FD02EC104CAF96002E96FA /* BFBrowseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFBrowseViewController.h; sourceTree = "<group>"; };
@@ -164,6 +163,7 @@
 		D4991094109FEA85008C5E17 /* BFParagraphCellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFParagraphCellController.m; sourceTree = "<group>"; };
 		D49E5F5C1011696200B7EEBB /* BFSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFSceneViewController.h; sourceTree = "<group>"; };
 		D49E5F5D1011696200B7EEBB /* BFSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFSceneViewController.m; sourceTree = "<group>"; };
+		D4C0F3A710C7710A008E8DE5 /* transition-sample.brieflist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = "transition-sample.brieflist"; path = "sample/transition-sample.brieflist"; sourceTree = "<group>"; };
 		D4C3275010B20DC600AB1F5E /* BFLoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFLoadingViewController.h; sourceTree = "<group>"; };
 		D4C3275110B20DC600AB1F5E /* BFLoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFLoadingViewController.m; sourceTree = "<group>"; };
 		D4C3275210B20DC600AB1F5E /* BFLoadingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BFLoadingViewController.xib; path = Classes/BFLoadingViewController.xib; sourceTree = "<group>"; };
@@ -209,7 +209,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7616292E10505FDA008FDF67 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,7 +247,6 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				7616292D10505FDA008FDF67 /* Foundation.framework */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -420,6 +418,7 @@
 		D463E8BE106D6C580075CCCE /* My Briefs */ = {
 			isa = PBXGroup;
 			children = (
+				D4C0F3A710C7710A008E8DE5 /* transition-sample.brieflist */,
 			);
 			name = "My Briefs";
 			sourceTree = "<group>";
@@ -621,6 +620,7 @@
 				D47200BA10A11A0500601755 /* small-gradient.png in Resources */,
 				D472018F10A294BA00601755 /* 58-bookmark.png in Resources */,
 				D4C3275410B20DC600AB1F5E /* BFLoadingViewController.xib in Resources */,
+				D4C0F3A810C7710A008E8DE5 /* transition-sample.brieflist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

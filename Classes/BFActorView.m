@@ -63,7 +63,14 @@
         //   scene is not zero-based, so convert.
         
         NSString *arg1 = [actionArguments objectAtIndex:0];
-        [[BFPresentationDispatch sharedBFPresentationDispatch] gotoScene:[arg1 intValue]];
+        
+        if ([actionArguments count] <= 1) {
+            [[BFPresentationDispatch sharedBFPresentationDispatch] gotoScene:[arg1 intValue]];
+        }
+        else {
+            NSString *arg2 = [[actionArguments objectAtIndex:1] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+            [[BFPresentationDispatch sharedBFPresentationDispatch] gotoScene:[arg1 intValue] usingTransition:arg2];
+        }
     }
     
     else if (typeOfAction == kBFACTOR_TOGGLE_ACTION) {

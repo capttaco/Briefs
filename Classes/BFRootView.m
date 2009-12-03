@@ -18,6 +18,7 @@
         // enable user interaction, per documentation
         [self setUserInteractionEnabled:YES];
         viewController = controller;
+        self.backgroundColor = [UIColor blackColor];
 
     }
     return self;

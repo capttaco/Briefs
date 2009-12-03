@@ -8,7 +8,7 @@
 
 #import "BFSceneViewController.h"
 #import "BFRootView.h"
-
+#import "BFConstants.h"
 
 @implementation BFSceneViewController
 
@@ -71,21 +71,31 @@
 
 - (BOOL)willLoadSceneWithIndex:(int)index
 {
+    return [self willLoadSceneWithIndex:index usingTransition:nil];
+}
+
+- (BOOL)willLoadSceneWithIndex:(int)index usingTransition:(NSString *)transition 
+{
     BFScene *scene = [dataManager sceneByNumber:index];
-    if (scene == nil) {
+    
+    // ensure that the scene exists
+    if (scene == nil)
         return false;
-    } else {
+    
+    // display the view
+    else {
         
         // remove from old scene
         // TODO: need to remove this according to scene transition
-        if (self.current_scene != nil) {
-            [self.current_scene removeFromSuperview];
-        }
-        
         BFSceneView *scene_view = [[BFSceneView alloc] initWithScene:scene];
-        self.current_scene = scene_view;
-        [self.view addSubview:scene_view];
         
+        if (self.current_scene != nil && transition != nil)
+            [self performTransition:transition onEnteringView:scene_view removingOldView:self.current_scene];
+            
+        else
+            [self.view addSubview:scene_view];
+        
+        self.current_scene = scene_view;
         [scene_view release];
         
         return true;
@@ -110,12 +120,97 @@
     return false;
 }
 
+- (void)performTransition:(NSString *)transition onEnteringView:(BFSceneView *)entering removingOldView:(BFSceneView *)exiting
+{
+    
+    // Z O O M  T R A N S I T I O N
+    // supported directions: (in, out)
+
+    if ([transition hasPrefix:kBFSceneTransitionZoom]) {
+        
+        CGFloat d0 = ([transition hasSuffix:kBFSceneTransitionDirectionIn]) ? 0.01f : 3.0f;
+        CGFloat d1 = 1.0f;
+        
+        exiting.alpha = 0.5f;
+        
+        [UIView beginAnimations:@"ZoomTransition" context:nil];
+        [UIView setAnimationDuration:0.5f];
+        [self.view addSubview:entering];
+        
+        entering.transform = CGAffineTransformMakeScale(d0, d0);
+        entering.alpha = 0.01f;
+        
+        exiting.alpha = 0.0f;
+        if ([transition hasSuffix:kBFSceneTransitionDirectionIn])
+            exiting.transform = CGAffineTransformMakeScale(3.0f, 3.0f);
+        
+        entering.transform = CGAffineTransformMakeScale(d1, d1);
+        entering.alpha = 1.0f;
+    }
+    
+    
+    // P U S H  T R A N S I T I O N
+    // supported directions: (left, right)
+    
+    else if ([transition hasPrefix:kBFSceneTransitionPush]) {
+        
+        CGFloat tx = ([transition hasSuffix:kBFSceneTransitionDirectionLeft]) ? 320.0f : -320.0f;
+        CGFloat ty = 0.0f;
+
+        entering.transform = CGAffineTransformMakeTranslation(-tx, ty);
+        
+        [UIView beginAnimations:@"PushTransition" context:nil];
+        [UIView setAnimationDuration:0.5f];
+        
+        [self.view insertSubview:entering belowSubview:exiting];
+        
+        exiting.transform = CGAffineTransformMakeTranslation(tx, ty);
+        entering.transform = CGAffineTransformMakeTranslation(0.0f, ty);
+    }
+    
+    // F L I P  T R A N S I T I O N
+    // supported directions: (left, right)
+    
+    else if ([transition hasPrefix:kBFSceneTransitionFlip]) {
+        
+        [UIView beginAnimations:@"FlipTransition" context:nil];
+        [UIView setAnimationDuration:0.5f];
+        
+        UIViewAnimationTransition transitionType = [transition hasSuffix:kBFSceneTransitionDirectionLeft] ?  UIViewAnimationTransitionFlipFromLeft :  UIViewAnimationTransitionFlipFromRight;
+        [UIView setAnimationTransition:transitionType forView:self.view cache:YES];
+        
+        [self.view addSubview:entering];
+        [exiting removeFromSuperview];
+    }
+    
+    
+    // S L I D E  T R A N S I T I O N
+    // supported directions: (top, bottom)
+    
+    else {
+        
+        CGFloat ty = ([transition hasSuffix:kBFSceneTransitionDirectionBottom]) ? 480.0f : -480.0f;
+        CGFloat tx = 0.0f;
+        
+        entering.transform = CGAffineTransformMakeTranslation(tx, -ty);
+        
+        [UIView beginAnimations:@"SlideTransition" context:nil];
+        [UIView setAnimationDuration:0.5f];
+        
+        [self.view insertSubview:entering aboveSubview:exiting];
+        entering.transform = CGAffineTransformMakeTranslation(tx, 0.0f);
+    }
+    
+    // commit the animation stack
+    [UIView commitAnimations];
+}
+
 
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -
 #pragma mark Global Dispatch Methods
 
-- (BOOL) willShowKeyboard:(NSString *)type {
+- (BOOL)willShowKeyboard:(NSString *)type {
     // TODO: implement keyboard display
     return false;
 }
