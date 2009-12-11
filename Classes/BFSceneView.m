@@ -34,6 +34,7 @@
             
             [view release];
         }
+        self.actor_views = subViews;
     }
     return self;
 }

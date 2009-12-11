@@ -40,6 +40,7 @@
 		D4641313106879AF001522F6 /* BFAddBriefcastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4641311106879AF001522F6 /* BFAddBriefcastViewController.m */; };
 		D4641314106879AF001522F6 /* BFAddBriefcastViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4641312106879AF001522F6 /* BFAddBriefcastViewController.xib */; };
 		D464133E10695048001522F6 /* BFTextCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D464133D10695048001522F6 /* BFTextCellController.m */; };
+		D46A15D310D1FF1000B92FDF /* actions-sample.brieflist in Resources */ = {isa = PBXBuildFile; fileRef = D46A15D210D1FF1000B92FDF /* actions-sample.brieflist */; };
 		D46B795F10A615F800CCD698 /* BFButtonCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D46B795E10A615F800CCD698 /* BFButtonCellController.m */; };
 		D46B799210A61B3D00CCD698 /* BFRemoteBriefCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D46B799110A61B3D00CCD698 /* BFRemoteBriefCellController.m */; };
 		D47200A810A1139500601755 /* 37-suitcase.png in Resources */ = {isa = PBXBuildFile; fileRef = D47200A710A1139500601755 /* 37-suitcase.png */; };
@@ -149,6 +150,7 @@
 		D464133C10695048001522F6 /* BFTextCellController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFTextCellController.h; sourceTree = "<group>"; };
 		D464133D10695048001522F6 /* BFTextCellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFTextCellController.m; sourceTree = "<group>"; };
 		D46414191069AB25001522F6 /* howto.brieflist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = howto.brieflist; sourceTree = "<group>"; };
+		D46A15D210D1FF1000B92FDF /* actions-sample.brieflist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = "actions-sample.brieflist"; path = "sample/actions-sample.brieflist"; sourceTree = "<group>"; };
 		D46B795D10A615F800CCD698 /* BFButtonCellController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFButtonCellController.h; sourceTree = "<group>"; };
 		D46B795E10A615F800CCD698 /* BFButtonCellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFButtonCellController.m; sourceTree = "<group>"; };
 		D46B799010A61B3D00CCD698 /* BFRemoteBriefCellController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFRemoteBriefCellController.h; sourceTree = "<group>"; };
@@ -418,6 +420,7 @@
 		D463E8BE106D6C580075CCCE /* My Briefs */ = {
 			isa = PBXGroup;
 			children = (
+				D46A15D210D1FF1000B92FDF /* actions-sample.brieflist */,
 				D4C0F3A710C7710A008E8DE5 /* transition-sample.brieflist */,
 			);
 			name = "My Briefs";
@@ -621,6 +624,7 @@
 				D472018F10A294BA00601755 /* 58-bookmark.png in Resources */,
 				D4C3275410B20DC600AB1F5E /* BFLoadingViewController.xib in Resources */,
 				D4C0F3A810C7710A008E8DE5 /* transition-sample.brieflist in Resources */,
+				D46A15D310D1FF1000B92FDF /* actions-sample.brieflist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

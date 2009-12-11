@@ -29,6 +29,22 @@
 					<key>action</key>
 					<string>goto(1, slideBottom)</string>
 				</dict>
+			    <dict>
+					<key>img</key>
+					<string>actor1.png</string>
+					<key>x</key>
+					<integer>60</integer>
+					<key>y</key>
+					<integer>250</integer>
+					<key>width</key>
+					<integer>200</integer>
+					<key>height</key>
+					<integer>50</integer>
+					<key>name</key>
+					<string>Actor2</string>
+					<key>action</key>
+					<string>move(0, 60, 50)</string>
+				</dict>
 			</array>
 		</dict>
 		<dict>

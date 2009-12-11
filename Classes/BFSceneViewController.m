@@ -8,6 +8,7 @@
 
 #import "BFSceneViewController.h"
 #import "BFRootView.h"
+#import "BFActorView.h"
 #import "BFConstants.h"
 
 @implementation BFSceneViewController
@@ -110,14 +111,44 @@
 
 - (BOOL)willResizeActorWithIndex:(int)index toSize:(CGSize)size 
 {
-    // TODO: implement actor resizing, by index
-    return false;
+    if (self.current_scene != nil) {
+        BFActorView *actor = [self.current_scene.actor_views objectAtIndex:index];
+
+        // begin animation
+        [UIView beginAnimations:@"ResizeTransition" context:nil];
+        [UIView setAnimationDuration:0.5f];
+        
+        CGPoint origin = actor.frame.origin;
+        actor.frame = CGRectMake(origin.x, origin.y, size.width, size.height);
+        
+        // commit the animation stack
+        [UIView commitAnimations];
+        
+        return true;
+    }
+    
+    else return false;
 }
 
 - (BOOL)willMoveActorWithIndex:(int)index toPoint:(CGPoint)point 
 {
-    // TODO: implement actor movement, by index
-    return false;
+    if (self.current_scene != nil) {
+        BFActorView *actor = [self.current_scene.actor_views objectAtIndex:index];
+        
+        // begin animation
+        [UIView beginAnimations:@"MoveTransition" context:nil];
+        [UIView setAnimationDuration:0.5f];
+        
+        CGSize size = actor.frame.size;
+        actor.frame = CGRectMake(point.x, point.y, size.width, size.height);
+        
+        // commit the animation stack
+        [UIView commitAnimations];
+        
+        return true;
+    }
+    
+    else return false;
 }
 
 - (void)performTransition:(NSString *)transition onEnteringView:(BFSceneView *)entering removingOldView:(BFSceneView *)exiting
