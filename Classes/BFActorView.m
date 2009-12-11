@@ -17,7 +17,7 @@
 
 @synthesize actor;
 
-- (id) initWithActor:(BFActor *)source 
+- (id)initWithActor:(BFActor *)source 
 {
     if (self = [super initWithImage:[BFViewUtilityParser parseImageFromRepresentation:[source background]]]) {
         // enable user interaction, per documentation
@@ -68,7 +68,7 @@
             [[BFPresentationDispatch sharedBFPresentationDispatch] gotoScene:[arg1 intValue]];
         }
         else {
-            NSString *arg2 = [[actionArguments objectAtIndex:1] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+            NSString *arg2 = [actionArguments objectAtIndex:1];
             [[BFPresentationDispatch sharedBFPresentationDispatch] gotoScene:[arg1 intValue] usingTransition:arg2];
         }
     }
