@@ -27,7 +27,7 @@
 					<key>name</key>
 					<string>Actor1</string>
 					<key>action</key>
-					<string>goto(1, slideBottom)</string>
+					<string>goto(1, zoomIn)</string>
 				</dict>
 			    <dict>
 					<key>img</key>
@@ -43,7 +43,7 @@
 					<key>name</key>
 					<string>Actor2</string>
 					<key>action</key>
-					<string>move(0, 60, 50)</string>
+					<string>resize(0, 100, 25)</string>
 				</dict>
 			</array>
 		</dict>

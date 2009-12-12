@@ -68,7 +68,7 @@
             [[BFPresentationDispatch sharedBFPresentationDispatch] gotoScene:[arg1 intValue]];
         }
         else {
-            NSString *arg2 = [actionArguments objectAtIndex:1];
+            NSString *arg2 = [[actionArguments objectAtIndex:1] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
             [[BFPresentationDispatch sharedBFPresentationDispatch] gotoScene:[arg1 intValue] usingTransition:arg2];
         }
     }
