@@ -8,9 +8,9 @@
 			<key>description</key>
 			<string>An example of a briefcast feed, that provides access to briefs on the phone.</string>
 			<key>url</key>
-			<string>http://digitalarch.net/briefcast/briefcast.xml</string>
+			<string>http://giveabrief.com/cast/briefcast.xml</string>
 			<key>title</key>
-			<string>Example Briefcast</string>
+			<string>Briefcast Demo</string>
 		</dict>
 	</array>
 </dict>
