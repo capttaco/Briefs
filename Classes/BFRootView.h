@@ -11,9 +11,13 @@
 
 @interface BFRootView : UIView <UIActionSheetDelegate>
 {
-    UIViewController* viewController;
+    UIViewController    *viewController;
+    NSTimer             *timer;
 }
 
 - (id)initWithFrame:(CGRect)frame andViewController:(UIViewController *)controller;
+- (void)handleTapHoldGesture;
+- (void)cancelGestureTimer;
+
 
 @end

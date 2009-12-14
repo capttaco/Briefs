@@ -7,6 +7,7 @@
 //
 
 #import "BFActorView.h"
+#import "BFRootView.h"
 #import "BFPresentationDispatch.h"
 #import "BFViewUtilityParser.h"
 #import "BFUtilityParser.h"
@@ -31,24 +32,19 @@
     return self;
 }
 
-- (void) dealloc {
+- (void) dealloc 
+{
     [actor release];
     [super dealloc];
 }
 
 
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    UITouch* touch = [touches anyObject];
-    NSUInteger numTaps = [touch tapCount];
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event 
+{
+    BFRootView *rootView = (BFRootView *) self.superview.superview;
+    [rootView cancelGestureTimer];    
     
-    if (numTaps > 1) {
-        // multiple taps are forwareded
-        [self.nextResponder touchesEnded:touches withEvent:event];
-    
-    } else {
-        // single tap launches the actor's action
-        [self executeAction:[self.actor action]];
-    }
+    [self executeAction:[self.actor action]];
 }
 
 - (void)executeAction:(NSString *)action

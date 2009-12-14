@@ -11,6 +11,9 @@
 
 @implementation BFRootView
 
+///////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark NSObject life-cycle
 
 - (id)initWithFrame:(CGRect)frame andViewController:(UIViewController *)controller
 {
@@ -19,6 +22,7 @@
         [self setUserInteractionEnabled:YES];
         viewController = controller;
         self.backgroundColor = [UIColor blackColor];
+        timer = nil;
 
     }
     return self;
@@ -30,12 +34,40 @@
 }
 
 
+///////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark UIView Event Handling
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event 
+{
+    [self cancelGestureTimer];
+    timer = [NSTimer scheduledTimerWithTimeInterval:1.0 
+                                             target:self
+                                           selector:@selector(handleTapHoldGesture)
+                                           userInfo:nil
+                                            repeats:NO];
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event 
+{
+    [self cancelGestureTimer];
+}
+
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event 
 {
-    UITouch *touch = [touches anyObject];
-    NSUInteger numTaps = [touch tapCount];
-    
-    if (numTaps > 1) {
+    [self cancelGestureTimer];
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark Exiting a Brief
+
+- (void)handleTapHoldGesture 
+{
+    if (timer != nil) {
+        [self cancelGestureTimer];
+        
         UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Do you want to close the Brief?" 
                                                            delegate:self
                                                   cancelButtonTitle:@"Nevermind"
@@ -43,12 +75,16 @@
                                                   otherButtonTitles:nil];
         sheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
         [sheet showInView:self];
-            
-    } 
-    
-    else {
-        // single taps are forwareded
-        [self.nextResponder touchesEnded:touches withEvent:event];
+        
+
+    }
+}
+
+- (void)cancelGestureTimer
+{
+    if (timer != nil) {
+        [timer invalidate];
+        timer = nil;    
     }
 }
 
@@ -57,5 +93,8 @@
     if (buttonIndex == 0)
         [[viewController navigationController] popViewControllerAnimated:YES];
 }
+
+
+///////////////////////////////////////////////////////////////////////////////
 
 @end
