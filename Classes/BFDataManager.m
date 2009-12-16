@@ -11,7 +11,7 @@
 #import "BFBriefCellController.h"
 #import "BFBriefcastCellController.h"
 
-#define kBFDATAMANAGER_STORE_LOCATION    @"Briefs-data.plist"
+#define kBFDataManagerStoreLocation    @"Briefs-data.plist"
 
 
 @implementation BFDataManager
@@ -29,12 +29,28 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
     return [paths objectAtIndex:0];
 }
 
+- (NSString *)locationOfDataStore
+{
+    NSString *standardLocation = [[self documentDirectory] stringByAppendingPathComponent:kBFDataManagerStoreLocation];
+    NSString *firstRunLocation = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:kBFDataManagerStoreLocation];
+    
+    // check for data store in documents directory
+    if ([[NSFileManager defaultManager] fileExistsAtPath:standardLocation]) {
+        return standardLocation;
+    }
+    
+    // if not there, check the app bundle
+    else if ([[NSFileManager defaultManager] fileExistsAtPath:firstRunLocation]) {
+        return firstRunLocation;
+    }
+    
+    else return nil;
+}
+
 - (void)load
 {
     // load the file
-    NSString *pathToDictionary = [[[NSBundle mainBundle] resourcePath] 
-                                                                stringByAppendingFormat:@"/%@", kBFDATAMANAGER_STORE_LOCATION];
-    self.data_store = [NSMutableDictionary dictionaryWithContentsOfFile: pathToDictionary];
+    self.data_store = [NSMutableDictionary dictionaryWithContentsOfFile:[self locationOfDataStore]];
     
     // Manually Installed Briefs
     // =====================================
@@ -76,9 +92,9 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
 
 - (void)save
 {
+    NSString *pathToDictionary = [[self documentDirectory] stringByAppendingPathComponent:kBFDataManagerStoreLocation];
+    
     // save the data store
-    NSString *pathToDictionary = [[[NSBundle mainBundle] resourcePath] 
-                                                                stringByAppendingFormat:@"/%@", kBFDATAMANAGER_STORE_LOCATION];
     if ([self.data_store writeToFile:pathToDictionary atomically:YES]) {
         NSLog(@"Successfully persisted briefs meta data file");
     }
