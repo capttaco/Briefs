@@ -41,16 +41,23 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event 
 {
     [self cancelGestureTimer];
-    timer = [NSTimer scheduledTimerWithTimeInterval:1.0 
+    timer = [NSTimer scheduledTimerWithTimeInterval:0.8f 
                                              target:self
                                            selector:@selector(handleTapHoldGesture)
                                            userInfo:nil
                                             repeats:NO];
 }
 
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event 
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [self cancelGestureTimer];
+    // check to see how much the touches moved
+    UITouch *touch = (UITouch *) [touches anyObject];
+    CGPoint now = [touch locationInView:self];
+    CGPoint then = [touch previousLocationInView:self];
+    
+    if (abs(now.x - then.x) > 5.0f || abs(now.y - then.y) > 5.0f) {
+        [self cancelGestureTimer];
+    }
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event 
