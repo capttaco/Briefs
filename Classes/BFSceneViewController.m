@@ -7,6 +7,7 @@
 //
 
 #import "BFSceneViewController.h"
+#import "BFViewUtilityParser.h"
 #import "BFRootView.h"
 #import "BFActorView.h"
 #import "BFConstants.h"
@@ -105,8 +106,35 @@
 
 - (BOOL)willToggleActorWithIndex:(int)index 
 {
-    // TODO: implement actor toggling, by index
-    return false;
+    if (self.current_scene != nil) {
+        BFActorView *actorView = [self.current_scene.actor_views objectAtIndex:index];
+        
+        UIImageView *stubView = [[UIImageView alloc] initWithImage:actorView.image];
+        stubView.frame = actorView.frame;
+        [self.current_scene addSubview:stubView];
+        
+        // begin animation
+        [UIView beginAnimations:@"ToggleTransition" context:nil];
+        [UIView setAnimationDuration:0.5f];
+        
+        stubView.alpha = 1.0f;
+        actorView.alpha = 0.0f;
+        
+        // swap the images
+        [actorView.actor toggle];
+        actorView.image = [BFViewUtilityParser parseImageFromRepresentation:[actorView.actor background]];
+        
+        // ease the new image back in
+        stubView.alpha = 0.0f;
+        actorView.alpha = 1.0f;
+        
+        // commit the animation stack
+        [UIView commitAnimations];
+        
+        return true;
+    }
+    
+    else return false;
 }
 
 - (BOOL)willResizeActorWithIndex:(int)index toSize:(CGSize)size 

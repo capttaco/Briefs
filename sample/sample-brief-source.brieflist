@@ -14,6 +14,8 @@
 			<key>actors</key>
 			<array>
 				<dict>
+					<key>disabled</key>
+					<string>actor1-disabled.png</string>
 					<key>img</key>
 					<string>actor1.png</string>
 					<key>x</key>
@@ -29,7 +31,7 @@
 					<key>action</key>
 					<string>goto(1, zoomIn)</string>
 				</dict>
-			    <dict>
+				<dict>
 					<key>img</key>
 					<string>actor1.png</string>
 					<key>x</key>
@@ -43,7 +45,7 @@
 					<key>name</key>
 					<string>Actor2</string>
 					<key>action</key>
-					<string>resize(0, 100, 25)</string>
+					<string>toggle(0)</string>
 				</dict>
 			</array>
 		</dict>

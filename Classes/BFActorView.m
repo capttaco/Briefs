@@ -43,8 +43,10 @@
 {
     BFRootView *rootView = (BFRootView *) self.superview.superview;
     [rootView cancelGestureTimer];    
-    
-    [self executeAction:[self.actor action]];
+
+    if (self.actor.isActive == YES) {        
+        [self executeAction:[self.actor action]];        
+    }
 }
 
 - (void)executeAction:(NSString *)action

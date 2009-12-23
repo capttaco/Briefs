@@ -20,6 +20,5 @@
 
 // action handling
 - (void)executeAction:(NSString *)action;
-- (void)toggle;
 
 @end

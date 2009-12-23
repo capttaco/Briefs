@@ -111,6 +111,12 @@ NSDictionary* __process(BFScene *scene, NSString *directory)
             [unpackedActor setObject:actorImageData forKey:@"img"];
         }
         
+        // check for disabled graphics too
+        if (actor.disabledBg != nil && ![actor.disabledBg isEqual:@""]) {
+            NSData *actorImageData = __image_data([actor disabledBg], directory);
+            [unpackedActor setObject:actorImageData forKey:@"disabled"];
+        }
+        
         [newActorsArray addObject:unpackedActor];
     }
     [unpackedDictionary setObject:newActorsArray forKey:@"actors"];
