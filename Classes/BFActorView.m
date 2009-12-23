@@ -52,7 +52,7 @@
     NSString *typeOfAction = [BFUtilityParser parseActionCommand:action];
     NSArray *actionArguments = [BFUtilityParser parseActionArgsIntoArray:action withPrefix:typeOfAction];
     
-    if (typeOfAction == kBFACTOR_GOTO_ACTION) {
+    if (typeOfAction == kBFActorActionGoto) {
 
         // GOTO (index)
         //   action contains one argument: the index of the scene to goto
@@ -69,7 +69,7 @@
         }
     }
     
-    else if (typeOfAction == kBFACTOR_TOGGLE_ACTION) {
+    else if (typeOfAction == kBFActorActionToggle) {
         
         // TOGGLE (index)
         //   action contains one argument: the index of the actor 
@@ -79,7 +79,7 @@
         [[BFPresentationDispatch sharedBFPresentationDispatch] toggleActor:[arg1 intValue]];
     }
         
-    else if (typeOfAction == kBFACTOR_MOVE_ACTION) {
+    else if (typeOfAction == kBFActorActionMove) {
         
         // MOVE (index, x, y) 
         //   action contains two arguments, broken over three passed arguments:
@@ -92,7 +92,7 @@
         [[BFPresentationDispatch sharedBFPresentationDispatch] move:[arg1 intValue] toPoint:arg2AsPoint];
     }
     
-    else if (typeOfAction == kBFACTOR_RESIZE_ACTION) {
+    else if (typeOfAction == kBFActorActionResize) {
         
         // RESIZE (index, w, h) 
         //   action contains two arguments, broken over three passed arguments:
