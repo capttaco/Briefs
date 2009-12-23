@@ -80,6 +80,26 @@
         NSString *arg1 = [actionArguments objectAtIndex:0];
         [[BFPresentationDispatch sharedBFPresentationDispatch] toggleActor:[arg1 intValue]];
     }
+    
+    else if (typeOfAction == kBFActorActionHide) {
+        
+        // HIDE (index)
+        //   action contains one argument: the index of the actor 
+        //   is not zero-based, so convert.
+        
+        NSString *arg1 = [actionArguments objectAtIndex:0];
+        [[BFPresentationDispatch sharedBFPresentationDispatch] hide:[arg1 intValue]];
+    }
+    
+    else if (typeOfAction == kBFActorActionShow) {
+        
+        // SHOW (index)
+        //   action contains one argument: the index of the actor 
+        //   is not zero-based, so convert.
+        
+        NSString *arg1 = [actionArguments objectAtIndex:0];
+        [[BFPresentationDispatch sharedBFPresentationDispatch] show:[arg1 intValue]];
+    }
         
     else if (typeOfAction == kBFActorActionMove) {
         

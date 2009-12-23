@@ -9,13 +9,16 @@
 
 @protocol BFLocalActionDispatch
 
-// Local Actions
+// Acts upon Scenes
 - (void)gotoScene:(int)indexOfScene;
 - (void)gotoScene:(int)indexOfScene usingTransition:(NSString *)transition;
 
+// Acts upon Actors
 - (void)toggleActor:(int)indexOfActor;
 - (void)resize:(int)indexOfActor withSize:(CGSize)size;
 - (void)move:(int)indexOfActor toPoint:(CGPoint)point;
+- (void)show:(int)indexOfActor;
+- (void)hide:(int)indexOfActor;
 
 @end 
 

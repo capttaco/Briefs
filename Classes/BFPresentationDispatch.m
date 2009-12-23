@@ -71,6 +71,31 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFPresentationDispatch);
     }
 }
 
+- (void)show:(int)indexOfActor
+{
+    if (self.viewController != nil) {
+        if ([self.viewController willShowActorWithIndex:indexOfActor] == false)
+            // TODO: throw exception
+            NSLog(@"Throw an exception, because the actor was not shown!");
+        else {
+            NSLog(@"Actor %d is now showing.", indexOfActor);
+        }
+    }
+}
+
+- (void)hide:(int)indexOfActor
+{
+    if (self.viewController != nil) {
+        if ([self.viewController willHideActorWithIndex:indexOfActor] == false)
+            // TODO: throw exception
+            NSLog(@"Throw an exception, because the actor was not hidden!");
+        else {
+            NSLog(@"Actor %d was just hidden", indexOfActor);
+        }
+    }
+}
+
+
 - (void)resize:(int)indexOfActor withSize:(CGSize)size
 {
     if (self.viewController != nil) {

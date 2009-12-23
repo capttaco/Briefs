@@ -137,6 +137,47 @@
     else return false;
 }
 
+- (BOOL)willShowActorWithIndex:(int)index
+{
+    if (self.current_scene != nil) {
+        BFActorView *actorView = [self.current_scene.actor_views objectAtIndex:index];
+        
+        // begin animation
+        [UIView beginAnimations:@"ShowTransition" context:nil];
+        [UIView setAnimationDuration:0.5f];
+        
+        actorView.alpha = 1.0f;
+        
+        // commit the animation stack
+        [UIView commitAnimations];
+        
+        return true;
+    }
+    
+    else return false;
+}
+
+- (BOOL)willHideActorWithIndex:(int)index
+{
+    if (self.current_scene != nil) {
+        BFActorView *actorView = [self.current_scene.actor_views objectAtIndex:index];
+        
+        // begin animation
+        [UIView beginAnimations:@"HideTransition" context:nil];
+        [UIView setAnimationDuration:0.5f];
+        
+        actorView.alpha = 0.0f;
+        
+        // commit the animation stack
+        [UIView commitAnimations];
+        
+        return true;
+    }
+    
+    else return false;
+    
+}
+
 - (BOOL)willResizeActorWithIndex:(int)index toSize:(CGSize)size 
 {
     if (self.current_scene != nil) {
@@ -178,6 +219,7 @@
     
     else return false;
 }
+
 
 - (void)performTransition:(NSString *)transition onEnteringView:(BFSceneView *)entering removingOldView:(BFSceneView *)exiting
 {
