@@ -284,6 +284,20 @@
         [exiting removeFromSuperview];
     }
     
+    // C U R L  T R A N S I T I O N
+    // supported directions: (up, down)
+    
+    else if ([transition hasPrefix:kBFSceneTransitionCurl]) {
+        
+        [UIView beginAnimations:@"CurlTransition" context:nil];
+        [UIView setAnimationDuration:1.0f];
+        
+        UIViewAnimationTransition transitionType = [transition hasSuffix:kBFSceneTransitionDirectionDown] ?  UIViewAnimationTransitionCurlDown :  UIViewAnimationTransitionCurlUp;
+        [UIView setAnimationTransition:transitionType forView:self.view cache:YES];
+        
+        [self.view addSubview:entering];
+        [exiting removeFromSuperview];
+    }    
     
     // S L I D E  T R A N S I T I O N
     // supported directions: (top, bottom)
