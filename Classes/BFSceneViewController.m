@@ -224,49 +224,28 @@
 - (void)performTransition:(NSString *)transition onEnteringView:(BFSceneView *)entering removingOldView:(BFSceneView *)exiting
 {
     
-    // Z O O M  T R A N S I T I O N
-    // supported directions: (in, out)
-
-    if ([transition hasPrefix:kBFSceneTransitionZoom]) {
-        
-        CGFloat d0 = ([transition hasSuffix:kBFSceneTransitionDirectionIn]) ? 0.01f : 3.0f;
-        CGFloat d1 = 1.0f;
-        
-        exiting.alpha = 0.5f;
-        
-        [UIView beginAnimations:@"ZoomTransition" context:nil];
-        [UIView setAnimationDuration:0.5f];
-        [self.view addSubview:entering];
-        
-        entering.transform = CGAffineTransformMakeScale(d0, d0);
-        entering.alpha = 0.01f;
-        
-        exiting.alpha = 0.0f;
-        if ([transition hasSuffix:kBFSceneTransitionDirectionIn])
-            exiting.transform = CGAffineTransformMakeScale(3.0f, 3.0f);
-        
-        entering.transform = CGAffineTransformMakeScale(d1, d1);
-        entering.alpha = 1.0f;
-    }
-    
-    
     // P U S H  T R A N S I T I O N
-    // supported directions: (left, right)
+    // supported directions: (left, right, up, down)
     
-    else if ([transition hasPrefix:kBFSceneTransitionPush]) {
+    if ([transition hasPrefix:kBFSceneTransitionPush]) {
         
-        CGFloat tx = ([transition hasSuffix:kBFSceneTransitionDirectionLeft]) ? 320.0f : -320.0f;
+        CGFloat tx = 0.0f;
         CGFloat ty = 0.0f;
+		
+		if([transition hasSuffix:kBFSceneTransitionDirectionLeft])   tx = -320.0f;
+		else if([transition hasSuffix:kBFSceneTransitionDirectionRight]) tx = 320.0f;
+		else if([transition hasSuffix:kBFSceneTransitionDirectionUp])   ty = -480.0f;
+		else if([transition hasSuffix:kBFSceneTransitionDirectionDown]) ty = 480.0f;
 
-        entering.transform = CGAffineTransformMakeTranslation(-tx, ty);
+        entering.transform = CGAffineTransformMakeTranslation(-tx, -ty);
         
         [UIView beginAnimations:@"PushTransition" context:nil];
-        [UIView setAnimationDuration:0.5f];
+        [UIView setAnimationDuration:0.4f];
         
         [self.view insertSubview:entering belowSubview:exiting];
         
         exiting.transform = CGAffineTransformMakeTranslation(tx, ty);
-        entering.transform = CGAffineTransformMakeTranslation(0.0f, ty);
+        entering.transform = CGAffineTransformMakeTranslation(0, 0);
     }
     
     // F L I P  T R A N S I T I O N
@@ -275,9 +254,9 @@
     else if ([transition hasPrefix:kBFSceneTransitionFlip]) {
         
         [UIView beginAnimations:@"FlipTransition" context:nil];
-        [UIView setAnimationDuration:0.5f];
+        [UIView setAnimationDuration:0.8f];
         
-        UIViewAnimationTransition transitionType = [transition hasSuffix:kBFSceneTransitionDirectionLeft] ?  UIViewAnimationTransitionFlipFromLeft :  UIViewAnimationTransitionFlipFromRight;
+        UIViewAnimationTransition transitionType = [transition hasSuffix:kBFSceneTransitionDirectionRight] ?  UIViewAnimationTransitionFlipFromLeft :  UIViewAnimationTransitionFlipFromRight;
         [UIView setAnimationTransition:transitionType forView:self.view cache:YES];
         
         [self.view addSubview:entering];
@@ -299,22 +278,79 @@
         [exiting removeFromSuperview];
     }    
     
-    // S L I D E  T R A N S I T I O N
-    // supported directions: (top, bottom)
+    // C O V E R  T R A N S I T I O N
+    // supported directions: (left, right, up, down)
     
-    else {
+    else if ([transition hasPrefix:kBFSceneTransitionCover]) {
         
-        CGFloat ty = ([transition hasSuffix:kBFSceneTransitionDirectionBottom]) ? 480.0f : -480.0f;
-        CGFloat tx = 0.0f;
+		CGFloat tx = 0.0f;
+		CGFloat ty = 0.0f;
+		
+        if ([transition hasSuffix:kBFSceneTransitionDirectionLeft])       tx = -320.0f;
+		else if ([transition hasSuffix:kBFSceneTransitionDirectionRight]) tx = 320.0f;
+		else if ([transition hasSuffix:kBFSceneTransitionDirectionUp])    ty = -480.0f;
+		else if ([transition hasSuffix:kBFSceneTransitionDirectionDown])  ty = 480.0f;
+		
         
-        entering.transform = CGAffineTransformMakeTranslation(tx, -ty);
+        
+        entering.transform = CGAffineTransformMakeTranslation(-tx, -ty);
         
         [UIView beginAnimations:@"SlideTransition" context:nil];
         [UIView setAnimationDuration:0.5f];
         
         [self.view insertSubview:entering aboveSubview:exiting];
-        entering.transform = CGAffineTransformMakeTranslation(tx, 0.0f);
+        entering.transform = CGAffineTransformMakeTranslation(0.0f, 0.0f);
     }
+	
+	// R E V E A L  T R A N S I T I O N
+    // supported directions: (left, right, up, down)
+    
+    else if ([transition hasPrefix:kBFSceneTransitionReveal]) {
+        
+		CGFloat tx = 0.0f;
+		CGFloat ty = 0.0f;
+		
+		if ([transition hasSuffix:kBFSceneTransitionDirectionLeft])       tx = -320.0f;
+		else if ([transition hasSuffix:kBFSceneTransitionDirectionRight]) tx = 320.0f;
+        else if ([transition hasSuffix:kBFSceneTransitionDirectionDown])  ty = 480.0f;
+		else if ([transition hasSuffix:kBFSceneTransitionDirectionUp])    ty = -480.0f;
+        
+        
+        exiting.transform = CGAffineTransformMakeTranslation(0.0f, 0.0f);
+        
+        [UIView beginAnimations:@"SlideTransition" context:nil];
+        [UIView setAnimationDuration:0.5f];
+        
+        [self.view insertSubview:entering belowSubview:exiting];
+        exiting.transform = CGAffineTransformMakeTranslation(tx, ty);
+    }
+	
+	// Z O O M  T R A N S I T I O N
+    // supported directions: (in, out)
+	
+    else {
+        
+        CGFloat d0 = ([transition hasSuffix:kBFSceneTransitionDirectionIn]) ? 0.01f : 3.0f;
+        CGFloat d1 = 1.0f;
+        
+        exiting.alpha = 0.5f;
+        
+        [UIView beginAnimations:@"ZoomTransition" context:nil];
+        [UIView setAnimationDuration:0.4f];
+        [self.view addSubview:entering];
+        
+        entering.transform = CGAffineTransformMakeScale(d0, d0);
+        entering.alpha = 0.01f;
+        
+        exiting.alpha = 0.0f;
+        if ([transition hasSuffix:kBFSceneTransitionDirectionIn])
+            exiting.transform = CGAffineTransformMakeScale(3.0f, 3.0f);
+        
+        entering.transform = CGAffineTransformMakeScale(d1, d1);
+        entering.alpha = 1.0f;
+    }
+    
+	
     
     // commit the animation stack
     [UIView commitAnimations];
