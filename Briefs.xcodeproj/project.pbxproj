@@ -48,6 +48,12 @@
 		D47200BA10A11A0500601755 /* small-gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = D47200B910A11A0500601755 /* small-gradient.png */; };
 		D47200BD10A11A5100601755 /* BFHeaderCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D47200BC10A11A5100601755 /* BFHeaderCellController.m */; };
 		D472018F10A294BA00601755 /* 58-bookmark.png in Resources */ = {isa = PBXBuildFile; fileRef = D472018E10A294BA00601755 /* 58-bookmark.png */; };
+		D482E4FD10EEECC700678404 /* BFMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D482E4FB10EEECC700678404 /* BFMainViewController.m */; };
+		D482E4FE10EEECC700678404 /* BFMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D482E4FC10EEECC700678404 /* BFMainViewController.xib */; };
+		D482E50210EEF08A00678404 /* menu-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D482E50110EEF08A00678404 /* menu-bg.png */; };
+		D482E50410EEF4E100678404 /* main-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D482E50310EEF4E100678404 /* main-bg.png */; };
+		D482E51910EEFB0D00678404 /* blue-button-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D482E51710EEFB0D00678404 /* blue-button-bg.png */; };
+		D482E51A10EEFB0D00678404 /* gray-button-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D482E51810EEFB0D00678404 /* gray-button-bg.png */; };
 		D4991095109FEA85008C5E17 /* BFParagraphCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4991094109FEA85008C5E17 /* BFParagraphCellController.m */; };
 		D49E5F5E1011696200B7EEBB /* BFSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D49E5F5D1011696200B7EEBB /* BFSceneViewController.m */; };
 		D4C0F3A810C7710A008E8DE5 /* transition-sample.brieflist in Resources */ = {isa = PBXBuildFile; fileRef = D4C0F3A710C7710A008E8DE5 /* transition-sample.brieflist */; };
@@ -163,6 +169,13 @@
 		D47200BB10A11A5100601755 /* BFHeaderCellController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFHeaderCellController.h; sourceTree = "<group>"; };
 		D47200BC10A11A5100601755 /* BFHeaderCellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFHeaderCellController.m; sourceTree = "<group>"; };
 		D472018E10A294BA00601755 /* 58-bookmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "58-bookmark.png"; path = "images/58-bookmark.png"; sourceTree = "<group>"; };
+		D482E4FA10EEECC700678404 /* BFMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFMainViewController.h; sourceTree = "<group>"; };
+		D482E4FB10EEECC700678404 /* BFMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFMainViewController.m; sourceTree = "<group>"; };
+		D482E4FC10EEECC700678404 /* BFMainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BFMainViewController.xib; path = Classes/BFMainViewController.xib; sourceTree = "<group>"; };
+		D482E50110EEF08A00678404 /* menu-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-bg.png"; path = "images/menu-bg.png"; sourceTree = "<group>"; };
+		D482E50310EEF4E100678404 /* main-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "main-bg.png"; path = "images/main-bg.png"; sourceTree = "<group>"; };
+		D482E51710EEFB0D00678404 /* blue-button-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blue-button-bg.png"; path = "images/blue-button-bg.png"; sourceTree = "<group>"; };
+		D482E51810EEFB0D00678404 /* gray-button-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gray-button-bg.png"; path = "images/gray-button-bg.png"; sourceTree = "<group>"; };
 		D4991093109FEA85008C5E17 /* BFParagraphCellController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFParagraphCellController.h; sourceTree = "<group>"; };
 		D4991094109FEA85008C5E17 /* BFParagraphCellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFParagraphCellController.m; sourceTree = "<group>"; };
 		D49E5F5C1011696200B7EEBB /* BFSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFSceneViewController.h; sourceTree = "<group>"; };
@@ -300,6 +313,7 @@
 		76FD02EB104CAF4E002E96FA /* nib */ = {
 			isa = PBXGroup;
 			children = (
+				D482E4FC10EEECC700678404 /* BFMainViewController.xib */,
 				D4C3275210B20DC600AB1F5E /* BFLoadingViewController.xib */,
 				D4CA29351076F60500AA84FE /* BFBriefcastViewController.xib */,
 				D4CA29361076F60500AA84FE /* BFBrowseViewController.xib */,
@@ -470,6 +484,8 @@
 				76FD02ED104CAF96002E96FA /* BFBrowseViewController.m */,
 				D4641310106879AF001522F6 /* BFAddBriefcastViewController.h */,
 				D4641311106879AF001522F6 /* BFAddBriefcastViewController.m */,
+				D482E4FA10EEECC700678404 /* BFMainViewController.h */,
+				D482E4FB10EEECC700678404 /* BFMainViewController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -477,6 +493,10 @@
 		D472009510A110FE00601755 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D482E51710EEFB0D00678404 /* blue-button-bg.png */,
+				D482E51810EEFB0D00678404 /* gray-button-bg.png */,
+				D482E50310EEF4E100678404 /* main-bg.png */,
+				D482E50110EEF08A00678404 /* menu-bg.png */,
 				D472018E10A294BA00601755 /* 58-bookmark.png */,
 				D47200B910A11A0500601755 /* small-gradient.png */,
 				D47200A710A1139500601755 /* 37-suitcase.png */,
@@ -629,6 +649,11 @@
 				D4C0F3A810C7710A008E8DE5 /* transition-sample.brieflist in Resources */,
 				D46A15D310D1FF1000B92FDF /* actions-sample.brieflist in Resources */,
 				0005E52D10E83C99006D44A2 /* TransitionsGallery.brieflist in Resources */,
+				D482E4FE10EEECC700678404 /* BFMainViewController.xib in Resources */,
+				D482E50210EEF08A00678404 /* menu-bg.png in Resources */,
+				D482E50410EEF4E100678404 /* main-bg.png in Resources */,
+				D482E51910EEFB0D00678404 /* blue-button-bg.png in Resources */,
+				D482E51A10EEFB0D00678404 /* gray-button-bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -680,6 +705,7 @@
 				D46B795F10A615F800CCD698 /* BFButtonCellController.m in Sources */,
 				D46B799210A61B3D00CCD698 /* BFRemoteBriefCellController.m in Sources */,
 				D4C3275310B20DC600AB1F5E /* BFLoadingViewController.m in Sources */,
+				D482E4FD10EEECC700678404 /* BFMainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
