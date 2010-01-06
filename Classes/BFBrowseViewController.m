@@ -16,6 +16,7 @@
 #import "BFBriefCellController.h"
 #import "BFAddBriefcastViewController.h"
 #import "BFDataManager.h"
+#import "BFColor.h"
 
 
 @implementation BFBrowseViewController
@@ -29,12 +30,23 @@
 {
     [super viewDidLoad];
     self.title = @"My Briefs";
+    self.navigationController.navigationBar.tintColor = [BFColor tintColorForNavigationBar];
+    self.tableView.backgroundColor = [BFColor backgroundForTableView];
+    self.tableView.separatorColor = [UIColor colorWithRed:0.7667f green:0.7784f blue:0.7902f alpha:1.0f];
+    
     
     // Configure the add button.
-    UIBarButtonItem *addButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
-                                        target:self 
-                                        action:@selector(addBriefcast)] autorelease];
-    self.navigationItem.rightBarButtonItem = addButton;
+//    UIBarButtonItem *addButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
+//                                        target:self 
+//                                        action:@selector(addBriefcast)] autorelease];
+//    self.navigationItem.rightBarButtonItem = addButton;
+    
+    // Configure the edit button.
+    UIBarButtonItem *editButton = [[[UIBarButtonItem alloc] initWithTitle:@"Edit" 
+                                                                    style:UIBarButtonItemStylePlain
+                                                                   target:self 
+                                                                   action:@selector(editBriefs)] autorelease];
+    self.navigationItem.rightBarButtonItem = editButton;
 }
 
 - (void)viewWillAppear:(BOOL)animated 
@@ -56,7 +68,7 @@
 
 - (void)constructTableGroups
 {
-    self.tableGroups = [NSArray arrayWithObjects:[self localBriefLocations], [self storedBriefcastLocations], nil];
+    self.tableGroups = [NSArray arrayWithObjects:[self localBriefLocations], /*[self storedBriefcastLocations],*/ nil];
 }
 
 - (NSArray *)localBriefLocations
@@ -73,25 +85,30 @@
 #pragma mark -
 #pragma mark Adding New Briefcasts
 
-- (IBAction)addBriefcast
-{
-    BFAddBriefcastViewController *controller = [[BFAddBriefcastViewController alloc] init];
-    controller.delegate = self;
-    UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:controller];
-    [self.navigationController presentModalViewController:navigation animated:YES];
+//- (IBAction)addBriefcast
+//{
+//    BFAddBriefcastViewController *controller = [[BFAddBriefcastViewController alloc] init];
+//    controller.delegate = self;
+//    UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:controller];
+//    [self.navigationController presentModalViewController:navigation animated:YES];
+//
+//    [controller release];
+//    [navigation release];
+//}
 
-    [controller release];
-    [navigation release];
-}
+//- (void)addViewController:(BFAddBriefcastViewController *)controller didFinishWithSave:(BOOL)save
+//{
+//    if (save) {
+//        BFBriefcast *briefcast = [controller briefcastFromExistingValues];
+//        [[BFDataManager sharedBFDataManager] addBriefcastInformation:briefcast];
+//    }
+//    [self dismissModalViewControllerAnimated:YES];
+//    [super updateAndReload];
+//}
 
-- (void)addViewController:(BFAddBriefcastViewController *)controller didFinishWithSave:(BOOL)save
+- (IBAction)editBriefs
 {
-    if (save) {
-        BFBriefcast *briefcast = [controller briefcastFromExistingValues];
-        [[BFDataManager sharedBFDataManager] addBriefcastInformation:briefcast];
-    }
-    [self dismissModalViewControllerAnimated:YES];
-    [super updateAndReload];
+    NSLog(@"Edit the briefs listing.");
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -100,7 +117,8 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section 
 {
-    return (section == 0 ? @"Local Briefs" : @"Briefcasts");
+    //return (section == 0 ? @"Local Briefs" : @"Briefcasts");
+    return @"";
 }
 
 

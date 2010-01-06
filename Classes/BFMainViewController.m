@@ -7,19 +7,22 @@
 //
 
 #import "BFMainViewController.h"
-
+#import "BFBrowseViewController.h"
+#import "BFColor.h"
 
 @implementation BFMainViewController
 
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+
+///////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark NSObject Methods
+
 - (void)viewDidLoad 
 {
     [super viewDidLoad];
-    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.5098f green:0.5412f blue:0.6f alpha:1.0f];
-    self.title = @"Briefs";
+    self.navigationController.navigationBar.tintColor = [BFColor tintColorForNavigationBar];
+    self.title = @"Welcome";
 }
-
-
 
 - (void)didReceiveMemoryWarning 
 {
@@ -41,5 +44,22 @@
     [super dealloc];
 }
 
+
+///////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark Main Menu Actions
+
+- (IBAction)browseYourBriefs
+{
+    NSLog(@"Go to my Briefs!");
+    [self.navigationController pushViewController:[[BFBrowseViewController alloc] init]  animated:YES];
+}
+
+- (IBAction)browseYourBriefcasts
+{
+    NSLog(@"Go to my Briefcasts!");
+}
+
+///////////////////////////////////////////////////////////////////////////////
 
 @end

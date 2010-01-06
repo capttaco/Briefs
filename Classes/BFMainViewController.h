@@ -15,4 +15,8 @@
     IBOutlet UIView     *menuView;
 }
 
+// Menu Actions
+- (IBAction)browseYourBriefs;
+- (IBAction)browseYourBriefcasts;
+
 @end

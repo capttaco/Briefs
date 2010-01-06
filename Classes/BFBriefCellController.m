@@ -11,6 +11,7 @@
 #import "BFSceneViewController.h"
 #import "BFPresentationDispatch.h"
 #import "BFDataManager.h"
+#import "BFColor.h"
 
 
 @implementation BFBriefCellController

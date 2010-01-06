@@ -54,6 +54,7 @@
 		D482E50410EEF4E100678404 /* main-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D482E50310EEF4E100678404 /* main-bg.png */; };
 		D482E51910EEFB0D00678404 /* blue-button-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D482E51710EEFB0D00678404 /* blue-button-bg.png */; };
 		D482E51A10EEFB0D00678404 /* gray-button-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D482E51810EEFB0D00678404 /* gray-button-bg.png */; };
+		D482E54510F03FE000678404 /* BFColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D482E54410F03FE000678404 /* BFColor.m */; };
 		D4991095109FEA85008C5E17 /* BFParagraphCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4991094109FEA85008C5E17 /* BFParagraphCellController.m */; };
 		D49E5F5E1011696200B7EEBB /* BFSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D49E5F5D1011696200B7EEBB /* BFSceneViewController.m */; };
 		D4C0F3A810C7710A008E8DE5 /* transition-sample.brieflist in Resources */ = {isa = PBXBuildFile; fileRef = D4C0F3A710C7710A008E8DE5 /* transition-sample.brieflist */; };
@@ -176,6 +177,8 @@
 		D482E50310EEF4E100678404 /* main-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "main-bg.png"; path = "images/main-bg.png"; sourceTree = "<group>"; };
 		D482E51710EEFB0D00678404 /* blue-button-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blue-button-bg.png"; path = "images/blue-button-bg.png"; sourceTree = "<group>"; };
 		D482E51810EEFB0D00678404 /* gray-button-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gray-button-bg.png"; path = "images/gray-button-bg.png"; sourceTree = "<group>"; };
+		D482E54310F03FE000678404 /* BFColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFColor.h; sourceTree = "<group>"; };
+		D482E54410F03FE000678404 /* BFColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFColor.m; sourceTree = "<group>"; };
 		D4991093109FEA85008C5E17 /* BFParagraphCellController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFParagraphCellController.h; sourceTree = "<group>"; };
 		D4991094109FEA85008C5E17 /* BFParagraphCellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFParagraphCellController.m; sourceTree = "<group>"; };
 		D49E5F5C1011696200B7EEBB /* BFSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFSceneViewController.h; sourceTree = "<group>"; };
@@ -564,6 +567,8 @@
 				D4309740106AB75B00C1EC5E /* BFDataManager.m */,
 				D463E9001073131D0075CCCE /* BFViewUtilityParser.h */,
 				D463E9011073131D0075CCCE /* BFViewUtilityParser.m */,
+				D482E54310F03FE000678404 /* BFColor.h */,
+				D482E54410F03FE000678404 /* BFColor.m */,
 			);
 			name = util;
 			sourceTree = "<group>";
@@ -706,6 +711,7 @@
 				D46B799210A61B3D00CCD698 /* BFRemoteBriefCellController.m in Sources */,
 				D4C3275310B20DC600AB1F5E /* BFLoadingViewController.m in Sources */,
 				D482E4FD10EEECC700678404 /* BFMainViewController.m in Sources */,
+				D482E54510F03FE000678404 /* BFColor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

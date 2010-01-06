@@ -40,7 +40,7 @@
 				<int key="NSvFlags">292</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<object class="IBUIImageView" id="828366578">
+					<object class="IBUIImageView" id="694256455">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">319</int>
 						<string key="NSFrameSize">{320, 416}</string>
@@ -54,7 +54,7 @@
 							<string key="NSResourceName">main-bg.png</string>
 						</object>
 					</object>
-					<object class="IBUIImageView" id="732518660">
+					<object class="IBUIImageView" id="800936236">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">274</int>
 						<string key="NSFrame">{{0, 280}, {320, 136}}</string>
@@ -67,7 +67,7 @@
 							<string key="NSResourceName">menu-bg.png</string>
 						</object>
 					</object>
-					<object class="IBUIButton" id="801039326">
+					<object class="IBUIButton" id="355732051">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{7, 294}, {305, 52}}</string>
@@ -79,7 +79,7 @@
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<object class="NSFont" key="IBUIFont" id="903353505">
+						<object class="NSFont" key="IBUIFont" id="680178886">
 							<string key="NSName">Helvetica-Bold</string>
 							<double key="NSSize">16</double>
 							<int key="NSfFlags">16</int>
@@ -90,11 +90,11 @@
 						<double key="IBUITitleEdgeInsets.right">0.0</double>
 						<string key="IBUITitleShadowOffset">{0, -1}</string>
 						<string key="IBUINormalTitle">My Briefs</string>
-						<object class="NSColor" key="IBUIHighlightedTitleColor" id="4219088">
+						<object class="NSColor" key="IBUIHighlightedTitleColor" id="222320729">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
 						</object>
-						<object class="NSColor" key="IBUINormalTitleColor" id="581511832">
+						<object class="NSColor" key="IBUINormalTitleColor" id="188503928">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MSAxIDEAA</bytes>
 						</object>
@@ -107,7 +107,7 @@
 							<string key="NSResourceName">blue-button-bg.png</string>
 						</object>
 					</object>
-					<object class="IBUIButton" id="270687821">
+					<object class="IBUIButton" id="586857513">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{7, 354}, {305, 52}}</string>
@@ -119,15 +119,15 @@
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="903353505"/>
+						<reference key="IBUIFont" ref="680178886"/>
 						<double key="IBUITitleEdgeInsets.top">0.0</double>
 						<double key="IBUITitleEdgeInsets.bottom">0.0</double>
 						<double key="IBUITitleEdgeInsets.left">14</double>
 						<double key="IBUITitleEdgeInsets.right">0.0</double>
 						<string key="IBUITitleShadowOffset">{0, -1}</string>
 						<string key="IBUINormalTitle">My Briefcasts</string>
-						<reference key="IBUIHighlightedTitleColor" ref="4219088"/>
-						<reference key="IBUINormalTitleColor" ref="581511832"/>
+						<reference key="IBUIHighlightedTitleColor" ref="222320729"/>
+						<reference key="IBUINormalTitleColor" ref="188503928"/>
 						<object class="NSColor" key="IBUINormalTitleShadowColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC4wOTgwMzkyMTcyOSAwLjA5ODAzOTIxNzI5IDAuMDk4MDM5MjE3MjkAA</bytes>
@@ -164,6 +164,24 @@
 					</object>
 					<int key="connectionID">3</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">browseYourBriefs</string>
+						<reference key="source" ref="355732051"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">13</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">browseYourBriefcasts</string>
+						<reference key="source" ref="586857513"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">14</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -179,10 +197,10 @@
 						<reference key="object" ref="191373211"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="732518660"/>
-							<reference ref="828366578"/>
-							<reference ref="270687821"/>
-							<reference ref="801039326"/>
+							<reference ref="800936236"/>
+							<reference ref="694256455"/>
+							<reference ref="586857513"/>
+							<reference ref="355732051"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -199,22 +217,22 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">9</int>
-						<reference key="object" ref="732518660"/>
+						<reference key="object" ref="800936236"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">10</int>
-						<reference key="object" ref="801039326"/>
+						<reference key="object" ref="355732051"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">11</int>
-						<reference key="object" ref="270687821"/>
+						<reference key="object" ref="586857513"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">12</int>
-						<reference key="object" ref="828366578"/>
+						<reference key="object" ref="694256455"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 				</object>
@@ -260,7 +278,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">12</int>
+			<int key="maxID">14</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -268,6 +286,19 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">BFMainViewController</string>
 					<string key="superclassName">UIViewController</string>
+					<object class="NSMutableDictionary" key="actions">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>browseYourBriefcasts</string>
+							<string>browseYourBriefs</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
+						</object>
+					</object>
 					<object class="NSMutableDictionary" key="outlets">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
@@ -410,7 +441,7 @@
 				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier" id="212201416">
+					<object class="IBClassDescriptionSource" key="sourceIdentifier" id="383414238">
 						<string key="majorKey">IBFrameworkSource</string>
 						<string key="minorKey">UIKit.framework/Headers/UIResponder.h</string>
 					</object>
@@ -442,7 +473,7 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">UIResponder</string>
 					<string key="superclassName">NSObject</string>
-					<reference key="sourceIdentifier" ref="212201416"/>
+					<reference key="sourceIdentifier" ref="383414238"/>
 				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">UISearchBar</string>
