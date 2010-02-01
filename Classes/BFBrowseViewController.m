@@ -108,7 +108,21 @@
 
 - (IBAction)editBriefs
 {
-    NSLog(@"Edit the briefs listing.");
+    //NSLog(@"Edit the briefs listing.");
+    BOOL editMode;
+    if (self.tableView.editing == YES) {
+        editMode = NO;
+        self.navigationItem.rightBarButtonItem.title = @"Edit";
+        self.navigationItem.rightBarButtonItem.style = UIBarButtonItemStylePlain;
+        [self.navigationItem setHidesBackButton:NO animated:YES];
+    }
+    else {
+        editMode = YES;
+        self.navigationItem.rightBarButtonItem.title = @"Done";
+        self.navigationItem.rightBarButtonItem.style = UIBarButtonItemStyleDone;
+        [self.navigationItem setHidesBackButton:YES animated:YES];
+    }
+    [self.tableView setEditing:editMode animated:YES];
 }
 
 ///////////////////////////////////////////////////////////////////////////////
