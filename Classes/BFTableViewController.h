@@ -21,12 +21,14 @@
 //
 
 
-@interface BFTableViewController : UITableViewController
+@interface BFTableViewController : UIViewController
 {
+    IBOutlet UITableView *tableView;
     NSArray *tableGroups;
 }
 
-@property (nonatomic, retain) NSArray *tableGroups;
+@property (nonatomic, retain) NSArray       *tableGroups;
+@property (nonatomic, retain) UITableView   *tableView;
 
 - (void)updateAndReload;
 

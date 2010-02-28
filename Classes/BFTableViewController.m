@@ -24,7 +24,7 @@
 
 @implementation BFTableViewController
 
-@synthesize tableGroups;
+@synthesize tableGroups, tableView;
 
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -
@@ -53,7 +53,7 @@
 #pragma mark -
 #pragma mark Table view data source methods
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tv
 {
     if (!self.tableGroups)
         [self constructTableGroups];
@@ -61,7 +61,7 @@
     return [self.tableGroups count];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *)tv numberOfRowsInSection:(NSInteger)section
 {
     if (!self.tableGroups)
         [self constructTableGroups];
@@ -73,15 +73,15 @@
 #pragma mark -
 #pragma mark Selection and moving
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tv cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (!self.tableGroups) {
         [self constructTableGroups];
     }
-    return [[[self.tableGroups objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] tableView:(UITableView *)tableView cellForRowAtIndexPath:indexPath];
+    return [[[self.tableGroups objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] tableView:(UITableView *)tv cellForRowAtIndexPath:indexPath];
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tv didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (!self.tableGroups)  {
         [self constructTableGroups];
@@ -89,11 +89,11 @@
     
     NSObject<BFCellController> *cellData = [[self.tableGroups objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     if ([cellData respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]){
-        [cellData tableView:tableView didSelectRowAtIndexPath:indexPath];
+        [cellData tableView:tv didSelectRowAtIndexPath:indexPath];
     }
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat)tableView:(UITableView *)tv heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (!self.tableGroups)  {
         [self constructTableGroups];
@@ -101,7 +101,7 @@
     
     NSObject<BFCellController> *cellData = [[self.tableGroups objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     if ([cellData respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)]){
-        return [cellData tableView:tableView heightForRowAtIndexPath:indexPath];
+        return [cellData tableView:tv heightForRowAtIndexPath:indexPath];
     }
     else return 45.0;
 }
@@ -119,6 +119,7 @@
 - (void)dealloc
 {
     [self clearTableGroups];
+    [self.tableView release];
     [super dealloc];
 }
 

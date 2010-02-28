@@ -68,7 +68,10 @@
 
 - (void)constructTableGroups
 {
-    self.tableGroups = [NSArray arrayWithObjects:[self localBriefLocations], /*[self storedBriefcastLocations],*/ nil];
+    if (self.tableView.editing == YES)
+        self.tableGroups = [NSArray arrayWithObjects:[self localBriefLocations], nil];
+    else
+        self.tableGroups = [NSArray arrayWithObjects:[self localBriefLocations], [self storedBriefcastLocations], nil];
 }
 
 - (NSArray *)localBriefLocations
@@ -79,7 +82,14 @@
 - (NSArray *)storedBriefcastLocations
 {
     return [[BFDataManager sharedBFDataManager] listOfKnownBriefcasts];
-}                                                                       
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tv
+{
+    if (self.tableView.editing == YES)
+        return 1;
+    else return 2;
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -
@@ -114,25 +124,33 @@
         editMode = NO;
         self.navigationItem.rightBarButtonItem.title = @"Edit";
         self.navigationItem.rightBarButtonItem.style = UIBarButtonItemStylePlain;
-        [self.navigationItem setHidesBackButton:NO animated:YES];
+        [self.navigationItem setHidesBackButton:NO animated:YES];        
+        
+        [self.tableView setEditing:editMode animated:YES];
+        [self.tableView insertSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationBottom];
     }
     else {
         editMode = YES;
         self.navigationItem.rightBarButtonItem.title = @"Done";
         self.navigationItem.rightBarButtonItem.style = UIBarButtonItemStyleDone;
         [self.navigationItem setHidesBackButton:YES animated:YES];
+        
+        [self.tableView setEditing:editMode animated:YES];
+        [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationTop];
     }
-    [self.tableView setEditing:editMode animated:YES];
+    
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -
 #pragma mark Table view data source methods
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section 
+- (NSString *)tableView:(UITableView *)tv titleForHeaderInSection:(NSInteger)section 
 {
-    //return (section == 0 ? @"Local Briefs" : @"Briefcasts");
-    return @"";
+    if (self.tableView.editing == YES) 
+        return @"";
+    else
+        return (section == 0 ? @"Local Briefs" : @"Briefcasts");
 }
 
 

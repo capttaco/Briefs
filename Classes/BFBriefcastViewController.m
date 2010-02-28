@@ -14,6 +14,7 @@
 #import "BFHeaderCellController.h"
 #import "BFRemoteBriefCellController.h"
 #import "BFDataManager.h"
+#import "BFColor.h"
 
 
 @implementation BFBriefcastViewController
@@ -107,6 +108,10 @@
 - (void)viewDidLoad 
 {
     [super viewDidLoad];
+    
+    self.navigationController.navigationBar.tintColor = [BFColor tintColorForNavigationBar];
+    self.tableView.backgroundColor = [BFColor backgroundForTableView];
+    self.tableView.separatorColor = [UIColor colorWithRed:0.7667f green:0.7784f blue:0.7902f alpha:1.0f];
     
     if (locationOfBriefcast != nil) {
         // Display "loading..." message and a spinner

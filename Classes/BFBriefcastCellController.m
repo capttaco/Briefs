@@ -44,10 +44,12 @@
 
 - (void)tableView:(UITableView *)tv didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    BFBriefcastViewController *controller = [[BFBriefcastViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    //BFBriefcastViewController *controller = [[BFBriefcastViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    BFBriefcastViewController *controller = [[BFBriefcastViewController alloc] initWithNibName:@"BFBriefcastViewController" bundle:nil];
     controller.locationOfBriefcast = self.briefcast.url;
-    if ([[tv delegate] isKindOfClass:[UITableViewController class]]) {
-        UITableViewController *tvc = (UITableViewController *) [tv delegate];
+    //BFBriefcastViewController *controller = [[BFBriefcastViewController alloc] initWithBriefcast:self.briefcast];
+    if ([[tv delegate] isKindOfClass:[UIViewController class]]) {
+        UIViewController *tvc = (UIViewController *) [tv delegate];
         [tvc.navigationController pushViewController:controller animated:YES];
     }
     

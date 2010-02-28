@@ -42,6 +42,7 @@
         cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:@"BriefsCell"] autorelease];
     }
     cell.textLabel.text = self.brief;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
 
@@ -59,8 +60,8 @@
     
     [[BFPresentationDispatch sharedBFPresentationDispatch] setViewController:controller]; 
     
-    if ([[tv delegate] isKindOfClass:[UITableViewController class]]) {
-        UITableViewController *tvc = (UITableViewController *) [tv delegate];
+    if ([[tv delegate] isKindOfClass:[UIViewController class]]) {
+        UIViewController *tvc = (UIViewController *) [tv delegate];
         [tvc.navigationController pushViewController:[[BFPresentationDispatch sharedBFPresentationDispatch] viewController] animated:YES];
     }
     

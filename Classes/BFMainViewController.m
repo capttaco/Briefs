@@ -52,7 +52,7 @@
 - (IBAction)browseYourBriefs
 {
     NSLog(@"Go to my Briefs!");
-    [self.navigationController pushViewController:[[BFBrowseViewController alloc] init]  animated:YES];
+    [self.navigationController pushViewController:[[BFBrowseViewController alloc] initWithNibName:@"BFBrowseViewController" bundle:nil] animated:YES];
 }
 
 - (IBAction)browseYourBriefcasts
