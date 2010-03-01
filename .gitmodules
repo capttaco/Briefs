@@ -1,3 +1,6 @@
 [submodule "Classes/Briefs-data"]
 	path = Classes/Briefs-data
 	url = git://github.com/capttaco/Briefs-data.git
+[submodule "Classes/Briefs-sharedUI"]
+	path = Classes/Briefs-sharedUI
+	url = git://github.com/capttaco/Briefs-sharedUI.git
