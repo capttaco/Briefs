@@ -42,7 +42,8 @@
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event 
 {
     BFRootView *rootView = (BFRootView *) self.superview.superview;
-    [rootView cancelGestureTimer];    
+    if ([rootView respondsToSelector:@selector(cancelGestureTimer)])
+        [rootView cancelGestureTimer];
 
     if (self.actor.isActive == YES) {        
         [self executeAction:[self.actor action]];        

@@ -58,12 +58,13 @@
 		D4991095109FEA85008C5E17 /* BFParagraphCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4991094109FEA85008C5E17 /* BFParagraphCellController.m */; };
 		D49E5F5E1011696200B7EEBB /* BFSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D49E5F5D1011696200B7EEBB /* BFSceneViewController.m */; };
 		D4A394BA1130F926004971E9 /* flag.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A394B91130F926004971E9 /* flag.png */; };
+		D4A3976D113B70AB004971E9 /* BFRootView+TapHoldGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A3976C113B70AB004971E9 /* BFRootView+TapHoldGesture.m */; };
+		D4A3979C113B7591004971E9 /* BFActor.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A39792113B7591004971E9 /* BFActor.m */; };
+		D4A3979D113B7591004971E9 /* BFBriefcast.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A39794113B7591004971E9 /* BFBriefcast.m */; };
+		D4A3979E113B7591004971E9 /* BFScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A39797113B7591004971E9 /* BFScene.m */; };
+		D4A3979F113B7591004971E9 /* BFSceneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A39799113B7591004971E9 /* BFSceneManager.m */; };
+		D4A397A0113B7591004971E9 /* BFUtilityParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A3979B113B7591004971E9 /* BFUtilityParser.m */; };
 		D4C0F3A810C7710A008E8DE5 /* transition-sample.brieflist in Resources */ = {isa = PBXBuildFile; fileRef = D4C0F3A710C7710A008E8DE5 /* transition-sample.brieflist */; };
-		D4C3264A10B1DCBD00AB1F5E /* BFActor.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FF1A9D107C23EF00956488 /* BFActor.m */; };
-		D4C3264C10B1DCBD00AB1F5E /* BFBriefcast.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FF1A9F107C23EF00956488 /* BFBriefcast.m */; };
-		D4C3264E10B1DCBD00AB1F5E /* BFScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FF1AA1107C23EF00956488 /* BFScene.m */; };
-		D4C3265010B1DCBD00AB1F5E /* BFSceneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FF1AA7107C240600956488 /* BFSceneManager.m */; };
-		D4C3265210B1DCBD00AB1F5E /* BFUtilityParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FF1AA9107C240600956488 /* BFUtilityParser.m */; };
 		D4C3275310B20DC600AB1F5E /* BFLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C3275110B20DC600AB1F5E /* BFLoadingViewController.m */; };
 		D4C3275410B20DC600AB1F5E /* BFLoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4C3275210B20DC600AB1F5E /* BFLoadingViewController.xib */; };
 		D4CA28EC1076EDFA00AA84FE /* BFLabelCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CA28EB1076EDFA00AA84FE /* BFLabelCellController.m */; };
@@ -73,11 +74,6 @@
 		D4CA299F107907CF00AA84FE /* BFCellConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CA299E107907CF00AA84FE /* BFCellConfiguration.m */; };
 		D4CA29E310799E5D00AA84FE /* BFTitleCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CA29E210799E5D00AA84FE /* BFTitleCellController.m */; };
 		D4E2CEB71028F11D0039600E /* BFPresentationDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E2CEB61028F11D0039600E /* BFPresentationDispatch.m */; };
-		D4FF1AA2107C23EF00956488 /* BFActor.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FF1A9D107C23EF00956488 /* BFActor.m */; };
-		D4FF1AA3107C23EF00956488 /* BFBriefcast.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FF1A9F107C23EF00956488 /* BFBriefcast.m */; };
-		D4FF1AA4107C23EF00956488 /* BFScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FF1AA1107C23EF00956488 /* BFScene.m */; };
-		D4FF1AAA107C240600956488 /* BFSceneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FF1AA7107C240600956488 /* BFSceneManager.m */; };
-		D4FF1AAB107C240600956488 /* BFUtilityParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FF1AA9107C240600956488 /* BFUtilityParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -185,6 +181,19 @@
 		D49E5F5C1011696200B7EEBB /* BFSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFSceneViewController.h; sourceTree = "<group>"; };
 		D49E5F5D1011696200B7EEBB /* BFSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFSceneViewController.m; sourceTree = "<group>"; };
 		D4A394B91130F926004971E9 /* flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = flag.png; path = images/flag.png; sourceTree = "<group>"; };
+		D4A3976B113B70AB004971E9 /* BFRootView+TapHoldGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BFRootView+TapHoldGesture.h"; sourceTree = "<group>"; };
+		D4A3976C113B70AB004971E9 /* BFRootView+TapHoldGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BFRootView+TapHoldGesture.m"; sourceTree = "<group>"; };
+		D4A39791113B7591004971E9 /* BFActor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BFActor.h; path = "Briefs-data/BFActor.h"; sourceTree = "<group>"; };
+		D4A39792113B7591004971E9 /* BFActor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BFActor.m; path = "Briefs-data/BFActor.m"; sourceTree = "<group>"; };
+		D4A39793113B7591004971E9 /* BFBriefcast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BFBriefcast.h; path = "Briefs-data/BFBriefcast.h"; sourceTree = "<group>"; };
+		D4A39794113B7591004971E9 /* BFBriefcast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BFBriefcast.m; path = "Briefs-data/BFBriefcast.m"; sourceTree = "<group>"; };
+		D4A39795113B7591004971E9 /* BFConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BFConstants.h; path = "Briefs-data/BFConstants.h"; sourceTree = "<group>"; };
+		D4A39796113B7591004971E9 /* BFScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BFScene.h; path = "Briefs-data/BFScene.h"; sourceTree = "<group>"; };
+		D4A39797113B7591004971E9 /* BFScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BFScene.m; path = "Briefs-data/BFScene.m"; sourceTree = "<group>"; };
+		D4A39798113B7591004971E9 /* BFSceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BFSceneManager.h; path = "Briefs-data/BFSceneManager.h"; sourceTree = "<group>"; };
+		D4A39799113B7591004971E9 /* BFSceneManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BFSceneManager.m; path = "Briefs-data/BFSceneManager.m"; sourceTree = "<group>"; };
+		D4A3979A113B7591004971E9 /* BFUtilityParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BFUtilityParser.h; path = "Briefs-data/BFUtilityParser.h"; sourceTree = "<group>"; };
+		D4A3979B113B7591004971E9 /* BFUtilityParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BFUtilityParser.m; path = "Briefs-data/BFUtilityParser.m"; sourceTree = "<group>"; };
 		D4C0F3A710C7710A008E8DE5 /* transition-sample.brieflist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = "transition-sample.brieflist"; path = "sample/transition-sample.brieflist"; sourceTree = "<group>"; };
 		D4C3275010B20DC600AB1F5E /* BFLoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFLoadingViewController.h; sourceTree = "<group>"; };
 		D4C3275110B20DC600AB1F5E /* BFLoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFLoadingViewController.m; sourceTree = "<group>"; };
@@ -203,17 +212,6 @@
 		D4E2CEB91028F1A00039600E /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
 		D4E2CEBF102F19A90039600E /* BFDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFDispatch.h; sourceTree = "<group>"; };
 		D4E3753F1039F029000D8677 /* scene2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scene2.png; path = sample/scene2.png; sourceTree = "<group>"; };
-		D4FF1A9C107C23EF00956488 /* BFActor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BFActor.h; path = data/BFActor.h; sourceTree = SOURCE_ROOT; };
-		D4FF1A9D107C23EF00956488 /* BFActor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BFActor.m; path = data/BFActor.m; sourceTree = SOURCE_ROOT; };
-		D4FF1A9E107C23EF00956488 /* BFBriefcast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BFBriefcast.h; path = data/BFBriefcast.h; sourceTree = SOURCE_ROOT; };
-		D4FF1A9F107C23EF00956488 /* BFBriefcast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BFBriefcast.m; path = data/BFBriefcast.m; sourceTree = SOURCE_ROOT; };
-		D4FF1AA0107C23EF00956488 /* BFScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BFScene.h; path = data/BFScene.h; sourceTree = SOURCE_ROOT; };
-		D4FF1AA1107C23EF00956488 /* BFScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BFScene.m; path = data/BFScene.m; sourceTree = SOURCE_ROOT; };
-		D4FF1AA5107C240600956488 /* BFConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BFConstants.h; path = data/BFConstants.h; sourceTree = SOURCE_ROOT; };
-		D4FF1AA6107C240600956488 /* BFSceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BFSceneManager.h; path = data/BFSceneManager.h; sourceTree = SOURCE_ROOT; };
-		D4FF1AA7107C240600956488 /* BFSceneManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BFSceneManager.m; path = data/BFSceneManager.m; sourceTree = SOURCE_ROOT; };
-		D4FF1AA8107C240600956488 /* BFUtilityParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BFUtilityParser.h; path = data/BFUtilityParser.h; sourceTree = SOURCE_ROOT; };
-		D4FF1AA9107C240600956488 /* BFUtilityParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BFUtilityParser.m; path = data/BFUtilityParser.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,11 +242,11 @@
 				D4E2CEB81028F18B0039600E /* util */,
 				D49E5F591011690100B7EEBB /* ui */,
 				D49E5F58101168FA00B7EEBB /* data */,
-				D4FF1AA6107C240600956488 /* BFSceneManager.h */,
-				D4FF1AA7107C240600956488 /* BFSceneManager.m */,
-				D4FF1AA8107C240600956488 /* BFUtilityParser.h */,
-				D4FF1AA9107C240600956488 /* BFUtilityParser.m */,
-				D4FF1AA5107C240600956488 /* BFConstants.h */,
+				D4A39795113B7591004971E9 /* BFConstants.h */,
+				D4A39798113B7591004971E9 /* BFSceneManager.h */,
+				D4A39799113B7591004971E9 /* BFSceneManager.m */,
+				D4A3979A113B7591004971E9 /* BFUtilityParser.h */,
+				D4A3979B113B7591004971E9 /* BFUtilityParser.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -331,12 +329,12 @@
 		D40E467D1011792D000D4830 /* models */ = {
 			isa = PBXGroup;
 			children = (
-				D4FF1A9C107C23EF00956488 /* BFActor.h */,
-				D4FF1A9D107C23EF00956488 /* BFActor.m */,
-				D4FF1A9E107C23EF00956488 /* BFBriefcast.h */,
-				D4FF1A9F107C23EF00956488 /* BFBriefcast.m */,
-				D4FF1AA0107C23EF00956488 /* BFScene.h */,
-				D4FF1AA1107C23EF00956488 /* BFScene.m */,
+				D4A39791113B7591004971E9 /* BFActor.h */,
+				D4A39792113B7591004971E9 /* BFActor.m */,
+				D4A39793113B7591004971E9 /* BFBriefcast.h */,
+				D4A39794113B7591004971E9 /* BFBriefcast.m */,
+				D4A39796113B7591004971E9 /* BFScene.h */,
+				D4A39797113B7591004971E9 /* BFScene.m */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -542,6 +540,15 @@
 			name = views;
 			sourceTree = "<group>";
 		};
+		D4A39769113B6FBC004971E9 /* additions */ = {
+			isa = PBXGroup;
+			children = (
+				D4A3976B113B70AB004971E9 /* BFRootView+TapHoldGesture.h */,
+				D4A3976C113B70AB004971E9 /* BFRootView+TapHoldGesture.m */,
+			);
+			name = additions;
+			sourceTree = "<group>";
+		};
 		D4CA298F1079063100AA84FE /* UI Labels & Controls */ = {
 			isa = PBXGroup;
 			children = (
@@ -564,6 +571,7 @@
 		D4E2CEB81028F18B0039600E /* util */ = {
 			isa = PBXGroup;
 			children = (
+				D4A39769113B6FBC004971E9 /* additions */,
 				D415B1ED105C7BD8008A3541 /* FeedParser */,
 				D4E2CEB91028F1A00039600E /* SynthesizeSingleton.h */,
 				D430973F106AB75B00C1EC5E /* BFDataManager.h */,
@@ -704,11 +712,6 @@
 				D4CA28EC1076EDFA00AA84FE /* BFLabelCellController.m in Sources */,
 				D4CA299F107907CF00AA84FE /* BFCellConfiguration.m in Sources */,
 				D4CA29E310799E5D00AA84FE /* BFTitleCellController.m in Sources */,
-				D4FF1AA2107C23EF00956488 /* BFActor.m in Sources */,
-				D4FF1AA3107C23EF00956488 /* BFBriefcast.m in Sources */,
-				D4FF1AA4107C23EF00956488 /* BFScene.m in Sources */,
-				D4FF1AAA107C240600956488 /* BFSceneManager.m in Sources */,
-				D4FF1AAB107C240600956488 /* BFUtilityParser.m in Sources */,
 				D4991095109FEA85008C5E17 /* BFParagraphCellController.m in Sources */,
 				D47200BD10A11A5100601755 /* BFHeaderCellController.m in Sources */,
 				D46B795F10A615F800CCD698 /* BFButtonCellController.m in Sources */,
@@ -716,6 +719,12 @@
 				D4C3275310B20DC600AB1F5E /* BFLoadingViewController.m in Sources */,
 				D482E4FD10EEECC700678404 /* BFMainViewController.m in Sources */,
 				D482E54510F03FE000678404 /* BFColor.m in Sources */,
+				D4A3976D113B70AB004971E9 /* BFRootView+TapHoldGesture.m in Sources */,
+				D4A3979C113B7591004971E9 /* BFActor.m in Sources */,
+				D4A3979D113B7591004971E9 /* BFBriefcast.m in Sources */,
+				D4A3979E113B7591004971E9 /* BFScene.m in Sources */,
+				D4A3979F113B7591004971E9 /* BFSceneManager.m in Sources */,
+				D4A397A0113B7591004971E9 /* BFUtilityParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -723,11 +732,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4C3264A10B1DCBD00AB1F5E /* BFActor.m in Sources */,
-				D4C3264C10B1DCBD00AB1F5E /* BFBriefcast.m in Sources */,
-				D4C3264E10B1DCBD00AB1F5E /* BFScene.m in Sources */,
-				D4C3265010B1DCBD00AB1F5E /* BFSceneManager.m in Sources */,
-				D4C3265210B1DCBD00AB1F5E /* BFUtilityParser.m in Sources */,
 				7616293B105061EF008FDF67 /* brief-compact.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
