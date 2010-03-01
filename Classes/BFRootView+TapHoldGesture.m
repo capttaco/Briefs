@@ -3,7 +3,7 @@
 //  Briefs
 //
 //  Created by Rob Rhyne on 2/28/10.
-//  Copyright 2010 __MyCompanyName__. All rights reserved.
+//  Copyright Digital Arch Design, 2009. See LICENSE file for details.
 //
 
 #import "BFRootView+TapHoldGesture.h"
