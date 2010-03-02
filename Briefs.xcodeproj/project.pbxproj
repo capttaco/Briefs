@@ -44,6 +44,10 @@
 		D47200BA10A11A0500601755 /* small-gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = D47200B910A11A0500601755 /* small-gradient.png */; };
 		D47200BD10A11A5100601755 /* BFHeaderCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D47200BC10A11A5100601755 /* BFHeaderCellController.m */; };
 		D472018F10A294BA00601755 /* 58-bookmark.png in Resources */ = {isa = PBXBuildFile; fileRef = D472018E10A294BA00601755 /* 58-bookmark.png */; };
+		D47F4B75113CC3E400EEB871 /* BFActor.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A39792113B7591004971E9 /* BFActor.m */; };
+		D47F4B76113CC3E400EEB871 /* BFBriefcast.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A39794113B7591004971E9 /* BFBriefcast.m */; };
+		D47F4B77113CC3E400EEB871 /* BFScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A39797113B7591004971E9 /* BFScene.m */; };
+		D47F4B78113CC3E400EEB871 /* BFSceneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A39799113B7591004971E9 /* BFSceneManager.m */; };
 		D482E4FD10EEECC700678404 /* BFMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D482E4FB10EEECC700678404 /* BFMainViewController.m */; };
 		D482E4FE10EEECC700678404 /* BFMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D482E4FC10EEECC700678404 /* BFMainViewController.xib */; };
 		D482E50210EEF08A00678404 /* menu-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D482E50110EEF08A00678404 /* menu-bg.png */; };
@@ -749,6 +753,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D47F4B75113CC3E400EEB871 /* BFActor.m in Sources */,
+				D47F4B76113CC3E400EEB871 /* BFBriefcast.m in Sources */,
+				D47F4B77113CC3E400EEB871 /* BFScene.m in Sources */,
+				D47F4B78113CC3E400EEB871 /* BFSceneManager.m in Sources */,
 				7616293B105061EF008FDF67 /* brief-compact.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
