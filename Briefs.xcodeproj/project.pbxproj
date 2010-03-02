@@ -65,6 +65,10 @@
 		D4A397AF113B7720004971E9 /* BFPresentationDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A397AE113B7720004971E9 /* BFPresentationDispatch.m */; };
 		D4A397B3113B7752004971E9 /* BFViewUtilityParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A397B2113B7752004971E9 /* BFViewUtilityParser.m */; };
 		D4A397B7113B7796004971E9 /* BFSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A397B6113B7796004971E9 /* BFSceneViewController.m */; };
+		D4A39819113C6DBB004971E9 /* app-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A39818113C6DBB004971E9 /* app-icon.png */; };
+		D4A39833113C6E9D004971E9 /* Briefcast.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A39831113C6E9D004971E9 /* Briefcast.png */; };
+		D4A39834113C6E9D004971E9 /* Briefs.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A39832113C6E9D004971E9 /* Briefs.png */; };
+		D4A39836113C6EAA004971E9 /* Icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A39835113C6EAA004971E9 /* Icon-small.png */; };
 		D4C0F3A810C7710A008E8DE5 /* transition-sample.brieflist in Resources */ = {isa = PBXBuildFile; fileRef = D4C0F3A710C7710A008E8DE5 /* transition-sample.brieflist */; };
 		D4C3275310B20DC600AB1F5E /* BFLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C3275110B20DC600AB1F5E /* BFLoadingViewController.m */; };
 		D4C3275410B20DC600AB1F5E /* BFLoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4C3275210B20DC600AB1F5E /* BFLoadingViewController.xib */; };
@@ -198,6 +202,10 @@
 		D4A397B4113B776D004971E9 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SynthesizeSingleton.h; path = "Briefs-sharedUI/SynthesizeSingleton.h"; sourceTree = "<group>"; };
 		D4A397B5113B7796004971E9 /* BFSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BFSceneViewController.h; path = "Briefs-sharedUI/BFSceneViewController.h"; sourceTree = "<group>"; };
 		D4A397B6113B7796004971E9 /* BFSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BFSceneViewController.m; path = "Briefs-sharedUI/BFSceneViewController.m"; sourceTree = "<group>"; };
+		D4A39818113C6DBB004971E9 /* app-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "app-icon.png"; path = "images/app-icon.png"; sourceTree = "<group>"; };
+		D4A39831113C6E9D004971E9 /* Briefcast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Briefcast.png; path = images/Briefcast.png; sourceTree = "<group>"; };
+		D4A39832113C6E9D004971E9 /* Briefs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Briefs.png; path = images/Briefs.png; sourceTree = "<group>"; };
+		D4A39835113C6EAA004971E9 /* Icon-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-small.png"; path = "images/Icon-small.png"; sourceTree = "<group>"; };
 		D4C0F3A710C7710A008E8DE5 /* transition-sample.brieflist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = "transition-sample.brieflist"; path = "sample/transition-sample.brieflist"; sourceTree = "<group>"; };
 		D4C3275010B20DC600AB1F5E /* BFLoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFLoadingViewController.h; sourceTree = "<group>"; };
 		D4C3275110B20DC600AB1F5E /* BFLoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFLoadingViewController.m; sourceTree = "<group>"; };
@@ -490,6 +498,7 @@
 		D472009510A110FE00601755 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D4A39830113C6E7F004971E9 /* icons */,
 				D4A394B91130F926004971E9 /* flag.png */,
 				D482E51710EEFB0D00678404 /* blue-button-bg.png */,
 				D482E51810EEFB0D00678404 /* gray-button-bg.png */,
@@ -566,6 +575,17 @@
 				D4A397B2113B7752004971E9 /* BFViewUtilityParser.m */,
 			);
 			name = util;
+			sourceTree = "<group>";
+		};
+		D4A39830113C6E7F004971E9 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				D4A39835113C6EAA004971E9 /* Icon-small.png */,
+				D4A39831113C6E9D004971E9 /* Briefcast.png */,
+				D4A39832113C6E9D004971E9 /* Briefs.png */,
+				D4A39818113C6DBB004971E9 /* app-icon.png */,
+			);
+			name = icons;
 			sourceTree = "<group>";
 		};
 		D4CA298F1079063100AA84FE /* UI Labels & Controls */ = {
@@ -651,6 +671,9 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Digital Arch Design";
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Briefs" */;
 			compatibilityVersion = "Xcode 3.1";
 			hasScannedForEncodings = 1;
@@ -688,6 +711,10 @@
 				D482E51910EEFB0D00678404 /* blue-button-bg.png in Resources */,
 				D482E51A10EEFB0D00678404 /* gray-button-bg.png in Resources */,
 				D4A394BA1130F926004971E9 /* flag.png in Resources */,
+				D4A39819113C6DBB004971E9 /* app-icon.png in Resources */,
+				D4A39833113C6E9D004971E9 /* Briefcast.png in Resources */,
+				D4A39834113C6E9D004971E9 /* Briefs.png in Resources */,
+				D4A39836113C6EAA004971E9 /* Icon-small.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
