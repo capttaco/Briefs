@@ -95,26 +95,26 @@
 #pragma mark -
 #pragma mark Adding New Briefcasts
 
-//- (IBAction)addBriefcast
-//{
-//    BFAddBriefcastViewController *controller = [[BFAddBriefcastViewController alloc] init];
-//    controller.delegate = self;
-//    UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:controller];
-//    [self.navigationController presentModalViewController:navigation animated:YES];
-//
-//    [controller release];
-//    [navigation release];
-//}
+- (IBAction)addBriefcast
+{
+    BFAddBriefcastViewController *controller = [[BFAddBriefcastViewController alloc] init];
+    controller.delegate = self;
+    UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:controller];
+    [self.navigationController presentModalViewController:navigation animated:YES];
 
-//- (void)addViewController:(BFAddBriefcastViewController *)controller didFinishWithSave:(BOOL)save
-//{
-//    if (save) {
-//        BFBriefcast *briefcast = [controller briefcastFromExistingValues];
-//        [[BFDataManager sharedBFDataManager] addBriefcastInformation:briefcast];
-//    }
-//    [self dismissModalViewControllerAnimated:YES];
-//    [super updateAndReload];
-//}
+    [controller release];
+    [navigation release];
+}
+
+- (void)addViewController:(BFAddBriefcastViewController *)controller didFinishWithSave:(BOOL)save
+{
+    if (save) {
+        BFBriefcast *briefcast = [controller briefcastFromExistingValues];
+        [[BFDataManager sharedBFDataManager] addBriefcastInformation:briefcast];
+    }
+    [self dismissModalViewControllerAnimated:YES];
+    [super updateAndReload];
+}
 
 - (IBAction)editBriefs
 {

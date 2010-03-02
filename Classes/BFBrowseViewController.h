@@ -10,13 +10,13 @@
 #import "BFTableViewController.h"
 #import "BFAddBriefcastViewController.h"
 
-@interface BFBrowseViewController : BFTableViewController //<BFAddBriefcastViewDelegate>
+@interface BFBrowseViewController : BFTableViewController <BFAddBriefcastViewDelegate>
 {
 }
 
 - (NSArray *)localBriefLocations;
 - (NSArray *)storedBriefcastLocations;
 
-//- (IBAction)addBriefcast;
+- (IBAction)addBriefcast;
 
 @end
