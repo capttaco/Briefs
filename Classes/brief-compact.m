@@ -117,6 +117,12 @@ NSDictionary* __process(BFScene *scene, NSString *directory)
             [unpackedActor setObject:actorImageData forKey:@"disabled"];
         }
         
+        // check for touched graphics too
+        if (actor.touchedBg != nil && ![actor.touchedBg isEqual:@""]) {
+            NSData *actorImageData = __image_data([actor touchedBg], directory);
+            [unpackedActor setObject:actorImageData forKey:@"touched"];
+        }
+        
         [newActorsArray addObject:unpackedActor];
     }
     [unpackedDictionary setObject:newActorsArray forKey:@"actors"];
