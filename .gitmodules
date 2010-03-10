@@ -4,6 +4,3 @@
 [submodule "Classes/Briefs-sharedUI"]
 	path = Classes/Briefs-sharedUI
 	url = git://github.com/capttaco/Briefs-sharedUI.git
-[submodule "Classes/fmdb-migration-manager"]
-	path = Classes/fmdb-migration-manager
-	url = git@github.com:capttaco/fmdb-migration-manager.git

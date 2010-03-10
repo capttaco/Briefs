@@ -250,6 +250,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D4AF19FF11460EBA00D1B3B5 /* vendor */,
 				D4E2CEBE102F19850039600E /* shared */,
 				D4E2CEB81028F18B0039600E /* util */,
 				D49E5F591011690100B7EEBB /* ui */,
@@ -592,6 +593,14 @@
 			name = icons;
 			sourceTree = "<group>";
 		};
+		D4AF19FF11460EBA00D1B3B5 /* vendor */ = {
+			isa = PBXGroup;
+			children = (
+				D415B1ED105C7BD8008A3541 /* FeedParser */,
+			);
+			name = vendor;
+			sourceTree = "<group>";
+		};
 		D4CA298F1079063100AA84FE /* UI Labels & Controls */ = {
 			isa = PBXGroup;
 			children = (
@@ -615,7 +624,6 @@
 			isa = PBXGroup;
 			children = (
 				D4A39769113B6FBC004971E9 /* addons */,
-				D415B1ED105C7BD8008A3541 /* FeedParser */,
 				D430973F106AB75B00C1EC5E /* BFDataManager.h */,
 				D4309740106AB75B00C1EC5E /* BFDataManager.m */,
 				D482E54310F03FE000678404 /* BFColor.h */,
