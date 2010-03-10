@@ -21,15 +21,20 @@
 #pragma mark -
 #pragma mark NSObject overrides
 
-- (id)initWithNameOfBrief:(NSString *)name
+- (id)initWithNameOfBrief:(BriefRef *)ref
 {
     self = [super init];
     if (self != nil) {
-        self.brief = name;
+        self.brief = ref;
     }
     return self;
 }
 
+- (void)dealloc
+{
+    [self.brief release];
+    [super dealloc];
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -
@@ -41,14 +46,14 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:@"BriefsCell"] autorelease];
     }
-    cell.textLabel.text = self.brief;
+    cell.textLabel.text = [self.brief title];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
 
 - (void)tableView:(UITableView *)tv didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *pathToDictionary = [[[BFDataManager sharedBFDataManager] documentDirectory] stringByAppendingPathComponent:brief];
+    NSString *pathToDictionary = [[[BFDataManager sharedBFDataManager] documentDirectory] stringByAppendingPathComponent:[self.brief filePath]];
     
     // setup scene view controller
     BFSceneManager *manager = [[BFSceneManager alloc] initWithPathToDictionary:pathToDictionary];

@@ -10,8 +10,12 @@
 #import "SynthesizeSingleton.h"
 #import "BFBriefCellController.h"
 #import "BFBriefcastCellController.h"
+#import "BFBriefcast+CoreDataAdditions.h"
 
-#define kBFDataManagerStoreLocation    @"Briefs-data.plist"
+#import "BriefcastRef.h"
+#import "BriefRef.h"
+
+#define kBFDataManagerStoreLocation    @"Briefs.sqlite"
 
 
 @implementation BFDataManager
@@ -25,33 +29,16 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
 
 - (NSString *)documentDirectory
 {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    return [paths objectAtIndex:0];
+    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
 }
 
 - (NSString *)locationOfDataStore
 {
-    NSString *standardLocation = [[self documentDirectory] stringByAppendingPathComponent:kBFDataManagerStoreLocation];
-    NSString *firstRunLocation = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:kBFDataManagerStoreLocation];
-    
-    // check for data store in documents directory
-    if ([[NSFileManager defaultManager] fileExistsAtPath:standardLocation]) {
-        return standardLocation;
-    }
-    
-    // if not there, check the app bundle
-    else if ([[NSFileManager defaultManager] fileExistsAtPath:firstRunLocation]) {
-        return firstRunLocation;
-    }
-    
-    else return nil;
+    return [[self documentDirectory] stringByAppendingPathComponent:kBFDataManagerStoreLocation];
 }
 
 - (void)load
 {
-    // load the file
-    self.data_store = [NSMutableDictionary dictionaryWithContentsOfFile:[self locationOfDataStore]];
-    
     // Manually Installed Briefs
     // =====================================
     // look for manually installed Briefs
@@ -70,21 +57,31 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
             NSString *oldPath = [bundleDirectory stringByAppendingPathComponent:next];
             NSError *error = [[NSError alloc] init];
             
-            // check if installed prior
-            if ([[NSFileManager defaultManager] fileExistsAtPath:newPath isDirectory:NO]) {
+            // check if already installed,
+            // do not add it to the datastore if it already exists.
+            if (![[NSFileManager defaultManager] fileExistsAtPath:newPath isDirectory:NO]) {
+
+                // copy the brief
+                if([[NSFileManager defaultManager] copyItemAtPath:oldPath toPath:newPath error:&error]) {
+                    
+                    // if copy was successful, then add it to the database
+                    BriefRef *briefRef = (BriefRef *)[NSEntityDescription insertNewObjectForEntityForName:@"BriefRef" inManagedObjectContext:[self managedObjectContext]];
+                    
+                    // create reference object for database
+                    [briefRef setFromURL:kBFLocallyStoredBriefURLString];
+                    [briefRef setFilePath:next];
+                    [briefRef setTitle:[next stringByReplacingOccurrencesOfString:@".brieflist" withString:@""]];
+                    
+                    // Save the context
+                    if (![managedObjectContext save:&error]) {
+                        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+                    }  
+                }
                 
-                // if it does exist, remove it
-                // ==================================
-                // This allows for new versions to be
-                // loaded, when the user is testing 
-                // in the simulator.
-                
-                if (![[NSFileManager defaultManager] removeItemAtPath:newPath error:&error])
+                else
+                    // If not, throw an error, dude.
                     NSLog(@"ERROR! - %@", error);
             }
-            
-            if(![[NSFileManager defaultManager] copyItemAtPath:oldPath toPath:newPath error:&error])
-                NSLog(@"ERROR! - %@", error);
         }
     }
     
@@ -92,19 +89,27 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
 
 - (void)save
 {
-    NSString *pathToDictionary = [[self documentDirectory] stringByAppendingPathComponent:kBFDataManagerStoreLocation];
-    
-    // save the data store
-    if ([self.data_store writeToFile:pathToDictionary atomically:YES]) {
-        NSLog(@"Successfully persisted briefs meta data file");
-    }
-    else {
-        NSLog(@"Was unable to save out the briefs meta data");
+    // TODO: Handle the error appropriately.
+    NSError *error = nil;
+    if (managedObjectContext != nil) {
+        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
+			/*
+			 Replace this implementation with code to handle the error appropriately.
+			 
+			 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
+			 */
+			NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+			abort();
+        } 
     }
 }
 
 - (void)dealloc
 {
+    [managedObjectContext release];
+    [managedObjectModel release];
+    [persistentStoreCoordinator release];
+    
     [self.knownBriefcasts release];
     [self.knownBriefs release];
     [self.data_store release];
@@ -113,24 +118,105 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
 
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -
+#pragma mark Core Data stack
+
+/**
+ Returns the managed object context for the application.
+ If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
+ */
+- (NSManagedObjectContext *)managedObjectContext 
+{
+    if (managedObjectContext != nil) {
+        return managedObjectContext;
+    }
+	
+    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+    if (coordinator != nil) {
+        managedObjectContext = [[NSManagedObjectContext alloc] init];
+        [managedObjectContext setPersistentStoreCoordinator: coordinator];
+    }
+    return managedObjectContext;
+}
+
+
+/**
+ Returns the managed object model for the application.
+ If the model doesn't already exist, it is created by merging all of the models found in the application bundle.
+ */
+- (NSManagedObjectModel *)managedObjectModel 
+{	
+    if (managedObjectModel != nil) {
+        return managedObjectModel;
+    }
+    managedObjectModel = [[NSManagedObjectModel mergedModelFromBundles:nil] retain];    
+    return managedObjectModel;
+}
+
+
+/**
+ Returns the persistent store coordinator for the application.
+ If the coordinator doesn't already exist, it is created and the application's store added to it.
+ */
+- (NSPersistentStoreCoordinator *)persistentStoreCoordinator 
+{	
+    if (persistentStoreCoordinator != nil) {
+        return persistentStoreCoordinator;
+    }
+	
+    NSURL *storeUrl = [NSURL fileURLWithPath:[self locationOfDataStore]];
+	
+	NSError *error = nil;
+    persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
+    if (![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:nil error:&error]) {
+		/*
+		 Replace this implementation with code to handle the error appropriately.
+		 
+		 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. If it is not possible to recover from the error, display an alert panel that instructs the user to quit the application by pressing the Home button.
+		 
+		 Typical reasons for an error here include:
+		 * The persistent store is not accessible
+		 * The schema for the persistent store is incompatible with current managed object model
+		 Check the error message to determine what the actual problem was.
+		 */
+		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+		abort();
+    }    
+	
+    return persistentStoreCoordinator;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+#pragma mark -
 #pragma mark Briefs Methods
 
 - (NSArray *)listOfLocalBriefsWithExtension:(NSString *)extension
 {
-    if (self.knownBriefs == nil) {
-        NSDirectoryEnumerator *enumerator = [[NSFileManager defaultManager] enumeratorAtPath:[self documentDirectory]];
-        NSMutableArray *arrayOfLocals = [NSMutableArray array];
-        
-        NSString *next;
-        while (next = [enumerator nextObject]) {
-            if ([[next pathExtension] isEqualToString:extension]) {
-                BFBriefCellController *controller = [[[BFBriefCellController alloc] initWithNameOfBrief:next] autorelease];
-                [arrayOfLocals addObject:controller];
-            }
+    NSMutableArray *arrayOfLocals = [NSMutableArray array];
+    
+    // Fetch Data from the database
+	NSFetchRequest *request = [[NSFetchRequest alloc] init];
+	NSEntityDescription *entity = [NSEntityDescription entityForName:@"BriefRef" inManagedObjectContext:[self managedObjectContext]];
+	[request setEntity:entity];
+    
+    NSError *error;
+    NSMutableArray *mutableFetchResults = [[[self managedObjectContext]executeFetchRequest:request error:&error] mutableCopy];
+	if (mutableFetchResults == nil) {
+		// Boom! Handle the error.
+        NSLog(@"There was a problem retrieving the listing of Briefs");
+	}
+	
+    else {
+        for (BriefRef *ref in mutableFetchResults) {
+            BFBriefCellController *controller = [[[BFBriefCellController alloc] initWithNameOfBrief:ref] autorelease];
+            [arrayOfLocals addObject:controller];
         }
-        self.knownBriefs = [NSArray arrayWithArray:arrayOfLocals];
     }
-    return self.knownBriefs;
+    
+	[mutableFetchResults release];
+	[request release];
+    
+    return arrayOfLocals;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -139,31 +225,44 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
 
 - (NSArray *)listOfKnownBriefcasts
 {
-    if (self.knownBriefcasts == nil) {
-        if (self.data_store == nil) {
-            [self load];
+    NSMutableArray *arrayOfBriefcasts = [NSMutableArray array];
+    
+    // Fetch Data from the database
+	NSFetchRequest *request = [[NSFetchRequest alloc] init];
+	NSEntityDescription *entity = [NSEntityDescription entityForName:@"BriefcastRef" inManagedObjectContext:[self managedObjectContext]];
+	[request setEntity:entity];
+    
+    NSError *error;
+    NSMutableArray *mutableFetchResults = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
+	if (mutableFetchResults == nil) {
+		// Boom! Handle the error.
+        NSLog(@"There was a problem retrieving the listing of Briefcasts");
+	}
+	
+    else {
+        for (BriefcastRef *ref in mutableFetchResults) {
+            BFBriefcast *briefcast = [[[BFBriefcast alloc] initWithRef:ref] autorelease]; 
+            BFBriefcastCellController *controller = [[[BFBriefcastCellController alloc] initWithBriefcast:briefcast] autorelease];
+
+            [arrayOfBriefcasts addObject:controller];
         }
-        NSArray *briefcastDescriptors = [self.data_store valueForKey:@"briefcasts"];
-        NSMutableArray *briefcasts = [NSMutableArray arrayWithCapacity:[briefcastDescriptors count]];
-        for (NSDictionary *descriptor in briefcastDescriptors) {
-            BFBriefcast *bcast = [[[BFBriefcast alloc] initWithDictionary:descriptor] autorelease]; 
-            BFBriefcastCellController *controller = [[[BFBriefcastCellController alloc] initWithBriefcast:bcast] autorelease];
-            [briefcasts addObject:controller];
-        }
-        self.knownBriefcasts = briefcasts;
     }
     
-    return self.knownBriefcasts;
+	[mutableFetchResults release];
+	[request release];
+    
+    return arrayOfBriefcasts;
 }
 
 - (void)addBriefcastInformation:(BFBriefcast *)briefcast
-{
-    if (self.data_store != nil) {
-        NSArray *briefcastDescriptors = [self.data_store valueForKey:@"briefcasts"];
-        
-        // add briefcast into data store
-        [self.data_store setObject:[briefcastDescriptors arrayByAddingObject:[briefcast dictionary]] forKey:@"briefcasts"];
-        self.knownBriefcasts = nil;
+{    
+    // Create and configure a new instance of the Event entity
+	[briefcast insertIntoManagedContext:[self managedObjectContext]];
+    
+    // Save the context
+    NSError *error;
+    if (![[self managedObjectContext] save:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
     }
 }
 

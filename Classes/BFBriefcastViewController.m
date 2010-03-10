@@ -46,13 +46,14 @@
 
 - (void)loadingView:(BFLoadingViewController *)controller didCompleteWithData:(NSData *)data
 {
-    NSString *fileName = [controller.locationOfRequest lastPathComponent];
-    NSString *pathToBrieflist = [[[BFDataManager sharedBFDataManager] documentDirectory] stringByAppendingPathComponent:fileName];
-    [data writeToFile:pathToBrieflist atomically:YES];
+//    NSString *fileName = [controller.locationOfRequest lastPathComponent];
+//    NSString *pathToBrieflist = [[[BFDataManager sharedBFDataManager] documentDirectory] stringByAppendingPathComponent:fileName];
+//    [data writeToFile:pathToBrieflist atomically:YES];
+//    
+//    // reset knowm briefs, so the list is rebuilt
+//    // the next time the browse view is loaded.
+//    [BFDataManager sharedBFDataManager].knownBriefs = nil;
     
-    // reset knowm briefs, so the list is rebuilt
-    // the next time the browse view is loaded.
-    [BFDataManager sharedBFDataManager].knownBriefs = nil;
 }
 
 - (void)loadingView:(BFLoadingViewController *)controller didNotCompleteWithError:(NSError *)error

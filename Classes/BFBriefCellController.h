@@ -8,15 +8,18 @@
 
 #import <Foundation/Foundation.h>
 #import "BFCellController.h"
+#import "BriefRef.h"
 
 
 @interface BFBriefCellController : NSObject<BFCellController> 
 {
-    NSString *brief;
+//    NSString *brief;
+    BriefRef *brief;
 }
 
-@property (nonatomic, retain) NSString *brief;
+//@property (nonatomic, retain) NSString *brief;
+@property (nonatomic, retain) BriefRef *brief;
 
-- (id)initWithNameOfBrief:(NSString *)name;
+- (id)initWithNameOfBrief:(BriefRef *)name;
 
 @end

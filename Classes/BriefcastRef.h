@@ -2,7 +2,7 @@
 //  BriefcastRef.h
 //  Briefs
 //
-//  Created by Rob Rhyne on 3/9/10.
+//  Created by Rob Rhyne on 3/10/10.
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
@@ -14,10 +14,12 @@
 {
 }
 
-@property (nonatomic, retain) NSNumber * totalNumberOfBriefcasts;
-@property (nonatomic, retain) NSDate * dateLastOpened;
 @property (nonatomic, retain) NSDate * dateLastRefresh;
 @property (nonatomic, retain) NSString * fromURL;
+@property (nonatomic, retain) NSString * desc;
+@property (nonatomic, retain) NSNumber * totalNumberOfBriefcasts;
+@property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSDate * dateLastOpened;
 @property (nonatomic, retain) NSSet* briefs;
 
 @end

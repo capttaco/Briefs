@@ -75,8 +75,8 @@
 		D4A39836113C6EAA004971E9 /* Icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A39835113C6EAA004971E9 /* Icon-small.png */; };
 		D4AF1A341147312400D1B3B5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4AF1A331147312400D1B3B5 /* CoreData.framework */; };
 		D4AF1B061147362200D1B3B5 /* Briefs.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = D4AF1B051147362200D1B3B5 /* Briefs.xcdatamodel */; };
-		D4AF1B181147431B00D1B3B5 /* BriefRef.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AF1B151147431B00D1B3B5 /* BriefRef.m */; };
-		D4AF1B191147431B00D1B3B5 /* BriefcastRef.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AF1B171147431B00D1B3B5 /* BriefcastRef.m */; };
+		D4AF1B32114808A300D1B3B5 /* BFBriefcast+CoreDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AF1B31114808A300D1B3B5 /* BFBriefcast+CoreDataAdditions.m */; };
+		D4AF1B4811480B3C00D1B3B5 /* BriefcastRef.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AF1B4711480B3C00D1B3B5 /* BriefcastRef.m */; };
 		D4C0F3A810C7710A008E8DE5 /* transition-sample.brieflist in Resources */ = {isa = PBXBuildFile; fileRef = D4C0F3A710C7710A008E8DE5 /* transition-sample.brieflist */; };
 		D4C3275310B20DC600AB1F5E /* BFLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C3275110B20DC600AB1F5E /* BFLoadingViewController.m */; };
 		D4C3275410B20DC600AB1F5E /* BFLoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4C3275210B20DC600AB1F5E /* BFLoadingViewController.xib */; };
@@ -218,8 +218,10 @@
 		D4AF1B051147362200D1B3B5 /* Briefs.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = Briefs.xcdatamodel; sourceTree = "<group>"; };
 		D4AF1B141147431B00D1B3B5 /* BriefRef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BriefRef.h; sourceTree = "<group>"; };
 		D4AF1B151147431B00D1B3B5 /* BriefRef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BriefRef.m; sourceTree = "<group>"; };
-		D4AF1B161147431B00D1B3B5 /* BriefcastRef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BriefcastRef.h; sourceTree = "<group>"; };
-		D4AF1B171147431B00D1B3B5 /* BriefcastRef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BriefcastRef.m; sourceTree = "<group>"; };
+		D4AF1B30114808A300D1B3B5 /* BFBriefcast+CoreDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BFBriefcast+CoreDataAdditions.h"; sourceTree = "<group>"; };
+		D4AF1B31114808A300D1B3B5 /* BFBriefcast+CoreDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BFBriefcast+CoreDataAdditions.m"; sourceTree = "<group>"; };
+		D4AF1B4611480B3C00D1B3B5 /* BriefcastRef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BriefcastRef.h; sourceTree = "<group>"; };
+		D4AF1B4711480B3C00D1B3B5 /* BriefcastRef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BriefcastRef.m; sourceTree = "<group>"; };
 		D4C0F3A710C7710A008E8DE5 /* transition-sample.brieflist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = "transition-sample.brieflist"; path = "sample/transition-sample.brieflist"; sourceTree = "<group>"; };
 		D4C3275010B20DC600AB1F5E /* BFLoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFLoadingViewController.h; sourceTree = "<group>"; };
 		D4C3275110B20DC600AB1F5E /* BFLoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFLoadingViewController.m; sourceTree = "<group>"; };
@@ -557,6 +559,8 @@
 			children = (
 				D4A3976B113B70AB004971E9 /* BFRootView+TapHoldGesture.h */,
 				D4A3976C113B70AB004971E9 /* BFRootView+TapHoldGesture.m */,
+				D4AF1B30114808A300D1B3B5 /* BFBriefcast+CoreDataAdditions.h */,
+				D4AF1B31114808A300D1B3B5 /* BFBriefcast+CoreDataAdditions.m */,
 			);
 			name = addons;
 			sourceTree = "<group>";
@@ -618,10 +622,10 @@
 		D4AF1B071147369A00D1B3B5 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				D4AF1B4611480B3C00D1B3B5 /* BriefcastRef.h */,
+				D4AF1B4711480B3C00D1B3B5 /* BriefcastRef.m */,
 				D4AF1B141147431B00D1B3B5 /* BriefRef.h */,
 				D4AF1B151147431B00D1B3B5 /* BriefRef.m */,
-				D4AF1B161147431B00D1B3B5 /* BriefcastRef.h */,
-				D4AF1B171147431B00D1B3B5 /* BriefcastRef.m */,
 			);
 			name = data;
 			sourceTree = "<group>";
@@ -807,8 +811,8 @@
 				D4A397B3113B7752004971E9 /* BFViewUtilityParser.m in Sources */,
 				D4A397B7113B7796004971E9 /* BFSceneViewController.m in Sources */,
 				D4AF1B061147362200D1B3B5 /* Briefs.xcdatamodel in Sources */,
-				D4AF1B181147431B00D1B3B5 /* BriefRef.m in Sources */,
-				D4AF1B191147431B00D1B3B5 /* BriefcastRef.m in Sources */,
+				D4AF1B32114808A300D1B3B5 /* BFBriefcast+CoreDataAdditions.m in Sources */,
+				D4AF1B4811480B3C00D1B3B5 /* BriefcastRef.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
