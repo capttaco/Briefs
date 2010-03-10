@@ -73,6 +73,10 @@
 		D4A39833113C6E9D004971E9 /* Briefcast.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A39831113C6E9D004971E9 /* Briefcast.png */; };
 		D4A39834113C6E9D004971E9 /* Briefs.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A39832113C6E9D004971E9 /* Briefs.png */; };
 		D4A39836113C6EAA004971E9 /* Icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A39835113C6EAA004971E9 /* Icon-small.png */; };
+		D4AF1A341147312400D1B3B5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4AF1A331147312400D1B3B5 /* CoreData.framework */; };
+		D4AF1B061147362200D1B3B5 /* Briefs.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = D4AF1B051147362200D1B3B5 /* Briefs.xcdatamodel */; };
+		D4AF1B181147431B00D1B3B5 /* BriefRef.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AF1B151147431B00D1B3B5 /* BriefRef.m */; };
+		D4AF1B191147431B00D1B3B5 /* BriefcastRef.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AF1B171147431B00D1B3B5 /* BriefcastRef.m */; };
 		D4C0F3A810C7710A008E8DE5 /* transition-sample.brieflist in Resources */ = {isa = PBXBuildFile; fileRef = D4C0F3A710C7710A008E8DE5 /* transition-sample.brieflist */; };
 		D4C3275310B20DC600AB1F5E /* BFLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C3275110B20DC600AB1F5E /* BFLoadingViewController.m */; };
 		D4C3275410B20DC600AB1F5E /* BFLoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4C3275210B20DC600AB1F5E /* BFLoadingViewController.xib */; };
@@ -210,6 +214,12 @@
 		D4A39831113C6E9D004971E9 /* Briefcast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Briefcast.png; path = images/Briefcast.png; sourceTree = "<group>"; };
 		D4A39832113C6E9D004971E9 /* Briefs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Briefs.png; path = images/Briefs.png; sourceTree = "<group>"; };
 		D4A39835113C6EAA004971E9 /* Icon-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-small.png"; path = "images/Icon-small.png"; sourceTree = "<group>"; };
+		D4AF1A331147312400D1B3B5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D4AF1B051147362200D1B3B5 /* Briefs.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = Briefs.xcdatamodel; sourceTree = "<group>"; };
+		D4AF1B141147431B00D1B3B5 /* BriefRef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BriefRef.h; sourceTree = "<group>"; };
+		D4AF1B151147431B00D1B3B5 /* BriefRef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BriefRef.m; sourceTree = "<group>"; };
+		D4AF1B161147431B00D1B3B5 /* BriefcastRef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BriefcastRef.h; sourceTree = "<group>"; };
+		D4AF1B171147431B00D1B3B5 /* BriefcastRef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BriefcastRef.m; sourceTree = "<group>"; };
 		D4C0F3A710C7710A008E8DE5 /* transition-sample.brieflist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = "transition-sample.brieflist"; path = "sample/transition-sample.brieflist"; sourceTree = "<group>"; };
 		D4C3275010B20DC600AB1F5E /* BFLoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFLoadingViewController.h; sourceTree = "<group>"; };
 		D4C3275110B20DC600AB1F5E /* BFLoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFLoadingViewController.m; sourceTree = "<group>"; };
@@ -234,6 +244,7 @@
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
+				D4AF1A341147312400D1B3B5 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +261,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D4AF1B071147369A00D1B3B5 /* data */,
 				D4AF19FF11460EBA00D1B3B5 /* vendor */,
 				D4E2CEBE102F19850039600E /* shared */,
 				D4E2CEB81028F18B0039600E /* util */,
@@ -299,6 +311,7 @@
 				D472009510A110FE00601755 /* images */,
 				D4309742106AC10B00C1EC5E /* Briefs-data.plist */,
 				8D1107310486CEB800E47090 /* Briefs-Info.plist */,
+				D4AF1B051147362200D1B3B5 /* Briefs.xcdatamodel */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -306,6 +319,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D4AF1A331147312400D1B3B5 /* CoreData.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
@@ -601,6 +615,17 @@
 			name = vendor;
 			sourceTree = "<group>";
 		};
+		D4AF1B071147369A00D1B3B5 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				D4AF1B141147431B00D1B3B5 /* BriefRef.h */,
+				D4AF1B151147431B00D1B3B5 /* BriefRef.m */,
+				D4AF1B161147431B00D1B3B5 /* BriefcastRef.h */,
+				D4AF1B171147431B00D1B3B5 /* BriefcastRef.m */,
+			);
+			name = data;
+			sourceTree = "<group>";
+		};
 		D4CA298F1079063100AA84FE /* UI Labels & Controls */ = {
 			isa = PBXGroup;
 			children = (
@@ -781,6 +806,9 @@
 				D4A397AF113B7720004971E9 /* BFPresentationDispatch.m in Sources */,
 				D4A397B3113B7752004971E9 /* BFViewUtilityParser.m in Sources */,
 				D4A397B7113B7796004971E9 /* BFSceneViewController.m in Sources */,
+				D4AF1B061147362200D1B3B5 /* Briefs.xcdatamodel in Sources */,
+				D4AF1B181147431B00D1B3B5 /* BriefRef.m in Sources */,
+				D4AF1B191147431B00D1B3B5 /* BriefcastRef.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

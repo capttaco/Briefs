@@ -6,12 +6,10 @@
 //  Copyright Digital Arch Design, 2009. See LICENSE file for details.
 //
 
-#import <UIKit/UIKit.h>
-
 @interface BriefsAppDelegate : NSObject <UIApplicationDelegate, UINavigationControllerDelegate> 
 {
-    UINavigationController  *navigationController;
-    UIWindow *window;
+    UINavigationController          *navigationController;
+    UIWindow                        *window;
 }
 
 @property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
