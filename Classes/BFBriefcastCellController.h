@@ -8,15 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "BFCellController.h"
-#import "BFBriefcast.h"
+#import "BriefcastRef.h"
 
 @interface BFBriefcastCellController : NSObject<BFCellController> 
 {
-    BFBriefcast *briefcast;
+    BriefcastRef *briefcast;
 }
 
-@property (retain) BFBriefcast *briefcast;
+@property (retain) BriefcastRef *briefcast;
 
-- (id)initWithBriefcast:(BFBriefcast *)bcast;
+- (id)initWithBriefcast:(BriefcastRef *)bcast;
 
 @end

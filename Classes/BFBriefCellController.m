@@ -74,6 +74,14 @@
     [manager release];
 }
 
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath 
+{	
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+        [[BFDataManager sharedBFDataManager] removeBrief:self.brief];
+}
+
+
 ///////////////////////////////////////////////////////////////////////////////
 
 @end

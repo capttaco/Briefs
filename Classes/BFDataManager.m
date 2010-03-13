@@ -11,6 +11,7 @@
 #import "BFBriefCellController.h"
 #import "BFBriefcastCellController.h"
 #import "BFBriefcast+CoreDataAdditions.h"
+#import "BFBriefInfo.h"
 
 
 #define kBFDataManagerStoreLocation    @"Briefs.sqlite"
@@ -62,12 +63,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
                 if([[NSFileManager defaultManager] copyItemAtPath:oldPath toPath:newPath error:&error]) {
                     
                     // if copy was successful, then add it to the database
-                    BriefRef *briefRef = (BriefRef *)[NSEntityDescription insertNewObjectForEntityForName:@"BriefRef" inManagedObjectContext:[self managedObjectContext]];
-                    
-                    // create reference object for database
+                    BriefRef *briefRef = [self addBriefAtPath:next];
                     [briefRef setFromURL:kBFLocallyStoredBriefURLString];
-                    [briefRef setFilePath:next];
-                    [briefRef setTitle:[next stringByReplacingOccurrencesOfString:@".brieflist" withString:@""]];
                     [briefRef setBriefcast:[self localBriefcastRefMarker]];
                     
                     // Save the context
@@ -216,7 +213,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
 
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -
-#pragma mark Briefcast Methods
+#pragma mark Add / Insert API
 
 //- (NSArray *)listOfKnownBriefcasts
 //{
@@ -261,6 +258,71 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
     }
 }
 
+- (BriefRef *)addBriefAtPath:(NSString *)path usingData:(NSData *)data
+{
+    NSString *destination = [[self documentDirectory] stringByAppendingPathComponent:path];
+    [data writeToFile:destination atomically:YES];
+    return [self addBriefAtPath:path];
+}
+
+- (BriefRef *)addBriefAtPath:(NSString *)path 
+{
+    NSString *destination = [[self documentDirectory] stringByAppendingPathComponent:path];
+    NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:destination];
+    
+    BFBriefInfo *info = [BFBriefInfo infoForBriefData:dictionary atPath:path];
+    BriefRef *newRef = [info insertIntoManagedContext:[self managedObjectContext]];
+    [newRef setDateLastDownloaded:[NSDate date]];
+    
+    // Save the context
+    NSError *error;
+    if (![[self managedObjectContext] save:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    }
+    
+    return newRef;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark Remove API
+
+- (void)removeBrief:(BriefRef *)brief
+{   
+    NSError *error;
+    
+    // Remove the brief's binary file
+    NSString *pathToBrief = [[self documentDirectory] stringByAppendingPathComponent:[brief filePath]];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:pathToBrief isDirectory:NO]) {
+        if (![[NSFileManager defaultManager] removeItemAtPath:pathToBrief error:&error]) {
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        }
+    }
+    
+    // Remove it from the database
+    [[self managedObjectContext] deleteObject:brief];
+    if (![[self managedObjectContext] save:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    }
+}
+
+- (void)removeBriefcast:(BriefcastRef *)briefcast
+{
+    // cycle through existing briefs and delete
+    // TODO: this should be an archive operation
+    for (BriefRef *brief in [briefcast briefs]) {
+        [self removeBrief:brief];
+    }
+    
+    // delete the reference to the briefcast
+    [[self managedObjectContext] deleteObject:briefcast];
+    
+    NSError *error;
+    if (![[self managedObjectContext] save:&error]) {
+        // Handle the error.
+    }
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -

@@ -38,16 +38,17 @@ typedef enum
 - (void)load;
 - (void)save;
 
-// Briefs
-//- (NSArray *)listOfLocalBriefsWithExtension:(NSString *)extension;
-
-// Briefcasts
-//- (NSArray *)listOfKnownBriefcasts;
-- (void)addBriefcastInformation:(BFBriefcast *)briefcast;
 
 // High-Level API
 - (BriefcastRef *)localBriefcastRefMarker;
 - (NSArray *)allBriefcastsSortedAs:(BFDataManagerSortType)typeOfSort;
 - (NSArray *)briefsFromBriefcast:(BriefcastRef *)briefcast sortedAs:(BFDataManagerSortType)typeOfSort;
+- (void)addBriefcastInformation:(BFBriefcast *)briefcast;
+
+- (BriefRef *)addBriefAtPath:(NSString *)path usingData:(NSData *)data;
+- (BriefRef *)addBriefAtPath:(NSString *)path;
+
+- (void)removeBrief:(BriefRef *)brief;
+- (void)removeBriefcast:(BriefcastRef *)briefcast;
 
 @end

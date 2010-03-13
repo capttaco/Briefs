@@ -3,7 +3,7 @@
 //  Briefs
 //
 //  Created by Rob Rhyne on 3/12/10.
-//  Copyright 2010 Digital Arch Design. All rights reserved.
+//  Copyright Digital Arch Design, 2009-2010. See LICENSE file for details.
 //
 
 #import "BFTableViewController.h"

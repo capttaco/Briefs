@@ -119,6 +119,23 @@
     else return UITableViewCellEditingStyleDelete;
 }
 
+- (void)tableView:(UITableView *)tv commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath 
+{
+    if (!self.tableGroups) {
+        [self constructTableGroups];
+    }
+    
+    NSObject<BFCellController> *cellData = [[self.tableGroups objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    if ([cellData respondsToSelector:@selector(tableView:commitEditingStyle:forRowAtIndexPath:)]){
+        [cellData tableView:tv commitEditingStyle:editingStyle forRowAtIndexPath:indexPath];
+        
+        // Update the array and table view.
+        [self constructTableGroups];
+        [tv deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationTop];
+        [self.tableView reloadData];
+    }
+}
+
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -
 #pragma mark Memory Management

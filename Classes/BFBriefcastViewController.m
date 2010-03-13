@@ -19,7 +19,7 @@
 
 @implementation BFBriefcastViewController
 
-@synthesize channelTitle, channelLink, channelDescription, locationOfBriefcast, enclosedBriefs, recievedData;
+@synthesize channelTitle, channelLink, channelDescription, locationOfBriefcast, enclosedBriefs, recievedData, briefcast;
 
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -
@@ -42,11 +42,19 @@
 
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -
-#pragma mark BFRemoteBriefEventDelegate Methods
+#pragma mark BFLoadingViewDelegate Methods
 
 - (void)loadingView:(BFLoadingViewController *)controller didCompleteWithData:(NSData *)data
 {
-//    NSString *fileName = [controller.locationOfRequest lastPathComponent];
+    NSString *fileName = [controller.locationOfRequest lastPathComponent];
+    BriefRef *ref = [[BFDataManager sharedBFDataManager] addBriefAtPath:fileName usingData:data];
+    
+    // add Briefcast info
+    [ref setFromURL:[controller locationOfRequest]];
+    [ref setBriefcast:self.briefcast];
+    
+    [[BFDataManager sharedBFDataManager] save];
+    
 //    NSString *pathToBrieflist = [[[BFDataManager sharedBFDataManager] documentDirectory] stringByAppendingPathComponent:fileName];
 //    [data writeToFile:pathToBrieflist atomically:YES];
 //    
@@ -114,7 +122,9 @@
     self.tableView.backgroundColor = [BFColor backgroundForTableView];
     self.tableView.separatorColor = [UIColor colorWithRed:0.7667f green:0.7784f blue:0.7902f alpha:1.0f];
     
-    if (locationOfBriefcast != nil) {
+    if (briefcast != nil) {
+        self.locationOfBriefcast = [briefcast fromURL];
+        
         // Display "loading..." message and a spinner
         self.title = @"Loading...";
         spinner = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite] autorelease];
@@ -138,6 +148,7 @@
     [self.channelDescription release];
     [self.enclosedBriefs release];
     [self.locationOfBriefcast release];
+    [self.briefcast release];
     [super dealloc];
 }
 

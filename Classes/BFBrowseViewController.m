@@ -81,8 +81,8 @@
         NSMutableArray *controllers = [NSMutableArray array];
 
         // add briefcast cell
-        BFBriefcast *briefcast = [[[BFBriefcast alloc] initWithRef:ref] autorelease]; 
-        BFReadOnlyBriefcastCellController *controller = [[[BFReadOnlyBriefcastCellController alloc] initWithBriefcast:briefcast] autorelease];
+        //BFBriefcast *briefcast = [[[BFBriefcast alloc] initWithRef:ref] autorelease]; 
+        BFReadOnlyBriefcastCellController *controller = [[[BFReadOnlyBriefcastCellController alloc] initWithBriefcast:ref] autorelease];
         [controllers addObject:controller];
         
         NSArray *briefs = [[BFDataManager sharedBFDataManager] briefsFromBriefcast:ref sortedAs:BFDataManagerSortByDateOpened];

@@ -8,7 +8,7 @@
 
 #import "BFBriefcastCellController.h"
 #import "BFBriefcastViewController.h"
-#import "BFBriefcast.h"
+#import "BFDataManager.h"
 
 
 @implementation BFBriefcastCellController
@@ -18,7 +18,7 @@
 #pragma mark -
 #pragma mark NSObject methods
 
-- (id)initWithBriefcast:(BFBriefcast *)bcast
+- (id)initWithBriefcast:(BriefcastRef *)bcast
 {
     self = [super init];
     if (self != nil) {
@@ -38,15 +38,14 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:@"BriefcastCell"] autorelease];
     }
-    cell.textLabel.text = self.briefcast.title;
+    cell.textLabel.text = [self.briefcast title];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tv didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //BFBriefcastViewController *controller = [[BFBriefcastViewController alloc] initWithStyle:UITableViewStyleGrouped];
     BFBriefcastViewController *controller = [[BFBriefcastViewController alloc] initWithNibName:@"BFBriefcastViewController" bundle:nil];
-    controller.locationOfBriefcast = self.briefcast.url;
+    controller.briefcast = self.briefcast;
     //BFBriefcastViewController *controller = [[BFBriefcastViewController alloc] initWithBriefcast:self.briefcast];
     if ([[tv delegate] isKindOfClass:[UIViewController class]]) {
         UIViewController *tvc = (UIViewController *) [tv delegate];
@@ -54,6 +53,12 @@
     }
     
     [controller release];
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath 
+{	
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+        [[BFDataManager sharedBFDataManager] removeBriefcast:self.briefcast];
 }
 
 ///////////////////////////////////////////////////////////////////////////////

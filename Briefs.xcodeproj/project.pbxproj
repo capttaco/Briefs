@@ -80,6 +80,9 @@
 		D4AF1D42114B3BAC00D1B3B5 /* BFBrowseBriefcastsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AF1D41114B3BAC00D1B3B5 /* BFBrowseBriefcastsViewController.m */; };
 		D4AF1DA4114B421200D1B3B5 /* BFReadOnlyBriefcastCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AF1DA3114B421200D1B3B5 /* BFReadOnlyBriefcastCellController.m */; };
 		D4AF1DC8114B61A600D1B3B5 /* BFBrowseBriefcastViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4AF1DC7114B61A600D1B3B5 /* BFBrowseBriefcastViewController.xib */; };
+		D4AF1DCF114BFE2300D1B3B5 /* BFBriefInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AF1DCE114BFE2300D1B3B5 /* BFBriefInfo.m */; };
+		D4AF1E03114C093300D1B3B5 /* NSDictionary+BFAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AF1E02114C093300D1B3B5 /* NSDictionary+BFAdditions.m */; };
+		D4AF1ECC114C234600D1B3B5 /* BFAddBriefcastCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AF1ECB114C234600D1B3B5 /* BFAddBriefcastCellController.m */; };
 		D4C0F3A810C7710A008E8DE5 /* transition-sample.brieflist in Resources */ = {isa = PBXBuildFile; fileRef = D4C0F3A710C7710A008E8DE5 /* transition-sample.brieflist */; };
 		D4C3275310B20DC600AB1F5E /* BFLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C3275110B20DC600AB1F5E /* BFLoadingViewController.m */; };
 		D4C3275410B20DC600AB1F5E /* BFLoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4C3275210B20DC600AB1F5E /* BFLoadingViewController.xib */; };
@@ -230,6 +233,12 @@
 		D4AF1DA2114B421200D1B3B5 /* BFReadOnlyBriefcastCellController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFReadOnlyBriefcastCellController.h; sourceTree = "<group>"; };
 		D4AF1DA3114B421200D1B3B5 /* BFReadOnlyBriefcastCellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFReadOnlyBriefcastCellController.m; sourceTree = "<group>"; };
 		D4AF1DC7114B61A600D1B3B5 /* BFBrowseBriefcastViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BFBrowseBriefcastViewController.xib; path = Classes/BFBrowseBriefcastViewController.xib; sourceTree = "<group>"; };
+		D4AF1DCD114BFE2300D1B3B5 /* BFBriefInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFBriefInfo.h; sourceTree = "<group>"; };
+		D4AF1DCE114BFE2300D1B3B5 /* BFBriefInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFBriefInfo.m; sourceTree = "<group>"; };
+		D4AF1E01114C093300D1B3B5 /* NSDictionary+BFAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+BFAdditions.h"; sourceTree = "<group>"; };
+		D4AF1E02114C093300D1B3B5 /* NSDictionary+BFAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+BFAdditions.m"; sourceTree = "<group>"; };
+		D4AF1ECA114C234600D1B3B5 /* BFAddBriefcastCellController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFAddBriefcastCellController.h; sourceTree = "<group>"; };
+		D4AF1ECB114C234600D1B3B5 /* BFAddBriefcastCellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFAddBriefcastCellController.m; sourceTree = "<group>"; };
 		D4C0F3A710C7710A008E8DE5 /* transition-sample.brieflist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = "transition-sample.brieflist"; path = "sample/transition-sample.brieflist"; sourceTree = "<group>"; };
 		D4C3275010B20DC600AB1F5E /* BFLoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFLoadingViewController.h; sourceTree = "<group>"; };
 		D4C3275110B20DC600AB1F5E /* BFLoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFLoadingViewController.m; sourceTree = "<group>"; };
@@ -487,7 +496,6 @@
 				D464116F10606DDE001522F6 /* BFTableViewController.h */,
 				D464117010606DDE001522F6 /* BFTableViewController.m */,
 				D464118D10606F38001522F6 /* BFCellController.h */,
-				D46B799310A6239900CCD698 /* BFRemoteBriefEventDelegate.h */,
 			);
 			name = tables;
 			sourceTree = "<group>";
@@ -506,6 +514,8 @@
 				D46B799110A61B3D00CCD698 /* BFRemoteBriefCellController.m */,
 				D4AF1DA2114B421200D1B3B5 /* BFReadOnlyBriefcastCellController.h */,
 				D4AF1DA3114B421200D1B3B5 /* BFReadOnlyBriefcastCellController.m */,
+				D4AF1ECA114C234600D1B3B5 /* BFAddBriefcastCellController.h */,
+				D4AF1ECB114C234600D1B3B5 /* BFAddBriefcastCellController.m */,
 			);
 			name = cells;
 			sourceTree = "<group>";
@@ -513,6 +523,7 @@
 		D464130F10687553001522F6 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D46B799310A6239900CCD698 /* BFRemoteBriefEventDelegate.h */,
 				D4C3275010B20DC600AB1F5E /* BFLoadingViewController.h */,
 				D4C3275110B20DC600AB1F5E /* BFLoadingViewController.m */,
 				D463E8FD107310170075CCCE /* BFBriefcastViewController.h */,
@@ -574,6 +585,8 @@
 				D4A3976C113B70AB004971E9 /* BFRootView+TapHoldGesture.m */,
 				D4AF1B30114808A300D1B3B5 /* BFBriefcast+CoreDataAdditions.h */,
 				D4AF1B31114808A300D1B3B5 /* BFBriefcast+CoreDataAdditions.m */,
+				D4AF1E01114C093300D1B3B5 /* NSDictionary+BFAdditions.h */,
+				D4AF1E02114C093300D1B3B5 /* NSDictionary+BFAdditions.m */,
 			);
 			name = addons;
 			sourceTree = "<group>";
@@ -670,6 +683,8 @@
 				D4309740106AB75B00C1EC5E /* BFDataManager.m */,
 				D482E54310F03FE000678404 /* BFColor.h */,
 				D482E54410F03FE000678404 /* BFColor.m */,
+				D4AF1DCD114BFE2300D1B3B5 /* BFBriefInfo.h */,
+				D4AF1DCE114BFE2300D1B3B5 /* BFBriefInfo.m */,
 			);
 			name = util;
 			sourceTree = "<group>";
@@ -829,6 +844,9 @@
 				D4AF1B4811480B3C00D1B3B5 /* BriefcastRef.m in Sources */,
 				D4AF1D42114B3BAC00D1B3B5 /* BFBrowseBriefcastsViewController.m in Sources */,
 				D4AF1DA4114B421200D1B3B5 /* BFReadOnlyBriefcastCellController.m in Sources */,
+				D4AF1DCF114BFE2300D1B3B5 /* BFBriefInfo.m in Sources */,
+				D4AF1E03114C093300D1B3B5 /* NSDictionary+BFAdditions.m in Sources */,
+				D4AF1ECC114C234600D1B3B5 /* BFAddBriefcastCellController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

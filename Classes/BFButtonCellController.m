@@ -27,4 +27,9 @@
     // TODO: Need to support calling a selector here!
 }
 
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tv editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleNone;
+}
+
 @end

@@ -10,6 +10,7 @@
 #import "BFTableViewController.h"
 #import "BFRemoteBriefEventDelegate.h"
 #import "BFLoadingViewController.h"
+#import "BriefcastRef.h"
 
 @interface BFBriefcastViewController : BFTableViewController <BFRemoteBriefEventDelegate, BFLoadingViewDelegate> 
 {
@@ -20,6 +21,7 @@
     NSMutableData   *recievedData;
     
     NSString                *locationOfBriefcast;
+    BriefcastRef            *briefcast;
     UIActivityIndicatorView *spinner;
 }
 
@@ -28,6 +30,7 @@
 @property (nonatomic, retain) NSString          *channelLink;
 @property (nonatomic, retain) NSString          *channelDescription;
 @property (nonatomic, retain) NSString          *locationOfBriefcast;
+@property (nonatomic, retain) BriefcastRef      *briefcast;
 @property (nonatomic, retain) NSMutableData     *recievedData;
 
 

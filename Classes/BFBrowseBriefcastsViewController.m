@@ -3,7 +3,7 @@
 //  Briefs
 //
 //  Created by Rob Rhyne on 3/12/10.
-//  Copyright 2010 Digital Arch Design. All rights reserved.
+//  Copyright Digital Arch Design, 2009-2010. See LICENSE file for details.
 //
 
 #import "BFBrowseBriefcastsViewController.h"
@@ -12,6 +12,7 @@
 #import "BriefcastRef.h"
 #import "BFBriefcast+CoreDataAdditions.h"
 #import "BFBriefcastCellController.h"
+#import "BFAddBriefcastCellController.h"
 
 
 @implementation BFBrowseBriefcastsViewController
@@ -65,12 +66,16 @@
     for (BriefcastRef *ref in knownBriefcasts) {
 
         // add briefcast cell
-        BFBriefcast *briefcast = [[[BFBriefcast alloc] initWithRef:ref] autorelease]; 
-        BFBriefcastCellController *controller = [[[BFBriefcastCellController alloc] initWithBriefcast:briefcast] autorelease];
+        //BFBriefcast *briefcast = [[[BFBriefcast alloc] initWithRef:ref] autorelease]; 
+        BFBriefcastCellController *controller = [[[BFBriefcastCellController alloc] initWithBriefcast:ref] autorelease];
         [allControllers addObject:controller];
     }
     
-    self.tableGroups = [NSArray arrayWithObjects:allControllers, nil];
+    BFAddBriefcastCellController *addController = [[BFAddBriefcastCellController alloc] initWithButtonLabel:@"Add Briefcast"];
+    addController.delegate = self;
+    NSArray *buttonControllers = [NSArray arrayWithObjects:addController, nil];
+    
+    self.tableGroups = [NSArray arrayWithObjects:allControllers, buttonControllers, nil];
 }
 
 - (IBAction)editBriefcasts
@@ -81,7 +86,7 @@
         [self.navigationItem setHidesBackButton:NO animated:YES];        
     }
     else {
-        self.navigationItem.rightBarButtonItem.title = @"Cancel";
+        self.navigationItem.rightBarButtonItem.title = @"Done";
         self.navigationItem.rightBarButtonItem.style = UIBarButtonItemStyleDone;
         [self.navigationItem setHidesBackButton:YES animated:YES];
     }
