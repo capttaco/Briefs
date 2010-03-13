@@ -19,7 +19,6 @@
 
 
 @implementation BFDataManager
-@synthesize data_store, knownBriefcasts, knownBriefs;
 
 SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
 
@@ -110,9 +109,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
     [managedObjectModel release];
     [persistentStoreCoordinator release];
     
-    [self.knownBriefcasts release];
-    [self.knownBriefs release];
-    [self.data_store release];
     [super dealloc];
 }
 
