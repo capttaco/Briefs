@@ -106,6 +106,19 @@
     else return 45.0;
 }
 
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tv editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (!self.tableGroups)  {
+        [self constructTableGroups];
+    }
+    
+    NSObject<BFCellController> *cellData = [[self.tableGroups objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    if ([cellData respondsToSelector:@selector(tableView:editingStyleForRowAtIndexPath:)]){
+        return [cellData tableView:tv editingStyleForRowAtIndexPath:indexPath];
+    }
+    else return UITableViewCellEditingStyleDelete;
+}
+
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -
 #pragma mark Memory Management

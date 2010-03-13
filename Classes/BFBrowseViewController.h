@@ -8,12 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "BFTableViewController.h"
-#import "BFAddBriefcastViewController.h"
 
-@interface BFBrowseViewController : BFTableViewController <BFAddBriefcastViewDelegate>
+@interface BFBrowseViewController : BFTableViewController
 {
 }
 
-- (IBAction)addBriefcast;
+//- (IBAction)addBriefcast;
 
 @end

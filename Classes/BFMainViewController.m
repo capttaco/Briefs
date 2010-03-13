@@ -8,10 +8,18 @@
 
 #import "BFMainViewController.h"
 #import "BFBrowseViewController.h"
+#import "BFBrowseBriefcastsViewController.h"
 #import "BFColor.h"
 
-@implementation BFMainViewController
 
+@interface BFMainViewController (private)
+
+- (void)hideMenuWithAnimation;
+
+@end
+
+
+@implementation BFMainViewController
 
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -
@@ -63,7 +71,7 @@
 #pragma mark -
 #pragma mark Main Menu Actions
 
-- (IBAction)browseYourBriefs
+- (void)hideMenuWithAnimation
 {
     // push down the menu view
     [UIView beginAnimations:@"MenuSlideDownTransition" context:nil];
@@ -73,15 +81,21 @@
     menuView.frame = CGRectMake(0.0f, 480.0f, size.width, size.height);
     
     [UIView commitAnimations];
+}
+
+- (IBAction)browseYourBriefs
+{
+    [self hideMenuWithAnimation];
     
     // show browser view
-    [self.navigationController pushViewController:[[BFBrowseViewController alloc] initWithNibName:@"BFBrowseViewController" bundle:nil] animated:YES];
+    [self.navigationController pushViewController:[[BFBrowseViewController alloc] init] animated:YES];
 }
 
 
 - (IBAction)browseYourBriefcasts
 {
-    NSLog(@"Go to my Briefcasts!");
+    [self hideMenuWithAnimation];
+    [self.navigationController pushViewController:[[BFBrowseBriefcastsViewController alloc] init] animated:YES];
 }
 
 ///////////////////////////////////////////////////////////////////////////////

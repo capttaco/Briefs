@@ -77,6 +77,9 @@
 		D4AF1B061147362200D1B3B5 /* Briefs.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = D4AF1B051147362200D1B3B5 /* Briefs.xcdatamodel */; };
 		D4AF1B32114808A300D1B3B5 /* BFBriefcast+CoreDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AF1B31114808A300D1B3B5 /* BFBriefcast+CoreDataAdditions.m */; };
 		D4AF1B4811480B3C00D1B3B5 /* BriefcastRef.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AF1B4711480B3C00D1B3B5 /* BriefcastRef.m */; };
+		D4AF1D42114B3BAC00D1B3B5 /* BFBrowseBriefcastsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AF1D41114B3BAC00D1B3B5 /* BFBrowseBriefcastsViewController.m */; };
+		D4AF1DA4114B421200D1B3B5 /* BFReadOnlyBriefcastCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AF1DA3114B421200D1B3B5 /* BFReadOnlyBriefcastCellController.m */; };
+		D4AF1DC8114B61A600D1B3B5 /* BFBrowseBriefcastViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4AF1DC7114B61A600D1B3B5 /* BFBrowseBriefcastViewController.xib */; };
 		D4C0F3A810C7710A008E8DE5 /* transition-sample.brieflist in Resources */ = {isa = PBXBuildFile; fileRef = D4C0F3A710C7710A008E8DE5 /* transition-sample.brieflist */; };
 		D4C3275310B20DC600AB1F5E /* BFLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C3275110B20DC600AB1F5E /* BFLoadingViewController.m */; };
 		D4C3275410B20DC600AB1F5E /* BFLoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4C3275210B20DC600AB1F5E /* BFLoadingViewController.xib */; };
@@ -222,6 +225,11 @@
 		D4AF1B31114808A300D1B3B5 /* BFBriefcast+CoreDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BFBriefcast+CoreDataAdditions.m"; sourceTree = "<group>"; };
 		D4AF1B4611480B3C00D1B3B5 /* BriefcastRef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BriefcastRef.h; sourceTree = "<group>"; };
 		D4AF1B4711480B3C00D1B3B5 /* BriefcastRef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BriefcastRef.m; sourceTree = "<group>"; };
+		D4AF1D40114B3BAC00D1B3B5 /* BFBrowseBriefcastsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFBrowseBriefcastsViewController.h; sourceTree = "<group>"; };
+		D4AF1D41114B3BAC00D1B3B5 /* BFBrowseBriefcastsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFBrowseBriefcastsViewController.m; sourceTree = "<group>"; };
+		D4AF1DA2114B421200D1B3B5 /* BFReadOnlyBriefcastCellController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFReadOnlyBriefcastCellController.h; sourceTree = "<group>"; };
+		D4AF1DA3114B421200D1B3B5 /* BFReadOnlyBriefcastCellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFReadOnlyBriefcastCellController.m; sourceTree = "<group>"; };
+		D4AF1DC7114B61A600D1B3B5 /* BFBrowseBriefcastViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BFBrowseBriefcastViewController.xib; path = Classes/BFBrowseBriefcastViewController.xib; sourceTree = "<group>"; };
 		D4C0F3A710C7710A008E8DE5 /* transition-sample.brieflist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = "transition-sample.brieflist"; path = "sample/transition-sample.brieflist"; sourceTree = "<group>"; };
 		D4C3275010B20DC600AB1F5E /* BFLoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFLoadingViewController.h; sourceTree = "<group>"; };
 		D4C3275110B20DC600AB1F5E /* BFLoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFLoadingViewController.m; sourceTree = "<group>"; };
@@ -341,6 +349,7 @@
 		76FD02EB104CAF4E002E96FA /* nib */ = {
 			isa = PBXGroup;
 			children = (
+				D4AF1DC7114B61A600D1B3B5 /* BFBrowseBriefcastViewController.xib */,
 				D482E4FC10EEECC700678404 /* BFMainViewController.xib */,
 				D4C3275210B20DC600AB1F5E /* BFLoadingViewController.xib */,
 				D4CA29351076F60500AA84FE /* BFBriefcastViewController.xib */,
@@ -495,6 +504,8 @@
 				D464133D10695048001522F6 /* BFTextCellController.m */,
 				D46B799010A61B3D00CCD698 /* BFRemoteBriefCellController.h */,
 				D46B799110A61B3D00CCD698 /* BFRemoteBriefCellController.m */,
+				D4AF1DA2114B421200D1B3B5 /* BFReadOnlyBriefcastCellController.h */,
+				D4AF1DA3114B421200D1B3B5 /* BFReadOnlyBriefcastCellController.m */,
 			);
 			name = cells;
 			sourceTree = "<group>";
@@ -512,6 +523,8 @@
 				D4641311106879AF001522F6 /* BFAddBriefcastViewController.m */,
 				D482E4FA10EEECC700678404 /* BFMainViewController.h */,
 				D482E4FB10EEECC700678404 /* BFMainViewController.m */,
+				D4AF1D40114B3BAC00D1B3B5 /* BFBrowseBriefcastsViewController.h */,
+				D4AF1D41114B3BAC00D1B3B5 /* BFBrowseBriefcastsViewController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -756,6 +769,7 @@
 				D4A39833113C6E9D004971E9 /* Briefcast.png in Resources */,
 				D4A39834113C6E9D004971E9 /* Briefs.png in Resources */,
 				D4A39836113C6EAA004971E9 /* Icon-small.png in Resources */,
+				D4AF1DC8114B61A600D1B3B5 /* BFBrowseBriefcastViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -813,6 +827,8 @@
 				D4AF1B061147362200D1B3B5 /* Briefs.xcdatamodel in Sources */,
 				D4AF1B32114808A300D1B3B5 /* BFBriefcast+CoreDataAdditions.m in Sources */,
 				D4AF1B4811480B3C00D1B3B5 /* BriefcastRef.m in Sources */,
+				D4AF1D42114B3BAC00D1B3B5 /* BFBrowseBriefcastsViewController.m in Sources */,
+				D4AF1DA4114B421200D1B3B5 /* BFReadOnlyBriefcastCellController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

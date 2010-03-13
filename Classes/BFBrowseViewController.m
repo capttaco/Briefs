@@ -12,7 +12,7 @@
 #import "BFPresentationDispatch.h"
 #import "BFBriefcastViewController.h"
 #import "BFBriefcast.h"
-#import "BFBriefcastCellController.h"
+#import "BFReadOnlyBriefcastCellController.h"
 #import "BFBriefCellController.h"
 #import "BFAddBriefcastViewController.h"
 #import "BFDataManager.h"
@@ -26,6 +26,12 @@
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -
 #pragma mark NSObject Methods
+
+- (id)init
+{
+    self = [super initWithNibName:@"BFBrowseViewController" bundle:nil];
+    return self;
+}
 
 - (void)viewDidLoad
 {
@@ -76,7 +82,7 @@
 
         // add briefcast cell
         BFBriefcast *briefcast = [[[BFBriefcast alloc] initWithRef:ref] autorelease]; 
-        BFBriefcastCellController *controller = [[[BFBriefcastCellController alloc] initWithBriefcast:briefcast] autorelease];
+        BFReadOnlyBriefcastCellController *controller = [[[BFReadOnlyBriefcastCellController alloc] initWithBriefcast:briefcast] autorelease];
         [controllers addObject:controller];
         
         NSArray *briefs = [[BFDataManager sharedBFDataManager] briefsFromBriefcast:ref sortedAs:BFDataManagerSortByDateOpened];
@@ -112,50 +118,47 @@
 #pragma mark -
 #pragma mark Adding New Briefcasts
 
-- (IBAction)addBriefcast
-{
-    BFAddBriefcastViewController *controller = [[BFAddBriefcastViewController alloc] init];
-    controller.delegate = self;
-    UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:controller];
-    [self.navigationController presentModalViewController:navigation animated:YES];
-
-    [controller release];
-    [navigation release];
-}
-
-- (void)addViewController:(BFAddBriefcastViewController *)controller didFinishWithSave:(BOOL)save
-{
-    if (save) {
-        BFBriefcast *briefcast = [controller briefcastFromExistingValues];
-        [[BFDataManager sharedBFDataManager] addBriefcastInformation:briefcast];
-    }
-    [self dismissModalViewControllerAnimated:YES];
-    [super updateAndReload];
-}
+//- (IBAction)addBriefcast
+//{
+//    BFAddBriefcastViewController *controller = [[BFAddBriefcastViewController alloc] init];
+//    controller.delegate = self;
+//    UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:controller];
+//    [self.navigationController presentModalViewController:navigation animated:YES];
+//
+//    [controller release];
+//    [navigation release];
+//}
+//
+//- (void)addViewController:(BFAddBriefcastViewController *)controller didFinishWithSave:(BOOL)save
+//{
+//    if (save) {
+//        BFBriefcast *briefcast = [controller briefcastFromExistingValues];
+//        [[BFDataManager sharedBFDataManager] addBriefcastInformation:briefcast];
+//    }
+//    [self dismissModalViewControllerAnimated:YES];
+//    [super updateAndReload];
+//}
 
 - (IBAction)editBriefs
 {
     //NSLog(@"Edit the briefs listing.");
-//    BOOL editMode;
-//    if (self.tableView.editing == YES) {
-//        editMode = NO;
-//        self.navigationItem.rightBarButtonItem.title = @"Edit";
-//        self.navigationItem.rightBarButtonItem.style = UIBarButtonItemStylePlain;
-//        [self.navigationItem setHidesBackButton:NO animated:YES];        
-//        
+    if (self.tableView.editing == YES) {
+        self.navigationItem.rightBarButtonItem.title = @"Edit";
+        self.navigationItem.rightBarButtonItem.style = UIBarButtonItemStylePlain;
+        [self.navigationItem setHidesBackButton:NO animated:YES];        
+        
 //        [self.tableView setEditing:editMode animated:YES];
 //        [self.tableView insertSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationBottom];
-//    }
-//    else {
-//        editMode = YES;
-//        self.navigationItem.rightBarButtonItem.title = @"Done";
-//        self.navigationItem.rightBarButtonItem.style = UIBarButtonItemStyleDone;
-//        [self.navigationItem setHidesBackButton:YES animated:YES];
-//        
+    }
+    else {
+        self.navigationItem.rightBarButtonItem.title = @"Cancel";
+        self.navigationItem.rightBarButtonItem.style = UIBarButtonItemStyleDone;
+        [self.navigationItem setHidesBackButton:YES animated:YES];
+        
 //        [self.tableView setEditing:editMode animated:YES];
 //        [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationTop];
-//    }
-    
+    }
+    [self.tableView setEditing:!self.tableView.editing animated:YES];
 }
 
 ///////////////////////////////////////////////////////////////////////////////
