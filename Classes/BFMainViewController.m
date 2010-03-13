@@ -24,6 +24,20 @@
     self.title = @"Welcome";
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    // push down the menu view
+    [UIView beginAnimations:@"MenuSlideUpTransition" context:nil];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(animationDidStop:finished:context:)];
+    [UIView setAnimationDuration:0.3f];
+    
+    CGSize size = menuView.frame.size;
+    menuView.frame = CGRectMake(0.0f, 280.0f, size.width, size.height);
+    
+    [UIView commitAnimations];
+}
+
 - (void)didReceiveMemoryWarning 
 {
 	// Releases the view if it doesn't have a superview.
@@ -51,9 +65,19 @@
 
 - (IBAction)browseYourBriefs
 {
-    NSLog(@"Go to my Briefs!");
+    // push down the menu view
+    [UIView beginAnimations:@"MenuSlideDownTransition" context:nil];
+    [UIView setAnimationDuration:0.5f];
+    
+    CGSize size = menuView.frame.size;
+    menuView.frame = CGRectMake(0.0f, 480.0f, size.width, size.height);
+    
+    [UIView commitAnimations];
+    
+    // show browser view
     [self.navigationController pushViewController:[[BFBrowseViewController alloc] initWithNibName:@"BFBrowseViewController" bundle:nil] animated:YES];
 }
+
 
 - (IBAction)browseYourBriefcasts
 {
