@@ -12,8 +12,6 @@
 #import "BFBriefcastCellController.h"
 #import "BFBriefcast+CoreDataAdditions.h"
 
-#import "BriefcastRef.h"
-#import "BriefRef.h"
 
 #define kBFDataManagerStoreLocation    @"Briefs.sqlite"
 
@@ -70,6 +68,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
                     [briefRef setFromURL:kBFLocallyStoredBriefURLString];
                     [briefRef setFilePath:next];
                     [briefRef setTitle:[next stringByReplacingOccurrencesOfString:@".brieflist" withString:@""]];
+                    [briefRef setBriefcast:[self localBriefcastRefMarker]];
                     
                     // Save the context
                     if (![managedObjectContext save:&error]) {
@@ -186,69 +185,69 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
 #pragma mark -
 #pragma mark Briefs Methods
 
-- (NSArray *)listOfLocalBriefsWithExtension:(NSString *)extension
-{
-    NSMutableArray *arrayOfLocals = [NSMutableArray array];
-    
-    // Fetch Data from the database
-	NSFetchRequest *request = [[NSFetchRequest alloc] init];
-	NSEntityDescription *entity = [NSEntityDescription entityForName:@"BriefRef" inManagedObjectContext:[self managedObjectContext]];
-	[request setEntity:entity];
-    
-    NSError *error;
-    NSMutableArray *mutableFetchResults = [[[self managedObjectContext]executeFetchRequest:request error:&error] mutableCopy];
-	if (mutableFetchResults == nil) {
-		// Boom! Handle the error.
-        NSLog(@"There was a problem retrieving the listing of Briefs");
-	}
-	
-    else {
-        for (BriefRef *ref in mutableFetchResults) {
-            BFBriefCellController *controller = [[[BFBriefCellController alloc] initWithNameOfBrief:ref] autorelease];
-            [arrayOfLocals addObject:controller];
-        }
-    }
-    
-	[mutableFetchResults release];
-	[request release];
-    
-    return arrayOfLocals;
-}
+//- (NSArray *)listOfLocalBriefsWithExtension:(NSString *)extension
+//{
+//    NSMutableArray *arrayOfLocals = [NSMutableArray array];
+//    
+//    // Fetch Data from the database
+//	NSFetchRequest *request = [[NSFetchRequest alloc] init];
+//	NSEntityDescription *entity = [NSEntityDescription entityForName:@"BriefRef" inManagedObjectContext:[self managedObjectContext]];
+//	[request setEntity:entity];
+//    
+//    NSError *error;
+//    NSMutableArray *mutableFetchResults = [[[self managedObjectContext]executeFetchRequest:request error:&error] mutableCopy];
+//	if (mutableFetchResults == nil) {
+//		// Boom! Handle the error.
+//        NSLog(@"There was a problem retrieving the listing of Briefs");
+//	}
+//	
+//    else {
+//        for (BriefRef *ref in mutableFetchResults) {
+//            BFBriefCellController *controller = [[[BFBriefCellController alloc] initWithNameOfBrief:ref] autorelease];
+//            [arrayOfLocals addObject:controller];
+//        }
+//    }
+//    
+//	[mutableFetchResults release];
+//	[request release];
+//    
+//    return arrayOfLocals;
+//}
 
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -
 #pragma mark Briefcast Methods
 
-- (NSArray *)listOfKnownBriefcasts
-{
-    NSMutableArray *arrayOfBriefcasts = [NSMutableArray array];
-    
-    // Fetch Data from the database
-	NSFetchRequest *request = [[NSFetchRequest alloc] init];
-	NSEntityDescription *entity = [NSEntityDescription entityForName:@"BriefcastRef" inManagedObjectContext:[self managedObjectContext]];
-	[request setEntity:entity];
-    
-    NSError *error;
-    NSMutableArray *mutableFetchResults = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
-	if (mutableFetchResults == nil) {
-		// Boom! Handle the error.
-        NSLog(@"There was a problem retrieving the listing of Briefcasts");
-	}
-	
-    else {
-        for (BriefcastRef *ref in mutableFetchResults) {
-            BFBriefcast *briefcast = [[[BFBriefcast alloc] initWithRef:ref] autorelease]; 
-            BFBriefcastCellController *controller = [[[BFBriefcastCellController alloc] initWithBriefcast:briefcast] autorelease];
-
-            [arrayOfBriefcasts addObject:controller];
-        }
-    }
-    
-	[mutableFetchResults release];
-	[request release];
-    
-    return arrayOfBriefcasts;
-}
+//- (NSArray *)listOfKnownBriefcasts
+//{
+//    NSMutableArray *arrayOfBriefcasts = [NSMutableArray array];
+//    
+//    // Fetch Data from the database
+//	NSFetchRequest *request = [[NSFetchRequest alloc] init];
+//	NSEntityDescription *entity = [NSEntityDescription entityForName:@"BriefcastRef" inManagedObjectContext:[self managedObjectContext]];
+//	[request setEntity:entity];
+//    
+//    NSError *error;
+//    NSMutableArray *mutableFetchResults = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
+//	if (mutableFetchResults == nil) {
+//		// Boom! Handle the error.
+//        NSLog(@"There was a problem retrieving the listing of Briefcasts");
+//	}
+//	
+//    else {
+//        for (BriefcastRef *ref in mutableFetchResults) {
+//            BFBriefcast *briefcast = [[[BFBriefcast alloc] initWithRef:ref] autorelease]; 
+//            BFBriefcastCellController *controller = [[[BFBriefcastCellController alloc] initWithBriefcast:briefcast] autorelease];
+//
+//            [arrayOfBriefcasts addObject:controller];
+//        }
+//    }
+//    
+//	[mutableFetchResults release];
+//	[request release];
+//    
+//    return arrayOfBriefcasts;
+//}
 
 - (void)addBriefcastInformation:(BFBriefcast *)briefcast
 {    
@@ -261,5 +260,83 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
     }
 }
+
+
+///////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark High-Level API
+
+- (NSArray *)allBriefcastsSortedAs:(BFDataManagerSortType)typeOfSort
+{
+    // TODO: implement sorting types
+    
+    NSMutableArray *arrayOfBriefcasts = [NSMutableArray array];
+    
+    // Fetch Data from the database
+	NSFetchRequest *request = [[NSFetchRequest alloc] init];
+	NSEntityDescription *entity = [NSEntityDescription entityForName:@"BriefcastRef" inManagedObjectContext:[self managedObjectContext]];
+	[request setEntity:entity];
+    
+    NSError *error;
+    NSMutableArray *mutableFetchResults = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
+	if (mutableFetchResults == nil) {
+		// Boom! Handle the error.
+        NSLog(@"There was a problem retrieving the listing of Briefcasts");
+        return nil;
+	}
+    
+    for (BriefcastRef *ref in mutableFetchResults) {
+        [arrayOfBriefcasts addObject:ref];
+    }
+    
+	[mutableFetchResults release];
+	[request release];
+    
+    return arrayOfBriefcasts;
+}
+
+- (NSArray *)briefsFromBriefcast:(BriefcastRef *)briefcast sortedAs:(BFDataManagerSortType)typeOfSort
+{
+    // TODO: implement sorting types
+    return [[briefcast briefs] allObjects];
+}
+
+- (BriefcastRef *)localBriefcastRefMarker
+{
+    // Build predicate to locate marker
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"fromURL == %@", kBFLocallyStoredBriefURLString];
+    
+    // Fetch Data from the database
+	NSFetchRequest *request = [[NSFetchRequest alloc] init];
+	NSEntityDescription *entity = [NSEntityDescription entityForName:@"BriefcastRef" inManagedObjectContext:[self managedObjectContext]];
+	[request setEntity:entity];
+    [request setPredicate:predicate];
+    
+    NSError *error;
+    NSMutableArray *mutableFetchResults = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
+	if (mutableFetchResults == nil || [mutableFetchResults count] <= 0) {
+        
+        // Marker does not exist
+        BriefcastRef *ref = (BriefcastRef *) [NSEntityDescription insertNewObjectForEntityForName:@"BriefcastRef" 
+                                                                           inManagedObjectContext:[self managedObjectContext]];
+        
+        [ref setFromURL:kBFLocallyStoredBriefURLString];
+        [ref setTitle:@"Local Briefs"];
+        [ref setDesc:@"This contains briefs that did not originate from a briefcast and are stored locally on the device."];
+        
+        // Save the context
+        NSError *error;
+        if (![[self managedObjectContext] save:&error]) {
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        }
+        
+        return ref;
+	}
+    
+    else return (BriefcastRef *) [mutableFetchResults objectAtIndex:0];
+    
+}
+
+///////////////////////////////////////////////////////////////////////////////
 
 @end

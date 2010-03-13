@@ -8,9 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import "BFBriefcast.h"
+#import "BriefcastRef.h"
+#import "BriefRef.h"
 
-#define kBFLocallyStoredBriefURLString  @"LOCALLY_STORED_BF"
+#define kBFLocallyStoredBriefURLString        @"LOCALLY_STORED_BF"
 
+typedef enum 
+{
+    BFDataManagerSortByDateOpened,
+    BFDataManagerSortByDateDownloaded,
+} BFDataManagerSortType;
 
 @interface BFDataManager : NSObject
 {
@@ -32,10 +39,15 @@
 - (void)save;
 
 // Briefs
-- (NSArray *)listOfLocalBriefsWithExtension:(NSString *)extension;
+//- (NSArray *)listOfLocalBriefsWithExtension:(NSString *)extension;
 
 // Briefcasts
-- (NSArray *)listOfKnownBriefcasts;
+//- (NSArray *)listOfKnownBriefcasts;
 - (void)addBriefcastInformation:(BFBriefcast *)briefcast;
+
+// High-Level API
+- (BriefcastRef *)localBriefcastRefMarker;
+- (NSArray *)allBriefcastsSortedAs:(BFDataManagerSortType)typeOfSort;
+- (NSArray *)briefsFromBriefcast:(BriefcastRef *)briefcast sortedAs:(BFDataManagerSortType)typeOfSort;
 
 @end

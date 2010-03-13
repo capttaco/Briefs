@@ -14,9 +14,6 @@
 {
 }
 
-- (NSArray *)localBriefLocations;
-- (NSArray *)storedBriefcastLocations;
-
 - (IBAction)addBriefcast;
 
 @end
