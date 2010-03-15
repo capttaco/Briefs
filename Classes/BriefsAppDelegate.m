@@ -8,6 +8,7 @@
 
 #import "BriefsAppDelegate.h"
 #import "BFSceneViewController.h"
+#import "BFMainViewController.h"
 #import "BFDataManager.h"
 
 @implementation BriefsAppDelegate
@@ -15,17 +16,51 @@
 @synthesize navigationController, window;
 
 
-- (void)applicationDidFinishLaunching:(UIApplication *)application 
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 
 {
     [[BFDataManager sharedBFDataManager] load];
+    
+    BFMainViewController *controller = [BFMainViewController alloc];
+    if (launchOptions) {
+        NSURL *url = [launchOptions objectForKey:UIApplicationLaunchOptionsURLKey];
+        controller = [controller initWithState:BFMainViewOpenedByURL];
+    }
+    
+    else {
+        // no url sent, going to default for now
+        // TODO: Need to flesh out rest of the launch states.
+        controller = [controller initWithState:BFMainViewDefaultState];
+    }
+    
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
+    self.navigationController.delegate = self;
     [window addSubview:[self.navigationController view]];
     [window makeKeyAndVisible];
+    [controller release];
+    
+    return YES;
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     [[BFDataManager sharedBFDataManager] save];
 }
+
+//- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url 
+//{
+//    if ([[url scheme] isEqualToString:@"brief"]) {
+//        NSLog(@"Received the following URL for a brief: %@", url);
+//        
+//        
+//        
+//        return YES;
+//    }
+//    else if ([[url scheme] isEqualToString:@"brieflist"]) {
+//        NSLog(@"Received the following URL for a briefcast: %@", url);
+//        return YES;
+//    }
+//    return NO;
+//}
 
 - (void)dealloc 
 {

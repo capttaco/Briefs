@@ -28,5 +28,17 @@
 	<string>MainWindow</string>
 	<key>UIPrerenderedIcon</key>
 	<true/>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.digitalarch.briefs</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>brief</string>
+				<string>briefcast</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>

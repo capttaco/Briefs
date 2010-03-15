@@ -15,6 +15,7 @@
 @interface BFMainViewController (private)
 
 - (void)hideMenuWithAnimation;
+- (void)showMenuWithAnimation;
 
 @end
 
@@ -25,6 +26,34 @@
 #pragma mark -
 #pragma mark NSObject Methods
 
+- (id)initWithState:(BFMainViewState)state 
+{
+    self = [super initWithNibName:@"BFMainViewController" bundle:nil];
+    if (self != nil) {
+        stateUponLaunch = state;
+    }
+    return self;
+}
+
+- (id)initWithExternalURL:(NSURL *)url 
+{
+    self = [self initWithState:BFMainViewOpenedByURL];
+    if (self != nil) {
+        urlLaunchWith = url;
+    }
+    
+    return self;
+}
+
+- (void)dealloc 
+{
+    [super dealloc];
+}
+
+///////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark NSViewController Methods
+
 - (void)viewDidLoad 
 {
     [super viewDidLoad];
@@ -34,36 +63,45 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    // push down the menu view
-    [UIView beginAnimations:@"MenuSlideUpTransition" context:nil];
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector:@selector(animationDidStop:finished:context:)];
-    [UIView setAnimationDuration:0.3f];
-    
-    CGSize size = menuView.frame.size;
-    menuView.frame = CGRectMake(0.0f, 280.0f, size.width, size.height);
-    
-    [UIView commitAnimations];
-}
-
-- (void)didReceiveMemoryWarning 
-{
-	// Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-	
-	// Release any cached data, images, etc that aren't in use.
+    switch (stateUponLaunch) {
+        case BFMainViewOpenedByURL:
+            
+            // TODO: Open brief or briefcast at URL
+            
+            stateUponLaunch = BFMainViewDefaultState;
+            break;
+            
+        case BFMainViewClosedWhilePlayingBrief:
+            
+            // TODO: Offer to re-open brief that was disrupted
+            
+            stateUponLaunch = BFMainViewDefaultState;
+            break;
+        
+        case BFMainViewNoDataToDisplay:
+            
+            // TODO: Explain how to find a briefcast
+            break;
+        
+        case BFMainViewFirstTimeOpened:
+            
+            // TODO: Display the welcome screens
+            break;
+            
+        case BFMainViewDefaultState:
+            if (menuView.frame.origin.y <= 480.0f)
+                [self showMenuWithAnimation];
+            
+            // TODO: Display recent briefs/briefcasts
+            
+            break;
+    }
 }
 
 - (void)viewDidUnload 
 {
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
-}
-
-
-- (void)dealloc 
-{
-    [super dealloc];
 }
 
 
@@ -83,14 +121,25 @@
     [UIView commitAnimations];
 }
 
+- (void)showMenuWithAnimation 
+{
+    // push up the menu view
+    [UIView beginAnimations:@"MenuSlideUpTransition" context:nil];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(animationDidStop:finished:context:)];
+    [UIView setAnimationDuration:0.3f];
+    
+    CGSize size = menuView.frame.size;
+    menuView.frame = CGRectMake(0.0f, 280.0f, size.width, size.height);
+    
+    [UIView commitAnimations];
+}
+
 - (IBAction)browseYourBriefs
 {
     [self hideMenuWithAnimation];
-    
-    // show browser view
     [self.navigationController pushViewController:[[BFBrowseViewController alloc] init] animated:YES];
 }
-
 
 - (IBAction)browseYourBriefcasts
 {
