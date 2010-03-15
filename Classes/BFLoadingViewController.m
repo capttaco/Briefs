@@ -80,8 +80,6 @@
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    // Boom, we failed.
-    NSLog(@"Boom, the URL load failed.");
     [label setText:@"Oops, an error occured."];
     [self.delegate loadingView:self didNotCompleteWithError:error];
     safeToClose = YES;

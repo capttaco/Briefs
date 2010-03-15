@@ -3,21 +3,21 @@
 //  Briefs
 //
 //  Created by Rob Rhyne on 9/23/09.
-//  Copyright Digital Arch Design, 2009. See LICENSE file for details.
+//  Copyright Digital Arch Design, 2009-2010. See LICENSE file for details.
 //
 
-#import <Foundation/Foundation.h>
 #import "BFBriefcast.h"
 #import "BriefcastRef.h"
 #import "BriefRef.h"
 
 #define kBFLocallyStoredBriefURLString        @"LOCALLY_STORED_BF"
 
-typedef enum 
-{
+typedef enum {
     BFDataManagerSortByDateOpened,
     BFDataManagerSortByDateDownloaded,
-} BFDataManagerSortType;
+}  BFDataManagerSortType;
+
+
 
 @interface BFDataManager : NSObject
 {
