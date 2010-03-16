@@ -9,10 +9,12 @@
 #import "BFMainViewController.h"
 #import "BFBrowseViewController.h"
 #import "BFBrowseBriefcastsViewController.h"
+#import "BFBriefcastViewController.h"
 #import "BFColor.h"
 
+#import "BFLoadingViewController.h"
 
-@interface BFMainViewController (private)
+@interface BFMainViewController (PrivateMethods)
 
 - (void)hideMenuWithAnimation;
 - (void)showMenuWithAnimation;
@@ -66,7 +68,23 @@
     switch (stateUponLaunch) {
         case BFMainViewOpenedByURL:
             
-            // TODO: Open brief or briefcast at URL
+            if ([[urlLaunchWith scheme] isEqualToString:@"brief"]) {
+                NSString *modifiedRequestString = [[urlLaunchWith absoluteString] stringByReplacingOccurrencesOfString:@"brief://" withString:@"http://"]; 
+                BFLoadingViewController *loading = [[BFLoadingViewController alloc] init];
+                [loading view].frame = CGRectOffset([loading view].frame, 40, 30);
+                [self.view addSubview:[loading view]];
+                
+                [loading load:modifiedRequestString withInitialStatus:@"Locating the Brief..." animated:YES];
+            }
+            
+            else if ([[urlLaunchWith scheme] isEqualToString:@"briefcast"]) {
+                NSString *modifiedRequestString = [[urlLaunchWith absoluteString] stringByReplacingOccurrencesOfString:@"briefcast://" withString:@"http://"];                
+                BFBriefcastViewController *viewer = [[BFBriefcastViewController alloc] initWithNibName:@"BFBriefcastViewController" bundle:nil];
+                viewer.locationOfBriefcast = modifiedRequestString;
+                
+                // launch briefcast view
+                [self.navigationController pushViewController:viewer animated:YES];
+            }
             
             stateUponLaunch = BFMainViewDefaultState;
             break;
@@ -96,6 +114,7 @@
             
             break;
     }
+    
 }
 
 - (void)viewDidUnload 

@@ -23,7 +23,7 @@
     BFMainViewController *controller = [BFMainViewController alloc];
     if (launchOptions) {
         NSURL *url = [launchOptions objectForKey:UIApplicationLaunchOptionsURLKey];
-        controller = [controller initWithState:BFMainViewOpenedByURL];
+        controller = [controller initWithExternalURL:url];
     }
     
     else {

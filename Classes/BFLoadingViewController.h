@@ -12,13 +12,20 @@
 
 @interface BFLoadingViewController : UIViewController 
 {
-    IBOutlet UIActivityIndicatorView    *spinner;
-    IBOutlet UILabel                    *label;
+    //IBOutlet UIActivityIndicatorView    *spinner;
+    IBOutlet UILabel            *statusLabel;
+    IBOutlet UISlider           *progressSlider;
+    IBOutlet UIImageView        *imageView;
+    IBOutlet UIButton           *cancelButton;
+    IBOutlet UIButton           *actionButton;
     
     id<BFLoadingViewDelegate>   delegate;
+    NSURLConnection             *connection;
     NSMutableData               *data;
     NSString                    *locationOfRequest;
+    long long                   expectedSizeOfResponse;
     BOOL                        safeToClose;
+    BOOL                        shouldAnimate;
 }
 
 @property (nonatomic, assign) id            delegate;
@@ -27,7 +34,10 @@
 
 // Connection API
 - (void)load:(NSString *)location withInitialStatus:(NSString *)status animated:(BOOL)animate;
+- (void)load:(NSString *)location withInitialStatus:(NSString *)status action:(NSString *)actionText animated:(BOOL)animate;
 
+- (IBAction)dismissView;
+- (IBAction)dismissViewWithAction;
 
 @end
 
@@ -35,6 +45,7 @@
 
 - (void)loadingView:(BFLoadingViewController *)controller didCompleteWithData:(NSData *)data;
 - (void)loadingView:(BFLoadingViewController *)controller didNotCompleteWithError:(NSError *)error;
-- (void)loadingView:(BFLoadingViewController *)controller shouldCloseView:(BOOL)animated;
+- (void)loadingView:(BFLoadingViewController *)controller shouldDismissView:(BOOL)animate;
+- (void)loadingView:(BFLoadingViewController *)controller shouldDismissViewWithAction:(BOOL)animate;
 
 @end
