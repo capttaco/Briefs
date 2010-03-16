@@ -21,6 +21,11 @@
 
 @synthesize channelTitle, channelLink, channelDescription, locationOfBriefcast, enclosedBriefs, recievedData, briefcast;
 
+- (id)init
+{
+    return [super initWithNibName:@"BFBriefcastViewController" bundle:nil];
+}
+
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -
 #pragma mark BFRemoteBriefEventDelegate Methods
@@ -54,13 +59,6 @@
     [ref setBriefcast:self.briefcast];
     
     [[BFDataManager sharedBFDataManager] save];
-    
-//    NSString *pathToBrieflist = [[[BFDataManager sharedBFDataManager] documentDirectory] stringByAppendingPathComponent:fileName];
-//    [data writeToFile:pathToBrieflist atomically:YES];
-//    
-//    // reset knowm briefs, so the list is rebuilt
-//    // the next time the browse view is loaded.
-//    [BFDataManager sharedBFDataManager].knownBriefs = nil;
     
 }
 
@@ -122,9 +120,10 @@
     self.tableView.backgroundColor = [BFColor backgroundForTableView];
     self.tableView.separatorColor = [UIColor colorWithRed:0.7667f green:0.7784f blue:0.7902f alpha:1.0f];
     
-    if (briefcast != nil) {
+    if (briefcast) 
         self.locationOfBriefcast = [briefcast fromURL];
-        
+    
+    if (self.locationOfBriefcast != nil) {
         // Display "loading..." message and a spinner
         self.title = @"Loading...";
         spinner = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite] autorelease];
