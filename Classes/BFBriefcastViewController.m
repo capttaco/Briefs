@@ -52,10 +52,9 @@
 - (void)loadingView:(BFLoadingViewController *)controller didCompleteWithData:(NSData *)data
 {
     NSString *fileName = [controller.locationOfRequest lastPathComponent];
-    BriefRef *ref = [[BFDataManager sharedBFDataManager] addBriefAtPath:fileName usingData:data];
+    BriefRef *ref = [[BFDataManager sharedBFDataManager] addBriefAtPath:fileName usingData:data fromURL:[controller locationOfRequest]];
     
     // add Briefcast info
-    [ref setFromURL:[controller locationOfRequest]];
     [ref setBriefcast:self.briefcast];
     
     [[BFDataManager sharedBFDataManager] save];

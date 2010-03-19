@@ -10,14 +10,14 @@
 #import "BFBrowseViewController.h"
 #import "BFBrowseBriefcastsViewController.h"
 #import "BFBriefcastViewController.h"
+#import "BFDataManager.h"
 #import "BFColor.h"
-
-#import "BFLoadingViewController.h"
 
 @interface BFMainViewController (PrivateMethods)
 
 - (void)hideMenuWithAnimation;
 - (void)showMenuWithAnimation;
+- (void)dismissLoadingViewAnimation:(UIView *)loadingView;
 
 @end
 
@@ -63,7 +63,7 @@
     self.title = @"Welcome";
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewDidAppear:(BOOL)animated
 {
     switch (stateUponLaunch) {
         case BFMainViewOpenedByURL:
@@ -72,7 +72,13 @@
                 NSString *modifiedRequestString = [[urlLaunchWith absoluteString] stringByReplacingOccurrencesOfString:@"brief://" withString:@"http://"]; 
                 BFLoadingViewController *loading = [[BFLoadingViewController alloc] init];
                 [loading view].frame = CGRectOffset([loading view].frame, 40, 30);
-                [self.view addSubview:[loading view]];
+                [loading setDelegate:self];
+                
+                [UIView beginAnimations:@"load loader animation" context:nil];
+                    [loading view].alpha = 0.0f;
+                    [self.view addSubview:[loading view]];
+                    [loading view].alpha = 1.0f;
+                [UIView commitAnimations];
                 
                 [loading load:modifiedRequestString withInitialStatus:@"Locating the Brief..." animated:YES];
             }
@@ -114,7 +120,6 @@
             
             break;
     }
-    
 }
 
 - (void)viewDidUnload 
@@ -123,6 +128,50 @@
 	// e.g. self.myOutlet = nil;
 }
 
+///////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark BFLoadingViewDelegate Methods
+
+- (void)loadingView:(BFLoadingViewController *)controller didCompleteWithData:(NSData *)data
+{
+    NSString *remoteNameOfBrief = [[controller locationOfRequest] lastPathComponent];
+    BriefRef *ref = [[BFDataManager sharedBFDataManager] addBriefAtPath:remoteNameOfBrief usingData:data fromURL:[controller locationOfRequest]];
+    [ref setBriefcast:[[BFDataManager sharedBFDataManager] localBriefcastRefMarker]];
+    [[BFDataManager sharedBFDataManager] save];
+}
+
+- (void)loadingView:(BFLoadingViewController *)controller didNotCompleteWithError:(NSError *)error
+{
+    [self dismissLoadingViewAnimation:[controller view]];
+}
+
+- (void)loadingView:(BFLoadingViewController *)controller shouldDismissView:(BOOL)animate
+{
+    [self dismissLoadingViewAnimation:[controller view]];
+}
+
+- (void)loadingView:(BFLoadingViewController *)controller shouldDismissViewWithAction:(BOOL)animate
+{
+    [self dismissLoadingViewAnimation:[controller view]];
+    
+    // TODO: do something, like view the brief and stuff
+}
+
+- (void)fadeLoadingViewDidStop:(NSString *)animationId finished:(NSNumber *)finished context:(void *)context
+{
+    UIView *view = context;
+    [view removeFromSuperview];
+}
+
+- (void)dismissLoadingViewAnimation:(UIView *)loadingView
+{
+    [UIView beginAnimations:@"dismiss loader animation" context:loadingView];
+    [UIView setAnimationDidStopSelector:@selector(fadeLoadingViewDidStop:finished:context:)];
+    loadingView.alpha = 0.0f;
+    [UIView commitAnimations];
+    
+    [self showMenuWithAnimation];
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BFLoadingViewController.h"
 
 // Display states for various start-up conditions
 typedef enum {
@@ -28,8 +29,7 @@ typedef enum {
 } BFMainViewState;
 
 
-
-@interface BFMainViewController : UIViewController
+@interface BFMainViewController : UIViewController <BFLoadingViewDelegate>
 {
     IBOutlet UIView     *openingView;
     IBOutlet UIView     *menuView;
@@ -37,7 +37,7 @@ typedef enum {
     BFMainViewState     stateUponLaunch;
     
     // optional context ivars
-    NSURL               *urlLaunchWith;
+    NSURL                   *urlLaunchWith;
 }
 
 // Initialization

@@ -63,8 +63,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
                 if([[NSFileManager defaultManager] copyItemAtPath:oldPath toPath:newPath error:&error]) {
                     
                     // if copy was successful, then add it to the database
-                    BriefRef *briefRef = [self addBriefAtPath:next];
-                    [briefRef setFromURL:kBFLocallyStoredBriefURLString];
+                    BriefRef *briefRef = [self addBriefAtPath:next fromURL:kBFLocallyStoredBriefURLString];
                     [briefRef setBriefcast:[self localBriefcastRefMarker]];
                     
                     // Save the context
@@ -194,14 +193,14 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
     }
 }
 
-- (BriefRef *)addBriefAtPath:(NSString *)path usingData:(NSData *)data
+- (BriefRef *)addBriefAtPath:(NSString *)path usingData:(NSData *)data fromURL:(NSString *)url
 {
     NSString *destination = [[self documentDirectory] stringByAppendingPathComponent:path];
     [data writeToFile:destination atomically:YES];
-    return [self addBriefAtPath:path];
+    return [self addBriefAtPath:path fromURL:url];
 }
 
-- (BriefRef *)addBriefAtPath:(NSString *)path 
+- (BriefRef *)addBriefAtPath:(NSString *)path fromURL:(NSString *)url
 {
     NSString *destination = [[self documentDirectory] stringByAppendingPathComponent:path];
     NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:destination];
@@ -209,6 +208,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
     BFBriefInfo *info = [BFBriefInfo infoForBriefData:dictionary atPath:path];
     BriefRef *newRef = [info insertIntoManagedContext:[self managedObjectContext]];
     [newRef setDateLastDownloaded:[NSDate date]];
+    [newRef setFromURL:url];
     
     // Save the context
     NSError *error;
