@@ -12,6 +12,8 @@
 #import "BFBriefcastViewController.h"
 #import "BFDataManager.h"
 #import "BFColor.h"
+#import "BriefcastRef+BFBriefDataSource.h"
+#import "BFPagedBrowseViewController.h"
 
 @interface BFMainViewController (PrivateMethods)
 
@@ -206,7 +208,13 @@
 - (IBAction)browseYourBriefs
 {
     [self hideMenuWithAnimation];
-    [self.navigationController pushViewController:[[BFBrowseViewController alloc] init] animated:YES];
+//    [self.navigationController pushViewController:[[BFBrowseViewController alloc] init] animated:YES];
+    
+    // TODO: remove this testing STUB!!!!!
+    NSArray *knownBriefcasts = [[BFDataManager sharedBFDataManager] allBriefcastsSortedAs:BFDataManagerSortByDateOpened];
+    BriefcastRef *locals = (BriefcastRef *) [knownBriefcasts objectAtIndex:0];
+    [self.navigationController pushViewController:[[BFPagedBrowseViewController alloc] initWithDataSource:locals] animated:YES];
+    
 }
 
 - (IBAction)browseYourBriefcasts

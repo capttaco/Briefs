@@ -66,9 +66,14 @@
     
 }
 
-- (void)loadingView:(BFLoadingViewController *)controller shouldCloseView:(BOOL)animated
+- (void)loadingView:(BFLoadingViewController *)controller shouldDismissView:(BOOL)animated
 {
     [self dismissModalViewControllerAnimated:YES];
+}
+
+- (void)loadingView:(BFLoadingViewController *)controller shouldDismissViewWithAction:(BOOL)animated
+{
+    
 }
 
 

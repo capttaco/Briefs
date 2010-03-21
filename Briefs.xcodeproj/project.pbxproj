@@ -39,6 +39,17 @@
 		D43CE1C2114F21C300DA07D5 /* main-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D43CE1C1114F21C300DA07D5 /* main-bg.png */; };
 		D43CE216114F2C3300DA07D5 /* pop-slider-blank.png in Resources */ = {isa = PBXBuildFile; fileRef = D43CE215114F2C3300DA07D5 /* pop-slider-blank.png */; };
 		D43CE247114F34A100DA07D5 /* pop-button-highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = D43CE246114F34A100DA07D5 /* pop-button-highlight.png */; };
+		D43CE3821154644A00DA07D5 /* BFPagedBrowseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D43CE3801154644A00DA07D5 /* BFPagedBrowseViewController.m */; };
+		D43CE3831154644A00DA07D5 /* BFPagedBrowseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D43CE3811154644A00DA07D5 /* BFPagedBrowseViewController.xib */; };
+		D43CE397115465CE00DA07D5 /* BFPreviewBriefViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D43CE395115465CE00DA07D5 /* BFPreviewBriefViewController.m */; };
+		D43CE398115465CE00DA07D5 /* BFPreviewBriefViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D43CE396115465CE00DA07D5 /* BFPreviewBriefViewController.xib */; };
+		D43CE39F1154720C00DA07D5 /* BriefcastRef+BFBriefDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D43CE39E1154720C00DA07D5 /* BriefcastRef+BFBriefDataSource.m */; };
+		D43CE3A51154784300DA07D5 /* BFPreviewBriefView.m in Sources */ = {isa = PBXBuildFile; fileRef = D43CE3A41154784300DA07D5 /* BFPreviewBriefView.m */; };
+		D43CE3A81154785500DA07D5 /* BFBriefInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D43CE3A71154785500DA07D5 /* BFBriefInfoView.m */; };
+		D43CE3AB1154836100DA07D5 /* preview-title-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D43CE3AA1154836100DA07D5 /* preview-title-bg.png */; };
+		D43CE3AD115488C400DA07D5 /* preview-play-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D43CE3AC115488C400DA07D5 /* preview-play-bg.png */; };
+		D43CE3AF11548B6D00DA07D5 /* ks1.png in Resources */ = {isa = PBXBuildFile; fileRef = D43CE3AE11548B6D00DA07D5 /* ks1.png */; };
+		D43CE47C115548DD00DA07D5 /* preview-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D43CE47B115548DD00DA07D5 /* preview-bg.png */; };
 		D463E8FF107310170075CCCE /* BFBriefcastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D463E8FE107310170075CCCE /* BFBriefcastViewController.m */; };
 		D464117110606DDE001522F6 /* BFTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D464117010606DDE001522F6 /* BFTableViewController.m */; };
 		D46411931065CF8C001522F6 /* BFBriefCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D46411921065CF8C001522F6 /* BFBriefCellController.m */; };
@@ -168,6 +179,23 @@
 		D43CE1C1114F21C300DA07D5 /* main-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "main-bg.png"; path = "images/bg/main-bg.png"; sourceTree = "<group>"; };
 		D43CE215114F2C3300DA07D5 /* pop-slider-blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pop-slider-blank.png"; path = "images/bg/pop-slider-blank.png"; sourceTree = "<group>"; };
 		D43CE246114F34A100DA07D5 /* pop-button-highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pop-button-highlight.png"; path = "images/bg/pop-button-highlight.png"; sourceTree = "<group>"; };
+		D43CE37F1154644A00DA07D5 /* BFPagedBrowseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFPagedBrowseViewController.h; sourceTree = "<group>"; };
+		D43CE3801154644A00DA07D5 /* BFPagedBrowseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFPagedBrowseViewController.m; sourceTree = "<group>"; };
+		D43CE3811154644A00DA07D5 /* BFPagedBrowseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BFPagedBrowseViewController.xib; path = Classes/BFPagedBrowseViewController.xib; sourceTree = "<group>"; };
+		D43CE394115465CE00DA07D5 /* BFPreviewBriefViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFPreviewBriefViewController.h; sourceTree = "<group>"; };
+		D43CE395115465CE00DA07D5 /* BFPreviewBriefViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFPreviewBriefViewController.m; sourceTree = "<group>"; };
+		D43CE396115465CE00DA07D5 /* BFPreviewBriefViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BFPreviewBriefViewController.xib; path = Classes/BFPreviewBriefViewController.xib; sourceTree = "<group>"; };
+		D43CE39C11546F7400DA07D5 /* BFBriefDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFBriefDataSource.h; sourceTree = "<group>"; };
+		D43CE39D1154720C00DA07D5 /* BriefcastRef+BFBriefDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BriefcastRef+BFBriefDataSource.h"; sourceTree = "<group>"; };
+		D43CE39E1154720C00DA07D5 /* BriefcastRef+BFBriefDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BriefcastRef+BFBriefDataSource.m"; sourceTree = "<group>"; };
+		D43CE3A31154784300DA07D5 /* BFPreviewBriefView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFPreviewBriefView.h; sourceTree = "<group>"; };
+		D43CE3A41154784300DA07D5 /* BFPreviewBriefView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFPreviewBriefView.m; sourceTree = "<group>"; };
+		D43CE3A61154785500DA07D5 /* BFBriefInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFBriefInfoView.h; sourceTree = "<group>"; };
+		D43CE3A71154785500DA07D5 /* BFBriefInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFBriefInfoView.m; sourceTree = "<group>"; };
+		D43CE3AA1154836100DA07D5 /* preview-title-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "preview-title-bg.png"; path = "images/bg/preview-title-bg.png"; sourceTree = "<group>"; };
+		D43CE3AC115488C400DA07D5 /* preview-play-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "preview-play-bg.png"; path = "images/bg/preview-play-bg.png"; sourceTree = "<group>"; };
+		D43CE3AE11548B6D00DA07D5 /* ks1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ks1.png; path = KitchenShopping/ks1.png; sourceTree = "<group>"; };
+		D43CE47B115548DD00DA07D5 /* preview-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "preview-bg.png"; path = "images/bg/preview-bg.png"; sourceTree = "<group>"; };
 		D463E8FD107310170075CCCE /* BFBriefcastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFBriefcastViewController.h; sourceTree = "<group>"; };
 		D463E8FE107310170075CCCE /* BFBriefcastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFBriefcastViewController.m; sourceTree = "<group>"; wrapsLines = 0; };
 		D464116F10606DDE001522F6 /* BFTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFTableViewController.h; sourceTree = "<group>"; };
@@ -374,6 +402,8 @@
 		76FD02EB104CAF4E002E96FA /* nib */ = {
 			isa = PBXGroup;
 			children = (
+				D43CE396115465CE00DA07D5 /* BFPreviewBriefViewController.xib */,
+				D43CE3811154644A00DA07D5 /* BFPagedBrowseViewController.xib */,
 				D4AF1DC7114B61A600D1B3B5 /* BFBrowseBriefcastViewController.xib */,
 				D482E4FC10EEECC700678404 /* BFMainViewController.xib */,
 				D4C3275210B20DC600AB1F5E /* BFLoadingViewController.xib */,
@@ -499,6 +529,9 @@
 		D43CE16C114F0DC800DA07D5 /* backgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				D43CE47B115548DD00DA07D5 /* preview-bg.png */,
+				D43CE3AC115488C400DA07D5 /* preview-play-bg.png */,
+				D43CE3AA1154836100DA07D5 /* preview-title-bg.png */,
 				D43CE246114F34A100DA07D5 /* pop-button-highlight.png */,
 				D43CE215114F2C3300DA07D5 /* pop-slider-blank.png */,
 				D43CE1C1114F21C300DA07D5 /* main-bg.png */,
@@ -510,6 +543,26 @@
 				D43CE16D114F0DD900DA07D5 /* pop-up-bg.png */,
 			);
 			name = backgrounds;
+			sourceTree = "<group>";
+		};
+		D43CE39B11546F4700DA07D5 /* protocols */ = {
+			isa = PBXGroup;
+			children = (
+				D46B799310A6239900CCD698 /* BFRemoteBriefEventDelegate.h */,
+				D43CE39C11546F7400DA07D5 /* BFBriefDataSource.h */,
+			);
+			name = protocols;
+			sourceTree = "<group>";
+		};
+		D43CE3A21154780000DA07D5 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				D43CE3A31154784300DA07D5 /* BFPreviewBriefView.h */,
+				D43CE3A41154784300DA07D5 /* BFPreviewBriefView.m */,
+				D43CE3A61154785500DA07D5 /* BFBriefInfoView.h */,
+				D43CE3A71154785500DA07D5 /* BFBriefInfoView.m */,
+			);
+			name = views;
 			sourceTree = "<group>";
 		};
 		D463E8BE106D6C580075CCCE /* My Briefs */ = {
@@ -555,7 +608,6 @@
 		D464130F10687553001522F6 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D46B799310A6239900CCD698 /* BFRemoteBriefEventDelegate.h */,
 				D4C3275010B20DC600AB1F5E /* BFLoadingViewController.h */,
 				D4C3275110B20DC600AB1F5E /* BFLoadingViewController.m */,
 				D463E8FD107310170075CCCE /* BFBriefcastViewController.h */,
@@ -568,6 +620,10 @@
 				D482E4FB10EEECC700678404 /* BFMainViewController.m */,
 				D4AF1D40114B3BAC00D1B3B5 /* BFBrowseBriefcastsViewController.h */,
 				D4AF1D41114B3BAC00D1B3B5 /* BFBrowseBriefcastsViewController.m */,
+				D43CE37F1154644A00DA07D5 /* BFPagedBrowseViewController.h */,
+				D43CE3801154644A00DA07D5 /* BFPagedBrowseViewController.m */,
+				D43CE394115465CE00DA07D5 /* BFPreviewBriefViewController.h */,
+				D43CE395115465CE00DA07D5 /* BFPreviewBriefViewController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -575,6 +631,7 @@
 		D472009510A110FE00601755 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D43CE3AE11548B6D00DA07D5 /* ks1.png */,
 				D43CE16C114F0DC800DA07D5 /* backgrounds */,
 				D4A39830113C6E7F004971E9 /* icons */,
 				D4A394B91130F926004971E9 /* flag.png */,
@@ -604,6 +661,8 @@
 		D49E5F591011690100B7EEBB /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				D43CE3A21154780000DA07D5 /* views */,
+				D43CE39B11546F4700DA07D5 /* protocols */,
 				D464130F10687553001522F6 /* controllers */,
 				D464115210606AA1001522F6 /* tables */,
 			);
@@ -619,6 +678,8 @@
 				D4AF1B31114808A300D1B3B5 /* BFBriefcast+CoreDataAdditions.m */,
 				D4AF1E01114C093300D1B3B5 /* NSDictionary+BFAdditions.h */,
 				D4AF1E02114C093300D1B3B5 /* NSDictionary+BFAdditions.m */,
+				D43CE39D1154720C00DA07D5 /* BriefcastRef+BFBriefDataSource.h */,
+				D43CE39E1154720C00DA07D5 /* BriefcastRef+BFBriefDataSource.m */,
 			);
 			name = addons;
 			sourceTree = "<group>";
@@ -825,6 +886,12 @@
 				D43CE1C2114F21C300DA07D5 /* main-bg.png in Resources */,
 				D43CE216114F2C3300DA07D5 /* pop-slider-blank.png in Resources */,
 				D43CE247114F34A100DA07D5 /* pop-button-highlight.png in Resources */,
+				D43CE3831154644A00DA07D5 /* BFPagedBrowseViewController.xib in Resources */,
+				D43CE398115465CE00DA07D5 /* BFPreviewBriefViewController.xib in Resources */,
+				D43CE3AB1154836100DA07D5 /* preview-title-bg.png in Resources */,
+				D43CE3AD115488C400DA07D5 /* preview-play-bg.png in Resources */,
+				D43CE3AF11548B6D00DA07D5 /* ks1.png in Resources */,
+				D43CE47C115548DD00DA07D5 /* preview-bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -887,6 +954,11 @@
 				D4AF1DCF114BFE2300D1B3B5 /* BFBriefInfo.m in Sources */,
 				D4AF1E03114C093300D1B3B5 /* NSDictionary+BFAdditions.m in Sources */,
 				D4AF1ECC114C234600D1B3B5 /* BFAddBriefcastCellController.m in Sources */,
+				D43CE3821154644A00DA07D5 /* BFPagedBrowseViewController.m in Sources */,
+				D43CE397115465CE00DA07D5 /* BFPreviewBriefViewController.m in Sources */,
+				D43CE39F1154720C00DA07D5 /* BriefcastRef+BFBriefDataSource.m in Sources */,
+				D43CE3A51154784300DA07D5 /* BFPreviewBriefView.m in Sources */,
+				D43CE3A81154785500DA07D5 /* BFBriefInfoView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
