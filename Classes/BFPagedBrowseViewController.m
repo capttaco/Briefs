@@ -45,6 +45,8 @@
 {
     [super viewDidLoad];
     
+    self.title = @"Briefs";
+    
     // Initialize page views
     self.pages = [NSMutableArray arrayWithCapacity:3];
     for (int i=0; i < 3; i++) {
