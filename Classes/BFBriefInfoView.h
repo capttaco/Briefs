@@ -6,10 +6,13 @@
 //  Copyright Digital Arch Design, 2009-2010. See LICENSE file for details.
 //
 
+@class BFPreviewBriefViewController;
 
 @interface BFBriefInfoView : UIView 
 {
-
+    IBOutlet BFPreviewBriefViewController *controller;
 }
+
+- (IBAction)returnToPreview;
 
 @end

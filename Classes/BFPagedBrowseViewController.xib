@@ -40,7 +40,7 @@
 				<int key="NSvFlags">292</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<object class="IBUIImageView" id="543225938">
+					<object class="IBUIImageView" id="543263648">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrameSize">{320, 416}</string>
@@ -54,7 +54,7 @@
 							<string key="NSResourceName">main-bg-focused.png</string>
 						</object>
 					</object>
-					<object class="IBUIView" id="194751733">
+					<object class="IBUIView" id="870101572">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrameSize">{319, 336}</string>
@@ -69,7 +69,7 @@
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 					</object>
-					<object class="IBUIScrollView" id="598553129">
+					<object class="IBUIScrollView" id="999998070">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">293</int>
 						<string key="NSFrame">{{45, 30}, {230, 269}}</string>
@@ -85,7 +85,7 @@
 						<bool key="IBUIShowsVerticalScrollIndicator">NO</bool>
 						<bool key="IBUIBouncesZoom">NO</bool>
 					</object>
-					<object class="IBUIPageControl" id="698087166">
+					<object class="IBUIPageControl" id="328692288">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">1316</int>
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
@@ -102,8 +102,8 @@
 				<string key="NSFrameSize">{320, 416}</string>
 				<reference key="NSSuperview"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
-					<int key="NSColorSpace">1</int>
-					<bytes key="NSRGB">MC41MDk4MDM5MjE2IDAuNTQxMTc2NDcwNiAwLjYAA</bytes>
+					<int key="NSColorSpace">2</int>
+					<bytes key="NSRGB">MC4xMjk0MTE3NzE5IDAuMTI5NDExNzcxOSAwLjEyOTQxMTc3MTkAA</bytes>
 				</object>
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
 				<object class="IBUISimulatedNavigationBarMetrics" key="IBUISimulatedTopBarMetrics">
@@ -126,7 +126,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">pagedHorizontalView</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="598553129"/>
+						<reference key="destination" ref="999998070"/>
 					</object>
 					<int key="connectionID">5</int>
 				</object>
@@ -134,14 +134,14 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">pageControl</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="698087166"/>
+						<reference key="destination" ref="328692288"/>
 					</object>
 					<int key="connectionID">7</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">delegate</string>
-						<reference key="source" ref="598553129"/>
+						<reference key="source" ref="999998070"/>
 						<reference key="destination" ref="372490531"/>
 					</object>
 					<int key="connectionID">8</int>
@@ -149,7 +149,7 @@
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">changePage:</string>
-						<reference key="source" ref="698087166"/>
+						<reference key="source" ref="328692288"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">13</int>
 					</object>
@@ -158,8 +158,8 @@
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">scrollView</string>
-						<reference key="source" ref="194751733"/>
-						<reference key="destination" ref="598553129"/>
+						<reference key="source" ref="870101572"/>
+						<reference key="destination" ref="999998070"/>
 					</object>
 					<int key="connectionID">12</int>
 				</object>
@@ -178,10 +178,10 @@
 						<reference key="object" ref="191373211"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="698087166"/>
-							<reference ref="598553129"/>
-							<reference ref="543225938"/>
-							<reference ref="194751733"/>
+							<reference ref="328692288"/>
+							<reference ref="999998070"/>
+							<reference ref="543263648"/>
+							<reference ref="870101572"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -198,7 +198,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">4</int>
-						<reference key="object" ref="598553129"/>
+						<reference key="object" ref="999998070"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 						</object>
@@ -206,17 +206,17 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">6</int>
-						<reference key="object" ref="698087166"/>
+						<reference key="object" ref="328692288"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">10</int>
-						<reference key="object" ref="543225938"/>
+						<reference key="object" ref="543263648"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">11</int>
-						<reference key="object" ref="194751733"/>
+						<reference key="object" ref="870101572"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 				</object>
@@ -432,7 +432,7 @@
 				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier" id="435830711">
+					<object class="IBClassDescriptionSource" key="sourceIdentifier" id="77355195">
 						<string key="majorKey">IBFrameworkSource</string>
 						<string key="minorKey">UIKit.framework/Headers/UIResponder.h</string>
 					</object>
@@ -464,7 +464,7 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">UIResponder</string>
 					<string key="superclassName">NSObject</string>
-					<reference key="sourceIdentifier" ref="435830711"/>
+					<reference key="sourceIdentifier" ref="77355195"/>
 				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">UIScrollView</string>

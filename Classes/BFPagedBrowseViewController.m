@@ -52,6 +52,7 @@
     for (int i=0; i < 3; i++) {
         BFPreviewBriefViewController *controller = [[BFPreviewBriefViewController alloc] init];
         controller.dataSource = dataSource;
+        controller.parentNavigationController = self.navigationController;
         [pagedHorizontalView addSubview:controller.view];
         
         [self.pages addObject:controller];
@@ -147,6 +148,7 @@
         // Fade the view in
         [UIView beginAnimations:@"fade PageController" context:nil];
         pageController.view.alpha = 1.0f;
+
 	}
     
 	else {
@@ -155,7 +157,8 @@
         pageController.view.alpha = 0.0f;
     }
     
-    
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationDuration:0.5f];
     [UIView commitAnimations];
     pageController.pageIndex = newIndex;
 }

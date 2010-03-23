@@ -11,22 +11,9 @@
 
 @implementation BFBriefInfoView
 
-
-- (id)initWithFrame:(CGRect)frame {
-    if (self = [super initWithFrame:frame]) {
-        // Initialization code
-    }
-    return self;
-}
-
-
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-
-
-- (void)dealloc {
-    [super dealloc];
+- (IBAction)returnToPreview
+{
+    [controller shouldReturnToPreview];
 }
 
 

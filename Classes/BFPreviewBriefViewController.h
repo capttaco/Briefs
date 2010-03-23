@@ -30,10 +30,17 @@
     NSInteger                       pageIndex;
     id<BFBriefDataSource>           dataSource;
     BriefRef                        *briefBeingPreviewed;
+    
+    UINavigationController          *parentNavigationController;
 
 }
 
 @property (retain)  id<BFBriefDataSource>   dataSource;
 @property           NSInteger               pageIndex;
+@property (assign)  UINavigationController  *parentNavigationController;
+
+- (void)shouldShowBriefDetails;
+- (void)briefShouldStartPlaying;
+- (void)shouldReturnToPreview;
 
 @end

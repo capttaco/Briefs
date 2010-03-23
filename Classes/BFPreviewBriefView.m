@@ -24,15 +24,23 @@
     [super dealloc];
 }
 
-
+- (void)_runShouldShowBriefDetails
+{
+    [delegate shouldShowBriefDetails];
+}
 - (IBAction)shouldShowBriefInfo
 {
-    
+    [self performSelectorOnMainThread:@selector(_runShouldShowBriefDetails) withObject:nil waitUntilDone:NO];
+}
+
+- (void)_runShouldLaunchBrief
+{
+    [delegate briefShouldStartPlaying];
 }
 
 - (IBAction)shouldLaunchBrief
 {
-    
+    [self performSelectorOnMainThread:@selector(_runShouldLaunchBrief) withObject:nil waitUntilDone:NO];
 }
 
 
