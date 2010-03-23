@@ -55,7 +55,7 @@
 				<int key="NSvFlags">293</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<object class="IBUIImageView" id="796970031">
+					<object class="IBUIImageView" id="710194641">
 						<reference key="NSNextResponder" ref="333069867"/>
 						<int key="NSvFlags">293</int>
 						<string key="NSFrameSize">{210, 269}</string>
@@ -69,16 +69,16 @@
 							<string key="NSResourceName">preview-bg.png</string>
 						</object>
 					</object>
-					<object class="IBUIView" id="559572922">
+					<object class="IBUIView" id="739523995">
 						<reference key="NSNextResponder" ref="333069867"/>
 						<int key="NSvFlags">293</int>
 						<object class="NSMutableArray" key="NSSubviews">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBUIImageView" id="78204612">
-								<reference key="NSNextResponder" ref="559572922"/>
+								<reference key="NSNextResponder" ref="739523995"/>
 								<int key="NSvFlags">293</int>
 								<string key="NSFrameSize">{192, 251}</string>
-								<reference key="NSSuperview" ref="559572922"/>
+								<reference key="NSSuperview" ref="739523995"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 								<int key="IBUIContentMode">2</int>
@@ -129,7 +129,7 @@
 							<bytes key="NSRGB">MC41NzYzMDcyOTY4IDAuNTkzNDY4Nzg1MyAwLjYwNzE2NTIxNzQAA</bytes>
 						</object>
 						<nil key="IBUIHighlightedColor"/>
-						<object class="NSColor" key="IBUIShadowColor" id="561036412">
+						<object class="NSColor" key="IBUIShadowColor" id="277115430">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MAA</bytes>
 						</object>
@@ -149,13 +149,12 @@
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<reference key="IBUIFont" ref="56172485"/>
 						<int key="IBUIButtonType">3</int>
-						<bool key="IBUIShowsTouchWhenHighlighted">YES</bool>
 						<object class="NSColor" key="IBUIHighlightedTitleColor" id="971094910">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
 						</object>
-						<reference key="IBUINormalTitleColor" ref="561036412"/>
-						<reference key="IBUINormalTitleShadowColor" ref="561036412"/>
+						<reference key="IBUINormalTitleColor" ref="277115430"/>
+						<reference key="IBUINormalTitleShadowColor" ref="277115430"/>
 					</object>
 					<object class="IBUIButton" id="181431480">
 						<reference key="NSNextResponder" ref="333069867"/>
@@ -171,6 +170,7 @@
 							<double key="NSSize">15</double>
 							<int key="NSfFlags">16</int>
 						</object>
+						<bool key="IBUIShowsTouchWhenHighlighted">YES</bool>
 						<reference key="IBUIHighlightedTitleColor" ref="971094910"/>
 						<object class="NSCustomResource" key="IBUINormalBackgroundImage">
 							<string key="NSClassName">NSImage</string>
@@ -306,8 +306,8 @@
 							<reference ref="222450797"/>
 							<reference ref="1056221001"/>
 							<reference ref="181431480"/>
-							<reference ref="796970031"/>
-							<reference ref="559572922"/>
+							<reference ref="710194641"/>
+							<reference ref="739523995"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -338,12 +338,12 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">19</int>
-						<reference key="object" ref="796970031"/>
+						<reference key="object" ref="710194641"/>
 						<reference key="parent" ref="333069867"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">20</int>
-						<reference key="object" ref="559572922"/>
+						<reference key="object" ref="739523995"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="78204612"/>
@@ -353,7 +353,7 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">9</int>
 						<reference key="object" ref="78204612"/>
-						<reference key="parent" ref="559572922"/>
+						<reference key="parent" ref="739523995"/>
 					</object>
 				</object>
 			</object>
