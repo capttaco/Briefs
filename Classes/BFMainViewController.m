@@ -168,6 +168,7 @@
 - (void)dismissLoadingViewAnimation:(UIView *)loadingView
 {
     [UIView beginAnimations:@"dismiss loader animation" context:loadingView];
+    [UIView setAnimationDelegate:self];
     [UIView setAnimationDidStopSelector:@selector(fadeLoadingViewDidStop:finished:context:)];
     loadingView.alpha = 0.0f;
     [UIView commitAnimations];
@@ -183,8 +184,8 @@
 {
     // push down the menu view
     [UIView beginAnimations:@"MenuSlideDownTransition" context:nil];
-    [UIView setAnimationDuration:0.5f];
-    
+    [UIView setAnimationDuration:0.3f];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
     CGSize size = menuView.frame.size;
     menuView.frame = CGRectMake(0.0f, 480.0f, size.width, size.height);
     
@@ -195,10 +196,8 @@
 {
     // push up the menu view
     [UIView beginAnimations:@"MenuSlideUpTransition" context:nil];
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector:@selector(animationDidStop:finished:context:)];
     [UIView setAnimationDuration:0.3f];
-    
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];    
     CGSize size = menuView.frame.size;
     menuView.frame = CGRectMake(0.0f, 280.0f, size.width, size.height);
     
@@ -208,8 +207,11 @@
 - (IBAction)browseYourBriefs
 {
     [self hideMenuWithAnimation];
-//    [self.navigationController pushViewController:[[BFBrowseViewController alloc] init] animated:YES];
-    
+    [self performSelector:@selector(_loadBriefsBrowser) withObject:nil afterDelay:0.1f];
+}
+
+- (void)_loadBriefsBrowser
+{
     // TODO: remove this testing STUB!!!!!
     NSArray *knownBriefcasts = [[BFDataManager sharedBFDataManager] allBriefcastsSortedAs:BFDataManagerSortByDateOpened];
     BriefcastRef *locals = (BriefcastRef *) [knownBriefcasts objectAtIndex:0];
@@ -220,6 +222,11 @@
 - (IBAction)browseYourBriefcasts
 {
     [self hideMenuWithAnimation];
+    [self performSelector:@selector(_loadBriefcastBrowser) withObject:nil afterDelay:0.2f];
+}
+
+- (void)_loadBriefcastBrowser
+{
     [self.navigationController pushViewController:[[BFBrowseBriefcastsViewController alloc] init] animated:YES];
 }
 

@@ -115,10 +115,7 @@
 {
     // Animate the transition
 
-    UIView *grandParentView = [[self.view superview] superview];
-    [self.parentNavigationController setNavigationBarHidden:YES animated:YES];
-    [[UIApplication sharedApplication] setStatusBarHidden:YES animated:YES];
-    
+    UIView *grandParentView = [[self.view superview] superview];    
     UIImageView *transitionView = [[UIImageView alloc] initWithImage:previewView.sceneView.image];
     transitionView.frame = previewView.sceneView.frame;
     transitionView.center = CGPointMake(171.0f, 160.0f);
@@ -129,8 +126,11 @@
     [UIView beginAnimations:@"ZoomBriefIntoView" context:transitionView];
     [UIView setAnimationDelegate:self];
     [UIView setAnimationDidStopSelector:@selector(zoomViewDidStop:finished:context:)];
-    [UIView setAnimationDuration:0.6f];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationDuration:0.5f];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+
+    [self.parentNavigationController setNavigationBarHidden:YES animated:YES];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES animated:YES];
     
     transitionView.frame = CGRectInset(transitionView.frame, -64.0f, -96.0f);
     transitionView.center = CGPointMake(160.0f, 240.0f);
