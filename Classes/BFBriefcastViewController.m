@@ -8,10 +8,11 @@
 
 #import "BFBriefcastViewController.h"
 #import "FeedParser.h"
-#import "BFTitleCellController.h"
-#import "BFLabelCellController.h"
-#import "BFParagraphCellController.h"
-#import "BFHeaderCellController.h"
+//#import "BFTitleCellController.h"
+//#import "BFLabelCellController.h"
+//#import "BFParagraphCellController.h"
+//#import "BFHeaderCellController.h"
+#import "BFBriefCellController.h"
 #import "BFRemoteBriefCellController.h"
 #import "BFDataManager.h"
 #import "BFColor.h"
@@ -84,18 +85,18 @@
 - (void)constructTableGroups
 {
     if (self.channelTitle != nil) {
-        NSMutableArray *groups = [NSMutableArray arrayWithCapacity:[self.enclosedBriefs count]+1];
+        NSMutableArray *groups = [NSMutableArray arrayWithCapacity:[self.enclosedBriefs count]];
         
         
         // Briefcast Information
         // ================================
         // The details, & description views
         
-        NSArray *briefsData = [NSArray arrayWithObjects: 
-                [[[BFTitleCellController alloc] initWithTitle:self.channelTitle] autorelease],
-                [[[BFHeaderCellController alloc] initWithHeader:self.channelLink] autorelease],
-                [[[BFParagraphCellController alloc] initWithBodyText:self.channelDescription andImage:@"37-suitcase.png"] autorelease], nil];
-        [groups addObject:briefsData];
+//        NSArray *briefsData = [NSArray arrayWithObjects: 
+//                [[[BFTitleCellController alloc] initWithTitle:self.channelTitle] autorelease],
+//                [[[BFHeaderCellController alloc] initWithHeader:self.channelLink] autorelease],
+//                [[[BFParagraphCellController alloc] initWithBodyText:self.channelDescription andImage:@"37-suitcase.png"] autorelease], nil];
+//        [groups addObject:briefsData];
         
         
         // Enclosed Briefs
@@ -104,14 +105,17 @@
         // including links to download locally
         
         for (FPItem *item in self.enclosedBriefs) {
-            NSArray *itemInfo = [NSArray arrayWithObjects:
-                    [[[BFTitleCellController alloc] initWithSelectableTitle:item.title] autorelease],
-                    [[[BFParagraphCellController alloc] initWithBodyText:item.content andImage:@"58-bookmark.png"] autorelease],
-                    [[[BFRemoteBriefCellController alloc] initWithLocationOfBrief:item.enclosure.url andDelegate:self] autorelease], nil];
-            [groups addObject:itemInfo];
+            BFBriefCellController *controller = [[BFBriefCellController alloc] initWithEnclosure:item installType:BFBriefCellInstallTypeNewInstall];
+//            NSArray *itemInfo = [NSArray arrayWithObjects:
+//                    [[[BFTitleCellController alloc] initWithSelectableTitle:item.title] autorelease],
+//                    [[[BFParagraphCellController alloc] initWithBodyText:item.content andImage:@"58-bookmark.png"] autorelease],
+//                    [[[BFRemoteBriefCellController alloc] initWithLocationOfBrief:item.enclosure.url andDelegate:self] autorelease], nil];
+//            [groups addObject:itemInfo];
+            [groups addObject:controller];
         }
         
-        self.tableGroups = [NSArray arrayWithArray:groups];
+        self.tableGroups = [NSArray arrayWithObjects:groups, nil
+                            ];
     }
     
 }
@@ -121,8 +125,8 @@
     [super viewDidLoad];
     
     self.navigationController.navigationBar.tintColor = [BFColor tintColorForNavigationBar];
-    self.tableView.backgroundColor = [BFColor backgroundForTableView];
-    self.tableView.separatorColor = [UIColor colorWithRed:0.7667f green:0.7784f blue:0.7902f alpha:1.0f];
+//    self.tableView.backgroundColor = [BFColor backgroundForTableView];
+//    self.tableView.separatorColor = [UIColor colorWithRed:0.7667f green:0.7784f blue:0.7902f alpha:1.0f];
     
     if (briefcast) 
         self.locationOfBriefcast = [briefcast fromURL];
@@ -159,10 +163,10 @@
 #pragma mark -
 #pragma mark Table view data source methods
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section 
-{
-    return (section == 1 ? @"Enclosed Briefs" : nil);
-}
+//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section 
+//{
+//    return (section == 0 ? @"Enclosed Briefs" : nil);
+//}
 
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -
@@ -185,6 +189,10 @@
     
     // Update the UI
     self.title = [NSString stringWithFormat:@"%i Briefs", [[feed items] count]];
+    
+    titleLabel.text = self.channelTitle;
+    locationLabel.text = self.channelLink;
+    
     [super updateAndReload];
     [spinner stopAnimating];
 }

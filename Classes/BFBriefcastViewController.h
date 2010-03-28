@@ -6,7 +6,6 @@
 //  Copyright Digital Arch Design, 2009. See LICENSE file for details.
 //
 
-#import <UIKit/UIKit.h>
 #import "BFTableViewController.h"
 #import "BFRemoteBriefEventDelegate.h"
 #import "BFLoadingViewController.h"
@@ -23,6 +22,9 @@
     NSString                *locationOfBriefcast;
     BriefcastRef            *briefcast;
     UIActivityIndicatorView *spinner;
+    
+    IBOutlet UILabel        *titleLabel;
+    IBOutlet UILabel        *locationLabel;
 }
 
 @property (nonatomic, retain) NSMutableArray    *enclosedBriefs;
@@ -32,6 +34,10 @@
 @property (nonatomic, retain) NSString          *locationOfBriefcast;
 @property (nonatomic, retain) BriefcastRef      *briefcast;
 @property (nonatomic, retain) NSMutableData     *recievedData;
+
+
+
+- (IBAction)reloadBriefcast;
 
 
 @end
