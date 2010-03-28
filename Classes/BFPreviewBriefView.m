@@ -12,18 +12,6 @@
 @implementation BFPreviewBriefView
 @synthesize titleLabel, sceneView;
 
-- (id)initWithFrame:(CGRect)frame {
-    if (self = [super initWithFrame:frame]) {
-        // Initialization code
-    }
-    return self;
-}
-
-- (void)dealloc 
-{
-    [super dealloc];
-}
-
 - (void)_runShouldShowBriefDetails
 {
     [delegate shouldShowBriefDetails];

@@ -10,11 +10,22 @@
 
 
 @implementation BFBriefInfoView
+@synthesize titleLabel, authorLabel, fromLabel, numberOfScenesLabel, infoLabel, dateLabel, timeLabel;
 
 - (IBAction)returnToPreview
 {
     [controller shouldReturnToPreview];
 }
+
+- (IBAction)deleteTheBrief
+{
+    [controller shouldDeleteBrief];
+}
+- (IBAction)refreshTheBrief
+{
+    [controller shouldReloadBrief];
+}
+
 
 
 @end
