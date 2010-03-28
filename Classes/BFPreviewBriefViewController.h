@@ -10,6 +10,7 @@
 #import "BFBriefInfoView.h"
 #import "BFBriefDataSource.h"
 #import "BriefRef.h"
+#import "BFBriefViewDelegate.h"
 
 //  Adapted from code seen on http://cocoawithlove.com/2009/01/multiple-virtual-pages-in-uiscrollview.html
 //  
@@ -22,7 +23,7 @@
 //  this copyright and permission notice. Attribution in compiled projects is
 //  appreciated but not required.
 
-@interface BFPreviewBriefViewController : UIViewController
+@interface BFPreviewBriefViewController : UIViewController <BFBriefViewDelegate, UIActionSheetDelegate>
 {
     IBOutlet BFPreviewBriefView     *previewView;
     IBOutlet BFBriefInfoView        *infoView;

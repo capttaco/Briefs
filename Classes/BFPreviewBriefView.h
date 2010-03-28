@@ -6,16 +6,14 @@
 //  Copyright Digital Arch Design, 2009-2010. See LICENSE file for details.
 //
 
-
 #import "BFSceneView.h"
-
-@class BFPreviewBriefViewController;
+#import "BFBriefViewDelegate.h"
 
 @interface BFPreviewBriefView : UIView 
 {
-    IBOutlet BFPreviewBriefViewController   *delegate;
-    IBOutlet UILabel                        *titleLabel;
-    IBOutlet UIImageView                    *sceneView;
+    IBOutlet id<BFBriefViewDelegate>    delegate;
+    IBOutlet UILabel                    *titleLabel;
+    IBOutlet UIImageView                *sceneView;
 }
 
 @property (nonatomic, retain) IBOutlet UILabel      *titleLabel;

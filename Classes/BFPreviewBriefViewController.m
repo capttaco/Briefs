@@ -13,6 +13,15 @@
 #import "BFSceneManager.h"
 
 
+@interface BFPreviewBriefViewController (PrivateMethods)
+
+- (void)zoomViewDidStop:(NSString *)animationId finished:(NSNumber *)finished context:(void *)context;
+- (void)prepareInfoView:(BriefRef *)ref;
+- (void)preparePreview:(BriefRef *)ref;
+
+@end
+
+
 @implementation BFPreviewBriefViewController
 @synthesize dataSource, pageIndex, parentNavigationController;
 
@@ -37,55 +46,50 @@
 	
 	if (pageIndex >= 0 && pageIndex < [dataSource numberOfRecords])
 	{
-        BriefRef *ref = [dataSource dataForIndex:pageIndex];
-        previewView.titleLabel.text = [ref title];
-        
-        
-        // generate scene
-        NSString *pathToDictionary = [[[BFDataManager sharedBFDataManager] documentDirectory] stringByAppendingPathComponent:[ref filePath]];
-        BFSceneManager *manager = [[BFSceneManager alloc] initWithPathToDictionary:pathToDictionary];
-        BFSceneView *scene = [[BFSceneView alloc] initWithScene:[manager openingScene]];
-
-        // output to image
-        UIGraphicsBeginImageContext(scene.bounds.size);
-        [scene.layer renderInContext:UIGraphicsGetCurrentContext()];
-        UIImage *sceneImage = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        
-        // blit image into preview
-        previewView.sceneView.image = sceneImage;
+        briefBeingPreviewed = [dataSource dataForIndex:pageIndex];
+        [self preparePreview:briefBeingPreviewed];
+        [self prepareInfoView:briefBeingPreviewed];
 	}
     
 }
 
-- (void)shouldShowBriefDetails
-{ 
-    // replace preview with details
-    [UIView beginAnimations:@"flip around details" context:nil];
-    [UIView setAnimationDuration:0.8f];
-    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.view cache:YES];
-    
-    
-    [self.view addSubview:infoView];
-    [previewView removeFromSuperview];
-
-    
-    [UIView commitAnimations];
-}
-
-- (void)shouldReturnToPreview
+- (void)prepareInfoView:(BriefRef *)ref
 {
-    // replace preview with details
-    [UIView beginAnimations:@"flip around details" context:nil];
-    [UIView setAnimationDuration:0.8f];
-    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.view cache:YES];
+    infoView.titleLabel.text = [ref title];
+    infoView.numberOfScenesLabel.text = [NSString stringWithFormat:@"%@", [ref totalNumberOfScenes]];
+    infoView.fromLabel.text = [[NSURL URLWithString:[ref fromURL]] host];
     
-    [self.view addSubview:previewView];
-    [infoView removeFromSuperview];
+    // format date
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+    [dateFormatter setDateStyle:NSDateFormatterShortStyle];
+    infoView.dateLabel.text = [dateFormatter stringFromDate:[ref dateLastDownloaded]];
     
-    [UIView commitAnimations];
+    [dateFormatter setDateStyle:NSDateFormatterNoStyle];
+    [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+    infoView.timeLabel.text = [[dateFormatter stringFromDate:[ref dateLastDownloaded]] stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    
 }
 
+- (void)preparePreview:(BriefRef *)ref
+{
+    previewView.titleLabel.text = [ref title];
+    
+    // generate scene
+    NSString *pathToDictionary = [[[BFDataManager sharedBFDataManager] documentDirectory] stringByAppendingPathComponent:[ref filePath]];
+    BFSceneManager *manager = [[BFSceneManager alloc] initWithPathToDictionary:pathToDictionary];
+    BFSceneView *scene = [[BFSceneView alloc] initWithScene:[manager openingScene]];
+    
+    // output to image
+    UIGraphicsBeginImageContext(scene.bounds.size);
+    [scene.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *sceneImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    // blit image into preview
+    previewView.sceneView.image = sceneImage;
+}
 
 - (void)zoomViewDidStop:(NSString *)animationId finished:(NSNumber *)finished context:(void *)context
 {
@@ -111,35 +115,6 @@
     [viewToRemove removeFromSuperview];
 }
 
-- (void)briefShouldStartPlaying
-{
-    // Animate the transition
-
-    UIView *grandParentView = [[self.view superview] superview];    
-    UIImageView *transitionView = [[UIImageView alloc] initWithImage:previewView.sceneView.image];
-    transitionView.frame = previewView.sceneView.frame;
-    transitionView.center = CGPointMake(171.0f, 160.0f);
-    transitionView.alpha = 0.0f;
-    [grandParentView addSubview:transitionView];
-    
-    
-    [UIView beginAnimations:@"ZoomBriefIntoView" context:transitionView];
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector:@selector(zoomViewDidStop:finished:context:)];
-    [UIView setAnimationDuration:0.5f];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-
-    [self.parentNavigationController setNavigationBarHidden:YES animated:YES];
-    [[UIApplication sharedApplication] setStatusBarHidden:YES animated:YES];
-    
-    transitionView.frame = CGRectInset(transitionView.frame, -64.0f, -96.0f);
-    transitionView.center = CGPointMake(160.0f, 240.0f);
-    transitionView.alpha = 1.0f;
-    
-    [UIView commitAnimations];    
-}
-
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -164,6 +139,87 @@
 - (void)dealloc 
 {
     [super dealloc];
+}
+
+
+- (void)briefShouldStartPlaying
+{
+    // Animate the transition
+    
+    UIView *grandParentView = [[self.view superview] superview];    
+    UIImageView *transitionView = [[UIImageView alloc] initWithImage:previewView.sceneView.image];
+    transitionView.frame = previewView.sceneView.frame;
+    transitionView.center = CGPointMake(171.0f, 160.0f);
+    transitionView.alpha = 0.0f;
+    [grandParentView addSubview:transitionView];
+    
+    
+    [UIView beginAnimations:@"ZoomBriefIntoView" context:transitionView];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(zoomViewDidStop:finished:context:)];
+    [UIView setAnimationDuration:0.5f];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    
+    [self.parentNavigationController setNavigationBarHidden:YES animated:YES];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES animated:YES];
+    
+    transitionView.frame = CGRectInset(transitionView.frame, -64.0f, -96.0f);
+    transitionView.center = CGPointMake(160.0f, 240.0f);
+    transitionView.alpha = 1.0f;
+    
+    [UIView commitAnimations];    
+}
+
+- (void)shouldShowBriefDetails
+{ 
+    
+    // replace preview with details
+    [UIView beginAnimations:@"flip around details" context:nil];
+    [UIView setAnimationDuration:0.8f];
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.view cache:YES];
+    
+    
+    [self.view addSubview:infoView];
+    [previewView removeFromSuperview];
+    
+    
+    [UIView commitAnimations];
+}
+
+- (void)shouldReturnToPreview
+{
+    // replace preview with details
+    [UIView beginAnimations:@"flip around details" context:nil];
+    [UIView setAnimationDuration:0.8f];
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.view cache:YES];
+    
+    [self.view addSubview:previewView];
+    [infoView removeFromSuperview];
+    
+    [UIView commitAnimations];
+}
+
+- (void)shouldDeleteBrief
+{
+    UIActionSheet *confirmDelete = [[UIActionSheet alloc] 
+                                    initWithTitle:@"Are you sure you want remove this brief?\nI suppose you could download it again." 
+                                    delegate:self 
+                                    cancelButtonTitle:@"Oops, Nevermind" 
+                                    destructiveButtonTitle:@"Nuke It" otherButtonTitles:nil];
+    [confirmDelete showInView:[[self.view superview] superview]];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    // remove the brief, if it is confirmed.
+    if (buttonIndex == [actionSheet destructiveButtonIndex]) {
+        [[BFDataManager sharedBFDataManager] removeBrief:briefBeingPreviewed];
+    }
+}
+
+- (void)shouldReloadBrief
+{
+    
 }
 
 
