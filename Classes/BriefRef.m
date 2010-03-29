@@ -2,7 +2,7 @@
 //  BriefRef.m
 //  Briefs
 //
-//  Created by Rob Rhyne on 3/10/10.
+//  Created by Rob Rhyne on 3/29/10.
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
@@ -12,13 +12,15 @@
 
 @implementation BriefRef 
 
-@dynamic fromURL;
+@dynamic dateLastOpened;
+@dynamic author;
 @dynamic lastSceneOpened;
 @dynamic totalNumberOfScenes;
 @dynamic title;
+@dynamic desc;
 @dynamic dateLastDownloaded;
+@dynamic fromURL;
 @dynamic filePath;
-@dynamic dateLastOpened;
 @dynamic briefcast;
 
 @end

@@ -31,8 +31,8 @@
         numberOfScenes = (scenes != nil) ? [scenes count] : 0;
         
         pathToBrieflist = path;
-        author  = [dictionary objectForKey:@"author" orDefaultValue:@"None"];
-        desc    = [dictionary objectForKey:@"desc" orDefaultValue:@"None"];
+        author  = [dictionary objectForKey:@"author" orDefaultValue:@"None provided."];
+        desc    = [dictionary objectForKey:@"desc" orDefaultValue:@"None provided."];
         
         NSString *defaultTitle = [path stringByReplacingOccurrencesOfString:@".brieflist" withString:@""];
         
@@ -57,6 +57,8 @@
     [ref setTotalNumberOfScenes:[NSNumber numberWithInt:numberOfScenes]];
     
     // TODO: add author, desc information
+    [ref setAuthor:author];
+    [ref setDesc:desc];
     
     return ref;
 }

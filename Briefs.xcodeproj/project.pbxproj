@@ -63,6 +63,7 @@
 		D43CE959115FC77E00DA07D5 /* update-button.png in Resources */ = {isa = PBXBuildFile; fileRef = D43CE957115FC77E00DA07D5 /* update-button.png */; };
 		D43CEAB11160376500DA07D5 /* BFArrayBriefDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D43CEAB01160376500DA07D5 /* BFArrayBriefDataSource.m */; };
 		D43CEB121160468F00DA07D5 /* howto.brieflist in Resources */ = {isa = PBXBuildFile; fileRef = D46414191069AB25001522F6 /* howto.brieflist */; };
+		D43CEC36116061CD00DA07D5 /* BriefRef.m in Sources */ = {isa = PBXBuildFile; fileRef = D43CEC35116061CD00DA07D5 /* BriefRef.m */; };
 		D463E8FF107310170075CCCE /* BFBriefcastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D463E8FE107310170075CCCE /* BFBriefcastViewController.m */; };
 		D464117110606DDE001522F6 /* BFTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D464117010606DDE001522F6 /* BFTableViewController.m */; };
 		D46411931065CF8C001522F6 /* BFBriefCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D46411921065CF8C001522F6 /* BFBriefCellController.m */; };
@@ -213,6 +214,8 @@
 		D43CE957115FC77E00DA07D5 /* update-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "update-button.png"; path = "images/buttons/update-button.png"; sourceTree = "<group>"; };
 		D43CEAAF1160376500DA07D5 /* BFArrayBriefDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFArrayBriefDataSource.h; sourceTree = "<group>"; };
 		D43CEAB01160376500DA07D5 /* BFArrayBriefDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFArrayBriefDataSource.m; sourceTree = "<group>"; };
+		D43CEC34116061CD00DA07D5 /* BriefRef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BriefRef.h; sourceTree = "<group>"; };
+		D43CEC35116061CD00DA07D5 /* BriefRef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BriefRef.m; sourceTree = "<group>"; };
 		D463E8FD107310170075CCCE /* BFBriefcastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFBriefcastViewController.h; sourceTree = "<group>"; };
 		D463E8FE107310170075CCCE /* BFBriefcastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFBriefcastViewController.m; sourceTree = "<group>"; wrapsLines = 0; };
 		D464116F10606DDE001522F6 /* BFTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFTableViewController.h; sourceTree = "<group>"; };
@@ -283,8 +286,6 @@
 		D4A39835113C6EAA004971E9 /* Icon-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-small.png"; path = "images/Icon-small.png"; sourceTree = "<group>"; };
 		D4AF1A331147312400D1B3B5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D4AF1B051147362200D1B3B5 /* Briefs.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = Briefs.xcdatamodel; sourceTree = "<group>"; };
-		D4AF1B141147431B00D1B3B5 /* BriefRef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BriefRef.h; sourceTree = "<group>"; };
-		D4AF1B151147431B00D1B3B5 /* BriefRef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BriefRef.m; sourceTree = "<group>"; };
 		D4AF1B30114808A300D1B3B5 /* BFBriefcast+CoreDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BFBriefcast+CoreDataAdditions.h"; sourceTree = "<group>"; };
 		D4AF1B31114808A300D1B3B5 /* BFBriefcast+CoreDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BFBriefcast+CoreDataAdditions.m"; sourceTree = "<group>"; };
 		D4AF1B4611480B3C00D1B3B5 /* BriefcastRef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BriefcastRef.h; sourceTree = "<group>"; };
@@ -750,10 +751,10 @@
 		D4AF1B071147369A00D1B3B5 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				D43CEC34116061CD00DA07D5 /* BriefRef.h */,
+				D43CEC35116061CD00DA07D5 /* BriefRef.m */,
 				D4AF1B4611480B3C00D1B3B5 /* BriefcastRef.h */,
 				D4AF1B4711480B3C00D1B3B5 /* BriefcastRef.m */,
-				D4AF1B141147431B00D1B3B5 /* BriefRef.h */,
-				D4AF1B151147431B00D1B3B5 /* BriefRef.m */,
 			);
 			name = data;
 			sourceTree = "<group>";
@@ -982,6 +983,7 @@
 				D43CE3A81154785500DA07D5 /* BFBriefInfoView.m in Sources */,
 				D43CE5331157055100DA07D5 /* BFPagedContainerView.m in Sources */,
 				D43CEAB11160376500DA07D5 /* BFArrayBriefDataSource.m in Sources */,
+				D43CEC36116061CD00DA07D5 /* BriefRef.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

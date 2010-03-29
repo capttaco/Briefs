@@ -12,9 +12,9 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="1"/>
-			<integer value="5"/>
+			<integer value="58"/>
 			<integer value="4"/>
+			<integer value="1"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -134,7 +134,7 @@
 							<bytes key="NSRGB">MC41NzYzMDcyOTY4IDAuNTkzNDY4Nzg1MyAwLjYwNzE2NTIxNzQAA</bytes>
 						</object>
 						<nil key="IBUIHighlightedColor"/>
-						<object class="NSColor" key="IBUIShadowColor">
+						<object class="NSColor" key="IBUIShadowColor" id="703850549">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MAA</bytes>
 						</object>
@@ -189,6 +189,8 @@
 						<reference key="IBUIFont" ref="1036226713"/>
 						<bool key="IBUIShowsTouchWhenHighlighted">YES</bool>
 						<reference key="IBUIHighlightedTitleColor" ref="971094910"/>
+						<reference key="IBUINormalTitleColor" ref="703850549"/>
+						<reference key="IBUINormalTitleShadowColor" ref="703850549"/>
 						<object class="NSCustomResource" key="IBUINormalBackgroundImage">
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">preview-play-bg.png</string>
@@ -303,10 +305,7 @@
 											<bytes key="NSRGB">MC4yOTcxMTQwNzQyIDAuMzMxNzU4NTg4NiAwLjQxODY1NDg1OTEAA</bytes>
 										</object>
 										<nil key="IBUIHighlightedColor"/>
-										<object class="NSColor" key="IBUIShadowColor">
-											<int key="NSColorSpace">3</int>
-											<bytes key="NSWhite">MQA</bytes>
-										</object>
+										<reference key="IBUIShadowColor" ref="971094910"/>
 										<string key="IBUIShadowOffset">{0, 1}</string>
 										<int key="IBUIBaselineAdjustment">1</int>
 										<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
@@ -324,6 +323,31 @@
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIAutoresizesSubviews">NO</bool>
 								<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
+							</object>
+							<object class="IBUILabel" id="668081038">
+								<reference key="NSNextResponder" ref="568653087"/>
+								<int key="NSvFlags">308</int>
+								<string key="NSFrame">{{67, 147}, {116, 45}}</string>
+								<reference key="NSSuperview" ref="568653087"/>
+								<reference key="IBUIBackgroundColor" ref="893395262"/>
+								<bool key="IBUIOpaque">NO</bool>
+								<bool key="IBUIClipsSubviews">YES</bool>
+								<int key="IBUIContentMode">5</int>
+								<bool key="IBUIUserInteractionEnabled">NO</bool>
+								<string key="IBUIText">If I were to put three lines of text in here, it would look like...</string>
+								<object class="NSFont" key="IBUIFont" id="863577933">
+									<string key="NSName">Helvetica</string>
+									<double key="NSSize">12</double>
+									<int key="NSfFlags">16</int>
+								</object>
+								<object class="NSColor" key="IBUITextColor">
+									<int key="NSColorSpace">1</int>
+									<bytes key="NSRGB">MC4xNzg4MDUwODMgMC4xODAwNDg5ODczIDAuMTgyOTgwNjcxNQA</bytes>
+								</object>
+								<nil key="IBUIHighlightedColor"/>
+								<int key="IBUIBaselineAdjustment">0</int>
+								<float key="IBUIMinimumFontSize">10</float>
+								<int key="IBUINumberOfLines">0</int>
 							</object>
 						</object>
 						<string key="NSFrame">{{9, 4}, {192, 288}}</string>
@@ -495,11 +519,7 @@
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="IBUIText">Unknown</string>
-						<object class="NSFont" key="IBUIFont" id="863577933">
-							<string key="NSName">Helvetica</string>
-							<double key="NSSize">12</double>
-							<int key="NSfFlags">16</int>
-						</object>
+						<reference key="IBUIFont" ref="863577933"/>
 						<object class="NSColor" key="IBUITextColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC4xNzg4MDUwODMgMC4xODAwNDg5ODczIDAuMTgyOTgwNjcxNQA</bytes>
@@ -507,26 +527,6 @@
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">1</int>
 						<float key="IBUIMinimumFontSize">10</float>
-					</object>
-					<object class="IBUILabel" id="668081038">
-						<reference key="NSNextResponder" ref="511513923"/>
-						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{76, 137}, {119, 74}}</string>
-						<reference key="NSSuperview" ref="511513923"/>
-						<reference key="IBUIBackgroundColor" ref="893395262"/>
-						<bool key="IBUIOpaque">NO</bool>
-						<bool key="IBUIClipsSubviews">YES</bool>
-						<bool key="IBUIUserInteractionEnabled">NO</bool>
-						<string key="IBUIText">A typical three line description that can span, multiple lines</string>
-						<reference key="IBUIFont" ref="863577933"/>
-						<object class="NSColor" key="IBUITextColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4xNzg4MDUwODMgMC4xODAwNDg5ODczIDAuMTgyOTgwNjcxNQA</bytes>
-						</object>
-						<nil key="IBUIHighlightedColor"/>
-						<int key="IBUIBaselineAdjustment">0</int>
-						<float key="IBUIMinimumFontSize">10</float>
-						<int key="IBUINumberOfLines">3</int>
 					</object>
 					<object class="IBUIView" id="576578248">
 						<reference key="NSNextResponder" ref="511513923"/>
@@ -872,7 +872,6 @@
 							<reference ref="1033104635"/>
 							<reference ref="24417363"/>
 							<reference ref="877781628"/>
-							<reference ref="668081038"/>
 							<reference ref="568653087"/>
 						</object>
 						<reference key="parent" ref="0"/>
@@ -997,16 +996,12 @@
 						<reference key="parent" ref="97911693"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">48</int>
-						<reference key="object" ref="668081038"/>
-						<reference key="parent" ref="511513923"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">58</int>
 						<reference key="object" ref="568653087"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="576196310"/>
+							<reference ref="668081038"/>
 						</object>
 						<reference key="parent" ref="511513923"/>
 					</object>
@@ -1036,6 +1031,11 @@
 						<int key="objectID">52</int>
 						<reference key="object" ref="309889177"/>
 						<reference key="parent" ref="576196310"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">48</int>
+						<reference key="object" ref="668081038"/>
+						<reference key="parent" ref="568653087"/>
 					</object>
 				</object>
 			</object>

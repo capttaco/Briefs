@@ -57,7 +57,21 @@
 {
     infoView.titleLabel.text = ref.title;
     infoView.numberOfScenesLabel.text = [NSString stringWithFormat:@"%@", [ref totalNumberOfScenes]];
-    infoView.fromLabel.text = [[NSURL URLWithString:[ref fromURL]] host];
+    infoView.authorLabel.text = ref.author;
+    
+    // adjust size of description box
+    // to account for multiple lines
+    CGSize adjustedSize = [ref.desc sizeWithFont:infoView.infoLabel.font constrainedToSize:CGSizeMake(116.0f, 50.0f)];
+    CGRect adjustedFrame = infoView.infoLabel.frame;
+    adjustedFrame.size = adjustedSize;
+    infoView.infoLabel.frame = adjustedFrame;
+    infoView.infoLabel.text = ref.desc;
+    
+    // check if locally stored
+    if ([[ref fromURL] isEqual:kBFLocallyStoredBriefURLString]) {
+        infoView.fromLabel.text = @"Built-in";
+    }
+    else infoView.fromLabel.text = [[NSURL URLWithString:[ref fromURL]] host];
     
     // format date
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];

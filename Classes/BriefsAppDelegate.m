@@ -10,6 +10,7 @@
 #import "BFSceneViewController.h"
 #import "BFMainViewController.h"
 #import "BFDataManager.h"
+#import "BFPagedBrowseViewController.h"
 
 @implementation BriefsAppDelegate
 
@@ -45,22 +46,6 @@
 {
     [[BFDataManager sharedBFDataManager] save];
 }
-
-//- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url 
-//{
-//    if ([[url scheme] isEqualToString:@"brief"]) {
-//        NSLog(@"Received the following URL for a brief: %@", url);
-//        
-//        
-//        
-//        return YES;
-//    }
-//    else if ([[url scheme] isEqualToString:@"brieflist"]) {
-//        NSLog(@"Received the following URL for a briefcast: %@", url);
-//        return YES;
-//    }
-//    return NO;
-//}
 
 - (void)dealloc 
 {
