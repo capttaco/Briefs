@@ -299,6 +299,35 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
     return [[briefcast briefs] allObjects];
 }
 
+- (NSArray *)allBriefsSortedAs:(BFDataManagerSortType)typeOfSort
+{
+    // TODO: implement sorting types
+    
+    NSMutableArray *arrayOfBriefs = [NSMutableArray array];
+    
+    // Fetch Data from the database
+	NSFetchRequest *request = [[NSFetchRequest alloc] init];
+	NSEntityDescription *entity = [NSEntityDescription entityForName:@"BriefRef" inManagedObjectContext:[self managedObjectContext]];
+	[request setEntity:entity];
+    
+    NSError *error;
+    NSMutableArray *mutableFetchResults = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
+	if (mutableFetchResults == nil) {
+		// Boom! Handle the error.
+        NSLog(@"There was a problem retrieving the listing of Briefs");
+        return nil;
+	}
+    
+    for (BriefRef *ref in mutableFetchResults) {
+        [arrayOfBriefs addObject:ref];
+    }
+    
+	[mutableFetchResults release];
+	[request release];
+    
+    return arrayOfBriefs;
+}
+
 - (BriefcastRef *)localBriefcastRefMarker
 {
     // Build predicate to locate marker

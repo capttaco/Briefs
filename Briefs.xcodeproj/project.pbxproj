@@ -62,6 +62,7 @@
 		D43CE8B5115F196C00DA07D5 /* remote-play.png in Resources */ = {isa = PBXBuildFile; fileRef = D43CE8B4115F196C00DA07D5 /* remote-play.png */; };
 		D43CE958115FC77E00DA07D5 /* install-button.png in Resources */ = {isa = PBXBuildFile; fileRef = D43CE956115FC77E00DA07D5 /* install-button.png */; };
 		D43CE959115FC77E00DA07D5 /* update-button.png in Resources */ = {isa = PBXBuildFile; fileRef = D43CE957115FC77E00DA07D5 /* update-button.png */; };
+		D43CEAB11160376500DA07D5 /* BFArrayBriefDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D43CEAB01160376500DA07D5 /* BFArrayBriefDataSource.m */; };
 		D463E8FF107310170075CCCE /* BFBriefcastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D463E8FE107310170075CCCE /* BFBriefcastViewController.m */; };
 		D464117110606DDE001522F6 /* BFTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D464117010606DDE001522F6 /* BFTableViewController.m */; };
 		D46411931065CF8C001522F6 /* BFBriefCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D46411921065CF8C001522F6 /* BFBriefCellController.m */; };
@@ -222,6 +223,8 @@
 		D43CE8B4115F196C00DA07D5 /* remote-play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "remote-play.png"; path = "images/toolbar/remote-play.png"; sourceTree = "<group>"; };
 		D43CE956115FC77E00DA07D5 /* install-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "install-button.png"; path = "images/buttons/install-button.png"; sourceTree = "<group>"; };
 		D43CE957115FC77E00DA07D5 /* update-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "update-button.png"; path = "images/buttons/update-button.png"; sourceTree = "<group>"; };
+		D43CEAAF1160376500DA07D5 /* BFArrayBriefDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFArrayBriefDataSource.h; sourceTree = "<group>"; };
+		D43CEAB01160376500DA07D5 /* BFArrayBriefDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFArrayBriefDataSource.m; sourceTree = "<group>"; };
 		D463E8FD107310170075CCCE /* BFBriefcastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFBriefcastViewController.h; sourceTree = "<group>"; };
 		D463E8FE107310170075CCCE /* BFBriefcastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFBriefcastViewController.m; sourceTree = "<group>"; wrapsLines = 0; };
 		D464116F10606DDE001522F6 /* BFTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFTableViewController.h; sourceTree = "<group>"; };
@@ -835,6 +838,8 @@
 				D482E54410F03FE000678404 /* BFColor.m */,
 				D4AF1DCD114BFE2300D1B3B5 /* BFBriefInfo.h */,
 				D4AF1DCE114BFE2300D1B3B5 /* BFBriefInfo.m */,
+				D43CEAAF1160376500DA07D5 /* BFArrayBriefDataSource.h */,
+				D43CEAB01160376500DA07D5 /* BFArrayBriefDataSource.m */,
 			);
 			name = util;
 			sourceTree = "<group>";
@@ -1027,6 +1032,7 @@
 				D43CE3A51154784300DA07D5 /* BFPreviewBriefView.m in Sources */,
 				D43CE3A81154785500DA07D5 /* BFBriefInfoView.m in Sources */,
 				D43CE5331157055100DA07D5 /* BFPagedContainerView.m in Sources */,
+				D43CEAB11160376500DA07D5 /* BFArrayBriefDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

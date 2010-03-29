@@ -14,6 +14,7 @@
 #import "BFColor.h"
 #import "BriefcastRef+BFBriefDataSource.h"
 #import "BFPagedBrowseViewController.h"
+#import "BFArrayBriefDataSource.h"
 
 @interface BFMainViewController (PrivateMethods)
 
@@ -212,11 +213,13 @@
 
 - (void)_loadBriefsBrowser
 {
-    // TODO: remove this testing STUB!!!!!
-    NSArray *knownBriefcasts = [[BFDataManager sharedBFDataManager] allBriefcastsSortedAs:BFDataManagerSortByDateOpened];
-    BriefcastRef *locals = (BriefcastRef *) [knownBriefcasts objectAtIndex:0];
-    [self.navigationController pushViewController:[[BFPagedBrowseViewController alloc] initWithDataSource:locals] animated:YES];
+    // TODO: Eventually replace this with a means to select
+    //       briefs and drill-down based upon briefcast 
+    //       (or other folder level organization)
     
+    NSArray *knownBriefs = [[BFDataManager sharedBFDataManager] allBriefsSortedAs:BFDataManagerSortByDateOpened];
+    BFArrayBriefDataSource *dataSource = [[BFArrayBriefDataSource alloc] initWithArray:knownBriefs];
+    [self.navigationController pushViewController:[[BFPagedBrowseViewController alloc] initWithDataSource:dataSource] animated:YES];
 }
 
 - (IBAction)browseYourBriefcasts

@@ -43,6 +43,7 @@ typedef enum {
 - (BriefcastRef *)localBriefcastRefMarker;
 - (NSArray *)allBriefcastsSortedAs:(BFDataManagerSortType)typeOfSort;
 - (NSArray *)briefsFromBriefcast:(BriefcastRef *)briefcast sortedAs:(BFDataManagerSortType)typeOfSort;
+- (NSArray *)allBriefsSortedAs:(BFDataManagerSortType)typeOfSort;
 
 
 // Add & Remove Data API
