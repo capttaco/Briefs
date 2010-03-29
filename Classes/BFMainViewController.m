@@ -93,6 +93,8 @@
                 
                 // launch briefcast view
                 [self.navigationController pushViewController:viewer animated:YES];
+                
+                [viewer release];
             }
             
             stateUponLaunch = BFMainViewDefaultState;
@@ -219,7 +221,9 @@
     
     NSArray *knownBriefs = [[BFDataManager sharedBFDataManager] allBriefsSortedAs:BFDataManagerSortByDateOpened];
     BFArrayBriefDataSource *dataSource = [[BFArrayBriefDataSource alloc] initWithArray:knownBriefs];
-    [self.navigationController pushViewController:[[BFPagedBrowseViewController alloc] initWithDataSource:dataSource] animated:YES];
+    [self.navigationController pushViewController:[[[BFPagedBrowseViewController alloc] initWithDataSource:dataSource] autorelease] animated:YES];
+
+    [dataSource release];
 }
 
 - (IBAction)browseYourBriefcasts
@@ -230,7 +234,7 @@
 
 - (void)_loadBriefcastBrowser
 {
-    [self.navigationController pushViewController:[[BFBrowseBriefcastsViewController alloc] init] animated:YES];
+    [self.navigationController pushViewController:[[[BFBrowseBriefcastsViewController alloc] init] autorelease] animated:YES];
 }
 
 ///////////////////////////////////////////////////////////////////////////////

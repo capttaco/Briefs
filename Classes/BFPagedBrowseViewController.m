@@ -210,7 +210,7 @@
 
 - (BFPreviewBriefViewController *)findFarthestFromIndex:(NSInteger)index
 {
-    BFPreviewBriefViewController *farthestFrom;
+    BFPreviewBriefViewController *farthestFrom = nil;
     int distanceToIndex = 0;
     for (BFPreviewBriefViewController *controller in self.pages) {
         int distance = abs(controller.pageIndex - index);

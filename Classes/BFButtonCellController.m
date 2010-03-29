@@ -19,6 +19,7 @@
     cellConfig.alignment = UITextAlignmentCenter;
     cellConfig.accessoryType = UITableViewCellAccessoryNone;
     self = [super initWithLabel:label andConfiguration:cellConfig];
+    [cellConfig release];
     return self;
 }
 

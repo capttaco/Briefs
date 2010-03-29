@@ -73,7 +73,7 @@
     
     BFAddBriefcastCellController *addController = [[BFAddBriefcastCellController alloc] initWithButtonLabel:@"Add Briefcast"];
     addController.delegate = self;
-    NSArray *buttonControllers = [NSArray arrayWithObjects:addController, nil];
+    NSArray *buttonControllers = [NSArray arrayWithObjects:[addController autorelease], nil];
     
     self.tableGroups = [NSArray arrayWithObjects:allControllers, buttonControllers, nil];
 }

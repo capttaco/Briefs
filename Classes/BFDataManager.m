@@ -69,13 +69,17 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
                     // Save the context
                     if (![managedObjectContext save:&error]) {
                         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-                    }  
+                    }
+                    
+                    
                 }
                 
                 else
                     // If not, throw an error, dude.
                     NSLog(@"ERROR! - %@", error);
             }
+            
+            [error release];
         }
     }
     
@@ -210,6 +214,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
     [newRef setDateLastDownloaded:[NSDate date]];
     [newRef setFromURL:url];
     
+    
     // Save the context
     NSError *error;
     if (![[self managedObjectContext] save:&error]) {
@@ -280,6 +285,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
 	if (mutableFetchResults == nil) {
 		// Boom! Handle the error.
         NSLog(@"There was a problem retrieving the listing of Briefcasts");
+        [request release];
         return nil;
 	}
     
@@ -315,6 +321,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
 	if (mutableFetchResults == nil) {
 		// Boom! Handle the error.
         NSLog(@"There was a problem retrieving the listing of Briefs");
+        [request release];
         return nil;
 	}
     
@@ -330,6 +337,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
 
 - (BriefcastRef *)localBriefcastRefMarker
 {
+    BriefcastRef *refToReturn;
+    
     // Build predicate to locate marker
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"fromURL == %@", kBFLocallyStoredBriefURLString];
     
@@ -357,10 +366,15 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         }
         
-        return ref;
+        refToReturn = ref;
 	}
     
-    else return (BriefcastRef *) [mutableFetchResults objectAtIndex:0];
+    else refToReturn = (BriefcastRef *) [mutableFetchResults objectAtIndex:0];
+    
+    [request release];
+    [mutableFetchResults release];
+    
+    return refToReturn;
     
 }
 

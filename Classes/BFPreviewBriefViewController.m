@@ -55,7 +55,7 @@
 
 - (void)prepareInfoView:(BriefRef *)ref
 {
-    infoView.titleLabel.text = [ref title];
+    infoView.titleLabel.text = ref.title;
     infoView.numberOfScenesLabel.text = [NSString stringWithFormat:@"%@", [ref totalNumberOfScenes]];
     infoView.fromLabel.text = [[NSURL URLWithString:[ref fromURL]] host];
     
@@ -69,12 +69,12 @@
     [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
     infoView.timeLabel.text = [[dateFormatter stringFromDate:[ref dateLastDownloaded]] stringByReplacingOccurrencesOfString:@" " withString:@""];
     
-    
+    [dateFormatter release];
 }
 
 - (void)preparePreview:(BriefRef *)ref
 {
-    previewView.titleLabel.text = [ref title];
+    previewView.titleLabel.text = ref.title;
     
     // generate scene
     NSString *pathToDictionary = [[[BFDataManager sharedBFDataManager] documentDirectory] stringByAppendingPathComponent:[ref filePath]];
@@ -89,6 +89,9 @@
     
     // blit image into preview
     previewView.sceneView.image = sceneImage;
+    
+    [scene release];
+    [manager release];
 }
 
 - (void)zoomViewDidStop:(NSString *)animationId finished:(NSNumber *)finished context:(void *)context
@@ -207,6 +210,7 @@
                                     cancelButtonTitle:@"Oops, Nevermind" 
                                     destructiveButtonTitle:@"Nuke It" otherButtonTitles:nil];
     [confirmDelete showInView:[[self.view superview] superview]];
+    [confirmDelete autorelease];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
