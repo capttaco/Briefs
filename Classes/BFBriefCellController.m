@@ -16,8 +16,6 @@
 
 #define kRightAccessoryNormalRect           CGRectMake(271.0f, 0.0f, 49.0f,  80.0f)
 #define kRightAccessoryExpandedRect         CGRectMake(240.0f, 0.0f, 80.0f,  80.0f)
-#define kContentViewNormalRect              CGRectMake(50.0f,  0.0f, 221.0f, 80.0f)
-#define kContentViewExpandedRect            CGRectMake(50.0f,  0.0f, 190.0f, 80.0f)
 
 
 @interface BFBriefCellController (PrivateMethods)
@@ -82,17 +80,19 @@
 - (void)setInstallButtonExpanded:(BOOL)expand
 {
     [UIView beginAnimations:@"Toggle Download Mode" context:nil];
+    [UIView setAnimationCurve:UIViewAnimationCurveLinear];
 
     if (expand) {
         // expand the button
         rightAccessoryView.frame = kRightAccessoryExpandedRect;
-        contentView.frame = kContentViewExpandedRect;
+        [installButton setTitle:@"INSTALL" forState:UIControlStateNormal];
+
     }
     
     else {
         // unexpand the button
         rightAccessoryView.frame = kRightAccessoryNormalRect;
-        contentView.frame = kContentViewNormalRect;
+        [installButton setTitle:@"GET" forState:UIControlStateNormal];
     }
     
     [UIView commitAnimations];
