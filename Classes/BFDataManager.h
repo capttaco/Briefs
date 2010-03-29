@@ -41,14 +41,18 @@ typedef enum {
 
 // Data Access API
 - (BriefcastRef *)localBriefcastRefMarker;
+
+// Collection Access
 - (NSArray *)allBriefcastsSortedAs:(BFDataManagerSortType)typeOfSort;
 - (NSArray *)briefsFromBriefcast:(BriefcastRef *)briefcast sortedAs:(BFDataManagerSortType)typeOfSort;
 - (NSArray *)allBriefsSortedAs:(BFDataManagerSortType)typeOfSort;
 
+// Singleton Access
+- (BriefRef *)findBriefUsingURL:(NSString *)url;
+
 
 // Add & Remove Data API
 - (BriefRef *)addBriefAtPath:(NSString *)path usingData:(NSData *)data fromURL:(NSString *)url;
-- (BriefRef *)addBriefAtPath:(NSString *)path fromURL:(NSString *)url;
 - (void)addBriefcastInformation:(BFBriefcast *)briefcast;
 
 - (void)removeBrief:(BriefRef *)brief;

@@ -17,6 +17,13 @@
 #define kBFDataManagerStoreLocation    @"Briefs.sqlite"
 
 
+@interface BFDataManager (PrivateMethods)
+
+- (BriefRef *)addBriefAtPath:(NSString *)path fromURL:(NSString *)url;
+
+@end
+
+
 @implementation BFDataManager
 
 SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
@@ -197,15 +204,52 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
     }
 }
 
-- (BriefRef *)addBriefAtPath:(NSString *)path usingData:(NSData *)data fromURL:(NSString *)url
+- (BriefRef *)addBriefAtPath:(NSString *) path usingData:(NSData *)data fromURL:(NSString *)url
 {
     NSString *destination = [[self documentDirectory] stringByAppendingPathComponent:path];
-    [data writeToFile:destination atomically:YES];
-    return [self addBriefAtPath:path fromURL:url];
+    
+    // check to see if the brief already exists
+    // if it doesn't, add it the regular way
+    
+    BriefRef *brief = [self findBriefUsingURL:url];
+    if (brief == nil) {
+        
+        // check to see if a file exists at that path
+        // if so, alter the incoming file path to avoid
+        // overwriting data
+        
+        if ([[NSFileManager defaultManager] fileExistsAtPath:destination isDirectory:NO]) {
+            
+            // Meh. This is ugly. Desperately needs refactoring.
+            NSString *alteredURL = [[[url stringByReplacingOccurrencesOfString:@".brieflist" withString:@""]
+                                    stringByReplacingOccurrencesOfString:@"http://" withString:@""] 
+                                    stringByReplacingOccurrencesOfString:@"/" withString:@"_"];
+            path = [NSString stringWithFormat:@"(%@)%@", alteredURL, path];
+            NSString *newDestination = [[self documentDirectory] stringByAppendingPathComponent:path];
+            
+            [data writeToFile:newDestination atomically:YES];
+        }
+        else [data writeToFile:destination atomically:YES];
+        
+        return [self addBriefAtPath:path fromURL:url];
+        
+    }
+    
+    // else, get the reference and update it's download date
+    else {
+        [brief setDateLastDownloaded:[NSDate date]];
+        [data writeToFile:destination atomically:YES];
+        
+        return brief;
+    }
 }
 
 - (BriefRef *)addBriefAtPath:(NSString *)path fromURL:(NSString *)url
 {
+    // NOTE: This signature is only called by itself, when the
+    //       brief is already stored on the file system.
+    //       (i.e., only internally by the data manager)
+    
     NSString *destination = [[self documentDirectory] stringByAppendingPathComponent:path];
     NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:destination];
     
@@ -376,6 +420,30 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
     
     return refToReturn;
     
+}
+
+- (BriefRef *)findBriefUsingURL:(NSString *)url
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"fromURL == %@", url];
+    
+    // Fetch Data from the database
+	NSFetchRequest *request = [[NSFetchRequest alloc] init];
+	NSEntityDescription *entity = [NSEntityDescription entityForName:@"BriefRef" inManagedObjectContext:[self managedObjectContext]];
+	[request setEntity:entity];
+    [request setPredicate:predicate];
+    
+    NSError *error;
+    NSMutableArray *mutableFetchResults = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
+	if (mutableFetchResults == nil || [mutableFetchResults count] <= 0) {
+        return nil;
+	}
+    
+    BriefRef *refToReturn = (BriefRef *) [mutableFetchResults objectAtIndex:0];
+    
+    [request release];
+    [mutableFetchResults release];
+    
+    return refToReturn;
 }
 
 ///////////////////////////////////////////////////////////////////////////////

@@ -27,7 +27,7 @@
 
 
 @implementation BFBriefCellController
-@synthesize brief;
+@synthesize brief, delegate;
 
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -
@@ -73,6 +73,8 @@
         
         // if already in download mode, then
         // download the brief to local storage
+        
+        [self.delegate shouldDownloadBrief:self atURL:brief.enclosure.url];
         
     }
 }
@@ -180,12 +182,6 @@
 //    [manager release];
 }
 
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath 
-{	
-//    if (editingStyle == UITableViewCellEditingStyleDelete)
-//        [[BFDataManager sharedBFDataManager] removeBrief:self.brief];
-}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

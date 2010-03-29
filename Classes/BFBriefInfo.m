@@ -29,13 +29,20 @@
     if (self != nil) {
         NSArray *scenes = [dictionary objectForKey:@"scenes"];
         numberOfScenes = (scenes != nil) ? [scenes count] : 0;
-        [scenes release];
         
         pathToBrieflist = path;
         author  = [dictionary objectForKey:@"author" orDefaultValue:@"None"];
         desc    = [dictionary objectForKey:@"desc" orDefaultValue:@"None"];
         
         NSString *defaultTitle = [path stringByReplacingOccurrencesOfString:@".brieflist" withString:@""];
+        
+        // test for ($0)$1 file name
+        NSArray *fileNameComponents = [defaultTitle componentsSeparatedByString:@")"];
+        if ([fileNameComponents count] > 1)
+            defaultTitle = [fileNameComponents objectAtIndex:1];
+        else {
+            defaultTitle = [fileNameComponents objectAtIndex:0];
+        }
         title = [dictionary objectForKey:@"title" orDefaultValue:defaultTitle];
     }
     return self;

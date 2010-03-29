@@ -8,6 +8,7 @@
 
 #import "BFCellController.h"
 #import "FeedParser.h"
+#import "BFRemoteBriefEventDelegate.h"
 
 typedef enum {
     /** Brief already exists, but a newer version exists */
@@ -24,10 +25,14 @@ typedef enum {
 
 @interface BFBriefCellController : NSObject<BFCellController> 
 {
-    FPItem                  *brief;
-    BFBriefCellInstallType  installType;
-    BOOL                    isSelected;
-    BOOL                    isInstallButtonExpanded;
+    id<BFRemoteBriefEventDelegate>  delegate;
+    BFBriefCellInstallType          installType;
+    FPItem                          *brief;
+    
+    // UI State
+    BOOL    isSelected;
+    BOOL    isInstallButtonExpanded;
+    
     
     // Text
     IBOutlet UILabel    *indexLabel;
@@ -46,7 +51,8 @@ typedef enum {
     IBOutlet UIButton   *installButton;
 }
 
-@property (nonatomic, retain) FPItem *brief;
+@property (nonatomic, retain) FPItem                            *brief;
+@property (nonatomic, assign) id<BFRemoteBriefEventDelegate>    delegate;
 
 - (id)initWithEnclosure:(FPItem *)item installType:(BFBriefCellInstallType)install;
 

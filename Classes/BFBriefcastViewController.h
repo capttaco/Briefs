@@ -36,7 +36,6 @@
 @property (nonatomic, retain) NSMutableData     *recievedData;
 
 
-
 - (IBAction)reloadBriefcast;
 
 
