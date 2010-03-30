@@ -8,7 +8,7 @@
 
 #import "BriefRef.h"
 
-@protocol BFBriefDataSource
+@protocol BFBriefDataSource <NSObject>
 
 - (int)numberOfRecords;
 - (BriefRef *)dataForIndex:(NSInteger)index;

@@ -19,6 +19,8 @@
 - (BOOL)isPageAlreadyAssigned:(NSInteger)index;
 - (BFPreviewBriefViewController *)findFarthestFromIndex:(NSInteger)index;
 
+- (void)initializePagedView;
+
 
 @end
 
@@ -44,37 +46,8 @@
 - (void)viewDidLoad 
 {
     [super viewDidLoad];
-    
-    self.title = @"Briefs";
-    
-    // Initialize page views
-    self.pages = [NSMutableArray arrayWithCapacity:3];
-    for (int i=0; i < 3; i++) {
-        BFPreviewBriefViewController *controller = [[BFPreviewBriefViewController alloc] init];
-        controller.dataSource = dataSource;
-        controller.parentNavigationController = self.navigationController;
-        [pagedHorizontalView addSubview:controller.view];
-        
-        [self.pages addObject:controller];
-        [controller release];
-    }
-    
-    
-    // Expand Scroll View to accomodate all records
-    pagedHorizontalView.contentSize = CGSizeMake([self totalWidthOfScrollView], pagedHorizontalView.frame.size.height);
-	
-    // Initialize the controls
-    pagedHorizontalView.contentOffset = CGPointMake(0, 0);
-    pagedHorizontalView.clipsToBounds = NO;
-    pagedHorizontalView.showsHorizontalScrollIndicator = NO;
-	pageControl.numberOfPages = [dataSource numberOfRecords];
-	pageControl.currentPage = 0;
-	
-    // load initial pages
-    int pagesToLoad = ([dataSource numberOfRecords] >= 3) ? 3 : [dataSource numberOfRecords];
-    for (int index=0; index < pagesToLoad; index++) {
-        [self applyNewIndex:index pageController:[self.pages objectAtIndex:index]];
-    }
+    [self initializePagedView];
+    [self refresh:dataSource gotoIndex:0];
 }
 
 - (void)viewDidUnload 
@@ -86,6 +59,7 @@
 - (void)dealloc 
 {
     [self.pages release];
+    [self.dataSource release];
     [super dealloc];
 }
 
@@ -133,8 +107,42 @@
 #pragma mark -
 #pragma mark Scrolling Utility methods
 
+- (void)refresh:(id<BFBriefDataSource>)source gotoIndex:(NSInteger)pageIndex
+{
+    // REFRESH
+    dataSource = source;
+    pagedHorizontalView.contentSize = CGSizeMake([self totalWidthOfScrollView], pagedHorizontalView.frame.size.height);
+	pageControl.numberOfPages = [dataSource numberOfRecords];
+	
+    
+    // if index is out of bounds, got to beginning,
+    // then bail out.
+    if (pageIndex < 0 || pageIndex >= [dataSource numberOfRecords]) {
+        [self scrollToNewIndex:0 notifyPageControl:YES];
+        return;
+    }
+        
+    
+    // load pages around current view
+    int start = (pageIndex - 1 >= 0) ? pageIndex - 1 : pageIndex;
+    int finish = (pageIndex == 0) ? pageIndex + 2 : pageIndex + 1;
+
+    
+    // PAGE LOAD
+    for (int index = start; index <= finish; index++) {
+        [self applyNewIndex:index pageController:[self.pages objectAtIndex:(index-start)]];
+    }
+    
+    // SCROLL TO PAGE
+    [self scrollToNewIndex:pageIndex notifyPageControl:YES];
+}
+
 - (void)applyNewIndex:(NSInteger)newIndex pageController:(BFPreviewBriefViewController *)pageController
 {
+    // make sure the data source is current for
+    // the page controller
+    pageController.dataSource = dataSource;
+    
 	NSInteger pageCount = [dataSource numberOfRecords];
 	BOOL outOfBounds = newIndex >= pageCount || newIndex < 0;
     
@@ -166,11 +174,19 @@
 - (IBAction)changePage:(id)sender
 {
 	NSInteger pageIndex = pageControl.currentPage;
-    
-	// update the scroll view to the appropriate page
+    [self scrollToNewIndex:pageIndex notifyPageControl:NO];
+}
+
+- (void)scrollToNewIndex:(NSInteger)index notifyPageControl:(BOOL)notify
+{
+    // update the scroll view to the appropriate page
     CGRect frame = pagedHorizontalView.frame;
-    frame.origin = [self pageOriginAtIndex:pageIndex];
+    frame.origin = [self pageOriginAtIndex:index];
     [pagedHorizontalView scrollRectToVisible:frame animated:YES];
+    
+    if (notify) {
+        pageControl.currentPage = index;
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -190,7 +206,7 @@
 
 - (CGPoint)pageOriginAtIndex:(NSInteger)index
 {
-    return CGPointMake((pagedHorizontalView.frame.size.width) * index + 20.0f, 0);
+    return CGPointMake((pagedHorizontalView.frame.size.width) * index + 10.0f, 0);
 }
 
 - (CGFloat)fractionalPageAtCurrentScroll:(UIScrollView *)scrollView
@@ -221,6 +237,28 @@
     }
     
     return farthestFrom;
+}
+
+- (void)initializePagedView
+{
+    self.title = @"Briefs";
+    
+    // Initialize page views
+    self.pages = [NSMutableArray arrayWithCapacity:3];
+    for (int i=0; i < 3; i++) {
+        BFPreviewBriefViewController *controller = [[BFPreviewBriefViewController alloc] init];
+        controller.dataSource = dataSource;
+        controller.parentNavigationController = self.navigationController;
+        [pagedHorizontalView addSubview:controller.view];
+        
+        [self.pages addObject:controller];
+        [controller release];
+    }
+    
+    // initialize the scroll view
+    pagedHorizontalView.clipsToBounds = NO;
+    pagedHorizontalView.showsHorizontalScrollIndicator = NO;
+    pagedHorizontalView.contentOffset = CGPointMake(0, 0);
 }
 
 

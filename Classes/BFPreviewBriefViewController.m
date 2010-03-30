@@ -11,6 +11,7 @@
 #import "BFPresentationDispatch.h"
 #import "BFSceneViewController.h"
 #import "BFSceneManager.h"
+#import "BFPagedBrowseViewController.h"
 
 
 @interface BFPreviewBriefViewController (PrivateMethods)
@@ -111,7 +112,6 @@
 - (void)zoomViewDidStop:(NSString *)animationId finished:(NSNumber *)finished context:(void *)context
 {
     // Start playing the brief
-    
     NSString *pathToDictionary = [[[BFDataManager sharedBFDataManager] documentDirectory] stringByAppendingPathComponent:[[dataSource dataForIndex:pageIndex] filePath]];
     
     // setup scene view controller
@@ -227,11 +227,26 @@
     [confirmDelete autorelease];
 }
 
+- (void)deleteFadeDidStop:(NSString *)animationId finished:(NSNumber *)finished context:(void *)context
+{
+    BFPagedBrowseViewController *controller;
+    if (controller = (BFPagedBrowseViewController *)[self.parentNavigationController topViewController]) {
+        [controller refresh:[[BFDataManager sharedBFDataManager] allBriefsSortedAs:BFDataManagerSortByDateOpened] gotoIndex:pageIndex-1];
+    }
+}
+
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     // remove the brief, if it is confirmed.
     if (buttonIndex == [actionSheet destructiveButtonIndex]) {
         [[BFDataManager sharedBFDataManager] removeBrief:briefBeingPreviewed];
+        
+        [UIView beginAnimations:@"fade deleted Brief" context:nil];
+            [UIView setAnimationDelegate:self];
+            [UIView setAnimationDuration:0.8f];
+            [UIView setAnimationDidStopSelector:@selector(deleteFadeDidStop:finished:context:)];
+            self.view.alpha = 0.0f;
+        [UIView commitAnimations];
     }
 }
 

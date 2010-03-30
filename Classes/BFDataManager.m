@@ -12,6 +12,7 @@
 #import "BFBriefcastCellController.h"
 #import "BFBriefcast+CoreDataAdditions.h"
 #import "BFBriefInfo.h"
+#import "BFArrayBriefDataSource.h"
 
 
 #define kBFDataManagerStoreLocation    @"Briefs.sqlite"
@@ -349,7 +350,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
     return [[briefcast briefs] allObjects];
 }
 
-- (NSArray *)allBriefsSortedAs:(BFDataManagerSortType)typeOfSort
+- (id<BFBriefDataSource>)allBriefsSortedAs:(BFDataManagerSortType)typeOfSort;
 {
     // TODO: implement sorting types
     
@@ -376,7 +377,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
 	[mutableFetchResults release];
 	[request release];
     
-    return arrayOfBriefs;
+    return [[BFArrayBriefDataSource alloc] initWithArray:arrayOfBriefs];
 }
 
 - (BriefcastRef *)localBriefcastRefMarker

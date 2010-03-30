@@ -219,11 +219,9 @@
     //       briefs and drill-down based upon briefcast 
     //       (or other folder level organization)
     
-    NSArray *knownBriefs = [[BFDataManager sharedBFDataManager] allBriefsSortedAs:BFDataManagerSortByDateOpened];
-    BFArrayBriefDataSource *dataSource = [[BFArrayBriefDataSource alloc] initWithArray:knownBriefs];
-    [self.navigationController pushViewController:[[[BFPagedBrowseViewController alloc] initWithDataSource:dataSource] autorelease] animated:YES];
+    BFArrayBriefDataSource *knownBriefs = [[BFDataManager sharedBFDataManager] allBriefsSortedAs:BFDataManagerSortByDateOpened];
+    [self.navigationController pushViewController:[[[BFPagedBrowseViewController alloc] initWithDataSource:knownBriefs] autorelease] animated:YES];
 
-    [dataSource release];
 }
 
 - (IBAction)browseYourBriefcasts

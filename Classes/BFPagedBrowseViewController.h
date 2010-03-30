@@ -34,7 +34,11 @@
 @property (nonatomic, retain) id<BFBriefDataSource> dataSource;
 @property (nonatomic, retain) NSMutableArray        *pages;
 
+
 - (IBAction)changePage:(id)sender;
+- (void)scrollToNewIndex:(NSInteger)index notifyPageControl:(BOOL)notify;
+- (void)refresh:(id<BFBriefDataSource>)source gotoIndex:(NSInteger)index;
+
 - (id)initWithDataSource:(id<BFBriefDataSource>)ref;
 
 @end

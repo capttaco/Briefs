@@ -9,6 +9,7 @@
 #import "BFBriefcast.h"
 #import "BriefcastRef.h"
 #import "BriefRef.h"
+#import "BFBriefDataSource.h"
 
 #define kBFLocallyStoredBriefURLString        @"LOCALLY_STORED_BF"
 
@@ -45,7 +46,7 @@ typedef enum {
 // Collection Access
 - (NSArray *)allBriefcastsSortedAs:(BFDataManagerSortType)typeOfSort;
 - (NSArray *)briefsFromBriefcast:(BriefcastRef *)briefcast sortedAs:(BFDataManagerSortType)typeOfSort;
-- (NSArray *)allBriefsSortedAs:(BFDataManagerSortType)typeOfSort;
+- (id<BFBriefDataSource>)allBriefsSortedAs:(BFDataManagerSortType)typeOfSort;
 
 // Singleton Access
 - (BriefRef *)findBriefUsingURL:(NSString *)url;
