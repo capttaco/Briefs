@@ -14,9 +14,10 @@
 #import "BFColor.h"
 
 
-#define kRightAccessoryNormalRect           CGRectMake(271.0f, 0.0f, 49.0f,  80.0f)
-#define kRightAccessoryExpandedRect         CGRectMake(240.0f, 0.0f, 80.0f,  80.0f)
-
+#define kRightAccessoryNormalRect           CGRectMake(271.0f, 0.0f,  49.0f,  80.0f)
+#define kRightAccessoryExpandedRect         CGRectMake(240.0f, 0.0f,  80.0f,  80.0f)
+#define kInstallButtonNormalRect            CGRectMake(271.0f, 23.0f, 42.0f,  24.0f)
+#define kInstallButtonExpandedRect          CGRectMake(240.0f, 23.0f, 72.0f,  24.0f)
 
 @interface BFBriefCellController (PrivateMethods)
 
@@ -79,22 +80,31 @@
     }
 }
 
+- (void)expandButtonDidStop:(NSString *)animationId finished:(NSNumber *)finished context:(void *)context
+{
+    NSNumber *expand = context;
+    NSString *label = ([expand boolValue]) ? @"INSTALL" : @"NEW";
+    [installButton setTitle:label forState:UIControlStateNormal];
+}
+
 - (void)setInstallButtonExpanded:(BOOL)expand
 {
-    [UIView beginAnimations:@"Toggle Download Mode" context:nil];
+    [UIView beginAnimations:@"Toggle Download Mode" context:[NSNumber numberWithBool:expand]];
     [UIView setAnimationCurve:UIViewAnimationCurveLinear];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(expandButtonDidStop:finished:context:)];
+    [installButton setTitle:@"" forState:UIControlStateNormal];
 
     if (expand) {
         // expand the button
-        rightAccessoryView.frame = kRightAccessoryExpandedRect;
-        [installButton setTitle:@"INSTALL" forState:UIControlStateNormal];
-
+//        rightAccessoryView.frame = kRightAccessoryExpandedRect;
+        installButton.frame = kInstallButtonExpandedRect;
     }
     
     else {
         // unexpand the button
-        rightAccessoryView.frame = kRightAccessoryNormalRect;
-        [installButton setTitle:@"GET" forState:UIControlStateNormal];
+//        rightAccessoryView.frame = kRightAccessoryNormalRect;
+        installButton.frame = kInstallButtonNormalRect;
     }
     
     [UIView commitAnimations];
@@ -123,6 +133,7 @@
     // style install/update button
     UIImage *buttonBG = [[UIImage imageNamed:@"install-button.png"] stretchableImageWithLeftCapWidth:4 topCapHeight:0];
     [installButton setBackgroundImage:buttonBG forState:UIControlStateNormal];
+//    installButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
     
     return cell;
 }
@@ -159,27 +170,6 @@
         
         [self setInstallButtonExpanded:NO];
     }
-
-         
-//    NSString *pathToDictionary = [[[BFDataManager sharedBFDataManager] documentDirectory] stringByAppendingPathComponent:[self.brief filePath]];
-//    
-//    // setup scene view controller
-//    BFSceneManager *manager = [[BFSceneManager alloc] initWithPathToDictionary:pathToDictionary];
-//    BFSceneViewController *controller = [[BFSceneViewController alloc] initWithSceneManager:manager];
-//    
-//    // wire dispatch
-//    if ([[BFPresentationDispatch sharedBFPresentationDispatch] viewController] != nil)
-//        [BFPresentationDispatch sharedBFPresentationDispatch].viewController = nil;
-//    
-//    [[BFPresentationDispatch sharedBFPresentationDispatch] setViewController:controller]; 
-//    
-//    if ([[tv delegate] isKindOfClass:[UIViewController class]]) {
-//        UIViewController *tvc = (UIViewController *) [tv delegate];
-//        [tvc.navigationController pushViewController:[[BFPresentationDispatch sharedBFPresentationDispatch] viewController] animated:YES];
-//    }
-//    
-//    [controller release];
-//    [manager release];
 }
 
 

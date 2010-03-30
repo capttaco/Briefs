@@ -29,7 +29,22 @@
 
 - (IBAction)reloadBriefcast
 {
-    // TODO: implement reloading of the briefcast
+    if (self.channelTitle != nil) {
+        locationLabel.alpha = 0.0f;
+        buttonView.alpha = 0.0f;
+        self.channelTitle = nil;
+        [super updateAndReload];
+    }
+    
+    // Display "loading..." message and a spinner        
+    self.title = @"None";
+    titleLabel.text = @"Loading...";        
+    self.recievedData = [[NSMutableData alloc] initWithLength:0];
+    [spinner startAnimating];
+    
+    // Load Briefcast url
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[self locationOfBriefcast]]];
+    [[[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES] autorelease];
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -37,14 +52,7 @@
 #pragma mark BFRemoteBriefEventDelegate Methods
 
 - (void)shouldDownloadBrief:(id)sender atURL:(NSString *)url
-{
-//    BFLoadingViewController *loader = [[BFLoadingViewController alloc] init];
-//    [loader setDelegate:self];
-//    
-//    loader.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-//    [self presentModalViewController:loader animated:YES];
-//    [loader load:url withInitialStatus:@"Downloading the Brief..." animated:YES];
-    
+{    
     BFLoadingViewController *loading = [[BFLoadingViewController alloc] init];
     [loading view].frame = CGRectOffset([loading view].frame, 40, 30);
     [loading setDelegate:self];
@@ -140,22 +148,7 @@
         self.locationOfBriefcast = [briefcast fromURL];
     
     if (self.locationOfBriefcast != nil) {
-        
-        // Display "loading..." message and a spinner
-        // TODO: move the loading message & spinner 
-        //       to the header view.
-        
-        self.title = @"Loading...";
-        spinner = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite] autorelease];
-        spinner.hidesWhenStopped = YES;
-        [spinner startAnimating];
-        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:spinner] autorelease];
-        
-        self.recievedData = [[NSMutableData alloc] initWithLength:0];
-        
-        // Load Briefcast url
-        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[self locationOfBriefcast]]];
-        [[[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES] autorelease];
+        [self reloadBriefcast];
     }
 }
 
@@ -192,10 +185,19 @@
     self.enclosedBriefs = [feed items];
     
     // Update the UI
-    self.title = [NSString stringWithFormat:@"%i Briefs", [[feed items] count]];
+    [UIView beginAnimations:@"Fade-in Info" context:nil];
+        self.title = [NSString stringWithFormat:@"%i Briefs", [[feed items] count]];
     
-    titleLabel.text = self.channelTitle;
-    locationLabel.text = self.channelLink;
+        // alter the UI
+        titleLabel.text = self.channelTitle;
+        locationLabel.text = self.channelLink;
+        
+        // fade back in the controls
+        titleLabel.alpha = 1.0f;
+        locationLabel.alpha = 1.0f;
+        buttonView.alpha = 1.0f;
+    
+    [UIView commitAnimations];
     
     [super updateAndReload];
     [spinner stopAnimating];

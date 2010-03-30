@@ -13,18 +13,21 @@
 
 @interface BFBriefcastViewController : BFTableViewController <BFRemoteBriefEventDelegate, BFLoadingViewDelegate> 
 {
-    NSMutableArray  *enclosedBriefs;
-    NSString        *channelTitle;
-    NSString        *channelLink;
-    NSString        *channelDescription;
-    NSMutableData   *recievedData;
+    NSMutableArray          *enclosedBriefs;
+    NSString                *channelTitle;
+    NSString                *channelLink;
+    NSString                *channelDescription;
+    NSMutableData           *recievedData;
     
     NSString                *locationOfBriefcast;
     BriefcastRef            *briefcast;
-    UIActivityIndicatorView *spinner;
     
-    IBOutlet UILabel        *titleLabel;
-    IBOutlet UILabel        *locationLabel;
+    // IB Objects
+    IBOutlet UILabel                    *titleLabel;
+    IBOutlet UILabel                    *locationLabel;
+    IBOutlet UIButton                   *buttonView;
+    IBOutlet UIActivityIndicatorView    *spinner;
+
 }
 
 @property (nonatomic, retain) NSMutableArray    *enclosedBriefs;
