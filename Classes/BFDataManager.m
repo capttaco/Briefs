@@ -447,6 +447,16 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
     return refToReturn;
 }
 
+- (NSDate *)briefFromURLWasInstalledOnDate:(NSString *)url
+{
+    BriefRef *ref = [self findBriefUsingURL:url];
+    if (ref == nil) {
+        return nil;
+    }
+    else return [ref dateLastDownloaded];
+}
+
+
 ///////////////////////////////////////////////////////////////////////////////
 
 @end

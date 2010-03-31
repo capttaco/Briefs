@@ -50,6 +50,7 @@ typedef enum {
 
 // Singleton Access
 - (BriefRef *)findBriefUsingURL:(NSString *)url;
+- (NSDate *)briefFromURLWasInstalledOnDate:(NSString *)url;
 
 
 // Add & Remove Data API

@@ -49,12 +49,13 @@ typedef enum {
     IBOutlet UIView     *remotePlayView;
     IBOutlet UIButton   *remotePlayButton;
     IBOutlet UIButton   *installButton;
+    UIImageView         *installButtonBg;
 }
 
 @property (nonatomic, retain) FPItem                            *brief;
 @property (nonatomic, assign) id<BFRemoteBriefEventDelegate>    delegate;
 
-- (id)initWithEnclosure:(FPItem *)item installType:(BFBriefCellInstallType)install;
+- (id)initWithEnclosure:(FPItem *)item;
 
 - (IBAction)shouldBeginRemotePlay;
 - (IBAction)shouldStartDownloadingBrief;

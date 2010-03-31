@@ -242,8 +242,9 @@
         [[BFDataManager sharedBFDataManager] removeBrief:briefBeingPreviewed];
         
         [UIView beginAnimations:@"fade deleted Brief" context:nil];
+            [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
             [UIView setAnimationDelegate:self];
-            [UIView setAnimationDuration:0.8f];
+            [UIView setAnimationDuration:0.5f];
             [UIView setAnimationDidStopSelector:@selector(deleteFadeDidStop:finished:context:)];
             self.view.alpha = 0.0f;
         [UIView commitAnimations];

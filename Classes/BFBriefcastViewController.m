@@ -128,7 +128,7 @@
         //       if the brief is already installed (update if new, no action if not)
         
         for (FPItem *item in self.enclosedBriefs) {
-            BFBriefCellController *controller = [[BFBriefCellController alloc] initWithEnclosure:item installType:BFBriefCellInstallTypeNewInstall];
+            BFBriefCellController *controller = [[BFBriefCellController alloc] initWithEnclosure:item];
             controller.delegate = self;
             [groups addObject:controller];
             [controller release];

@@ -16,7 +16,7 @@
 
 #define kRightAccessoryNormalRect           CGRectMake(271.0f, 0.0f,  49.0f,  80.0f)
 #define kRightAccessoryExpandedRect         CGRectMake(240.0f, 0.0f,  80.0f,  80.0f)
-#define kInstallButtonNormalRect            CGRectMake(271.0f, 23.0f, 42.0f,  24.0f)
+#define kInstallButtonNormalRect            CGRectMake(270.0f, 23.0f, 42.0f,  24.0f)
 #define kInstallButtonExpandedRect          CGRectMake(240.0f, 23.0f, 72.0f,  24.0f)
 
 @interface BFBriefCellController (PrivateMethods)
@@ -34,13 +34,27 @@
 #pragma mark -
 #pragma mark NSObject overrides
 
-- (id)initWithEnclosure:(FPItem *)item installType:(BFBriefCellInstallType)install;
+- (id)initWithEnclosure:(FPItem *)item
 {
     self = [self init];
     if (self != nil) {
         self.brief = item;
         isSelected = NO;
         isInstallButtonExpanded = NO;
+        
+        // determine install type
+        NSDate *dateBriefLastInstalled = [[BFDataManager sharedBFDataManager] briefFromURLWasInstalledOnDate:self.brief.enclosure.url];
+        if (dateBriefLastInstalled == nil)
+            installType = BFBriefCellInstallTypeNewInstall;
+        else if ([dateBriefLastInstalled compare:self.brief.pubDate] == NSOrderedAscending)
+            installType = BFBriefCellInstallTypeUpdate;
+        else
+            installType = BFBriefCellInstallTypeAlreadyInstalled;
+        
+        // style install/update button
+        UIImage *buttonBG = [[UIImage imageNamed:@"install-button.png"] stretchableImageWithLeftCapWidth:4 topCapHeight:0];
+        installButtonBg = [[UIImageView alloc] initWithImage:buttonBG];
+
     }
     return self;
 }
@@ -99,12 +113,14 @@
         // expand the button
 //        rightAccessoryView.frame = kRightAccessoryExpandedRect;
         installButton.frame = kInstallButtonExpandedRect;
+        installButtonBg.frame = kInstallButtonExpandedRect;
     }
     
     else {
         // unexpand the button
 //        rightAccessoryView.frame = kRightAccessoryNormalRect;
         installButton.frame = kInstallButtonNormalRect;
+        installButtonBg.frame = kInstallButtonNormalRect;
     }
     
     [UIView commitAnimations];
@@ -130,10 +146,14 @@
     
     [leftAccessoryView addSubview:indexView];
     
-    // style install/update button
-    UIImage *buttonBG = [[UIImage imageNamed:@"install-button.png"] stretchableImageWithLeftCapWidth:4 topCapHeight:0];
-    [installButton setBackgroundImage:buttonBG forState:UIControlStateNormal];
-//    installButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+    if (installButtonBg != nil) {
+        installButtonBg.frame = kInstallButtonNormalRect;
+        installButton.frame = kInstallButtonNormalRect;
+        [installButton setTitle:@"NEW" forState:UIControlStateNormal];
+
+        [cell addSubview:installButtonBg]; 
+        [cell addSubview:installButton];
+    }
     
     return cell;
 }
