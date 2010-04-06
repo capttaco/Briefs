@@ -64,6 +64,7 @@
 		D43CEAB11160376500DA07D5 /* BFArrayBriefDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D43CEAB01160376500DA07D5 /* BFArrayBriefDataSource.m */; };
 		D43CEB121160468F00DA07D5 /* howto.brieflist in Resources */ = {isa = PBXBuildFile; fileRef = D46414191069AB25001522F6 /* howto.brieflist */; };
 		D43CEC36116061CD00DA07D5 /* BriefRef.m in Sources */ = {isa = PBXBuildFile; fileRef = D43CEC35116061CD00DA07D5 /* BriefRef.m */; };
+		D43CEF6F1162E3EC00DA07D5 /* already-button.png in Resources */ = {isa = PBXBuildFile; fileRef = D43CEF6E1162E3EC00DA07D5 /* already-button.png */; };
 		D463E8FF107310170075CCCE /* BFBriefcastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D463E8FE107310170075CCCE /* BFBriefcastViewController.m */; };
 		D464117110606DDE001522F6 /* BFTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D464117010606DDE001522F6 /* BFTableViewController.m */; };
 		D46411931065CF8C001522F6 /* BFBriefCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D46411921065CF8C001522F6 /* BFBriefCellController.m */; };
@@ -216,6 +217,7 @@
 		D43CEAB01160376500DA07D5 /* BFArrayBriefDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFArrayBriefDataSource.m; sourceTree = "<group>"; };
 		D43CEC34116061CD00DA07D5 /* BriefRef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BriefRef.h; sourceTree = "<group>"; };
 		D43CEC35116061CD00DA07D5 /* BriefRef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BriefRef.m; sourceTree = "<group>"; };
+		D43CEF6E1162E3EC00DA07D5 /* already-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "already-button.png"; path = "images/buttons/already-button.png"; sourceTree = "<group>"; };
 		D463E8FD107310170075CCCE /* BFBriefcastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFBriefcastViewController.h; sourceTree = "<group>"; };
 		D463E8FE107310170075CCCE /* BFBriefcastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFBriefcastViewController.m; sourceTree = "<group>"; wrapsLines = 0; };
 		D464116F10606DDE001522F6 /* BFTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFTableViewController.h; sourceTree = "<group>"; };
@@ -565,6 +567,7 @@
 		D43CE955115FC76E00DA07D5 /* buttons */ = {
 			isa = PBXGroup;
 			children = (
+				D43CEF6E1162E3EC00DA07D5 /* already-button.png */,
 				D43CE956115FC77E00DA07D5 /* install-button.png */,
 				D43CE957115FC77E00DA07D5 /* update-button.png */,
 			);
@@ -914,6 +917,7 @@
 				D43CE8B5115F196C00DA07D5 /* remote-play.png in Resources */,
 				D43CE958115FC77E00DA07D5 /* install-button.png in Resources */,
 				D43CE959115FC77E00DA07D5 /* update-button.png in Resources */,
+				D43CEF6F1162E3EC00DA07D5 /* already-button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

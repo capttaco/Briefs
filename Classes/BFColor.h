@@ -13,6 +13,7 @@
 
 // tint colors
 + (UIColor *)tintColorForNavigationBar;
++ (UIColor *)tintColorForNavigationButton;
 
 // background colors
 + (UIColor *)backgroundForTableView;

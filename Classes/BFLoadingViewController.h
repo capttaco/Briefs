@@ -17,7 +17,7 @@
     IBOutlet UISlider           *progressSlider;
     IBOutlet UIImageView        *imageView;
     IBOutlet UIButton           *cancelButton;
-    IBOutlet UIButton           *actionButton;
+//    IBOutlet UIButton           *actionButton;
     
     id<BFLoadingViewDelegate>   delegate;
     NSURLConnection             *connection;

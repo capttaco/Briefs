@@ -8,14 +8,18 @@
 
 #import "BFBriefcastViewController.h"
 #import "FeedParser.h"
-//#import "BFTitleCellController.h"
-//#import "BFLabelCellController.h"
-//#import "BFParagraphCellController.h"
-//#import "BFHeaderCellController.h"
 #import "BFBriefCellController.h"
 #import "BFRemoteBriefCellController.h"
 #import "BFDataManager.h"
 #import "BFColor.h"
+
+
+@interface BFBriefcastViewController (PrivateMethods) 
+
+- (void)dismissLoadingViewAnimation:(UIView *)loadingView;
+
+@end
+
 
 
 @implementation BFBriefcastViewController
@@ -112,6 +116,8 @@
     [UIView setAnimationDidStopSelector:@selector(fadeLoadingViewDidStop:finished:context:)];
     loadingView.alpha = 0.0f;
     [UIView commitAnimations];
+    
+    [self updateAndReload];
 }
 
 

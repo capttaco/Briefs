@@ -72,7 +72,7 @@
         [statusLabel setText:status];
     
     if (actionText)
-        [actionButton setTitle:actionText forState:UIControlStateNormal];
+        [cancelButton setTitle:actionText forState:UIControlStateNormal];
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:location]];
     connection = [[[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES] autorelease];   
@@ -107,7 +107,7 @@
 {    
     [statusLabel setText:@"Download Complete"];
     [self.delegate loadingView:self didCompleteWithData:self.data];
-    [actionButton setEnabled:YES];
+//    [actionButton setEnabled:YES];
     safeToClose = YES;
 }
 

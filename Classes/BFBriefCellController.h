@@ -18,7 +18,7 @@ typedef enum {
     BFBriefCellInstallTypeNewInstall = -122,
     
     /** Brief is installed with the newest version */
-    BFBriefCellInstallTypeAlreadyInstalled = -123
+    BFBriefCellInstallTypeAlreadyInstalled = -133
     
 } BFBriefCellInstallType;
 

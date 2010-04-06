@@ -14,17 +14,18 @@
 #import "BFColor.h"
 
 
-#define kRightAccessoryNormalRect           CGRectMake(271.0f, 0.0f,  49.0f,  80.0f)
-#define kRightAccessoryExpandedRect         CGRectMake(240.0f, 0.0f,  80.0f,  80.0f)
-#define kInstallButtonNormalRect            CGRectMake(270.0f, 23.0f, 42.0f,  24.0f)
-#define kInstallButtonExpandedRect          CGRectMake(240.0f, 23.0f, 72.0f,  24.0f)
+#define kInstallButtonNormalRect            CGRectMake(270.0f, 0.0f, 42.0f,  70.0f)
+#define kInstallButtonExpandedRect          CGRectMake(240.0f, 0.0f, 72.0f,  70.0f)
+#define kInstallButtonBgNormalRect          CGRectMake(270.0f, 23.0f, 42.0f,  24.0f)
+#define kInstallButtonBgExpandedRect        CGRectMake(240.0f, 23.0f, 72.0f,  24.0f)
+
+
 
 @interface BFBriefCellController (PrivateMethods)
 
 - (void)setInstallButtonExpanded:(BOOL)expand;
 
 @end
-
 
 
 @implementation BFBriefCellController
@@ -52,7 +53,18 @@
             installType = BFBriefCellInstallTypeAlreadyInstalled;
         
         // style install/update button
-        UIImage *buttonBG = [[UIImage imageNamed:@"install-button.png"] stretchableImageWithLeftCapWidth:4 topCapHeight:0];
+        UIImage *buttonBG;
+        switch (installType) {
+            case BFBriefCellInstallTypeUpdate:
+                buttonBG = [[UIImage imageNamed:@"update-button.png"] stretchableImageWithLeftCapWidth:4 topCapHeight:0];
+                break;
+            case BFBriefCellInstallTypeAlreadyInstalled:
+                buttonBG = [[UIImage imageNamed:@"already-button.png"] stretchableImageWithLeftCapWidth:4 topCapHeight:0];
+                break;
+            default:
+                buttonBG = [[UIImage imageNamed:@"install-button.png"] stretchableImageWithLeftCapWidth:4 topCapHeight:0];                
+        }
+        
         installButtonBg = [[UIImageView alloc] initWithImage:buttonBG];
 
     }
@@ -113,14 +125,14 @@
         // expand the button
 //        rightAccessoryView.frame = kRightAccessoryExpandedRect;
         installButton.frame = kInstallButtonExpandedRect;
-        installButtonBg.frame = kInstallButtonExpandedRect;
+        installButtonBg.frame = kInstallButtonBgExpandedRect;
     }
     
     else {
         // unexpand the button
 //        rightAccessoryView.frame = kRightAccessoryNormalRect;
         installButton.frame = kInstallButtonNormalRect;
-        installButtonBg.frame = kInstallButtonNormalRect;
+        installButtonBg.frame = kInstallButtonBgNormalRect;
     }
     
     [UIView commitAnimations];
@@ -147,10 +159,35 @@
     [leftAccessoryView addSubview:indexView];
     
     if (installButtonBg != nil) {
-        installButtonBg.frame = kInstallButtonNormalRect;
-        installButton.frame = kInstallButtonNormalRect;
-        [installButton setTitle:@"NEW" forState:UIControlStateNormal];
 
+        CGRect theFrame, theFrameBg;
+        switch (installType) {
+            case BFBriefCellInstallTypeUpdate:
+                [installButton setTitle:@"UPDATE" forState:UIControlStateNormal];
+                theFrame = kInstallButtonExpandedRect;
+                theFrameBg = kInstallButtonBgExpandedRect;
+                break;
+                
+            case BFBriefCellInstallTypeAlreadyInstalled:
+                [installButton setTitle:@"INSTALLED" forState:UIControlStateNormal];
+                installButton.enabled = NO;
+                theFrame = kInstallButtonExpandedRect;
+                theFrameBg = kInstallButtonBgExpandedRect;
+                [installButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
+                [installButton setTitleShadowColor:[UIColor clearColor] forState:UIControlStateDisabled];
+
+                break;
+
+            default:
+                [installButton setTitle:@"NEW" forState:UIControlStateNormal];
+                theFrame = kInstallButtonNormalRect;
+                theFrameBg = kInstallButtonBgNormalRect;
+
+        }
+        
+        installButtonBg.frame = theFrameBg;
+        installButton.frame = theFrame;
+        
         [cell addSubview:installButtonBg]; 
         [cell addSubview:installButton];
     }

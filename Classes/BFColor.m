@@ -14,6 +14,12 @@
 + (UIColor *)tintColorForNavigationBar
 {
     return [UIColor colorWithRed:0.5098f green:0.5412f blue:0.6f alpha:1.0f];
+//    return [UIColor colorWithRed:0.6f green:0.6f blue:0.6f alpha:1.0f];
+}
+
++ (UIColor *)tintColorForNavigationButton
+{
+    return [UIColor colorWithRed:0.5098f green:0.5412f blue:0.6f alpha:1.0f];
 }
 
 + (UIColor *)backgroundForTableView
