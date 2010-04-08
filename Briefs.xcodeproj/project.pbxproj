@@ -90,11 +90,13 @@
 		D482E51A10EEFB0D00678404 /* gray-button-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D482E51810EEFB0D00678404 /* gray-button-bg.png */; };
 		D482E54510F03FE000678404 /* BFColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D482E54410F03FE000678404 /* BFColor.m */; };
 		D4991095109FEA85008C5E17 /* BFParagraphCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4991094109FEA85008C5E17 /* BFParagraphCellController.m */; };
-		D4A0C262116AD85C0088E5F6 /* BFRemoteLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A0C260116AD85C0088E5F6 /* BFRemoteLoadViewController.m */; };
+		D4A0C262116AD85C0088E5F6 /* BFLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A0C260116AD85C0088E5F6 /* BFLoadingViewController.m */; };
 		D4A0C263116AD85C0088E5F6 /* BFRemoteLoadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A0C261116AD85C0088E5F6 /* BFRemoteLoadViewController.xib */; };
 		D4A0C266116AD9660088E5F6 /* BFProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A0C265116AD9660088E5F6 /* BFProgressBar.m */; };
 		D4A0C269116AF9610088E5F6 /* pop-up-320bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0C268116AF9610088E5F6 /* pop-up-320bg.png */; };
 		D4A0C31F116D81420088E5F6 /* pop-slider-bg-filled.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0C31E116D81420088E5F6 /* pop-slider-bg-filled.png */; };
+		D4A0C33E116D84360088E5F6 /* BFRemoteBriefViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A0C33C116D84360088E5F6 /* BFRemoteBriefViewController.m */; };
+		D4A0C33F116D84360088E5F6 /* FullPageRemoteLoad.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A0C33D116D84360088E5F6 /* FullPageRemoteLoad.xib */; };
 		D4A394BA1130F926004971E9 /* flag.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A394B91130F926004971E9 /* flag.png */; };
 		D4A3976D113B70AB004971E9 /* BFRootView+TapHoldGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A3976C113B70AB004971E9 /* BFRootView+TapHoldGesture.m */; };
 		D4A3979C113B7591004971E9 /* BFActor.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A39792113B7591004971E9 /* BFActor.m */; };
@@ -258,13 +260,16 @@
 		D482E54410F03FE000678404 /* BFColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFColor.m; sourceTree = "<group>"; };
 		D4991093109FEA85008C5E17 /* BFParagraphCellController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFParagraphCellController.h; sourceTree = "<group>"; };
 		D4991094109FEA85008C5E17 /* BFParagraphCellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFParagraphCellController.m; sourceTree = "<group>"; };
-		D4A0C25F116AD85C0088E5F6 /* BFRemoteLoadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFRemoteLoadViewController.h; sourceTree = "<group>"; };
-		D4A0C260116AD85C0088E5F6 /* BFRemoteLoadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFRemoteLoadViewController.m; sourceTree = "<group>"; };
+		D4A0C25F116AD85C0088E5F6 /* BFLoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFLoadingViewController.h; sourceTree = "<group>"; };
+		D4A0C260116AD85C0088E5F6 /* BFLoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFLoadingViewController.m; sourceTree = "<group>"; };
 		D4A0C261116AD85C0088E5F6 /* BFRemoteLoadViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BFRemoteLoadViewController.xib; path = Classes/BFRemoteLoadViewController.xib; sourceTree = "<group>"; };
 		D4A0C264116AD9660088E5F6 /* BFProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFProgressBar.h; sourceTree = "<group>"; };
 		D4A0C265116AD9660088E5F6 /* BFProgressBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFProgressBar.m; sourceTree = "<group>"; };
 		D4A0C268116AF9610088E5F6 /* pop-up-320bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pop-up-320bg.png"; path = "images/bg/pop-up-320bg.png"; sourceTree = "<group>"; };
 		D4A0C31E116D81420088E5F6 /* pop-slider-bg-filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pop-slider-bg-filled.png"; path = "images/bg/pop-slider-bg-filled.png"; sourceTree = "<group>"; };
+		D4A0C33B116D84360088E5F6 /* BFRemoteBriefViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFRemoteBriefViewController.h; sourceTree = "<group>"; };
+		D4A0C33C116D84360088E5F6 /* BFRemoteBriefViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFRemoteBriefViewController.m; sourceTree = "<group>"; };
+		D4A0C33D116D84360088E5F6 /* FullPageRemoteLoad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FullPageRemoteLoad.xib; path = Classes/FullPageRemoteLoad.xib; sourceTree = "<group>"; };
 		D4A394B91130F926004971E9 /* flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = flag.png; path = images/flag.png; sourceTree = "<group>"; };
 		D4A3976B113B70AB004971E9 /* BFRootView+TapHoldGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BFRootView+TapHoldGesture.h"; sourceTree = "<group>"; };
 		D4A3976C113B70AB004971E9 /* BFRootView+TapHoldGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BFRootView+TapHoldGesture.m"; sourceTree = "<group>"; };
@@ -431,6 +436,7 @@
 		76FD02EB104CAF4E002E96FA /* nib */ = {
 			isa = PBXGroup;
 			children = (
+				D4A0C33D116D84360088E5F6 /* FullPageRemoteLoad.xib */,
 				D4A0C261116AD85C0088E5F6 /* BFRemoteLoadViewController.xib */,
 				D43CE396115465CE00DA07D5 /* BFPreviewBriefViewController.xib */,
 				D43CE3811154644A00DA07D5 /* BFPagedBrowseViewController.xib */,
@@ -647,8 +653,10 @@
 				D43CE3801154644A00DA07D5 /* BFPagedBrowseViewController.m */,
 				D43CE394115465CE00DA07D5 /* BFPreviewBriefViewController.h */,
 				D43CE395115465CE00DA07D5 /* BFPreviewBriefViewController.m */,
-				D4A0C25F116AD85C0088E5F6 /* BFRemoteLoadViewController.h */,
-				D4A0C260116AD85C0088E5F6 /* BFRemoteLoadViewController.m */,
+				D4A0C25F116AD85C0088E5F6 /* BFLoadingViewController.h */,
+				D4A0C260116AD85C0088E5F6 /* BFLoadingViewController.m */,
+				D4A0C33B116D84360088E5F6 /* BFRemoteBriefViewController.h */,
+				D4A0C33C116D84360088E5F6 /* BFRemoteBriefViewController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -935,6 +943,7 @@
 				D4A0C263116AD85C0088E5F6 /* BFRemoteLoadViewController.xib in Resources */,
 				D4A0C269116AF9610088E5F6 /* pop-up-320bg.png in Resources */,
 				D4A0C31F116D81420088E5F6 /* pop-slider-bg-filled.png in Resources */,
+				D4A0C33F116D84360088E5F6 /* FullPageRemoteLoad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1004,8 +1013,9 @@
 				D43CE5331157055100DA07D5 /* BFPagedContainerView.m in Sources */,
 				D43CEAB11160376500DA07D5 /* BFArrayBriefDataSource.m in Sources */,
 				D43CEC36116061CD00DA07D5 /* BriefRef.m in Sources */,
-				D4A0C262116AD85C0088E5F6 /* BFRemoteLoadViewController.m in Sources */,
+				D4A0C262116AD85C0088E5F6 /* BFLoadingViewController.m in Sources */,
 				D4A0C266116AD9660088E5F6 /* BFProgressBar.m in Sources */,
+				D4A0C33E116D84360088E5F6 /* BFRemoteBriefViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

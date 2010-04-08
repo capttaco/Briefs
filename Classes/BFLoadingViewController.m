@@ -1,15 +1,15 @@
 //
-//  BFRemoteLoadViewController.m
+//  BFLoadingViewController.m
 //  Briefs
 //
 //  Created by Rob Rhyne on 4/5/10.
 //  Copyright Digital Arch Design, 2009-2010. See LICENSE file for details.
 //
 
-#import "BFRemoteLoadViewController.h"
+#import "BFLoadingViewController.h"
 
 
-@implementation BFRemoteLoadViewController
+@implementation BFLoadingViewController
 @synthesize delegate, locationOfRequest, data;
 
 ///////////////////////////////////////////////////////////////////////////////

@@ -57,7 +57,7 @@
 
 - (void)shouldDownloadBrief:(id)sender atURL:(NSString *)url
 {    
-    BFRemoteLoadViewController *loading = [[BFRemoteLoadViewController alloc] init];
+    BFLoadingViewController *loading = [[BFLoadingViewController alloc] init];
     [loading view].frame = CGRectOffset([loading view].frame, 0, 72);
     [loading setDelegate:self];
     
@@ -80,7 +80,7 @@
 #pragma mark -
 #pragma mark BFLoadingViewDelegate Methods
 
-- (void)loadingView:(BFRemoteLoadViewController *)controller didCompleteWithData:(NSData *)data
+- (void)loadingView:(BFLoadingViewController *)controller didCompleteWithData:(NSData *)data
 {
     NSString *remoteNameOfBrief = [[controller locationOfRequest] lastPathComponent];
     BriefRef *ref = [[BFDataManager sharedBFDataManager] addBriefAtPath:remoteNameOfBrief usingData:data fromURL:[controller locationOfRequest]];
@@ -90,17 +90,17 @@
     [self performSelector:@selector(dismissLoadingViewAnimation:) withObject:[controller view] afterDelay:1.0f];
 }
 
-- (void)loadingView:(BFRemoteLoadViewController *)controller didNotCompleteWithError:(NSError *)error
+- (void)loadingView:(BFLoadingViewController *)controller didNotCompleteWithError:(NSError *)error
 {
     [self dismissLoadingViewAnimation:[controller view]];
 }
 
-- (void)loadingView:(BFRemoteLoadViewController *)controller shouldDismissView:(BOOL)animate
+- (void)loadingView:(BFLoadingViewController *)controller shouldDismissView:(BOOL)animate
 {
     [self dismissLoadingViewAnimation:[controller view]];
 }
 
-- (void)loadingView:(BFRemoteLoadViewController *)controller didCancelConnection:(NSString *)url
+- (void)loadingView:(BFLoadingViewController *)controller didCancelConnection:(NSString *)url
 {
     [self dismissLoadingViewAnimation:[controller view]];
 }

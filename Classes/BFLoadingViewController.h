@@ -1,5 +1,5 @@
 //
-//  BFRemoteLoadViewController.h
+//  BFLoadingViewController.h
 //  Briefs
 //
 //  Created by Rob Rhyne on 4/5/10.
@@ -8,16 +8,16 @@
 
 #import "BFProgressBar.h"
 
-@protocol BFRemoteLoadViewDelegate;
+@protocol BFLoadingViewDelegate;
 
-@interface BFRemoteLoadViewController : UIViewController 
+@interface BFLoadingViewController : UIViewController 
 {
     // Outlets
     IBOutlet BFProgressBar  *progress;
     IBOutlet UILabel        *statusLabel;
     IBOutlet UIButton       *dismissButton;
     
-    id<BFRemoteLoadViewDelegate>    delegate;
+    id<BFLoadingViewDelegate>    delegate;
     NSString                        *workingStatus;
     
     // Internals
@@ -40,11 +40,11 @@
 @end
 
 
-@protocol BFRemoteLoadViewDelegate
+@protocol BFLoadingViewDelegate
 
-- (void)loadingView:(BFRemoteLoadViewController *)controller didCompleteWithData:(NSData *)data;
-- (void)loadingView:(BFRemoteLoadViewController *)controller didNotCompleteWithError:(NSError *)error;
-- (void)loadingView:(BFRemoteLoadViewController *)controller didCancelConnection:(NSString *)url;
-- (void)loadingView:(BFRemoteLoadViewController *)controller shouldDismissView:(BOOL)animate;
+- (void)loadingView:(BFLoadingViewController *)controller didCompleteWithData:(NSData *)data;
+- (void)loadingView:(BFLoadingViewController *)controller didNotCompleteWithError:(NSError *)error;
+- (void)loadingView:(BFLoadingViewController *)controller didCancelConnection:(NSString *)url;
+- (void)loadingView:(BFLoadingViewController *)controller shouldDismissView:(BOOL)animate;
                                                                                   
 @end
