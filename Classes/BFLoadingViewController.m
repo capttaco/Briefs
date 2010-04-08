@@ -21,7 +21,7 @@
     if (nibNameOrNil != nil) 
         return [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     else
-        return [super initWithNibName:@"BFRemoteLoadViewController" bundle:nibBundleOrNil];
+        return [super initWithNibName:@"BFLoadingViewController" bundle:nibBundleOrNil];
 }
 
 - (id)init 
