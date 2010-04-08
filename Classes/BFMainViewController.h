@@ -6,8 +6,6 @@
 //  Copyright Digital Arch Design, 2009-2010. See LICENSE file for details.
 //
 
-#import <UIKit/UIKit.h>
-#import "BFLoadingViewController.h"
 
 // Display states for various start-up conditions
 typedef enum {
@@ -29,7 +27,7 @@ typedef enum {
 } BFMainViewState;
 
 
-@interface BFMainViewController : UIViewController <BFLoadingViewDelegate>
+@interface BFMainViewController : UIViewController
 {
     IBOutlet UIView     *openingView;
     IBOutlet UIView     *menuView;

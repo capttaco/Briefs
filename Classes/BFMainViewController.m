@@ -73,17 +73,17 @@
             
             if ([[urlLaunchWith scheme] isEqualToString:@"brief"]) {
                 NSString *modifiedRequestString = [[urlLaunchWith absoluteString] stringByReplacingOccurrencesOfString:@"brief://" withString:@"http://"]; 
-                BFLoadingViewController *loading = [[BFLoadingViewController alloc] init];
-                [loading view].frame = CGRectOffset([loading view].frame, 40, 30);
-                [loading setDelegate:self];
-                
-                [UIView beginAnimations:@"load loader animation" context:nil];
-                    [loading view].alpha = 0.0f;
-                    [self.view addSubview:[loading view]];
-                    [loading view].alpha = 1.0f;
-                [UIView commitAnimations];
-                
-                [loading load:modifiedRequestString withInitialStatus:@"Locating the Brief..." animated:YES];
+//                BFLoadingViewController *loading = [[BFLoadingViewController alloc] init];
+//                [loading view].frame = CGRectOffset([loading view].frame, 40, 30);
+//                [loading setDelegate:self];
+//                
+//                [UIView beginAnimations:@"load loader animation" context:nil];
+//                    [loading view].alpha = 0.0f;
+//                    [self.view addSubview:[loading view]];
+//                    [loading view].alpha = 1.0f;
+//                [UIView commitAnimations];
+//                
+//                [loading load:modifiedRequestString withInitialStatus:@"Locating the Brief..." animated:YES];
             }
             
             else if ([[urlLaunchWith scheme] isEqualToString:@"briefcast"]) {
@@ -137,47 +137,47 @@
 #pragma mark -
 #pragma mark BFLoadingViewDelegate Methods
 
-- (void)loadingView:(BFLoadingViewController *)controller didCompleteWithData:(NSData *)data
-{
-    NSString *remoteNameOfBrief = [[controller locationOfRequest] lastPathComponent];
-    BriefRef *ref = [[BFDataManager sharedBFDataManager] addBriefAtPath:remoteNameOfBrief usingData:data fromURL:[controller locationOfRequest]];
-    [ref setBriefcast:[[BFDataManager sharedBFDataManager] localBriefcastRefMarker]];
-    [[BFDataManager sharedBFDataManager] save];
-}
-
-- (void)loadingView:(BFLoadingViewController *)controller didNotCompleteWithError:(NSError *)error
-{
-    [self dismissLoadingViewAnimation:[controller view]];
-}
-
-- (void)loadingView:(BFLoadingViewController *)controller shouldDismissView:(BOOL)animate
-{
-    [self dismissLoadingViewAnimation:[controller view]];
-}
-
-- (void)loadingView:(BFLoadingViewController *)controller shouldDismissViewWithAction:(BOOL)animate
-{
-    [self dismissLoadingViewAnimation:[controller view]];
-    
-    // TODO: do something, like view the brief and stuff
-}
-
-- (void)fadeLoadingViewDidStop:(NSString *)animationId finished:(NSNumber *)finished context:(void *)context
-{
-    UIView *view = context;
-    [view removeFromSuperview];
-}
-
-- (void)dismissLoadingViewAnimation:(UIView *)loadingView
-{
-    [UIView beginAnimations:@"dismiss loader animation" context:loadingView];
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector:@selector(fadeLoadingViewDidStop:finished:context:)];
-    loadingView.alpha = 0.0f;
-    [UIView commitAnimations];
-    
-    [self showMenuWithAnimation];
-}
+//- (void)loadingView:(BFLoadingViewController *)controller didCompleteWithData:(NSData *)data
+//{
+//    NSString *remoteNameOfBrief = [[controller locationOfRequest] lastPathComponent];
+//    BriefRef *ref = [[BFDataManager sharedBFDataManager] addBriefAtPath:remoteNameOfBrief usingData:data fromURL:[controller locationOfRequest]];
+//    [ref setBriefcast:[[BFDataManager sharedBFDataManager] localBriefcastRefMarker]];
+//    [[BFDataManager sharedBFDataManager] save];
+//}
+//
+//- (void)loadingView:(BFLoadingViewController *)controller didNotCompleteWithError:(NSError *)error
+//{
+//    [self dismissLoadingViewAnimation:[controller view]];
+//}
+//
+//- (void)loadingView:(BFLoadingViewController *)controller shouldDismissView:(BOOL)animate
+//{
+//    [self dismissLoadingViewAnimation:[controller view]];
+//}
+//
+//- (void)loadingView:(BFLoadingViewController *)controller shouldDismissViewWithAction:(BOOL)animate
+//{
+//    [self dismissLoadingViewAnimation:[controller view]];
+//    
+//    // TODO: do something, like view the brief and stuff
+//}
+//
+//- (void)fadeLoadingViewDidStop:(NSString *)animationId finished:(NSNumber *)finished context:(void *)context
+//{
+//    UIView *view = context;
+//    [view removeFromSuperview];
+//}
+//
+//- (void)dismissLoadingViewAnimation:(UIView *)loadingView
+//{
+//    [UIView beginAnimations:@"dismiss loader animation" context:loadingView];
+//    [UIView setAnimationDelegate:self];
+//    [UIView setAnimationDidStopSelector:@selector(fadeLoadingViewDidStop:finished:context:)];
+//    loadingView.alpha = 0.0f;
+//    [UIView commitAnimations];
+//    
+//    [self showMenuWithAnimation];
+//}
 
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -

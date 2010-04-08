@@ -57,8 +57,8 @@
 
 - (void)shouldDownloadBrief:(id)sender atURL:(NSString *)url
 {    
-    BFLoadingViewController *loading = [[BFLoadingViewController alloc] init];
-    [loading view].frame = CGRectOffset([loading view].frame, 40, 30);
+    BFRemoteLoadViewController *loading = [[BFRemoteLoadViewController alloc] init];
+    [loading view].frame = CGRectOffset([loading view].frame, 0, 72);
     [loading setDelegate:self];
     
     [UIView beginAnimations:@"load loader animation" context:nil];
@@ -67,7 +67,7 @@
         [loading view].alpha = 1.0f;
     [UIView commitAnimations];
     
-    [loading load:url withInitialStatus:@"Locating the Brief..." animated:YES];
+    [loading load:url withStatus:@"Trying on a new pair..."];
     
 }
 
@@ -80,25 +80,27 @@
 #pragma mark -
 #pragma mark BFLoadingViewDelegate Methods
 
-- (void)loadingView:(BFLoadingViewController *)controller didCompleteWithData:(NSData *)data
+- (void)loadingView:(BFRemoteLoadViewController *)controller didCompleteWithData:(NSData *)data
 {
     NSString *remoteNameOfBrief = [[controller locationOfRequest] lastPathComponent];
     BriefRef *ref = [[BFDataManager sharedBFDataManager] addBriefAtPath:remoteNameOfBrief usingData:data fromURL:[controller locationOfRequest]];
     [ref setBriefcast:briefcast];
     [[BFDataManager sharedBFDataManager] save];
+    
+    [self performSelector:@selector(dismissLoadingViewAnimation:) withObject:[controller view] afterDelay:1.0f];
 }
 
-- (void)loadingView:(BFLoadingViewController *)controller didNotCompleteWithError:(NSError *)error
+- (void)loadingView:(BFRemoteLoadViewController *)controller didNotCompleteWithError:(NSError *)error
 {
     [self dismissLoadingViewAnimation:[controller view]];
 }
 
-- (void)loadingView:(BFLoadingViewController *)controller shouldDismissView:(BOOL)animate
+- (void)loadingView:(BFRemoteLoadViewController *)controller shouldDismissView:(BOOL)animate
 {
     [self dismissLoadingViewAnimation:[controller view]];
 }
 
-- (void)loadingView:(BFLoadingViewController *)controller shouldDismissViewWithAction:(BOOL)animate
+- (void)loadingView:(BFRemoteLoadViewController *)controller didCancelConnection:(NSString *)url
 {
     [self dismissLoadingViewAnimation:[controller view]];
 }

@@ -377,7 +377,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
 	[mutableFetchResults release];
 	[request release];
     
-    return [[BFArrayBriefDataSource alloc] initWithArray:arrayOfBriefs];
+    return [[[BFArrayBriefDataSource alloc] initWithArray:arrayOfBriefs] autorelease];
 }
 
 - (BriefcastRef *)localBriefcastRefMarker
@@ -436,6 +436,9 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
     NSError *error;
     NSMutableArray *mutableFetchResults = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
 	if (mutableFetchResults == nil || [mutableFetchResults count] <= 0) {
+        if (mutableFetchResults) [mutableFetchResults release];
+        [request release];
+        
         return nil;
 	}
     
