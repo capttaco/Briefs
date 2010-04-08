@@ -9,7 +9,8 @@
 
 @interface BFProgressBar : UIView
 {
-    UISlider *internalSlider;
+    UISlider    *internalSlider;
+    UIImageView *background;
 }
 
 - (id)initWithMarkerImageRef:(NSString *)imageRef usingBackground:(NSString *)backgroundRef;

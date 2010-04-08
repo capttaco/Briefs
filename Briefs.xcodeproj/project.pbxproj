@@ -94,6 +94,7 @@
 		D4A0C263116AD85C0088E5F6 /* BFRemoteLoadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A0C261116AD85C0088E5F6 /* BFRemoteLoadViewController.xib */; };
 		D4A0C266116AD9660088E5F6 /* BFProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A0C265116AD9660088E5F6 /* BFProgressBar.m */; };
 		D4A0C269116AF9610088E5F6 /* pop-up-320bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0C268116AF9610088E5F6 /* pop-up-320bg.png */; };
+		D4A0C31F116D81420088E5F6 /* pop-slider-bg-filled.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0C31E116D81420088E5F6 /* pop-slider-bg-filled.png */; };
 		D4A394BA1130F926004971E9 /* flag.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A394B91130F926004971E9 /* flag.png */; };
 		D4A3976D113B70AB004971E9 /* BFRootView+TapHoldGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A3976C113B70AB004971E9 /* BFRootView+TapHoldGesture.m */; };
 		D4A3979C113B7591004971E9 /* BFActor.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A39792113B7591004971E9 /* BFActor.m */; };
@@ -263,6 +264,7 @@
 		D4A0C264116AD9660088E5F6 /* BFProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFProgressBar.h; sourceTree = "<group>"; };
 		D4A0C265116AD9660088E5F6 /* BFProgressBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFProgressBar.m; sourceTree = "<group>"; };
 		D4A0C268116AF9610088E5F6 /* pop-up-320bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pop-up-320bg.png"; path = "images/bg/pop-up-320bg.png"; sourceTree = "<group>"; };
+		D4A0C31E116D81420088E5F6 /* pop-slider-bg-filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pop-slider-bg-filled.png"; path = "images/bg/pop-slider-bg-filled.png"; sourceTree = "<group>"; };
 		D4A394B91130F926004971E9 /* flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = flag.png; path = images/flag.png; sourceTree = "<group>"; };
 		D4A3976B113B70AB004971E9 /* BFRootView+TapHoldGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BFRootView+TapHoldGesture.h"; sourceTree = "<group>"; };
 		D4A3976C113B70AB004971E9 /* BFRootView+TapHoldGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BFRootView+TapHoldGesture.m"; sourceTree = "<group>"; };
@@ -519,6 +521,7 @@
 		D43CE16C114F0DC800DA07D5 /* backgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				D4A0C31E116D81420088E5F6 /* pop-slider-bg-filled.png */,
 				D4A0C268116AF9610088E5F6 /* pop-up-320bg.png */,
 				D43CE884115F021000DA07D5 /* briefcast-header.png */,
 				D43CE526115703BC00DA07D5 /* main-bg-focused.png */,
@@ -931,6 +934,7 @@
 				D43CEF6F1162E3EC00DA07D5 /* already-button.png in Resources */,
 				D4A0C263116AD85C0088E5F6 /* BFRemoteLoadViewController.xib in Resources */,
 				D4A0C269116AF9610088E5F6 /* pop-up-320bg.png in Resources */,
+				D4A0C31F116D81420088E5F6 /* pop-slider-bg-filled.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

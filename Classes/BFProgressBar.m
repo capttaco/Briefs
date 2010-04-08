@@ -32,7 +32,7 @@
     
     // size the background
     UIImage *stretchableBG = [[UIImage imageNamed:@"pop-slider-bg.png"] stretchableImageWithLeftCapWidth:8.0 topCapHeight:0.0];
-    UIImageView *background = [[UIImageView alloc] initWithImage:stretchableBG];
+    background = [[UIImageView alloc] initWithImage:stretchableBG];
     background.frame = CGRectMake(0.0f, 0.0f, self.frame.size.width, self.frame.size.height);
     
     // add them to the parent view
@@ -56,7 +56,14 @@
     // if the value to be set is near 1.0
     // then swap the background a completed image
     if (value > 0.98) {
+        CGRect bgFrame = background.frame;
+        [background removeFromSuperview];
+        [background release];
         
+        UIImage *stretchableBG = [[UIImage imageNamed:@"pop-slider-bg-filled.png"] stretchableImageWithLeftCapWidth:8.0 topCapHeight:0.0];
+        background = [[UIImageView alloc] initWithImage:stretchableBG];
+        background.frame = bgFrame;
+        [self insertSubview:background belowSubview:internalSlider];
     }
 }
 
