@@ -10,4 +10,6 @@
 
 - (id)objectForKey:(NSString *)key orDefaultValue:(id)defaultValue;
 
++ (NSDictionary *)dictionaryFromData:(NSData *)data;
+
 @end

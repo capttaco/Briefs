@@ -84,6 +84,7 @@
 
 - (IBAction)shouldBeginRemotePlay
 {
+    [self.delegate shouldLaunchBrief:self atURL:brief.enclosure.url];
 }
 
 - (IBAction)shouldStartDownloadingBrief

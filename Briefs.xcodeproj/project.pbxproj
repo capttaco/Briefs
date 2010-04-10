@@ -131,6 +131,11 @@
 		D4CA293A1076F60500AA84FE /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CA29371076F60500AA84FE /* MainWindow.xib */; };
 		D4CA299F107907CF00AA84FE /* BFCellConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CA299E107907CF00AA84FE /* BFCellConfiguration.m */; };
 		D4CA29E310799E5D00AA84FE /* BFTitleCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CA29E210799E5D00AA84FE /* BFTitleCellController.m */; };
+		D4D4B7CB11700D74009D70D0 /* pop-up-bgfull.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D4B7CA11700D74009D70D0 /* pop-up-bgfull.png */; };
+		D4D4BB2B11710AAA009D70D0 /* BFRemoteBriefSaver.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D4BB2911710AAA009D70D0 /* BFRemoteBriefSaver.m */; };
+		D4D4BB2C11710AAA009D70D0 /* BFRemoteBriefSaver.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4D4BB2A11710AAA009D70D0 /* BFRemoteBriefSaver.xib */; };
+		D4D4BB3011710E52009D70D0 /* confirm-action.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D4BB2E11710E52009D70D0 /* confirm-action.png */; };
+		D4D4BB3111710E52009D70D0 /* confirm-cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D4BB2F11710E52009D70D0 /* confirm-cancel.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -243,7 +248,7 @@
 		D46B795E10A615F800CCD698 /* BFButtonCellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFButtonCellController.m; sourceTree = "<group>"; };
 		D46B799010A61B3D00CCD698 /* BFRemoteBriefCellController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFRemoteBriefCellController.h; sourceTree = "<group>"; };
 		D46B799110A61B3D00CCD698 /* BFRemoteBriefCellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFRemoteBriefCellController.m; sourceTree = "<group>"; };
-		D46B799310A6239900CCD698 /* BFRemoteBriefEventDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFRemoteBriefEventDelegate.h; sourceTree = "<group>"; };
+		D46B799310A6239900CCD698 /* BFBriefcastEventDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFBriefcastEventDelegate.h; sourceTree = "<group>"; };
 		D47200A710A1139500601755 /* 37-suitcase.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "37-suitcase.png"; path = "images/37-suitcase.png"; sourceTree = "<group>"; };
 		D47200B910A11A0500601755 /* small-gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "small-gradient.png"; path = "images/small-gradient.png"; sourceTree = "<group>"; };
 		D47200BB10A11A5100601755 /* BFHeaderCellController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFHeaderCellController.h; sourceTree = "<group>"; };
@@ -328,6 +333,12 @@
 		D4CA299E107907CF00AA84FE /* BFCellConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFCellConfiguration.m; sourceTree = "<group>"; };
 		D4CA29E110799E5D00AA84FE /* BFTitleCellController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFTitleCellController.h; sourceTree = "<group>"; };
 		D4CA29E210799E5D00AA84FE /* BFTitleCellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFTitleCellController.m; sourceTree = "<group>"; };
+		D4D4B7CA11700D74009D70D0 /* pop-up-bgfull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pop-up-bgfull.png"; path = "images/bg/pop-up-bgfull.png"; sourceTree = "<group>"; };
+		D4D4BB2811710AAA009D70D0 /* BFRemoteBriefSaver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFRemoteBriefSaver.h; sourceTree = "<group>"; };
+		D4D4BB2911710AAA009D70D0 /* BFRemoteBriefSaver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFRemoteBriefSaver.m; sourceTree = "<group>"; };
+		D4D4BB2A11710AAA009D70D0 /* BFRemoteBriefSaver.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BFRemoteBriefSaver.xib; path = Classes/BFRemoteBriefSaver.xib; sourceTree = "<group>"; };
+		D4D4BB2E11710E52009D70D0 /* confirm-action.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "confirm-action.png"; path = "images/buttons/confirm-action.png"; sourceTree = "<group>"; };
+		D4D4BB2F11710E52009D70D0 /* confirm-cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "confirm-cancel.png"; path = "images/buttons/confirm-cancel.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -436,6 +447,7 @@
 			children = (
 				D4A0C34F116D91930088E5F6 /* loading views */,
 				D43CE396115465CE00DA07D5 /* BFPreviewBriefViewController.xib */,
+				D4D4BB2A11710AAA009D70D0 /* BFRemoteBriefSaver.xib */,
 				D43CE3811154644A00DA07D5 /* BFPagedBrowseViewController.xib */,
 				D4AF1DC7114B61A600D1B3B5 /* BFBrowseBriefcastViewController.xib */,
 				D482E4FC10EEECC700678404 /* BFMainViewController.xib */,
@@ -523,6 +535,7 @@
 		D43CE16C114F0DC800DA07D5 /* backgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				D4D4B7CA11700D74009D70D0 /* pop-up-bgfull.png */,
 				D4A0C31E116D81420088E5F6 /* pop-slider-bg-filled.png */,
 				D4A0C268116AF9610088E5F6 /* pop-up-320bg.png */,
 				D43CE884115F021000DA07D5 /* briefcast-header.png */,
@@ -546,7 +559,7 @@
 		D43CE39B11546F4700DA07D5 /* protocols */ = {
 			isa = PBXGroup;
 			children = (
-				D46B799310A6239900CCD698 /* BFRemoteBriefEventDelegate.h */,
+				D46B799310A6239900CCD698 /* BFBriefcastEventDelegate.h */,
 				D43CE39C11546F7400DA07D5 /* BFBriefDataSource.h */,
 				D43CE7FB115DB67600DA07D5 /* BFBriefViewDelegate.h */,
 			);
@@ -583,6 +596,8 @@
 		D43CE955115FC76E00DA07D5 /* buttons */ = {
 			isa = PBXGroup;
 			children = (
+				D4D4BB2E11710E52009D70D0 /* confirm-action.png */,
+				D4D4BB2F11710E52009D70D0 /* confirm-cancel.png */,
 				D43CEF6E1162E3EC00DA07D5 /* already-button.png */,
 				D43CE956115FC77E00DA07D5 /* install-button.png */,
 				D43CE957115FC77E00DA07D5 /* update-button.png */,
@@ -653,6 +668,8 @@
 				D4A0C260116AD85C0088E5F6 /* BFLoadingViewController.m */,
 				D4A0C33B116D84360088E5F6 /* BFRemoteBriefViewController.h */,
 				D4A0C33C116D84360088E5F6 /* BFRemoteBriefViewController.m */,
+				D4D4BB2811710AAA009D70D0 /* BFRemoteBriefSaver.h */,
+				D4D4BB2911710AAA009D70D0 /* BFRemoteBriefSaver.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -948,6 +965,10 @@
 				D4A0C269116AF9610088E5F6 /* pop-up-320bg.png in Resources */,
 				D4A0C31F116D81420088E5F6 /* pop-slider-bg-filled.png in Resources */,
 				D4A0C33F116D84360088E5F6 /* FullPageRemoteLoad.xib in Resources */,
+				D4D4B7CB11700D74009D70D0 /* pop-up-bgfull.png in Resources */,
+				D4D4BB2C11710AAA009D70D0 /* BFRemoteBriefSaver.xib in Resources */,
+				D4D4BB3011710E52009D70D0 /* confirm-action.png in Resources */,
+				D4D4BB3111710E52009D70D0 /* confirm-cancel.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1020,6 +1041,7 @@
 				D4A0C262116AD85C0088E5F6 /* BFLoadingViewController.m in Sources */,
 				D4A0C266116AD9660088E5F6 /* BFProgressBar.m in Sources */,
 				D4A0C33E116D84360088E5F6 /* BFRemoteBriefViewController.m in Sources */,
+				D4D4BB2B11710AAA009D70D0 /* BFRemoteBriefSaver.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

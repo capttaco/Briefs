@@ -7,7 +7,7 @@
 //
 
 #import "BFRootView+TapHoldGesture.h"
-
+#import "BFSceneViewController.h"
 
 @implementation BFRootView (TapHoldGesture)
 
@@ -47,6 +47,14 @@
 #pragma mark -
 #pragma mark Exiting a Brief
 
+- (void)cancelGestureTimer
+{
+    if (timer != nil) {
+        [timer invalidate];
+        timer = nil;    
+    }
+}
+
 - (void)handleTapHoldGesture 
 {
     if (timer != nil) {
@@ -65,8 +73,14 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 0)
-        [[viewController navigationController] popViewControllerAnimated:YES];
+    if (buttonIndex == 0) {
+        if ([viewController navigationController] != nil)
+            [[viewController navigationController] popViewControllerAnimated:YES];
+        else {
+            BFSceneViewController *sceneViewController = (BFSceneViewController *)viewController;
+            [sceneViewController willStopShowingScene];
+        }
+    }
 }
 
 

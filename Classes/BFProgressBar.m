@@ -17,21 +17,21 @@
     // size the slider
     CGRect sliderFrame = self.frame;
     sliderFrame.origin = CGPointMake(6.0f, -3.0f);
-    sliderFrame.size = CGSizeMake(sliderFrame.size.width-12.0f, 12.0f);
+    sliderFrame.size = CGSizeMake(sliderFrame.size.width-12.0f, 8.0f);
     internalSlider = [[UISlider alloc] initWithFrame:sliderFrame];
     
     // style the slider        
     internalSlider.backgroundColor = [UIColor clearColor];  
     UIImage *stetchLeftTrack = [[UIImage imageNamed:@"pop-slider-fg.png"]
-                                stretchableImageWithLeftCapWidth:1.0 topCapHeight:0.0];
+                                stretchableImageWithLeftCapWidth:1 topCapHeight:0];
     UIImage *stetchRightTrack = [[UIImage imageNamed:@"pop-slider-blank.png"]
-                                 stretchableImageWithLeftCapWidth:1.0 topCapHeight:0.0];
+                                 stretchableImageWithLeftCapWidth:1 topCapHeight:0];
     [internalSlider setThumbImage:nil forState:UIControlStateNormal];
     [internalSlider setMinimumTrackImage:stetchLeftTrack forState:UIControlStateNormal];
     [internalSlider setMaximumTrackImage:stetchRightTrack forState:UIControlStateNormal];
     
     // size the background
-    UIImage *stretchableBG = [[UIImage imageNamed:@"pop-slider-bg.png"] stretchableImageWithLeftCapWidth:8.0 topCapHeight:0.0];
+    UIImage *stretchableBG = [[UIImage imageNamed:@"pop-slider-bg.png"] stretchableImageWithLeftCapWidth:8 topCapHeight:0];
     background = [[UIImageView alloc] initWithImage:stretchableBG];
     background.frame = CGRectMake(0.0f, 0.0f, self.frame.size.width, self.frame.size.height);
     

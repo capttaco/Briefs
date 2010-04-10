@@ -45,6 +45,8 @@
 - (void)loadingView:(BFLoadingViewController *)controller didCompleteWithData:(NSData *)data;
 - (void)loadingView:(BFLoadingViewController *)controller didNotCompleteWithError:(NSError *)error;
 - (void)loadingView:(BFLoadingViewController *)controller didCancelConnection:(NSString *)url;
+
+@optional
 - (void)loadingView:(BFLoadingViewController *)controller shouldDismissView:(BOOL)animate;
                                                                                   
 @end

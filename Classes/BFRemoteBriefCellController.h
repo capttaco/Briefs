@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "BFButtonCellController.h"
-#import "BFRemoteBriefEventDelegate.h"
+#import "BFBriefcastEventDelegate.h"
 
 @interface BFRemoteBriefCellController : BFButtonCellController 
 {
@@ -18,6 +18,6 @@
 
 @property (nonatomic, assign) id delegate;
 
-- (id)initWithLocationOfBrief:(NSString *)url andDelegate:(id<BFRemoteBriefEventDelegate>)remote;
+- (id)initWithLocationOfBrief:(NSString *)url andDelegate:(id<BFBriefcastEventDelegate>)remote;
 
 @end

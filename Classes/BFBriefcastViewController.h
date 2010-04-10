@@ -7,11 +7,12 @@
 //
 
 #import "BFTableViewController.h"
-#import "BFRemoteBriefEventDelegate.h"
+#import "BFBriefcastEventDelegate.h"
 #import "BFLoadingViewController.h"
 #import "BriefcastRef.h"
+#import "BFRemoteBriefViewController.h"
 
-@interface BFBriefcastViewController : BFTableViewController <BFRemoteBriefEventDelegate, BFLoadingViewDelegate> 
+@interface BFBriefcastViewController : BFTableViewController <BFBriefcastEventDelegate, BFLoadingViewDelegate, BFRemoteBriefViewDelegate> 
 {
     NSMutableArray          *enclosedBriefs;
     NSString                *channelTitle;

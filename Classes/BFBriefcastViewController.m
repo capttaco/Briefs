@@ -14,6 +14,7 @@
 #import "BFColor.h"
 
 
+
 @interface BFBriefcastViewController (PrivateMethods) 
 
 - (void)dismissLoadingViewAnimation:(UIView *)loadingView;
@@ -73,8 +74,32 @@
 
 - (void)shouldLaunchBrief:(id)sender atURL:(NSString *)url
 {
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
     
+    BFRemoteBriefViewController *remote = [[BFRemoteBriefViewController alloc] initWithLocationOfBrief:url];
+    [remote setDelegate:self];
+    [remote setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+    [self presentModalViewController:remote animated:YES];
+    
+    self.modalViewController.view.frame = CGRectMake(0.0, 0.0, 320.0f, 480.0f);
+    
+    [remote release];
 }
+
+///////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark BFRemoteBriefViewDelegate Methods
+
+- (void)remoteView:(BFRemoteBriefViewController *)view shouldDismissView:(BOOL)reload
+{
+    if (reload) {
+        [self updateAndReload];
+    }    
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+    [self dismissModalViewControllerAnimated:YES];
+}
+
 
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -
