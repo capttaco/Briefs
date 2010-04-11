@@ -6,6 +6,7 @@
 //  Copyright Digital Arch Design, 2009-2010. See LICENSE file for details.
 //
 
+#import "BFRemoteBriefViewController.h"
 
 // Display states for various start-up conditions
 typedef enum {
@@ -27,7 +28,7 @@ typedef enum {
 } BFMainViewState;
 
 
-@interface BFMainViewController : UIViewController
+@interface BFMainViewController : UIViewController <BFRemoteBriefViewDelegate>
 {
     IBOutlet UIView     *openingView;
     IBOutlet UIView     *menuView;
@@ -35,7 +36,7 @@ typedef enum {
     BFMainViewState     stateUponLaunch;
     
     // optional context ivars
-    NSURL                   *urlLaunchWith;
+    NSURL               *urlLaunchWith;
 }
 
 // Initialization
@@ -45,5 +46,8 @@ typedef enum {
 // Menu Actions
 - (IBAction)browseYourBriefs;
 - (IBAction)browseYourBriefcasts;
+
+// url launchers
+- (void)shouldLaunchBrief:(id)sender atURL:(NSString *)url;
 
 @end

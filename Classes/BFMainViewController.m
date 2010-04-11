@@ -64,26 +64,16 @@
     [super viewDidLoad];
     self.navigationController.navigationBar.tintColor = [BFColor tintColorForNavigationBar];
     self.title = @"Welcome";
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
+//}
+//
+//- (void)viewDidAppear:(BOOL)animated
+//{
     switch (stateUponLaunch) {
         case BFMainViewOpenedByURL:
             
             if ([[urlLaunchWith scheme] isEqualToString:@"brief"]) {
-                NSString *modifiedRequestString = [[urlLaunchWith absoluteString] stringByReplacingOccurrencesOfString:@"brief://" withString:@"http://"]; 
-//                BFLoadingViewController *loading = [[BFLoadingViewController alloc] init];
-//                [loading view].frame = CGRectOffset([loading view].frame, 40, 30);
-//                [loading setDelegate:self];
-//                
-//                [UIView beginAnimations:@"load loader animation" context:nil];
-//                    [loading view].alpha = 0.0f;
-//                    [self.view addSubview:[loading view]];
-//                    [loading view].alpha = 1.0f;
-//                [UIView commitAnimations];
-//                
-//                [loading load:modifiedRequestString withInitialStatus:@"Locating the Brief..." animated:YES];
+                NSString *modifiedRequestString = [[urlLaunchWith absoluteString] stringByReplacingOccurrencesOfString:@"brief://" withString:@"http://"];
+                [self shouldLaunchBrief:self atURL:modifiedRequestString];
             }
             
             else if ([[urlLaunchWith scheme] isEqualToString:@"briefcast"]) {
@@ -133,9 +123,34 @@
 	// e.g. self.myOutlet = nil;
 }
 
+
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -
-#pragma mark BFLoadingViewDelegate Methods
+#pragma mark BFRemoteBriefViewDelegate Methods
+
+- (void)remoteView:(BFRemoteBriefViewController *)view shouldDismissView:(BriefRef *)savedBrief
+{
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+    [savedBrief setBriefcast:[[BFDataManager sharedBFDataManager] localBriefcastRefMarker]];
+    [[BFDataManager sharedBFDataManager] save];
+    
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+- (void)shouldLaunchBrief:(id)sender atURL:(NSString *)url
+{
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent animated:YES];
+    
+    BFRemoteBriefViewController *remote = [[BFRemoteBriefViewController alloc] initWithLocationOfBrief:url];
+    [remote setDelegate:self];
+    [remote setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+    [self presentModalViewController:remote animated:YES];
+    
+    self.modalViewController.view.frame = CGRectMake(0.0, 0.0, 320.0f, 480.0f);
+    
+    [remote release];
+}
+
 
 //- (void)loadingView:(BFLoadingViewController *)controller didCompleteWithData:(NSData *)data
 //{
