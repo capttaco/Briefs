@@ -64,10 +64,10 @@
     [super viewDidLoad];
     self.navigationController.navigationBar.tintColor = [BFColor tintColorForNavigationBar];
     self.title = @"Welcome";
-//}
-//
-//- (void)viewDidAppear:(BOOL)animated
-//{
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
     switch (stateUponLaunch) {
         case BFMainViewOpenedByURL:
             
@@ -135,6 +135,7 @@
     [[BFDataManager sharedBFDataManager] save];
     
     [self dismissModalViewControllerAnimated:YES];
+    [self showMenuWithAnimation];
 }
 
 - (void)shouldLaunchBrief:(id)sender atURL:(NSString *)url
@@ -147,52 +148,8 @@
     [self presentModalViewController:remote animated:YES];
     
     self.modalViewController.view.frame = CGRectMake(0.0, 0.0, 320.0f, 480.0f);
-    
     [remote release];
 }
-
-
-//- (void)loadingView:(BFLoadingViewController *)controller didCompleteWithData:(NSData *)data
-//{
-//    NSString *remoteNameOfBrief = [[controller locationOfRequest] lastPathComponent];
-//    BriefRef *ref = [[BFDataManager sharedBFDataManager] addBriefAtPath:remoteNameOfBrief usingData:data fromURL:[controller locationOfRequest]];
-//    [ref setBriefcast:[[BFDataManager sharedBFDataManager] localBriefcastRefMarker]];
-//    [[BFDataManager sharedBFDataManager] save];
-//}
-//
-//- (void)loadingView:(BFLoadingViewController *)controller didNotCompleteWithError:(NSError *)error
-//{
-//    [self dismissLoadingViewAnimation:[controller view]];
-//}
-//
-//- (void)loadingView:(BFLoadingViewController *)controller shouldDismissView:(BOOL)animate
-//{
-//    [self dismissLoadingViewAnimation:[controller view]];
-//}
-//
-//- (void)loadingView:(BFLoadingViewController *)controller shouldDismissViewWithAction:(BOOL)animate
-//{
-//    [self dismissLoadingViewAnimation:[controller view]];
-//    
-//    // TODO: do something, like view the brief and stuff
-//}
-//
-//- (void)fadeLoadingViewDidStop:(NSString *)animationId finished:(NSNumber *)finished context:(void *)context
-//{
-//    UIView *view = context;
-//    [view removeFromSuperview];
-//}
-//
-//- (void)dismissLoadingViewAnimation:(UIView *)loadingView
-//{
-//    [UIView beginAnimations:@"dismiss loader animation" context:loadingView];
-//    [UIView setAnimationDelegate:self];
-//    [UIView setAnimationDidStopSelector:@selector(fadeLoadingViewDidStop:finished:context:)];
-//    loadingView.alpha = 0.0f;
-//    [UIView commitAnimations];
-//    
-//    [self showMenuWithAnimation];
-//}
 
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -
