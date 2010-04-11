@@ -205,7 +205,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
     }
 }
 
-- (BriefRef *)addBriefAtPath:(NSString *) path usingData:(NSData *)data fromURL:(NSString *)url
+- (BriefRef *)addBriefAtPath:(NSString *)path usingData:(NSData *)data fromURL:(NSString *)url
 {
     NSString *destination = [[self documentDirectory] stringByAppendingPathComponent:path];
     
@@ -247,7 +247,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
 
 - (BriefRef *)addBriefAtPath:(NSString *)path fromURL:(NSString *)url
 {
-    // NOTE: This signature is only called by itself, when the
+    // NOTE: This signature is only called by self, when the
     //       brief is already stored on the file system.
     //       (i.e., only internally by the data manager)
     

@@ -155,6 +155,7 @@
     // persist the brief
     NSString *remoteNameOfBrief = [locationOfBrief lastPathComponent];
     BriefRef *ref = [[BFDataManager sharedBFDataManager] addBriefAtPath:remoteNameOfBrief usingData:briefData fromURL:locationOfBrief];
+    ref = nil;
     
     [self dismissLoadingViewAnimation:YES];
 }
