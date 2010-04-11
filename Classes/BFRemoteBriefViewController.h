@@ -9,6 +9,7 @@
 #import "BFLoadingViewController.h"
 #import "BFSceneViewController.h"
 #import "BFRemoteBriefSaver.h"
+#import "BriefRef.h"
 
 @protocol BFRemoteBriefViewDelegate;
 @interface BFRemoteBriefViewController : UIViewController <BFLoadingViewDelegate, BFSceneViewDelegate, BFRemoteBriefSaverDelegate>
@@ -30,6 +31,6 @@
 
 @protocol BFRemoteBriefViewDelegate
 
-- (void)remoteView:(BFRemoteBriefViewController *)view shouldDismissView:(BOOL)reload;
+- (void)remoteView:(BFRemoteBriefViewController *)view shouldDismissView:(BriefRef *)savedBrief;
 
 @end

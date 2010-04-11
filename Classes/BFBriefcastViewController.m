@@ -90,9 +90,16 @@
 #pragma mark -
 #pragma mark BFRemoteBriefViewDelegate Methods
 
-- (void)remoteView:(BFRemoteBriefViewController *)view shouldDismissView:(BOOL)reload
+- (void)remoteView:(BFRemoteBriefViewController *)view shouldDismissView:(BriefRef *)savedBrief;
 {
-    if (reload) {
+    if (savedBrief != nil) {
+
+        // if the user opts to save the brief,
+        // include the briefcast information
+        
+        [savedBrief setBriefcast:self.briefcast];
+        [[BFDataManager sharedBFDataManager] save];
+        
         [self updateAndReload];
     }    
     

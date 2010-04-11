@@ -137,10 +137,10 @@
     
 }
 
-- (void)dismissLoadingViewAnimation:(BOOL)didSave
+- (void)dismissLoadingViewAnimation:(BriefRef *)savedBrief
 {
     if (self.delegate) {
-        [self.delegate remoteView:self shouldDismissView:didSave];
+        [self.delegate remoteView:self shouldDismissView:savedBrief];
     }
 }
 
@@ -155,14 +155,13 @@
     // persist the brief
     NSString *remoteNameOfBrief = [locationOfBrief lastPathComponent];
     BriefRef *ref = [[BFDataManager sharedBFDataManager] addBriefAtPath:remoteNameOfBrief usingData:briefData fromURL:locationOfBrief];
-    ref = nil;
-    
-    [self dismissLoadingViewAnimation:YES];
+        
+    [self dismissLoadingViewAnimation:ref];
 }
 
 - (void)view:(id)sender shouldDismissAndCancel:(BOOL)animated
 {
-    [self dismissLoadingViewAnimation:NO];
+    [self dismissLoadingViewAnimation:nil];
 }
 
 ///////////////////////////////////////////////////////////////////////////////
