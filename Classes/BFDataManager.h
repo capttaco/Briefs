@@ -55,6 +55,7 @@ typedef enum {
 
 // Add & Remove Data API
 - (BriefRef *)addBriefAtPath:(NSString *)path usingData:(NSData *)data fromURL:(NSString *)url;
+- (BriefRef *)updateBrief:(BriefRef *)brief usingData:(NSData *)data;
 - (void)addBriefcastInformation:(BFBriefcast *)briefcast;
 
 - (void)removeBrief:(BriefRef *)brief;

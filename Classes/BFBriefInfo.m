@@ -52,6 +52,11 @@
 {
     BriefRef *ref = (BriefRef *) [NSEntityDescription insertNewObjectForEntityForName:@"BriefRef"                                                                     inManagedObjectContext:context];
     
+    return [self mergeInfoIntoBrief:ref];
+}
+
+- (BriefRef *)mergeInfoIntoBrief:(BriefRef *)ref
+{
     [ref setFilePath:pathToBrieflist];
     [ref setTitle:title];
     [ref setTotalNumberOfScenes:[NSNumber numberWithInt:numberOfScenes]];

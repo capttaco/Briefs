@@ -138,20 +138,6 @@
     [self.view addSubview:previewView];
 }
 
-- (void)didReceiveMemoryWarning 
-{
-	// Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-	
-	// Release any cached data, images, etc that aren't in use.
-}
-
-- (void)viewDidUnload 
-{
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
-}
-
 
 - (void)dealloc 
 {
@@ -251,10 +237,69 @@
     }
 }
 
+
+
+///////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark BFLoadingViewDelegate Methods
+
 - (void)shouldReloadBrief
 {
+    // setup the loading controller
+    NSString *location = briefBeingPreviewed.fromURL;
+    BFLoadingViewController *loadingController = [[BFLoadingViewController alloc] initWithNibName:@"PreviewRefreshLoad" bundle:nil];
+    loadingController.view.frame = CGRectOffset(loadingController.view.frame, 9.0f, 4.0f);
+    
+    loadingController.view.alpha = 0.0;
+    [infoView addSubview:[loadingController view]];
+    [UIView beginAnimations:@"fade-in refresh view" context:nil];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+        [UIView setAnimationDuration:0.5f];
+        loadingController.view.alpha = 1.0f;
+    [UIView commitAnimations];
+     
+    [loadingController setDelegate:self];
+    [loadingController load:location withStatus:@"Changing underwear..."];
+}
+
+- (void)loadingFadeDidStop:(NSString *)animationId finished:(NSNumber *)finished context:(void *)context
+{
+    BFLoadingViewController *controller = context;
+    [[controller view] removeFromSuperview];
+}
+
+- (void)beginLoadingFadeOutAnimation:(id)loading
+{
+    BFLoadingViewController *controller = loading;
+    [UIView beginAnimations:@"fade-out refresh view" context:controller];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+        [UIView setAnimationDuration:0.5f];
+        [UIView setAnimationDelegate:self];
+        [UIView setAnimationDidStopSelector:@selector(loadingFadeDidStop:finished:context:)];
+        controller.view.alpha = 0.0f;
+    [UIView commitAnimations];
+}
+
+- (void)loadingView:(BFLoadingViewController *)controller didCompleteWithData:(NSData *)data
+{    
+    [self performSelector:@selector(beginLoadingFadeOutAnimation:) withObject:controller afterDelay:1.0f];
+    
+    // refresh data, reload brief-info
+    briefBeingPreviewed = [[BFDataManager sharedBFDataManager] updateBrief:briefBeingPreviewed usingData:data];
+    [self prepareInfoView:briefBeingPreviewed];
     
 }
+
+- (void)loadingView:(BFLoadingViewController *)controller didNotCompleteWithError:(NSError *)error
+{
+    // TODO: handle error
+}
+
+- (void)loadingView:(BFLoadingViewController *)controller didCancelConnection:(NSString *)url
+{
+    // TODO: handle cancelation
+}
+
 
 
 @end

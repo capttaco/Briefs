@@ -11,6 +11,7 @@
 #import "BFBriefCellController.h"
 #import "BFBriefcastCellController.h"
 #import "BFBriefcast+CoreDataAdditions.h"
+#import "NSDictionary+BFAdditions.h"
 #import "BFBriefInfo.h"
 #import "BFArrayBriefDataSource.h"
 
@@ -238,10 +239,11 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
     
     // else, get the reference and update it's download date
     else {
-        [brief setDateLastDownloaded:[NSDate date]];
-        [data writeToFile:destination atomically:YES];
-        
-        return brief;
+//        [brief setDateLastDownloaded:[NSDate date]];
+//        [data writeToFile:destination atomically:YES];
+//        
+//        return brief;
+        return [self updateBrief:brief usingData:data];
     }
 }
 
@@ -268,7 +270,19 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
     
     return newRef;
 }
-
+- (BriefRef *)updateBrief:(BriefRef *)brief usingData:(NSData *)data
+{
+    // update the brief meta data
+    BFBriefInfo *info = [BFBriefInfo infoForBriefData:[NSDictionary dictionaryFromData:data] atPath:brief.filePath];
+    brief = [info mergeInfoIntoBrief:brief];
+    [brief setDateLastDownloaded:[NSDate date]];
+    [self save];
+    
+    // write the new file
+    [data writeToFile:brief.filePath atomically:YES];
+    
+    return brief;
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -

@@ -22,5 +22,6 @@
 
 - (id)initWithDictionary:(NSDictionary *)dictionary atPath:(NSString *)path;
 - (BriefRef *)insertIntoManagedContext:(NSManagedObjectContext *)context;
+- (BriefRef *)mergeInfoIntoBrief:(BriefRef *)ref;
 
 @end
