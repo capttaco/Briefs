@@ -239,6 +239,11 @@
     
     [UIView commitAnimations];
     
+    // update the briefcast reference
+    self.briefcast.totalNumberOfBriefcasts = [NSNumber numberWithInt:[[feed items] count]];
+    self.briefcast.dateLastOpened = [NSDate date];
+    [[BFDataManager sharedBFDataManager] save];
+    
     [super updateAndReload];
     [spinner stopAnimating];
 }

@@ -191,7 +191,7 @@
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
-						<string key="IBUIText">Briefcasts are a way to share briefs. Each contains briefs that you can preview and install on your device.</string>
+						<string key="IBUIText">Briefcasts are an easy way to share briefs. Each contains briefs that you can preview and install on your device.</string>
 						<object class="NSFont" key="IBUIFont" id="671686307">
 							<string key="NSName">Helvetica</string>
 							<double key="NSSize">13</double>

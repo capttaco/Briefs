@@ -31,6 +31,7 @@
     self.title = @"Briefcasts";
     self.navigationController.navigationBar.tintColor = [BFConfig tintColorForNavigationBar];
     self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.separatorColor = [BFConfig separatorColorForTableView];
     tableFooterView.alpha = 0.0;
     
     // Edit button

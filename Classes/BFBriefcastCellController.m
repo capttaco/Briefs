@@ -9,6 +9,7 @@
 #import "BFBriefcastCellController.h"
 #import "BFBriefcastViewController.h"
 #import "BFDataManager.h"
+#import "BFConfig.h"
 
 
 @implementation BFBriefcastCellController
@@ -34,11 +35,46 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tv cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     UITableViewCell *cell = [tv dequeueReusableCellWithIdentifier:@"BriefcastCell"];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:@"BriefcastCell"] autorelease];
+        NSArray *nibArray = [[NSBundle mainBundle] loadNibNamed:@"BFBriefcastCell" owner:self options:nil];
+        cell = (UITableViewCell *) [nibArray objectAtIndex:0];
     }
-    cell.textLabel.text = [self.briefcast title];
+    
+    titleLabel.text = [self.briefcast title];
+    
+    if ([self.briefcast.totalNumberOfBriefcasts intValue] > 0)
+        descLabel.text = [NSString stringWithFormat:@"%@ Briefs, last opened on %@", 
+                      self.briefcast.totalNumberOfBriefcasts, [BFConfig shortDateStringFromDate:self.briefcast.dateLastOpened]];
+    
+    else descLabel.text = @"No information available.";
+
+    
+    // calculate background
+    UIImage *bgImage, *selectedBgImage;
+    if (indexPath.row == 0) {
+        // top
+        bgImage = [[UIImage imageNamed:@"cell-top.png"] stretchableImageWithLeftCapWidth:10 topCapHeight:0];
+        selectedBgImage = [[UIImage imageNamed:@"cell-top-sel.png"] stretchableImageWithLeftCapWidth:10 topCapHeight:0];
+    } 
+    
+    else if (indexPath.row == [tv numberOfRowsInSection:indexPath.section]-1) {
+        // bottom
+        bgImage = [[UIImage imageNamed:@"cell-bottom.png"] stretchableImageWithLeftCapWidth:10 topCapHeight:0];
+        selectedBgImage = [[UIImage imageNamed:@"cell-bottom-sel.png"] stretchableImageWithLeftCapWidth:10 topCapHeight:0];
+    }
+    
+    else {
+        // middle
+        bgImage = [[UIImage imageNamed:@"cell-middle.png"] stretchableImageWithLeftCapWidth:10 topCapHeight:0];
+        selectedBgImage = [[UIImage imageNamed:@"cell-middle-sel.png"] stretchableImageWithLeftCapWidth:10 topCapHeight:0];
+    }
+    
+    cell.backgroundView = [[UIImageView alloc] initWithImage:bgImage];
+    cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:selectedBgImage];
+    
+    
     return cell;
 }
 
@@ -59,6 +95,11 @@
 {	
     if (editingStyle == UITableViewCellEditingStyleDelete)
         [[BFDataManager sharedBFDataManager] removeBriefcast:self.briefcast];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 49.0f;
 }
 
 ///////////////////////////////////////////////////////////////////////////////

@@ -12,6 +12,9 @@
 
 @interface BFBriefcastCellController : NSObject<BFCellController> 
 {
+    IBOutlet UILabel    *titleLabel;
+    IBOutlet UILabel    *descLabel;
+    
     BriefcastRef *briefcast;
 }
 

@@ -12,6 +12,7 @@
 #import "BFSceneViewController.h"
 #import "BFSceneManager.h"
 #import "BFPagedBrowseViewController.h"
+#import "BFConfig.h"
 
 
 @interface BFPreviewBriefViewController (PrivateMethods)
@@ -75,16 +76,8 @@
     else infoView.fromLabel.text = [[NSURL URLWithString:[ref fromURL]] host];
     
     // format date
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
-    [dateFormatter setDateStyle:NSDateFormatterShortStyle];
-    infoView.dateLabel.text = [dateFormatter stringFromDate:[ref dateLastDownloaded]];
-    
-    [dateFormatter setDateStyle:NSDateFormatterNoStyle];
-    [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
-    infoView.timeLabel.text = [[dateFormatter stringFromDate:[ref dateLastDownloaded]] stringByReplacingOccurrencesOfString:@" " withString:@""];
-    
-    [dateFormatter release];
+    infoView.dateLabel.text = [BFConfig shortDateStringFromDate:[ref dateLastDownloaded]];    
+    infoView.timeLabel.text = [BFConfig shortTimeStringFromDate:[ref dateLastDownloaded]];
 }
 
 - (void)preparePreview:(BriefRef *)ref

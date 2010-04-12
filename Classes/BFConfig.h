@@ -15,7 +15,12 @@
 + (UIColor *)tintColorForNavigationBar;
 + (UIColor *)tintColorForNavigationButton;
 
-// background colors
+// table colors
 + (UIColor *)backgroundForTableView;
++ (UIColor *)separatorColorForTableView;
+
+// dates
++ (NSString *)shortDateStringFromDate:(NSDate *)date;
++ (NSString *)shortTimeStringFromDate:(NSDate *)date;
 
 @end

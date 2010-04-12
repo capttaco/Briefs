@@ -26,4 +26,26 @@
     return [UIColor colorWithRed:0.8667f green:0.8784f blue:0.8902f alpha:1.0f];
 }
 
++ (UIColor *)separatorColorForTableView
+{
+    return [UIColor colorWithHue:0.58333f saturation:0.19f brightness:0.12f alpha:1.0f];
+}
+
+
++ (NSString *)shortDateStringFromDate:(NSDate *)date;
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+    [dateFormatter setDateStyle:NSDateFormatterShortStyle];
+    return [dateFormatter stringFromDate:date];
+}
+
++ (NSString *)shortTimeStringFromDate:(NSDate *)date
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterNoStyle];
+    [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+    return [[dateFormatter stringFromDate:date] stringByReplacingOccurrencesOfString:@" " withString:@""];
+}
+
 @end
