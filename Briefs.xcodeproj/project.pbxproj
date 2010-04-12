@@ -88,7 +88,7 @@
 		D482E50210EEF08A00678404 /* menu-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D482E50110EEF08A00678404 /* menu-bg.png */; };
 		D482E51910EEFB0D00678404 /* blue-button-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D482E51710EEFB0D00678404 /* blue-button-bg.png */; };
 		D482E51A10EEFB0D00678404 /* gray-button-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D482E51810EEFB0D00678404 /* gray-button-bg.png */; };
-		D482E54510F03FE000678404 /* BFColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D482E54410F03FE000678404 /* BFColor.m */; };
+		D482E54510F03FE000678404 /* BFConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = D482E54410F03FE000678404 /* BFConfig.m */; };
 		D4991095109FEA85008C5E17 /* BFParagraphCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4991094109FEA85008C5E17 /* BFParagraphCellController.m */; };
 		D4A0C262116AD85C0088E5F6 /* BFLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A0C260116AD85C0088E5F6 /* BFLoadingViewController.m */; };
 		D4A0C263116AD85C0088E5F6 /* BFLoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A0C261116AD85C0088E5F6 /* BFLoadingViewController.xib */; };
@@ -138,6 +138,10 @@
 		D4D4BB3111710E52009D70D0 /* confirm-cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D4BB2F11710E52009D70D0 /* confirm-cancel.png */; };
 		D4D4BC371172552B009D70D0 /* preview-refresh-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D4BC361172552B009D70D0 /* preview-refresh-bg.png */; };
 		D4D4BC39117255A2009D70D0 /* PreviewRefreshLoad.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4D4BC38117255A2009D70D0 /* PreviewRefreshLoad.xib */; };
+		D4D4BC821172790C009D70D0 /* browse-briefcasts.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D4BC811172790C009D70D0 /* browse-briefcasts.png */; };
+		D4D4BC8411727A7C009D70D0 /* built-in-button.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D4BC8311727A7C009D70D0 /* built-in-button.png */; };
+		D4D4BC9B11728150009D70D0 /* UINavigationBar+CustomBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D4BC9A11728150009D70D0 /* UINavigationBar+CustomBackground.m */; };
+		D4D4BC9D11728248009D70D0 /* navigation-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D4BC9C11728248009D70D0 /* navigation-bar.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -262,8 +266,8 @@
 		D482E50110EEF08A00678404 /* menu-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-bg.png"; path = "images/menu-bg.png"; sourceTree = "<group>"; };
 		D482E51710EEFB0D00678404 /* blue-button-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blue-button-bg.png"; path = "images/blue-button-bg.png"; sourceTree = "<group>"; };
 		D482E51810EEFB0D00678404 /* gray-button-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gray-button-bg.png"; path = "images/gray-button-bg.png"; sourceTree = "<group>"; };
-		D482E54310F03FE000678404 /* BFColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFColor.h; sourceTree = "<group>"; };
-		D482E54410F03FE000678404 /* BFColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFColor.m; sourceTree = "<group>"; };
+		D482E54310F03FE000678404 /* BFConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFConfig.h; sourceTree = "<group>"; };
+		D482E54410F03FE000678404 /* BFConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFConfig.m; sourceTree = "<group>"; };
 		D4991093109FEA85008C5E17 /* BFParagraphCellController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFParagraphCellController.h; sourceTree = "<group>"; };
 		D4991094109FEA85008C5E17 /* BFParagraphCellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFParagraphCellController.m; sourceTree = "<group>"; };
 		D4A0C25F116AD85C0088E5F6 /* BFLoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFLoadingViewController.h; sourceTree = "<group>"; };
@@ -343,6 +347,10 @@
 		D4D4BB2F11710E52009D70D0 /* confirm-cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "confirm-cancel.png"; path = "images/buttons/confirm-cancel.png"; sourceTree = "<group>"; };
 		D4D4BC361172552B009D70D0 /* preview-refresh-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "preview-refresh-bg.png"; path = "images/bg/preview-refresh-bg.png"; sourceTree = "<group>"; };
 		D4D4BC38117255A2009D70D0 /* PreviewRefreshLoad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PreviewRefreshLoad.xib; path = Classes/PreviewRefreshLoad.xib; sourceTree = "<group>"; };
+		D4D4BC811172790C009D70D0 /* browse-briefcasts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "browse-briefcasts.png"; path = "images/bg/screen bg/browse-briefcasts.png"; sourceTree = "<group>"; };
+		D4D4BC8311727A7C009D70D0 /* built-in-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "built-in-button.png"; path = "images/buttons/built-in-button.png"; sourceTree = "<group>"; };
+		D4D4BC9A11728150009D70D0 /* UINavigationBar+CustomBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+CustomBackground.m"; sourceTree = "<group>"; };
+		D4D4BC9C11728248009D70D0 /* navigation-bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "navigation-bar.png"; path = "images/bg/navigation-bar.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -539,6 +547,8 @@
 		D43CE16C114F0DC800DA07D5 /* backgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				D4D4BC9C11728248009D70D0 /* navigation-bar.png */,
+				D4D4BC80117278F9009D70D0 /* screens */,
 				D4D4BC361172552B009D70D0 /* preview-refresh-bg.png */,
 				D4D4B7CA11700D74009D70D0 /* pop-up-bgfull.png */,
 				D4A0C31E116D81420088E5F6 /* pop-slider-bg-filled.png */,
@@ -601,6 +611,7 @@
 		D43CE955115FC76E00DA07D5 /* buttons */ = {
 			isa = PBXGroup;
 			children = (
+				D4D4BC8311727A7C009D70D0 /* built-in-button.png */,
 				D4D4BB2E11710E52009D70D0 /* confirm-action.png */,
 				D4D4BB2F11710E52009D70D0 /* confirm-cancel.png */,
 				D43CEF6E1162E3EC00DA07D5 /* already-button.png */,
@@ -743,6 +754,7 @@
 				D4AF1E02114C093300D1B3B5 /* NSDictionary+BFAdditions.m */,
 				D43CE39D1154720C00DA07D5 /* BriefcastRef+BFBriefDataSource.h */,
 				D43CE39E1154720C00DA07D5 /* BriefcastRef+BFBriefDataSource.m */,
+				D4D4BC9A11728150009D70D0 /* UINavigationBar+CustomBackground.m */,
 			);
 			name = addons;
 			sourceTree = "<group>";
@@ -831,14 +843,22 @@
 			name = "UI Labels & Controls";
 			sourceTree = "<group>";
 		};
+		D4D4BC80117278F9009D70D0 /* screens */ = {
+			isa = PBXGroup;
+			children = (
+				D4D4BC811172790C009D70D0 /* browse-briefcasts.png */,
+			);
+			name = screens;
+			sourceTree = "<group>";
+		};
 		D4E2CEB81028F18B0039600E /* util */ = {
 			isa = PBXGroup;
 			children = (
 				D4A39769113B6FBC004971E9 /* addons */,
 				D430973F106AB75B00C1EC5E /* BFDataManager.h */,
 				D4309740106AB75B00C1EC5E /* BFDataManager.m */,
-				D482E54310F03FE000678404 /* BFColor.h */,
-				D482E54410F03FE000678404 /* BFColor.m */,
+				D482E54310F03FE000678404 /* BFConfig.h */,
+				D482E54410F03FE000678404 /* BFConfig.m */,
 				D4AF1DCD114BFE2300D1B3B5 /* BFBriefInfo.h */,
 				D4AF1DCE114BFE2300D1B3B5 /* BFBriefInfo.m */,
 				D43CEAAF1160376500DA07D5 /* BFArrayBriefDataSource.h */,
@@ -977,6 +997,9 @@
 				D4D4BB3111710E52009D70D0 /* confirm-cancel.png in Resources */,
 				D4D4BC371172552B009D70D0 /* preview-refresh-bg.png in Resources */,
 				D4D4BC39117255A2009D70D0 /* PreviewRefreshLoad.xib in Resources */,
+				D4D4BC821172790C009D70D0 /* browse-briefcasts.png in Resources */,
+				D4D4BC8411727A7C009D70D0 /* built-in-button.png in Resources */,
+				D4D4BC9D11728248009D70D0 /* navigation-bar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1017,7 +1040,7 @@
 				D46B795F10A615F800CCD698 /* BFButtonCellController.m in Sources */,
 				D46B799210A61B3D00CCD698 /* BFRemoteBriefCellController.m in Sources */,
 				D482E4FD10EEECC700678404 /* BFMainViewController.m in Sources */,
-				D482E54510F03FE000678404 /* BFColor.m in Sources */,
+				D482E54510F03FE000678404 /* BFConfig.m in Sources */,
 				D4A3976D113B70AB004971E9 /* BFRootView+TapHoldGesture.m in Sources */,
 				D4A3979C113B7591004971E9 /* BFActor.m in Sources */,
 				D4A3979D113B7591004971E9 /* BFBriefcast.m in Sources */,
@@ -1050,6 +1073,7 @@
 				D4A0C266116AD9660088E5F6 /* BFProgressBar.m in Sources */,
 				D4A0C33E116D84360088E5F6 /* BFRemoteBriefViewController.m in Sources */,
 				D4D4BB2B11710AAA009D70D0 /* BFRemoteBriefSaver.m in Sources */,
+				D4D4BC9B11728150009D70D0 /* UINavigationBar+CustomBackground.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

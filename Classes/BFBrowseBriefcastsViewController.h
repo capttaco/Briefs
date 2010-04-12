@@ -12,8 +12,11 @@
 
 @interface BFBrowseBriefcastsViewController : BFTableViewController <BFAddBriefcastViewDelegate> 
 {
+    IBOutlet UIView *tableHeaderView;
+    IBOutlet UIView *tableFooterView;
 }
 
 - (IBAction)addBriefcast;
+- (IBAction)showBuiltInBriefs;
 
 @end

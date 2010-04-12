@@ -16,7 +16,7 @@
 #import "BFBriefCellController.h"
 #import "BFAddBriefcastViewController.h"
 #import "BFDataManager.h"
-#import "BFColor.h"
+#import "BFConfig.h"
 #import "BFBriefcast+CoreDataAdditions.h"
 
 
@@ -39,8 +39,8 @@
     
     // style view
     self.title = @"My Briefs";
-    self.navigationController.navigationBar.tintColor = [BFColor tintColorForNavigationBar];
-    self.tableView.backgroundColor = [BFColor backgroundForTableView];
+    self.navigationController.navigationBar.tintColor = [BFConfig tintColorForNavigationBar];
+    self.tableView.backgroundColor = [BFConfig backgroundForTableView];
     self.tableView.separatorColor = [UIColor colorWithRed:0.7667f green:0.7784f blue:0.7902f alpha:1.0f];
     
     // Edit button

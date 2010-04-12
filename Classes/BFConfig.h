@@ -1,5 +1,5 @@
 //
-//  BFColor.h
+//  BFConfig.h
 //  Briefs
 //
 //  Created by Rob Rhyne on 1/2/10.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface BFColor : NSObject {}
+@interface BFConfig : NSObject {}
 
 // tint colors
 + (UIColor *)tintColorForNavigationBar;

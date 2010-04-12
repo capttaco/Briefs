@@ -11,7 +11,7 @@
 #import "BFBriefCellController.h"
 #import "BFRemoteBriefCellController.h"
 #import "BFDataManager.h"
-#import "BFColor.h"
+#import "BFConfig.h"
 
 
 
@@ -182,7 +182,7 @@
 - (void)viewDidLoad 
 {
     [super viewDidLoad];
-    self.navigationController.navigationBar.tintColor = [BFColor tintColorForNavigationBar];
+    self.navigationController.navigationBar.tintColor = [BFConfig tintColorForNavigationBar];
     
     if (briefcast) 
         self.locationOfBriefcast = [briefcast fromURL];

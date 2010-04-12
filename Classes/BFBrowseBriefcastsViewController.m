@@ -7,7 +7,7 @@
 //
 
 #import "BFBrowseBriefcastsViewController.h"
-#import "BFColor.h"
+#import "BFConfig.h"
 #import "BFDataManager.h"
 #import "BriefcastRef.h"
 #import "BFBriefcast+CoreDataAdditions.h"
@@ -28,10 +28,10 @@
     [super viewDidLoad];
     
     // style view
-    self.title = @"My Briefcasts";
-    self.navigationController.navigationBar.tintColor = [BFColor tintColorForNavigationBar];
-    self.tableView.backgroundColor = [BFColor backgroundForTableView];
-    self.tableView.separatorColor = [UIColor colorWithRed:0.7667f green:0.7784f blue:0.7902f alpha:1.0f];
+    self.title = @"Briefcasts";
+    self.navigationController.navigationBar.tintColor = [BFConfig tintColorForNavigationBar];
+    self.tableView.backgroundColor = [UIColor clearColor];
+    tableFooterView.alpha = 0.0;
     
     // Edit button
     UIBarButtonItem *editButton = [[[UIBarButtonItem alloc] initWithTitle:@"Edit" 
@@ -46,13 +46,6 @@
     [self updateAndReload];
 }
 
-- (void)didReceiveMemoryWarning 
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
 
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -
@@ -64,18 +57,40 @@
     
     NSArray *knownBriefcasts = [[BFDataManager sharedBFDataManager] allBriefcastsSortedAs:BFDataManagerSortByDateOpened];
     for (BriefcastRef *ref in knownBriefcasts) {
-
         // add briefcast cell
-        //BFBriefcast *briefcast = [[[BFBriefcast alloc] initWithRef:ref] autorelease]; 
         BFBriefcastCellController *controller = [[[BFBriefcastCellController alloc] initWithBriefcast:ref] autorelease];
         [allControllers addObject:controller];
     }
     
-    BFAddBriefcastCellController *addController = [[BFAddBriefcastCellController alloc] initWithButtonLabel:@"Add Briefcast"];
-    addController.delegate = self;
-    NSArray *buttonControllers = [NSArray arrayWithObjects:[addController autorelease], nil];
-    
-    self.tableGroups = [NSArray arrayWithObjects:allControllers, buttonControllers, nil];
+    self.tableGroups = [NSArray arrayWithObjects:allControllers, nil];
+}
+
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    return tableHeaderView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return tableHeaderView.frame.size.height;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    return tableFooterView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return tableFooterView.frame.size.height;
+}
+
+- (void)animateTableFooterView:(CGFloat)alphaValue
+{
+    [UIView beginAnimations:@"animate footer" context:nil];
+    tableFooterView.alpha = alphaValue;
+    [UIView commitAnimations];
 }
 
 - (IBAction)editBriefcasts
@@ -83,16 +98,25 @@
     if (self.tableView.editing == YES) {
         self.navigationItem.rightBarButtonItem.title = @"Edit";
         self.navigationItem.rightBarButtonItem.style = UIBarButtonItemStylePlain;
-        [self.navigationItem setHidesBackButton:NO animated:YES];        
+        [self.navigationItem setHidesBackButton:NO animated:YES];
+        [self.navigationItem setLeftBarButtonItem:nil animated:YES];
+        [self animateTableFooterView:0.0f];
     }
     else {
         self.navigationItem.rightBarButtonItem.title = @"Done";
         self.navigationItem.rightBarButtonItem.style = UIBarButtonItemStyleDone;
         [self.navigationItem setHidesBackButton:YES animated:YES];
+        
+        UIBarButtonItem *addButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                                    target:self
+                                                                                    action:@selector(addBriefcast)] autorelease];
+        [self.navigationItem setLeftBarButtonItem:addButton animated:YES];
+        [self animateTableFooterView:1.0f];
     }
 
     [self.tableView setEditing:!self.tableView.editing animated:YES];
 }
+
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -120,5 +144,9 @@
     [super updateAndReload];
 }
 
+- (IBAction)showBuiltInBriefs
+{
+    
+}
 
 @end

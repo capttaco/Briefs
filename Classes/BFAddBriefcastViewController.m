@@ -8,7 +8,7 @@
 
 #import "BFAddBriefcastViewController.h"
 #import "BFTextCellController.h"
-#import "BFColor.h"
+#import "BFConfig.h"
 
 @implementation BFAddBriefcastViewController
 
@@ -75,8 +75,8 @@
 {
     [super viewDidLoad];
     
-    self.navigationController.navigationBar.tintColor = [BFColor tintColorForNavigationBar];
-    self.view.backgroundColor = [BFColor backgroundForTableView];
+    self.navigationController.navigationBar.tintColor = [BFConfig tintColorForNavigationBar];
+    self.view.backgroundColor = [BFConfig backgroundForTableView];
     //self.view.separatorColor = [UIColor colorWithRed:0.7667f green:0.7784f blue:0.7902f alpha:1.0f];
 }
 
