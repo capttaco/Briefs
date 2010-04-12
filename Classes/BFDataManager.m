@@ -330,6 +330,9 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
 
 - (NSArray *)allBriefcastsSortedAs:(BFDataManagerSortType)typeOfSort
 {
+    // Build predicate to locate marker
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"fromURL <> %@", kBFLocallyStoredBriefURLString];
+    
     // TODO: implement sorting types
     
     NSMutableArray *arrayOfBriefcasts = [NSMutableArray array];
@@ -338,6 +341,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];
 	NSEntityDescription *entity = [NSEntityDescription entityForName:@"BriefcastRef" inManagedObjectContext:[self managedObjectContext]];
 	[request setEntity:entity];
+    [request setPredicate:predicate];
     
     NSError *error;
     NSMutableArray *mutableFetchResults = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
