@@ -63,6 +63,10 @@
         [allControllers addObject:controller];
     }
     
+    // show footer if there are no briefcasts listed
+//    if ([knownBriefcasts count] <= 0)
+//        tableFooterView.alpha = 1.0f;
+    
     self.tableGroups = [NSArray arrayWithObjects:allControllers, nil];
 }
 

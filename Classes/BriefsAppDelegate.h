@@ -16,8 +16,5 @@
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 
 
-- (void)navigationController:(UINavigationController *)nav willShowViewController:(UIViewController *)view animated:(BOOL)animated;
-- (void)navigationController:(UINavigationController *)nav didShowViewController:(UIViewController *)view animated:(BOOL)animated;
-
 @end
 
