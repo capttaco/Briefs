@@ -78,6 +78,21 @@
 		D4CA293A1076F60500AA84FE /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CA29371076F60500AA84FE /* MainWindow.xib */; };
 		D4CA299F107907CF00AA84FE /* BFCellConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CA299E107907CF00AA84FE /* BFCellConfiguration.m */; };
 		D4CA29E310799E5D00AA84FE /* BFTitleCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CA29E210799E5D00AA84FE /* BFTitleCellController.m */; };
+		D4D4B7CB11700D74009D70D0 /* pop-up-bgfull.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D4B7CA11700D74009D70D0 /* pop-up-bgfull.png */; };
+		D4D4BB2B11710AAA009D70D0 /* BFRemoteBriefSaver.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D4BB2911710AAA009D70D0 /* BFRemoteBriefSaver.m */; };
+		D4D4BB2C11710AAA009D70D0 /* BFRemoteBriefSaver.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4D4BB2A11710AAA009D70D0 /* BFRemoteBriefSaver.xib */; };
+		D4D4BB3011710E52009D70D0 /* confirm-action.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D4BB2E11710E52009D70D0 /* confirm-action.png */; };
+		D4D4BB3111710E52009D70D0 /* confirm-cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D4BB2F11710E52009D70D0 /* confirm-cancel.png */; };
+		D4D4BC371172552B009D70D0 /* preview-refresh-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D4BC361172552B009D70D0 /* preview-refresh-bg.png */; };
+		D4D4BC39117255A2009D70D0 /* PreviewRefreshLoad.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4D4BC38117255A2009D70D0 /* PreviewRefreshLoad.xib */; };
+		D4D4BC821172790C009D70D0 /* browse-briefcasts.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D4BC811172790C009D70D0 /* browse-briefcasts.png */; };
+		D4D4BC8411727A7C009D70D0 /* built-in-button.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D4BC8311727A7C009D70D0 /* built-in-button.png */; };
+		D4D4BC9B11728150009D70D0 /* UINavigationBar+CustomBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D4BC9A11728150009D70D0 /* UINavigationBar+CustomBackground.m */; };
+		D4D4BC9D11728248009D70D0 /* navigation-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D4BC9C11728248009D70D0 /* navigation-bar.png */; };
+		D4F210D3118BD5E20041F87C /* root-menu-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F210D2118BD5E20041F87C /* root-menu-bg.png */; };
+		D4F210D5118BD6520041F87C /* top-nav-button.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F210D4118BD6520041F87C /* top-nav-button.png */; };
+		D4F210F9118C72750041F87C /* BFMainViewDefaultController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F210F7118C72750041F87C /* BFMainViewDefaultController.m */; };
+		D4F210FA118C72750041F87C /* BFMainViewDefaultController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F210F8118C72750041F87C /* BFMainViewDefaultController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -215,7 +230,25 @@
 		D4CA299E107907CF00AA84FE /* BFCellConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFCellConfiguration.m; sourceTree = "<group>"; };
 		D4CA29E110799E5D00AA84FE /* BFTitleCellController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFTitleCellController.h; sourceTree = "<group>"; };
 		D4CA29E210799E5D00AA84FE /* BFTitleCellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFTitleCellController.m; sourceTree = "<group>"; };
+
 		D4E3753F1039F029000D8677 /* scene2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scene2.png; path = sample/scene2.png; sourceTree = "<group>"; };
+		D4D4B7CA11700D74009D70D0 /* pop-up-bgfull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pop-up-bgfull.png"; path = "images/bg/pop-up-bgfull.png"; sourceTree = "<group>"; };
+		D4D4BB2811710AAA009D70D0 /* BFRemoteBriefSaver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFRemoteBriefSaver.h; sourceTree = "<group>"; };
+		D4D4BB2911710AAA009D70D0 /* BFRemoteBriefSaver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFRemoteBriefSaver.m; sourceTree = "<group>"; };
+		D4D4BB2A11710AAA009D70D0 /* BFRemoteBriefSaver.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BFRemoteBriefSaver.xib; path = Classes/BFRemoteBriefSaver.xib; sourceTree = "<group>"; };
+		D4D4BB2E11710E52009D70D0 /* confirm-action.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "confirm-action.png"; path = "images/buttons/confirm-action.png"; sourceTree = "<group>"; };
+		D4D4BB2F11710E52009D70D0 /* confirm-cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "confirm-cancel.png"; path = "images/buttons/confirm-cancel.png"; sourceTree = "<group>"; };
+		D4D4BC361172552B009D70D0 /* preview-refresh-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "preview-refresh-bg.png"; path = "images/bg/preview-refresh-bg.png"; sourceTree = "<group>"; };
+		D4D4BC38117255A2009D70D0 /* PreviewRefreshLoad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PreviewRefreshLoad.xib; path = Classes/PreviewRefreshLoad.xib; sourceTree = "<group>"; };
+		D4D4BC811172790C009D70D0 /* browse-briefcasts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "browse-briefcasts.png"; path = "images/bg/screen bg/browse-briefcasts.png"; sourceTree = "<group>"; };
+		D4D4BC8311727A7C009D70D0 /* built-in-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "built-in-button.png"; path = "images/buttons/built-in-button.png"; sourceTree = "<group>"; };
+		D4D4BC9A11728150009D70D0 /* UINavigationBar+CustomBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+CustomBackground.m"; sourceTree = "<group>"; };
+		D4D4BC9C11728248009D70D0 /* navigation-bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "navigation-bar.png"; path = "images/bg/navigation-bar.png"; sourceTree = "<group>"; };
+		D4F210D2118BD5E20041F87C /* root-menu-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "root-menu-bg.png"; path = "images/bg/root-menu-bg.png"; sourceTree = "<group>"; };
+		D4F210D4118BD6520041F87C /* top-nav-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "top-nav-button.png"; path = "images/buttons/top-nav-button.png"; sourceTree = "<group>"; };
+		D4F210F6118C72750041F87C /* BFMainViewDefaultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFMainViewDefaultController.h; sourceTree = "<group>"; };
+		D4F210F7118C72750041F87C /* BFMainViewDefaultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFMainViewDefaultController.m; sourceTree = "<group>"; };
+		D4F210F8118C72750041F87C /* BFMainViewDefaultController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BFMainViewDefaultController.xib; path = Classes/BFMainViewDefaultController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -322,6 +355,9 @@
 				D4CA29361076F60500AA84FE /* BFBrowseViewController.xib */,
 				D4CA29371076F60500AA84FE /* MainWindow.xib */,
 				D4641312106879AF001522F6 /* BFAddBriefcastViewController.xib */,
+				D43CE8B1115F134800DA07D5 /* BFBriefCellController.xib */,
+				D4A4595D1172C2D600D9C1DF /* BFBriefcastCell.xib */,
+				D4F210F8118C72750041F87C /* BFMainViewDefaultController.xib */,
 			);
 			name = nib;
 			sourceTree = "<group>";
@@ -479,6 +515,7 @@
 			children = (
 				D4C3275010B20DC600AB1F5E /* BFLoadingViewController.h */,
 				D4C3275110B20DC600AB1F5E /* BFLoadingViewController.m */,
+				D4F210F5118C723E0041F87C /* main states */,
 				D463E8FD107310170075CCCE /* BFBriefcastViewController.h */,
 				D463E8FE107310170075CCCE /* BFBriefcastViewController.m */,
 				76FD02EC104CAF96002E96FA /* BFBrowseViewController.h */,
@@ -615,6 +652,15 @@
 			name = shared;
 			sourceTree = "<group>";
 		};
+		D4F210F5118C723E0041F87C /* main states */ = {
+			isa = PBXGroup;
+			children = (
+				D4F210F6118C72750041F87C /* BFMainViewDefaultController.h */,
+				D4F210F7118C72750041F87C /* BFMainViewDefaultController.m */,
+			);
+			name = "main states";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -692,6 +738,60 @@
 				D482E51910EEFB0D00678404 /* blue-button-bg.png in Resources */,
 				D482E51A10EEFB0D00678404 /* gray-button-bg.png in Resources */,
 				D4A394BA1130F926004971E9 /* flag.png in Resources */,
+				D4A39819113C6DBB004971E9 /* app-icon.png in Resources */,
+				D4A39833113C6E9D004971E9 /* Briefcast.png in Resources */,
+				D4A39834113C6E9D004971E9 /* Briefs.png in Resources */,
+				D4A39836113C6EAA004971E9 /* Icon-small.png in Resources */,
+				D4AF1DC8114B61A600D1B3B5 /* BFBrowseBriefcastViewController.xib in Resources */,
+				D43CE16E114F0DD900DA07D5 /* pop-up-bg.png in Resources */,
+				D43CE173114F120500DA07D5 /* pop-button-inactive.png in Resources */,
+				D43CE174114F120500DA07D5 /* pop-button-active.png in Resources */,
+				D43CE176114F158600DA07D5 /* pop-up-briefs.png in Resources */,
+				D43CE179114F1BA600DA07D5 /* pop-slider-fg.png in Resources */,
+				D43CE17A114F1BA600DA07D5 /* pop-slider-bg.png in Resources */,
+				D43CE1C2114F21C300DA07D5 /* main-bg.png in Resources */,
+				D43CE216114F2C3300DA07D5 /* pop-slider-blank.png in Resources */,
+				D43CE247114F34A100DA07D5 /* pop-button-highlight.png in Resources */,
+				D43CE3831154644A00DA07D5 /* BFPagedBrowseViewController.xib in Resources */,
+				D43CE398115465CE00DA07D5 /* BFPreviewBriefViewController.xib in Resources */,
+				D43CE3AB1154836100DA07D5 /* preview-title-bg.png in Resources */,
+				D43CE3AD115488C400DA07D5 /* preview-play-bg.png in Resources */,
+				D43CE47C115548DD00DA07D5 /* preview-bg.png in Resources */,
+				D43CE527115703BC00DA07D5 /* main-bg-focused.png in Resources */,
+				D43CE7DB115DA55600DA07D5 /* return.png in Resources */,
+				D43CE7DC115DA55600DA07D5 /* trashcan.png in Resources */,
+				D43CE7DD115DA55600DA07D5 /* refresh.png in Resources */,
+				D43CE885115F021000DA07D5 /* briefcast-header.png in Resources */,
+				D43CE887115F022D00DA07D5 /* refresh-large.png in Resources */,
+				D43CE8B2115F134800DA07D5 /* BFBriefCellController.xib in Resources */,
+				D43CE8B5115F196C00DA07D5 /* remote-play.png in Resources */,
+				D43CE958115FC77E00DA07D5 /* install-button.png in Resources */,
+				D43CE959115FC77E00DA07D5 /* update-button.png in Resources */,
+				D43CEF6F1162E3EC00DA07D5 /* already-button.png in Resources */,
+				D4A0C263116AD85C0088E5F6 /* BFLoadingViewController.xib in Resources */,
+				D4A0C269116AF9610088E5F6 /* pop-up-320bg.png in Resources */,
+				D4A0C31F116D81420088E5F6 /* pop-slider-bg-filled.png in Resources */,
+				D4A0C33F116D84360088E5F6 /* FullPageRemoteLoad.xib in Resources */,
+				D4D4B7CB11700D74009D70D0 /* pop-up-bgfull.png in Resources */,
+				D4D4BB2C11710AAA009D70D0 /* BFRemoteBriefSaver.xib in Resources */,
+				D4D4BB3011710E52009D70D0 /* confirm-action.png in Resources */,
+				D4D4BB3111710E52009D70D0 /* confirm-cancel.png in Resources */,
+				D4D4BC371172552B009D70D0 /* preview-refresh-bg.png in Resources */,
+				D4D4BC39117255A2009D70D0 /* PreviewRefreshLoad.xib in Resources */,
+				D4D4BC821172790C009D70D0 /* browse-briefcasts.png in Resources */,
+				D4D4BC8411727A7C009D70D0 /* built-in-button.png in Resources */,
+				D4D4BC9D11728248009D70D0 /* navigation-bar.png in Resources */,
+				D4A4595E1172C2D600D9C1DF /* BFBriefcastCell.xib in Resources */,
+				D4A4597F1172CE0B00D9C1DF /* cell-middle.png in Resources */,
+				D4A459801172CE0B00D9C1DF /* cell-bottom.png in Resources */,
+				D4A459811172CE0B00D9C1DF /* cell-top.png in Resources */,
+				D4A459CF1172D7AF00D9C1DF /* cell-middle-sel.png in Resources */,
+				D4A459DA1172DCDD00D9C1DF /* cell-bottom-sel.png in Resources */,
+				D4A459DB1172DCDD00D9C1DF /* cell-top-sel.png in Resources */,
+				D4A3B6C2118BCF720082CA9F /* Briefcast 32.png in Resources */,
+				D4F210D3118BD5E20041F87C /* root-menu-bg.png in Resources */,
+				D4F210D5118BD6520041F87C /* top-nav-button.png in Resources */,
+				D4F210FA118C72750041F87C /* BFMainViewDefaultController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -746,6 +846,28 @@
 				D4A397AF113B7720004971E9 /* BFPresentationDispatch.m in Sources */,
 				D4A397B3113B7752004971E9 /* BFViewUtilityParser.m in Sources */,
 				D4A397B7113B7796004971E9 /* BFSceneViewController.m in Sources */,
+				D4AF1B061147362200D1B3B5 /* Briefs.xcdatamodel in Sources */,
+				D4AF1B32114808A300D1B3B5 /* BFBriefcast+CoreDataAdditions.m in Sources */,
+				D4AF1B4811480B3C00D1B3B5 /* BriefcastRef.m in Sources */,
+				D4AF1D42114B3BAC00D1B3B5 /* BFBrowseBriefcastsViewController.m in Sources */,
+				D4AF1DA4114B421200D1B3B5 /* BFReadOnlyBriefcastCellController.m in Sources */,
+				D4AF1DCF114BFE2300D1B3B5 /* BFBriefInfo.m in Sources */,
+				D4AF1E03114C093300D1B3B5 /* NSDictionary+BFAdditions.m in Sources */,
+				D4AF1ECC114C234600D1B3B5 /* BFAddBriefcastCellController.m in Sources */,
+				D43CE3821154644A00DA07D5 /* BFPagedBrowseViewController.m in Sources */,
+				D43CE397115465CE00DA07D5 /* BFPreviewBriefViewController.m in Sources */,
+				D43CE39F1154720C00DA07D5 /* BriefcastRef+BFBriefDataSource.m in Sources */,
+				D43CE3A51154784300DA07D5 /* BFPreviewBriefView.m in Sources */,
+				D43CE3A81154785500DA07D5 /* BFBriefInfoView.m in Sources */,
+				D43CE5331157055100DA07D5 /* BFPagedContainerView.m in Sources */,
+				D43CEAB11160376500DA07D5 /* BFArrayBriefDataSource.m in Sources */,
+				D43CEC36116061CD00DA07D5 /* BriefRef.m in Sources */,
+				D4A0C262116AD85C0088E5F6 /* BFLoadingViewController.m in Sources */,
+				D4A0C266116AD9660088E5F6 /* BFProgressBar.m in Sources */,
+				D4A0C33E116D84360088E5F6 /* BFRemoteBriefViewController.m in Sources */,
+				D4D4BB2B11710AAA009D70D0 /* BFRemoteBriefSaver.m in Sources */,
+				D4D4BC9B11728150009D70D0 /* UINavigationBar+CustomBackground.m in Sources */,
+				D4F210F9118C72750041F87C /* BFMainViewDefaultController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
