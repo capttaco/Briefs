@@ -6,6 +6,7 @@
 //  Copyright 2010 Digital Arch Design. All rights reserved.
 //
 
+#import "BFTableViewController.h"
 
 @interface BFMainViewDefaultController : BFTableViewController 
 {

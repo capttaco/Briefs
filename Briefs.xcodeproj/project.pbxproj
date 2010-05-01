@@ -149,8 +149,6 @@
 		D4D4BC8411727A7C009D70D0 /* built-in-button.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D4BC8311727A7C009D70D0 /* built-in-button.png */; };
 		D4D4BC9B11728150009D70D0 /* UINavigationBar+CustomBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D4BC9A11728150009D70D0 /* UINavigationBar+CustomBackground.m */; };
 		D4D4BC9D11728248009D70D0 /* navigation-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D4BC9C11728248009D70D0 /* navigation-bar.png */; };
-		D4F210D3118BD5E20041F87C /* root-menu-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F210D2118BD5E20041F87C /* root-menu-bg.png */; };
-		D4F210D5118BD6520041F87C /* top-nav-button.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F210D4118BD6520041F87C /* top-nav-button.png */; };
 		D4F210F9118C72750041F87C /* BFMainViewDefaultController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F210F7118C72750041F87C /* BFMainViewDefaultController.m */; };
 		D4F210FA118C72750041F87C /* BFMainViewDefaultController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F210F8118C72750041F87C /* BFMainViewDefaultController.xib */; };
 /* End PBXBuildFile section */
@@ -369,8 +367,6 @@
 		D4D4BC8311727A7C009D70D0 /* built-in-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "built-in-button.png"; path = "images/buttons/built-in-button.png"; sourceTree = "<group>"; };
 		D4D4BC9A11728150009D70D0 /* UINavigationBar+CustomBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+CustomBackground.m"; sourceTree = "<group>"; };
 		D4D4BC9C11728248009D70D0 /* navigation-bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "navigation-bar.png"; path = "images/bg/navigation-bar.png"; sourceTree = "<group>"; };
-		D4F210D2118BD5E20041F87C /* root-menu-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "root-menu-bg.png"; path = "images/bg/root-menu-bg.png"; sourceTree = "<group>"; };
-		D4F210D4118BD6520041F87C /* top-nav-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "top-nav-button.png"; path = "images/buttons/top-nav-button.png"; sourceTree = "<group>"; };
 		D4F210F6118C72750041F87C /* BFMainViewDefaultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFMainViewDefaultController.h; sourceTree = "<group>"; };
 		D4F210F7118C72750041F87C /* BFMainViewDefaultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFMainViewDefaultController.m; sourceTree = "<group>"; };
 		D4F210F8118C72750041F87C /* BFMainViewDefaultController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BFMainViewDefaultController.xib; path = Classes/BFMainViewDefaultController.xib; sourceTree = "<group>"; };
@@ -1048,8 +1044,6 @@
 				D4A459DA1172DCDD00D9C1DF /* cell-bottom-sel.png in Resources */,
 				D4A459DB1172DCDD00D9C1DF /* cell-top-sel.png in Resources */,
 				D4A3B6C2118BCF720082CA9F /* Briefcast 32.png in Resources */,
-				D4F210D3118BD5E20041F87C /* root-menu-bg.png in Resources */,
-				D4F210D5118BD6520041F87C /* top-nav-button.png in Resources */,
 				D4F210FA118C72750041F87C /* BFMainViewDefaultController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
