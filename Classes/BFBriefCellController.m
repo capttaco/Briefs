@@ -11,7 +11,6 @@
 #import "BFSceneViewController.h"
 #import "BFPresentationDispatch.h"
 #import "BFDataManager.h"
-#import "BFColor.h"
 
 
 #define kInstallButtonNormalRect            CGRectMake(270.0f, 0.0f, 42.0f,  70.0f)
