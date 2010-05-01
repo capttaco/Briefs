@@ -84,9 +84,6 @@
 		D47F4B78113CC3E400EEB871 /* BFSceneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A39799113B7591004971E9 /* BFSceneManager.m */; };
 		D482E4FD10EEECC700678404 /* BFMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D482E4FB10EEECC700678404 /* BFMainViewController.m */; };
 		D482E4FE10EEECC700678404 /* BFMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D482E4FC10EEECC700678404 /* BFMainViewController.xib */; };
-		D482E50210EEF08A00678404 /* menu-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D482E50110EEF08A00678404 /* menu-bg.png */; };
-		D482E51910EEFB0D00678404 /* blue-button-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D482E51710EEFB0D00678404 /* blue-button-bg.png */; };
-		D482E51A10EEFB0D00678404 /* gray-button-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D482E51810EEFB0D00678404 /* gray-button-bg.png */; };
 		D482E54510F03FE000678404 /* BFConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = D482E54410F03FE000678404 /* BFConfig.m */; };
 		D4991095109FEA85008C5E17 /* BFParagraphCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4991094109FEA85008C5E17 /* BFParagraphCellController.m */; };
 		D4A0C262116AD85C0088E5F6 /* BFLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A0C260116AD85C0088E5F6 /* BFLoadingViewController.m */; };
@@ -149,6 +146,8 @@
 		D4D4BC8411727A7C009D70D0 /* built-in-button.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D4BC8311727A7C009D70D0 /* built-in-button.png */; };
 		D4D4BC9B11728150009D70D0 /* UINavigationBar+CustomBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D4BC9A11728150009D70D0 /* UINavigationBar+CustomBackground.m */; };
 		D4D4BC9D11728248009D70D0 /* navigation-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D4BC9C11728248009D70D0 /* navigation-bar.png */; };
+		D4F210D3118BD5E20041F87C /* root-menu-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F210D2118BD5E20041F87C /* root-menu-bg.png */; };
+		D4F210D5118BD6520041F87C /* top-nav-button.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F210D4118BD6520041F87C /* top-nav-button.png */; };
 		D4F210F9118C72750041F87C /* BFMainViewDefaultController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F210F7118C72750041F87C /* BFMainViewDefaultController.m */; };
 		D4F210FA118C72750041F87C /* BFMainViewDefaultController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F210F8118C72750041F87C /* BFMainViewDefaultController.xib */; };
 /* End PBXBuildFile section */
@@ -271,9 +270,6 @@
 		D482E4FA10EEECC700678404 /* BFMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFMainViewController.h; sourceTree = "<group>"; };
 		D482E4FB10EEECC700678404 /* BFMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFMainViewController.m; sourceTree = "<group>"; };
 		D482E4FC10EEECC700678404 /* BFMainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BFMainViewController.xib; path = Classes/BFMainViewController.xib; sourceTree = "<group>"; };
-		D482E50110EEF08A00678404 /* menu-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-bg.png"; path = "images/menu-bg.png"; sourceTree = "<group>"; };
-		D482E51710EEFB0D00678404 /* blue-button-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blue-button-bg.png"; path = "images/blue-button-bg.png"; sourceTree = "<group>"; };
-		D482E51810EEFB0D00678404 /* gray-button-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gray-button-bg.png"; path = "images/gray-button-bg.png"; sourceTree = "<group>"; };
 		D482E54310F03FE000678404 /* BFConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFConfig.h; sourceTree = "<group>"; };
 		D482E54410F03FE000678404 /* BFConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFConfig.m; sourceTree = "<group>"; };
 		D4991093109FEA85008C5E17 /* BFParagraphCellController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFParagraphCellController.h; sourceTree = "<group>"; };
@@ -367,6 +363,8 @@
 		D4D4BC8311727A7C009D70D0 /* built-in-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "built-in-button.png"; path = "images/buttons/built-in-button.png"; sourceTree = "<group>"; };
 		D4D4BC9A11728150009D70D0 /* UINavigationBar+CustomBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+CustomBackground.m"; sourceTree = "<group>"; };
 		D4D4BC9C11728248009D70D0 /* navigation-bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "navigation-bar.png"; path = "images/bg/navigation-bar.png"; sourceTree = "<group>"; };
+		D4F210D2118BD5E20041F87C /* root-menu-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "root-menu-bg.png"; path = "images/bg/root-menu-bg.png"; sourceTree = "<group>"; };
+		D4F210D4118BD6520041F87C /* top-nav-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "top-nav-button.png"; path = "images/buttons/top-nav-button.png"; sourceTree = "<group>"; };
 		D4F210F6118C72750041F87C /* BFMainViewDefaultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFMainViewDefaultController.h; sourceTree = "<group>"; };
 		D4F210F7118C72750041F87C /* BFMainViewDefaultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFMainViewDefaultController.m; sourceTree = "<group>"; };
 		D4F210F8118C72750041F87C /* BFMainViewDefaultController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BFMainViewDefaultController.xib; path = Classes/BFMainViewDefaultController.xib; sourceTree = "<group>"; };
@@ -568,6 +566,7 @@
 		D43CE16C114F0DC800DA07D5 /* backgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				D4F210D2118BD5E20041F87C /* root-menu-bg.png */,
 				D4A459D81172DCDD00D9C1DF /* cell-bottom-sel.png */,
 				D4A459D91172DCDD00D9C1DF /* cell-top-sel.png */,
 				D4A459CE1172D7AF00D9C1DF /* cell-middle-sel.png */,
@@ -638,6 +637,7 @@
 		D43CE955115FC76E00DA07D5 /* buttons */ = {
 			isa = PBXGroup;
 			children = (
+				D4F210D4118BD6520041F87C /* top-nav-button.png */,
 				D4D4BC8311727A7C009D70D0 /* built-in-button.png */,
 				D4D4BB2E11710E52009D70D0 /* confirm-action.png */,
 				D4D4BB2F11710E52009D70D0 /* confirm-cancel.png */,
@@ -726,9 +726,6 @@
 				D43CE16C114F0DC800DA07D5 /* backgrounds */,
 				D4A39830113C6E7F004971E9 /* icons */,
 				D4A394B91130F926004971E9 /* flag.png */,
-				D482E51710EEFB0D00678404 /* blue-button-bg.png */,
-				D482E51810EEFB0D00678404 /* gray-button-bg.png */,
-				D482E50110EEF08A00678404 /* menu-bg.png */,
 				D472018E10A294BA00601755 /* 58-bookmark.png */,
 				D47200B910A11A0500601755 /* small-gradient.png */,
 				D47200A710A1139500601755 /* 37-suitcase.png */,
@@ -989,9 +986,6 @@
 				D46A15D310D1FF1000B92FDF /* actions-sample.brieflist in Resources */,
 				0005E52D10E83C99006D44A2 /* TransitionsGallery.brieflist in Resources */,
 				D482E4FE10EEECC700678404 /* BFMainViewController.xib in Resources */,
-				D482E50210EEF08A00678404 /* menu-bg.png in Resources */,
-				D482E51910EEFB0D00678404 /* blue-button-bg.png in Resources */,
-				D482E51A10EEFB0D00678404 /* gray-button-bg.png in Resources */,
 				D4A394BA1130F926004971E9 /* flag.png in Resources */,
 				D4A39819113C6DBB004971E9 /* app-icon.png in Resources */,
 				D4A39833113C6E9D004971E9 /* Briefcast.png in Resources */,
@@ -1045,6 +1039,8 @@
 				D4A459DB1172DCDD00D9C1DF /* cell-top-sel.png in Resources */,
 				D4A3B6C2118BCF720082CA9F /* Briefcast 32.png in Resources */,
 				D4F210FA118C72750041F87C /* BFMainViewDefaultController.xib in Resources */,
+				D4F210D3118BD5E20041F87C /* root-menu-bg.png in Resources */,
+				D4F210D5118BD6520041F87C /* top-nav-button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
