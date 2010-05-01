@@ -8,8 +8,9 @@
 
 #import "BFRootView.h"
 
-@interface BFRootView (TapHoldGesture)
+@interface BFRootView (TapHoldGesture) <UIActionSheetDelegate>
 
 - (void)handleTapHoldGesture;
+- (void)cancelGestureTimer;
 
 @end

@@ -16,6 +16,7 @@
     BFCellConfiguration *cellConfig = [BFCellConfiguration newDefaultConfiguration];
     cellConfig.font = [UIFont boldSystemFontOfSize:19.0];
     self = [super initWithLabel:titleText andConfiguration:cellConfig];
+    [cellConfig release];
     return self;
 }
 

@@ -13,7 +13,7 @@
 
 @synthesize delegate;
 
-- (id)initWithLocationOfBrief:(NSString *)url andDelegate:(id<BFRemoteBriefEventDelegate>)remote 
+- (id)initWithLocationOfBrief:(NSString *)url andDelegate:(id<BFBriefcastEventDelegate>)remote 
 {
     self = [super initWithButtonLabel:@"Download this Brief"];
     if (self != nil) {

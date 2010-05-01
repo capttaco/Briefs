@@ -23,6 +23,7 @@
     cellConfig.color = [UIColor darkGrayColor];
     if (path != nil) [cellConfig addAcessoryImage:path];
     self = [super initWithLabel:[NSString stringWithFormat:@"%@\n",bodyText] andConfiguration:cellConfig];
+    [cellConfig release];
     return self;
 }
 

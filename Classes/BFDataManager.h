@@ -3,23 +3,34 @@
 //  Briefs
 //
 //  Created by Rob Rhyne on 9/23/09.
-//  Copyright Digital Arch Design, 2009. See LICENSE file for details.
+//  Copyright Digital Arch Design, 2009-2010. See LICENSE file for details.
 //
 
-#import <Foundation/Foundation.h>
 #import "BFBriefcast.h"
+#import "BriefcastRef.h"
+#import "BriefRef.h"
+#import "BFBriefDataSource.h"
+
+#define kBFLocallyStoredBriefURLString        @"LOCALLY_STORED_BF"
+
+typedef enum {
+    BFDataManagerSortByDateOpened,
+    BFDataManagerSortByDateDownloaded,
+}  BFDataManagerSortType;
+
+
 
 @interface BFDataManager : NSObject
 {
-    NSMutableDictionary *data_store;
-    
-    NSArray *knownBriefs;
-    NSArray *knownBriefcasts;
+    NSManagedObjectModel			*managedObjectModel;
+    NSManagedObjectContext			*managedObjectContext;	    
+    NSPersistentStoreCoordinator	*persistentStoreCoordinator;
 }
 
-@property (retain) NSMutableDictionary *data_store;
-@property (retain) NSArray *knownBriefs;
-@property (retain) NSArray *knownBriefcasts;
+@property (nonatomic, retain, readonly) NSManagedObjectModel			*managedObjectModel;
+@property (nonatomic, retain, readonly) NSManagedObjectContext			*managedObjectContext;
+@property (nonatomic, retain, readonly) NSPersistentStoreCoordinator	*persistentStoreCoordinator;
+
 
 // Access & Initialization
 + (BFDataManager *)sharedBFDataManager;
@@ -28,11 +39,26 @@
 - (void)load;
 - (void)save;
 
-// Briefs
-- (NSArray *)listOfLocalBriefsWithExtension:(NSString *)extension;
 
-// Briefcasts
-- (NSArray *)listOfKnownBriefcasts;
+// Data Access API
+- (BriefcastRef *)localBriefcastRefMarker;
+
+// Collection Access
+- (NSArray *)allBriefcastsSortedAs:(BFDataManagerSortType)typeOfSort;
+- (NSArray *)briefsFromBriefcast:(BriefcastRef *)briefcast sortedAs:(BFDataManagerSortType)typeOfSort;
+- (id<BFBriefDataSource>)allBriefsSortedAs:(BFDataManagerSortType)typeOfSort;
+
+// Singleton Access
+- (BriefRef *)findBriefUsingURL:(NSString *)url;
+- (NSDate *)briefFromURLWasInstalledOnDate:(NSString *)url;
+
+
+// Add & Remove Data API
+- (BriefRef *)addBriefAtPath:(NSString *)path usingData:(NSData *)data fromURL:(NSString *)url;
+- (BriefRef *)updateBrief:(BriefRef *)brief usingData:(NSData *)data;
 - (void)addBriefcastInformation:(BFBriefcast *)briefcast;
+
+- (void)removeBrief:(BriefRef *)brief;
+- (void)removeBriefcast:(BriefcastRef *)briefcast;
 
 @end

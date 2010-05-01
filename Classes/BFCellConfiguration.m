@@ -45,7 +45,7 @@
 - (UIImageView *)accessory
 {
     if (accessory != nil)
-        return [[UIImageView alloc] initWithImage:accessory];
+        return [[[UIImageView alloc] initWithImage:accessory] autorelease];
     else return nil;
 }
 

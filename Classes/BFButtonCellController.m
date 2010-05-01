@@ -19,12 +19,18 @@
     cellConfig.alignment = UITextAlignmentCenter;
     cellConfig.accessoryType = UITableViewCellAccessoryNone;
     self = [super initWithLabel:label andConfiguration:cellConfig];
+    [cellConfig release];
     return self;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {   
     // TODO: Need to support calling a selector here!
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tv editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleNone;
 }
 
 @end

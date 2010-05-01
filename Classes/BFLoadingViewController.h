@@ -2,39 +2,51 @@
 //  BFLoadingViewController.h
 //  Briefs
 //
-//  Created by Rob Rhyne on 11/7/09.
-//  Copyright Digital Arch Design, 2009. See LICENSE file for details.
+//  Created by Rob Rhyne on 4/5/10.
+//  Copyright Digital Arch Design, 2009-2010. See LICENSE file for details.
 //
 
-#import <UIKit/UIKit.h>
+#import "BFProgressBar.h"
 
 @protocol BFLoadingViewDelegate;
 
 @interface BFLoadingViewController : UIViewController 
 {
-    IBOutlet UIActivityIndicatorView    *spinner;
-    IBOutlet UILabel                    *label;
+    // Outlets
+    IBOutlet BFProgressBar  *progress;
+    IBOutlet UILabel        *statusLabel;
+    IBOutlet UIButton       *dismissButton;
     
-    id<BFLoadingViewDelegate>   delegate;
-    NSMutableData               *data;
-    NSString                    *locationOfRequest;
-    BOOL                        safeToClose;
+    id<BFLoadingViewDelegate>    delegate;
+    NSString                        *workingStatus;
+    
+    // Internals
+    NSURLConnection                 *connection;
+    NSMutableData                   *data;
+    NSString                        *locationOfRequest;
+    long long                       expectedSizeOfResponse;
 }
 
 @property (nonatomic, assign) id            delegate;
 @property (nonatomic, retain) NSString      *locationOfRequest;
 @property (nonatomic, retain) NSMutableData *data;
 
-// Connection API
-- (void)load:(NSString *)location withInitialStatus:(NSString *)status animated:(BOOL)animate;
 
+- (void)load:(NSString *)location withStatus:(NSString *)status;
+- (void)load:(NSString *)location withStatus:(NSString *)status initialStatus:(NSString *)initial;
+
+- (IBAction)dismissView;
 
 @end
+
 
 @protocol BFLoadingViewDelegate
 
 - (void)loadingView:(BFLoadingViewController *)controller didCompleteWithData:(NSData *)data;
 - (void)loadingView:(BFLoadingViewController *)controller didNotCompleteWithError:(NSError *)error;
-- (void)loadingView:(BFLoadingViewController *)controller shouldCloseView:(BOOL)animated;
+- (void)loadingView:(BFLoadingViewController *)controller didCancelConnection:(NSString *)url;
 
+@optional
+- (void)loadingView:(BFLoadingViewController *)controller shouldDismissView:(BOOL)animate;
+                                                                                  
 @end

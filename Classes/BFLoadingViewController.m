@@ -2,8 +2,8 @@
 //  BFLoadingViewController.m
 //  Briefs
 //
-//  Created by Rob Rhyne on 11/7/09.
-//  Copyright Digital Arch Design, 2009. See LICENSE file for details.
+//  Created by Rob Rhyne on 4/5/10.
+//  Copyright Digital Arch Design, 2009-2010. See LICENSE file for details.
 //
 
 #import "BFLoadingViewController.h"
@@ -16,47 +16,66 @@
 #pragma mark -
 #pragma mark NSView & NSObject Methods
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil 
+{
+    if (nibNameOrNil != nil) 
+        return [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    else
+        return [super initWithNibName:@"BFLoadingViewController" bundle:nibBundleOrNil];
+}
+
+- (id)init 
+{
+    return [self initWithNibName:nil bundle:nil];
+}
+
+// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+- (void)viewDidLoad 
+{
+    [super viewDidLoad];
+    
+}
+
 - (void)viewDidUnload 
 {
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
-    
-    [label release];
-    [spinner release];
 }
+
 
 - (void)dealloc 
 {
+    [self.data release];
+    [self.locationOfRequest release];
     [super dealloc];
 }
 
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+- (IBAction)dismissView
 {
-    UITouch* touch = [touches anyObject];
-    NSUInteger numTaps = [touch tapCount];
-    
-    if (numTaps >= 1 && safeToClose) {
-        [self.delegate loadingView:self shouldCloseView:YES];
-    }
-    
+    if (delegate)
+        [delegate loadingView:self shouldDismissView:YES];
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -
 #pragma mark Connection API
 
-- (void)load:(NSString *)location withInitialStatus:(NSString *)status animated:(BOOL)animate
+- (void)load:(NSString *)location withStatus:(NSString *)status
 {
-    safeToClose = NO;
+    [self load:location withStatus:status initialStatus:@"Connecting to Server..."];
+}
+
+- (void)load:(NSString *)location withStatus:(NSString *)status initialStatus:(NSString *)initial;
+{
     self.locationOfRequest = location;
     self.data = [[NSMutableData alloc] initWithLength:0];
+    workingStatus = status;
     
-    [label setText:status];
-    [spinner startAnimating];
+    if (initial)
+        [statusLabel setText:initial];
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:location]];
-    [[[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES] autorelease];    
+    connection = [[[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES] autorelease];
 }
 
 
@@ -64,30 +83,42 @@
 #pragma mark -
 #pragma mark NSURLConnectionDelegate Methods
 
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    expectedSizeOfResponse = [response expectedContentLength];
+}
+
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)nextData
 {
     [self.data appendData:nextData];
+    
+    [statusLabel setText:workingStatus];
+    float progressSoFar = [self.data length] / expectedSizeOfResponse;
+    
+    // animate stuff
+    [progress setProgressValue:progressSoFar animated:YES];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {    
-    [label setText:@"Download Complete"];
-    [spinner stopAnimating];
-    
+    [statusLabel setText:@"Finished."];
     [self.delegate loadingView:self didCompleteWithData:self.data];
-    safeToClose = YES;
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    // Boom, we failed.
-    NSLog(@"Boom, the URL load failed.");
-    [label setText:@"Oops, an error occured."];
+    [statusLabel setText:@"Oops, an error occured."];
     [self.delegate loadingView:self didNotCompleteWithError:error];
-    safeToClose = YES;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 
-
 @end
+
+
+
+
+
+
+
+
