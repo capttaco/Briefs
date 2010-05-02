@@ -7,14 +7,13 @@
 //
 
 #import "BFMainViewController.h"
-#import "BFBrowseViewController.h"
 #import "BFBrowseBriefcastsViewController.h"
 #import "BFBriefcastViewController.h"
 #import "BFDataManager.h"
-#import "BFConfig.h"
 #import "BriefcastRef+BFBriefDataSource.h"
 #import "BFPagedBrowseViewController.h"
 #import "BFArrayBriefDataSource.h"
+#import "BFConfig.h"
 
 @interface BFMainViewController (PrivateMethods)
 
