@@ -45,8 +45,12 @@ typedef enum {
 
 // Collection Access
 - (NSArray *)allBriefcastsSortedAs:(BFDataManagerSortType)typeOfSort;
-- (NSArray *)briefsFromBriefcast:(BriefcastRef *)briefcast sortedAs:(BFDataManagerSortType)typeOfSort;
+- (NSArray *)briefcastsSortedAs:(BFDataManagerSortType)typeOfSort limitTo:(int)limit;
+
 - (id<BFBriefDataSource>)allBriefsSortedAs:(BFDataManagerSortType)typeOfSort;
+- (id<BFBriefDataSource>)briefsSortedAs:(BFDataManagerSortType)typeOfSort limitTo:(int)limit;
+- (NSArray *)briefsFromBriefcast:(BriefcastRef *)briefcast sortedAs:(BFDataManagerSortType)typeOfSort;
+
 
 // Singleton Access
 - (BriefRef *)findBriefUsingURL:(NSString *)url;

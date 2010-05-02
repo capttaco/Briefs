@@ -239,10 +239,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
     
     // else, get the reference and update it's download date
     else {
-//        [brief setDateLastDownloaded:[NSDate date]];
-//        [data writeToFile:destination atomically:YES];
-//        
-//        return brief;
         return [self updateBrief:brief usingData:data];
     }
 }
@@ -270,6 +266,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
     
     return newRef;
 }
+
 - (BriefRef *)updateBrief:(BriefRef *)brief usingData:(NSData *)data
 {
     // update the brief meta data
@@ -330,10 +327,18 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
 
 - (NSArray *)allBriefcastsSortedAs:(BFDataManagerSortType)typeOfSort
 {
+    return [self briefcastsSortedAs:typeOfSort limitTo:-1];
+}    
+
+- (NSArray *)briefcastsSortedAs:(BFDataManagerSortType)typeOfSort limitTo:(int)limit 
+{
     // Build predicate to locate marker
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"fromURL <> %@", kBFLocallyStoredBriefURLString];
     
     // TODO: implement sorting types
+    //       defaults to lasted opened for now
+    NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"dateLastOpened" ascending:NO];
+    NSArray *sortDescriptors = [NSArray arrayWithObjects:sort, nil];
     
     NSMutableArray *arrayOfBriefcasts = [NSMutableArray array];
     
@@ -342,6 +347,10 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
 	NSEntityDescription *entity = [NSEntityDescription entityForName:@"BriefcastRef" inManagedObjectContext:[self managedObjectContext]];
 	[request setEntity:entity];
     [request setPredicate:predicate];
+    [request setSortDescriptors:sortDescriptors];
+    
+    // handle limit
+    if (limit > 0) [request setFetchLimit:limit];
     
     NSError *error;
     NSMutableArray *mutableFetchResults = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
@@ -370,14 +379,26 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
 
 - (id<BFBriefDataSource>)allBriefsSortedAs:(BFDataManagerSortType)typeOfSort;
 {
-    // TODO: implement sorting types
-    
+    return [self briefsSortedAs:typeOfSort limitTo:-1];
+}
+
+- (id<BFBriefDataSource>)briefsSortedAs:(BFDataManagerSortType)typeOfSort limitTo:(int)limit
+{
     NSMutableArray *arrayOfBriefs = [NSMutableArray array];
+
+    // TODO: implement sorting types
+    //       defaults to lasted opened for now
+    NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"dateLastOpened" ascending:NO];
+    NSArray *sortDescriptors = [NSArray arrayWithObjects:sort, nil];
     
     // Fetch Data from the database
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];
 	NSEntityDescription *entity = [NSEntityDescription entityForName:@"BriefRef" inManagedObjectContext:[self managedObjectContext]];
 	[request setEntity:entity];
+    [request setSortDescriptors:sortDescriptors];
+    
+    // handle limit
+    if (limit > 0) [request setFetchLimit:limit];
     
     NSError *error;
     NSMutableArray *mutableFetchResults = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
