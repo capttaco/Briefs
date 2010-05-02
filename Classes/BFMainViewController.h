@@ -32,6 +32,7 @@ typedef enum {
 {
     IBOutlet UIView     *openingView;
     IBOutlet UIView     *menuView;
+    IBOutlet UIView     *backgroundView;
     
     BFMainViewState     stateUponLaunch;
     
