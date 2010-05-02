@@ -106,7 +106,6 @@
 		D4A39834113C6E9D004971E9 /* Briefs.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A39832113C6E9D004971E9 /* Briefs.png */; };
 		D4A39836113C6EAA004971E9 /* Icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A39835113C6EAA004971E9 /* Icon-small.png */; };
 		D4A3B6C2118BCF720082CA9F /* Briefcast 32.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A3B6C1118BCF720082CA9F /* Briefcast 32.png */; };
-		D4A4595E1172C2D600D9C1DF /* BFBriefcastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A4595D1172C2D600D9C1DF /* BFBriefcastCell.xib */; };
 		D4A4597F1172CE0B00D9C1DF /* cell-middle.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A4597C1172CE0B00D9C1DF /* cell-middle.png */; };
 		D4A459801172CE0B00D9C1DF /* cell-bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A4597D1172CE0B00D9C1DF /* cell-bottom.png */; };
 		D4A459811172CE0B00D9C1DF /* cell-top.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A4597E1172CE0B00D9C1DF /* cell-top.png */; };
@@ -140,6 +139,7 @@
 		D4F210D5118BD6520041F87C /* top-nav-button.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F210D4118BD6520041F87C /* top-nav-button.png */; };
 		D4F210F9118C72750041F87C /* BFMainViewDefaultController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F210F7118C72750041F87C /* BFMainViewDefaultController.m */; };
 		D4F210FA118C72750041F87C /* BFMainViewDefaultController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F210F8118C72750041F87C /* BFMainViewDefaultController.xib */; };
+		D4F2138F118E0BD50041F87C /* BFBriefcastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F2138E118E0BD50041F87C /* BFBriefcastCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -297,7 +297,6 @@
 		D4A39832113C6E9D004971E9 /* Briefs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Briefs.png; path = images/Briefs.png; sourceTree = "<group>"; };
 		D4A39835113C6EAA004971E9 /* Icon-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-small.png"; path = "images/Icon-small.png"; sourceTree = "<group>"; };
 		D4A3B6C1118BCF720082CA9F /* Briefcast 32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Briefcast 32.png"; path = "images/Briefcast 32.png"; sourceTree = "<group>"; };
-		D4A4595D1172C2D600D9C1DF /* BFBriefcastCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BFBriefcastCell.xib; sourceTree = "<group>"; };
 		D4A4597C1172CE0B00D9C1DF /* cell-middle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cell-middle.png"; path = "images/bg/cell-middle.png"; sourceTree = "<group>"; };
 		D4A4597D1172CE0B00D9C1DF /* cell-bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cell-bottom.png"; path = "images/bg/cell-bottom.png"; sourceTree = "<group>"; };
 		D4A4597E1172CE0B00D9C1DF /* cell-top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cell-top.png"; path = "images/bg/cell-top.png"; sourceTree = "<group>"; };
@@ -338,6 +337,7 @@
 		D4F210F6118C72750041F87C /* BFMainViewDefaultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFMainViewDefaultController.h; sourceTree = "<group>"; };
 		D4F210F7118C72750041F87C /* BFMainViewDefaultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFMainViewDefaultController.m; sourceTree = "<group>"; };
 		D4F210F8118C72750041F87C /* BFMainViewDefaultController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BFMainViewDefaultController.xib; path = Classes/BFMainViewDefaultController.xib; sourceTree = "<group>"; };
+		D4F2138E118E0BD50041F87C /* BFBriefcastCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BFBriefcastCell.xib; path = Classes/BFBriefcastCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -857,7 +857,7 @@
 		D4F211AF118D08EB0041F87C /* table cells */ = {
 			isa = PBXGroup;
 			children = (
-				D4A4595D1172C2D600D9C1DF /* BFBriefcastCell.xib */,
+				D4F2138E118E0BD50041F87C /* BFBriefcastCell.xib */,
 			);
 			name = "table cells";
 			sourceTree = "<group>";
@@ -980,7 +980,6 @@
 				D4D4BC821172790C009D70D0 /* browse-briefcasts.png in Resources */,
 				D4D4BC8411727A7C009D70D0 /* built-in-button.png in Resources */,
 				D4D4BC9D11728248009D70D0 /* navigation-bar.png in Resources */,
-				D4A4595E1172C2D600D9C1DF /* BFBriefcastCell.xib in Resources */,
 				D4A4597F1172CE0B00D9C1DF /* cell-middle.png in Resources */,
 				D4A459801172CE0B00D9C1DF /* cell-bottom.png in Resources */,
 				D4A459811172CE0B00D9C1DF /* cell-top.png in Resources */,
@@ -991,6 +990,7 @@
 				D4F210FA118C72750041F87C /* BFMainViewDefaultController.xib in Resources */,
 				D4F210D3118BD5E20041F87C /* root-menu-bg.png in Resources */,
 				D4F210D5118BD6520041F87C /* top-nav-button.png in Resources */,
+				D4F2138F118E0BD50041F87C /* BFBriefcastCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
