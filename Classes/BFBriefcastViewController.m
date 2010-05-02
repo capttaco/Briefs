@@ -9,7 +9,6 @@
 #import "BFBriefcastViewController.h"
 #import "FeedParser.h"
 #import "BFBriefCellController.h"
-#import "BFRemoteBriefCellController.h"
 #import "BFDataManager.h"
 #import "BFConfig.h"
 

@@ -12,7 +12,6 @@
 #import "BriefcastRef.h"
 #import "BFBriefcast+CoreDataAdditions.h"
 #import "BFBriefcastCellController.h"
-#import "BFAddBriefcastCellController.h"
 
 
 @implementation BFBrowseBriefcastsViewController
