@@ -13,7 +13,7 @@
 
 
 @implementation BFBriefcastCellController
-@synthesize briefcast;
+@synthesize briefcast, delegate;
 
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -
@@ -83,7 +83,10 @@
     BFBriefcastViewController *controller = [[BFBriefcastViewController alloc] initWithNibName:@"BFBriefcastViewController" bundle:nil];
     controller.briefcast = self.briefcast;
 
-    if ([[tv delegate] isKindOfClass:[UIViewController class]]) {
+    if (delegate != nil) {
+        [delegate pushViewController:controller animated:YES];
+    }
+    else if ([[tv delegate] isKindOfClass:[UIViewController class]]) {
         UIViewController *tvc = (UIViewController *) [tv delegate];
         [tvc.navigationController pushViewController:controller animated:YES];
     }

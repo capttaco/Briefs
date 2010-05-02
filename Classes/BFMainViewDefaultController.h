@@ -12,7 +12,10 @@
 {
     IBOutlet UIView     *briefHeaderView;
     IBOutlet UIView     *briefcastHeaderView;
+    
+    UINavigationController *navigation;
 }
 
+- (id)initWithNavController:(UINavigationController *)controller;
 
 @end

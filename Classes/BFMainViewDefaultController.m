@@ -15,10 +15,10 @@
 
 @implementation BFMainViewDefaultController
 
-- (id)init
+- (id)initWithNavController:(UINavigationController *)controller
 {
     if (self = [super initWithNibName:@"BFMainViewDefaultController" bundle:nil]) {
-        // initialization?
+        navigation = controller;
     }
     
     return self;
@@ -35,6 +35,16 @@
 
 - (void)viewWillAppear:(BOOL)animated 
 {
+    [super viewWillAppear:animated];
+
+    // Unselect the selected row if any
+	NSIndexPath* selection = [self.tableView indexPathForSelectedRow];
+	if (selection) {
+        // [self.tableView deselectRowAtIndexPath:selection animated:YES];
+        UITableViewCell *selectedCell = [self.tableView cellForRowAtIndexPath:selection];
+        [selectedCell setSelected:NO animated:YES];
+    }
+    
     [self updateAndReload];
 }
 
@@ -76,15 +86,11 @@
     NSArray *lastOpenedBriefcast = [[BFDataManager sharedBFDataManager] briefcastsSortedAs:BFDataManagerSortByDateOpened limitTo:1];
     if (lastOpenedBriefcast != nil) {
         BFBriefcastCellController *controller = [[[BFBriefcastCellController alloc] initWithBriefcast:[lastOpenedBriefcast objectAtIndex:0]] autorelease];
+        controller.delegate = navigation;
         [briefcastController addObject:controller];
     }
     
     self.tableGroups = [NSArray arrayWithObjects:briefControllers, briefcastController, nil];
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    return (section == 0) ? @"RECENT BRIEFS" : @"LAST OPENED BRIEFCAST";
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section

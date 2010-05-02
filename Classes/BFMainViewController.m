@@ -64,6 +64,11 @@
     [super viewDidLoad];
     self.navigationController.navigationBar.tintColor = [BFConfig tintColorForNavigationBar];
     self.title = @"Welcome";
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     
     switch (stateUponLaunch) {
         case BFMainViewOpenedByURL:
@@ -109,20 +114,16 @@
                 [self showMenuWithAnimation];
             
             // TODO: Display recent briefs/briefcasts
-            BFMainViewDefaultController *defaultController = [[BFMainViewDefaultController alloc] init];
-            defaultController.view.frame = CGRectOffset(defaultController.view.frame, 0, 0.0f);
-            [self.view addSubview:defaultController.view];
+            if (defaultController == nil) {
+                defaultController = [[BFMainViewDefaultController alloc] initWithNavController:self.navigationController];
+                defaultController.view.frame = CGRectOffset(defaultController.view.frame, 0, 0.0f);
+                [self.view addSubview:defaultController.view];
+            }
+            
+            else [defaultController viewWillAppear:YES];
             
             break;
     }
-}
-
-- (void)viewWillAppear:(BOOL)animated 
-{
-    [super viewWillAppear:animated];
-    
-    if (menuView.frame.origin.y <= 480.0f)
-        [self showMenuWithAnimation];
 }
 
 - (void)viewDidUnload 
@@ -172,9 +173,6 @@
     CGSize size = menuView.frame.size;
     menuView.frame = CGRectMake(0.0f, 480.0f, size.width, size.height);
     
-//    CGSize bgSize = backgroundView.frame.size;
-//    backgroundView.frame = CGRectMake(0.0f, 0.0f, bgSize.width, bgSize.height);
-    
     [UIView commitAnimations];
 }
 
@@ -186,9 +184,6 @@
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];    
     CGSize size = menuView.frame.size;
     menuView.frame = CGRectMake(0.0f, 290.0f, size.width, size.height);
-    
-//    CGSize bgSize = backgroundView.frame.size;
-//    backgroundView.frame = CGRectMake(0, -126.0f, bgSize.width, bgSize.height);
     
     [UIView commitAnimations];
 }

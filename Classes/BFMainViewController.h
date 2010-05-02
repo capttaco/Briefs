@@ -7,6 +7,7 @@
 //
 
 #import "BFRemoteBriefViewController.h"
+#import "BFMainViewDefaultController.h"
 
 // Display states for various start-up conditions
 typedef enum {
@@ -37,7 +38,8 @@ typedef enum {
     BFMainViewState     stateUponLaunch;
     
     // optional context ivars
-    NSURL               *urlLaunchWith;
+    NSURL                       *urlLaunchWith;
+    BFMainViewDefaultController *defaultController;
 }
 
 // Initialization

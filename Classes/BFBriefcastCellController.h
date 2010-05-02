@@ -15,10 +15,12 @@
     IBOutlet UILabel    *titleLabel;
     IBOutlet UILabel    *descLabel;
     
-    BriefcastRef *briefcast;
+    BriefcastRef            *briefcast;
+    UINavigationController  *delegate;
 }
 
 @property (retain) BriefcastRef *briefcast;
+@property (assign) UINavigationController *delegate;
 
 - (id)initWithBriefcast:(BriefcastRef *)bcast;
 
