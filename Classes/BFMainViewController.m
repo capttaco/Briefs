@@ -64,10 +64,7 @@
     [super viewDidLoad];
     self.navigationController.navigationBar.tintColor = [BFConfig tintColorForNavigationBar];
     self.title = @"Welcome";
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
+    
     switch (stateUponLaunch) {
         case BFMainViewOpenedByURL:
             
@@ -118,6 +115,14 @@
             
             break;
     }
+}
+
+- (void)viewWillAppear:(BOOL)animated 
+{
+    [super viewWillAppear:animated];
+    
+    if (menuView.frame.origin.y <= 480.0f)
+        [self showMenuWithAnimation];
 }
 
 - (void)viewDidUnload 
