@@ -160,11 +160,11 @@
     [UIView beginAnimations:@"MenuSlideDownTransition" context:nil];
     [UIView setAnimationDuration:0.3f];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-//    CGSize size = menuView.frame.size;
-//    menuView.frame = CGRectMake(0.0f, 480.0f, size.width, size.height);
+    CGSize size = menuView.frame.size;
+    menuView.frame = CGRectMake(0.0f, 480.0f, size.width, size.height);
     
-    CGSize bgSize = backgroundView.frame.size;
-    backgroundView.frame = CGRectMake(0.0f, 0.0f, bgSize.width, bgSize.height);
+//    CGSize bgSize = backgroundView.frame.size;
+//    backgroundView.frame = CGRectMake(0.0f, 0.0f, bgSize.width, bgSize.height);
     
     [UIView commitAnimations];
 }
@@ -175,11 +175,11 @@
     [UIView beginAnimations:@"MenuSlideUpTransition" context:nil];
     [UIView setAnimationDuration:0.3f];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];    
-//    CGSize size = menuView.frame.size;
-//    menuView.frame = CGRectMake(0.0f, 290.0f, size.width, size.height);
+    CGSize size = menuView.frame.size;
+    menuView.frame = CGRectMake(0.0f, 290.0f, size.width, size.height);
     
-    CGSize bgSize = backgroundView.frame.size;
-    backgroundView.frame = CGRectMake(0, -126.0f, bgSize.width, bgSize.height);
+//    CGSize bgSize = backgroundView.frame.size;
+//    backgroundView.frame = CGRectMake(0, -126.0f, bgSize.width, bgSize.height);
     
     [UIView commitAnimations];
 }
