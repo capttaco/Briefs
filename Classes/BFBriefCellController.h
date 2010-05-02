@@ -25,7 +25,7 @@ typedef enum {
 
 @interface BFBriefCellController : NSObject<BFCellController> 
 {
-    id<BFBriefcastEventDelegate>  delegate;
+    id<BFBriefcastEventDelegate>    delegate;
     BFBriefCellInstallType          installType;
     FPItem                          *brief;
     

@@ -136,6 +136,18 @@
     }
 }
 
+- (void)tableView:(UITableView *)tv accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    if (!self.tableGroups) {
+        [self constructTableGroups];
+    }
+    
+    NSObject<BFCellController> *cellData = [[self.tableGroups objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    if ([cellData respondsToSelector:@selector(tableView:accessoryButtonTappedForRowWithIndexPath:)]){
+        [cellData tableView:tv accessoryButtonTappedForRowWithIndexPath:indexPath];
+    }
+}
+
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -
 #pragma mark Memory Management
