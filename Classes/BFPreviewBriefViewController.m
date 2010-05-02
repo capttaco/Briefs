@@ -104,8 +104,13 @@
 
 - (void)zoomViewDidStop:(NSString *)animationId finished:(NSNumber *)finished context:(void *)context
 {
+    // record dateLastOpened value
+    BriefRef *ref = [dataSource dataForIndex:pageIndex];
+    [ref setDateLastOpened:[NSDate date]];
+    [[BFDataManager sharedBFDataManager] save];
+    
     // Start playing the brief
-    NSString *pathToDictionary = [[[BFDataManager sharedBFDataManager] documentDirectory] stringByAppendingPathComponent:[[dataSource dataForIndex:pageIndex] filePath]];
+    NSString *pathToDictionary = [[[BFDataManager sharedBFDataManager] documentDirectory] stringByAppendingPathComponent:[ref filePath]];
     
     // setup scene view controller
     BFSceneManager *manager = [[BFSceneManager alloc] initWithPathToDictionary:pathToDictionary];
