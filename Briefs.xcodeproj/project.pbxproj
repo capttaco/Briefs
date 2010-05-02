@@ -139,7 +139,11 @@
 		D4F210D5118BD6520041F87C /* top-nav-button.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F210D4118BD6520041F87C /* top-nav-button.png */; };
 		D4F210F9118C72750041F87C /* BFMainViewDefaultController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F210F7118C72750041F87C /* BFMainViewDefaultController.m */; };
 		D4F210FA118C72750041F87C /* BFMainViewDefaultController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F210F8118C72750041F87C /* BFMainViewDefaultController.xib */; };
+		D4F2123D118D222E0041F87C /* BFRefreshBriefCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F2123C118D222E0041F87C /* BFRefreshBriefCellController.m */; };
+		D4F212C2118D336F0041F87C /* refresh-accessory.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F212C1118D336F0041F87C /* refresh-accessory.png */; };
 		D4F2138F118E0BD50041F87C /* BFBriefcastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F2138E118E0BD50041F87C /* BFBriefcastCell.xib */; };
+		D4F21391118E0C2C0041F87C /* BFRefreshBriefCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F21390118E0C2C0041F87C /* BFRefreshBriefCell.xib */; };
+		D4F21399118E0DC70041F87C /* Brief-tablecell.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F21398118E0DC70041F87C /* Brief-tablecell.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -337,7 +341,12 @@
 		D4F210F6118C72750041F87C /* BFMainViewDefaultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFMainViewDefaultController.h; sourceTree = "<group>"; };
 		D4F210F7118C72750041F87C /* BFMainViewDefaultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFMainViewDefaultController.m; sourceTree = "<group>"; };
 		D4F210F8118C72750041F87C /* BFMainViewDefaultController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BFMainViewDefaultController.xib; path = Classes/BFMainViewDefaultController.xib; sourceTree = "<group>"; };
+		D4F2123B118D222E0041F87C /* BFRefreshBriefCellController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFRefreshBriefCellController.h; sourceTree = "<group>"; };
+		D4F2123C118D222E0041F87C /* BFRefreshBriefCellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFRefreshBriefCellController.m; sourceTree = "<group>"; };
+		D4F212C1118D336F0041F87C /* refresh-accessory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "refresh-accessory.png"; path = "images/toolbar/refresh-accessory.png"; sourceTree = "<group>"; };
 		D4F2138E118E0BD50041F87C /* BFBriefcastCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BFBriefcastCell.xib; path = Classes/BFBriefcastCell.xib; sourceTree = "<group>"; };
+		D4F21390118E0C2C0041F87C /* BFRefreshBriefCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BFRefreshBriefCell.xib; path = Classes/BFRefreshBriefCell.xib; sourceTree = "<group>"; };
+		D4F21398118E0DC70041F87C /* Brief-tablecell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Brief-tablecell.png"; path = "images/Brief-tablecell.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -595,6 +604,7 @@
 		D43CE7D7115DA54100DA07D5 /* toolbar */ = {
 			isa = PBXGroup;
 			children = (
+				D4F212C1118D336F0041F87C /* refresh-accessory.png */,
 				D43CE8B4115F196C00DA07D5 /* remote-play.png */,
 				D43CE886115F022D00DA07D5 /* refresh-large.png */,
 				D43CE7D8115DA55600DA07D5 /* return.png */,
@@ -649,6 +659,8 @@
 				D46411961065D59D001522F6 /* BFBriefcastCellController.m */,
 				D464133C10695048001522F6 /* BFTextCellController.h */,
 				D464133D10695048001522F6 /* BFTextCellController.m */,
+				D4F2123B118D222E0041F87C /* BFRefreshBriefCellController.h */,
+				D4F2123C118D222E0041F87C /* BFRefreshBriefCellController.m */,
 			);
 			name = cells;
 			sourceTree = "<group>";
@@ -682,6 +694,7 @@
 		D472009510A110FE00601755 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D4F21398118E0DC70041F87C /* Brief-tablecell.png */,
 				D43CE955115FC76E00DA07D5 /* buttons */,
 				D43CE7D7115DA54100DA07D5 /* toolbar */,
 				D43CE16C114F0DC800DA07D5 /* backgrounds */,
@@ -857,6 +870,7 @@
 		D4F211AF118D08EB0041F87C /* table cells */ = {
 			isa = PBXGroup;
 			children = (
+				D4F21390118E0C2C0041F87C /* BFRefreshBriefCell.xib */,
 				D4F2138E118E0BD50041F87C /* BFBriefcastCell.xib */,
 			);
 			name = "table cells";
@@ -990,7 +1004,10 @@
 				D4F210FA118C72750041F87C /* BFMainViewDefaultController.xib in Resources */,
 				D4F210D3118BD5E20041F87C /* root-menu-bg.png in Resources */,
 				D4F210D5118BD6520041F87C /* top-nav-button.png in Resources */,
+				D4F212C2118D336F0041F87C /* refresh-accessory.png in Resources */,
 				D4F2138F118E0BD50041F87C /* BFBriefcastCell.xib in Resources */,
+				D4F21391118E0C2C0041F87C /* BFRefreshBriefCell.xib in Resources */,
+				D4F21399118E0DC70041F87C /* Brief-tablecell.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1056,6 +1073,7 @@
 				D4D4BB2B11710AAA009D70D0 /* BFRemoteBriefSaver.m in Sources */,
 				D4D4BC9B11728150009D70D0 /* UINavigationBar+CustomBackground.m in Sources */,
 				D4F210F9118C72750041F87C /* BFMainViewDefaultController.m in Sources */,
+				D4F2123D118D222E0041F87C /* BFRefreshBriefCellController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,7 @@
 
 #import "BFMainViewController.h"
 #import "BFBrowseBriefcastsViewController.h"
+#import "BFMainViewDefaultController.h"
 #import "BFBriefcastViewController.h"
 #import "BFDataManager.h"
 #import "BriefcastRef+BFBriefDataSource.h"
@@ -111,6 +112,9 @@
                 [self showMenuWithAnimation];
             
             // TODO: Display recent briefs/briefcasts
+            BFMainViewDefaultController *defaultController = [[BFMainViewDefaultController alloc] init];
+            defaultController.view.frame = CGRectOffset(defaultController.view.frame, 0, 0.0f);
+            [self.view addSubview:defaultController.view];
             
             break;
     }
