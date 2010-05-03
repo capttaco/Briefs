@@ -8,17 +8,21 @@
 
 #import "BFCellController.h"
 #import "BriefRef.h"
+#import "BFLoadingViewController.h"
+#import "BFSceneViewController.h"
 
-@interface BFRefreshBriefCellController : NSObject<BFCellController>
+@interface BFRefreshBriefCellController : NSObject<BFCellController, BFLoadingViewDelegate, BFSceneViewDelegate>
 {
     IBOutlet UILabel    *name;
     IBOutlet UILabel    *desc;
     
     BriefRef            *brief;
     UITableViewCell     *cell;
+    UINavigationController  *navigation;
 }
 
-@property (nonatomic, retain) BriefRef *brief;
+@property (nonatomic, retain) BriefRef      *brief;
+@property (assign) UINavigationController   *navigation;
 
 - (IBAction)updateBriefData;
 

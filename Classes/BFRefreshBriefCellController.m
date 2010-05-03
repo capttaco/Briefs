@@ -7,12 +7,13 @@
 //
 
 #import "BFRefreshBriefCellController.h"
-#import "BFLoadingViewController.h"
+#import "BFSceneManager.h"
+#import "BFPresentationDispatch.h"
 #import "BFDataManager.h"
 #import "BFConfig.h"
 
 @implementation BFRefreshBriefCellController
-@synthesize brief;
+@synthesize brief, navigation;
 
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -
@@ -159,7 +160,33 @@
 
 - (void)tableView:(UITableView *)tv didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // TODO: launch brief
+    NSString *pathToDictionary = [[[BFDataManager sharedBFDataManager] documentDirectory] stringByAppendingPathComponent:[self.brief filePath]];
+    BFSceneManager *manager = [[BFSceneManager alloc] initWithPathToDictionary:pathToDictionary];
+    BFSceneViewController *sceneController = [[BFSceneViewController alloc] initWithSceneManager:manager];
+    
+    // wire dispatch
+    if ([[BFPresentationDispatch sharedBFPresentationDispatch] viewController] != nil)
+        [BFPresentationDispatch sharedBFPresentationDispatch].viewController = nil;
+    
+    [[BFPresentationDispatch sharedBFPresentationDispatch] setViewController:sceneController];
+    [BFPresentationDispatch sharedBFPresentationDispatch].viewController.delegate = self;
+    
+    // get parent View
+    UIView *parentView = [self.navigation view];
+    
+    [UIView beginAnimations:@"display brief" context:nil];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(briefShowDidStop:finished:context:)];
+    [UIView setAnimationTransition:UIViewAnimationTransitionCurlDown forView:parentView cache:YES];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    [UIView setAnimationDuration:0.8f];
+    
+    // swap loader for brief
+    [parentView addSubview:[BFPresentationDispatch sharedBFPresentationDispatch].viewController.view];
+    
+    [UIView commitAnimations];
+    
+    [manager release];
 }
 
 
@@ -167,6 +194,34 @@
 {
     return 50.0f;
 }
+
+
+///////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark BFSceneViewDelegate Methods
+
+- (void)briefShowDidStop:(NSString *)animationId finished:(NSNumber *)finished context:(void *)context
+{
+    [[UIApplication sharedApplication] setStatusBarHidden:YES animated:YES];
+}
+
+- (void)sceneView:(BFSceneViewController *)controller shouldDismissView:(BOOL)animated
+{
+    [[UIApplication sharedApplication] setStatusBarHidden:NO animated:YES];
+    [cell setSelected:NO animated:YES];
+    
+    [UIView beginAnimations:@"remove brief" context:nil];
+    [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.navigation.view cache:YES];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    [UIView setAnimationDuration:0.8f];
+    
+    // swap brief for save view
+    [controller.view removeFromSuperview];
+    
+    [UIView commitAnimations];    
+}
+
+
 
 ///////////////////////////////////////////////////////////////////////////////
 

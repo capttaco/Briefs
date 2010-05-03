@@ -144,6 +144,7 @@
 		D4F2138F118E0BD50041F87C /* BFBriefcastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F2138E118E0BD50041F87C /* BFBriefcastCell.xib */; };
 		D4F21391118E0C2C0041F87C /* BFRefreshBriefCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F21390118E0C2C0041F87C /* BFRefreshBriefCell.xib */; };
 		D4F21399118E0DC70041F87C /* Brief-tablecell.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F21398118E0DC70041F87C /* Brief-tablecell.png */; };
+		D4F21468118E46AC0041F87C /* refresh-accessory-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F21467118E46AC0041F87C /* refresh-accessory-disabled.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -347,6 +348,7 @@
 		D4F2138E118E0BD50041F87C /* BFBriefcastCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BFBriefcastCell.xib; path = Classes/BFBriefcastCell.xib; sourceTree = "<group>"; };
 		D4F21390118E0C2C0041F87C /* BFRefreshBriefCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BFRefreshBriefCell.xib; path = Classes/BFRefreshBriefCell.xib; sourceTree = "<group>"; };
 		D4F21398118E0DC70041F87C /* Brief-tablecell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Brief-tablecell.png"; path = "images/Brief-tablecell.png"; sourceTree = "<group>"; };
+		D4F21467118E46AC0041F87C /* refresh-accessory-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "refresh-accessory-disabled.png"; path = "images/toolbar/refresh-accessory-disabled.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -604,6 +606,7 @@
 		D43CE7D7115DA54100DA07D5 /* toolbar */ = {
 			isa = PBXGroup;
 			children = (
+				D4F21467118E46AC0041F87C /* refresh-accessory-disabled.png */,
 				D4F212C1118D336F0041F87C /* refresh-accessory.png */,
 				D43CE8B4115F196C00DA07D5 /* remote-play.png */,
 				D43CE886115F022D00DA07D5 /* refresh-large.png */,
@@ -1008,6 +1011,7 @@
 				D4F2138F118E0BD50041F87C /* BFBriefcastCell.xib in Resources */,
 				D4F21391118E0C2C0041F87C /* BFRefreshBriefCell.xib in Resources */,
 				D4F21399118E0DC70041F87C /* Brief-tablecell.png in Resources */,
+				D4F21468118E46AC0041F87C /* refresh-accessory-disabled.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

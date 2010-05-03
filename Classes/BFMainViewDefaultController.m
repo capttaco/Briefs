@@ -75,10 +75,15 @@
     // get most recently viewed briefs
     id<BFBriefDataSource> recentBriefs = [[BFDataManager sharedBFDataManager] briefsSortedAs:BFDataManagerSortByDateOpened limitTo:2];
     if ([recentBriefs numberOfRecords] >= 1) {
-        [briefControllers addObject:[[[BFRefreshBriefCellController alloc] initWithBrief:[recentBriefs dataForIndex:0]] autorelease]];
+        BFRefreshBriefCellController *controller1 = [[[BFRefreshBriefCellController alloc] initWithBrief:[recentBriefs dataForIndex:0]] autorelease];
+        controller1.navigation = navigation;
+        [briefControllers addObject:controller1];
         
-        if ([recentBriefs numberOfRecords] >= 2)
-            [briefControllers addObject:[[[BFRefreshBriefCellController alloc] initWithBrief:[recentBriefs dataForIndex:1]] autorelease]];
+        if ([recentBriefs numberOfRecords] >= 2) {
+            BFRefreshBriefCellController *controller2 = [[[BFRefreshBriefCellController alloc] initWithBrief:[recentBriefs dataForIndex:1]] autorelease];
+            controller2.navigation = navigation;
+            [briefControllers addObject:controller2];
+        }
     }
     
     
