@@ -183,7 +183,7 @@
     [UIView setAnimationDuration:0.3f];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];    
     CGSize size = menuView.frame.size;
-    menuView.frame = CGRectMake(0.0f, 290.0f, size.width, size.height);
+    menuView.frame = CGRectMake(0.0f, 291.0f, size.width, size.height);
     
     [UIView commitAnimations];
 }
