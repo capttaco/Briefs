@@ -81,10 +81,8 @@
 {    
     [self performSelector:@selector(beginLoadingFadeOutAnimation:) withObject:controller afterDelay:1.0f];
     
-    // refresh data, reload brief-info
+    // refresh data
     self.brief = [[BFDataManager sharedBFDataManager] updateBrief:self.brief usingData:data];
-    //[self prepareInfoView:briefBeingPreviewed];
-    
 }
 
 - (void)loadingView:(BFLoadingViewController *)controller didNotCompleteWithError:(NSError *)error
@@ -117,10 +115,20 @@
     // Miserable hack to get custom accessory view
     UIImage *refreshImage = [UIImage imageNamed:@"refresh-accessory.png"];
     UIButton *refresh = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+
+    // configure target
     [refresh addTarget:self action:@selector(updateBriefData) forControlEvents:UIControlEventTouchUpInside];
+    
+    // configure images
     [refresh setImage:refreshImage forState:UIControlStateNormal];
     [refresh setImage:refreshImage forState:UIControlStateSelected];
-    [refresh setImage:refreshImage forState:UIControlStateHighlighted];    
+    [refresh setImage:refreshImage forState:UIControlStateHighlighted];   
+    [refresh setImage:[UIImage imageNamed:@"refresh-accessory-disabled.png"] forState:UIControlStateDisabled];
+    
+    // disable if the brief is local
+    if ([brief.briefcast isEqual:[[BFDataManager sharedBFDataManager] localBriefcastRefMarker]])
+        [refresh setEnabled:NO];
+    
     cell.accessoryView = refresh;
     
     // calculate background
