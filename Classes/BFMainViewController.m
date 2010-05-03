@@ -8,6 +8,7 @@
 
 #import "BFMainViewController.h"
 #import "BFBrowseBriefcastsViewController.h"
+#import "BFHelpSystemViewController.h"
 #import "BFMainViewDefaultController.h"
 #import "BFBriefcastViewController.h"
 #import "BFDataManager.h"
@@ -21,6 +22,7 @@
 - (void)hideMenuWithAnimation;
 - (void)showMenuWithAnimation;
 - (void)dismissLoadingViewAnimation:(UIView *)loadingView;
+- (void)launchHelpSystem;
 
 @end
 
@@ -64,6 +66,13 @@
     [super viewDidLoad];
     self.navigationController.navigationBar.tintColor = [BFConfig tintColorForNavigationBar];
     self.title = @"Welcome";
+    
+    // Help button
+    UIBarButtonItem *helpButton = [[[UIBarButtonItem alloc] initWithTitle:@"Help" 
+                                                                    style:UIBarButtonItemStylePlain
+                                                                   target:self 
+                                                                   action:@selector(launchHelpSystem)] autorelease];
+    self.navigationItem.rightBarButtonItem = helpButton;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -113,7 +122,7 @@
             if (menuView.frame.origin.y <= 480.0f)
                 [self showMenuWithAnimation];
             
-            // TODO: Display recent briefs/briefcasts
+            // Display recent briefs/briefcasts
             if (defaultController == nil) {
                 defaultController = [[BFMainViewDefaultController alloc] initWithNavController:self.navigationController];
                 defaultController.view.frame = CGRectOffset(defaultController.view.frame, 0, 0.0f);
@@ -163,6 +172,14 @@
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -
 #pragma mark Main Menu Actions
+
+- (void)launchHelpSystem
+{
+    BFHelpSystemViewController *help = [[BFHelpSystemViewController alloc] init];
+//    UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:help];
+//    [self.navigationController presentModalViewController:navigation animated:YES];
+    [self.navigationController presentModalViewController:help animated:YES];
+}
 
 - (void)hideMenuWithAnimation
 {

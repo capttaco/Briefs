@@ -145,6 +145,13 @@
 		D4F21391118E0C2C0041F87C /* BFRefreshBriefCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F21390118E0C2C0041F87C /* BFRefreshBriefCell.xib */; };
 		D4F21399118E0DC70041F87C /* Brief-tablecell.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F21398118E0DC70041F87C /* Brief-tablecell.png */; };
 		D4F21468118E46AC0041F87C /* refresh-accessory-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F21467118E46AC0041F87C /* refresh-accessory-disabled.png */; };
+		D4F214D7118E6D0B0041F87C /* BFHelpSystemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F214D5118E6D0B0041F87C /* BFHelpSystemViewController.m */; };
+		D4F214D8118E6D0B0041F87C /* BFHelpSystemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F214D6118E6D0B0041F87C /* BFHelpSystemViewController.xib */; };
+		D4F21536118E7E9A0041F87C /* starter-kit.zip in Resources */ = {isa = PBXBuildFile; fileRef = D4F21535118E7E9A0041F87C /* starter-kit.zip */; };
+		D4F21544118E7FBE0041F87C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4F21543118E7FBE0041F87C /* MessageUI.framework */; };
+		D4F21571118E99790041F87C /* gettingstarted.html in Resources */ = {isa = PBXBuildFile; fileRef = D4F21570118E99790041F87C /* gettingstarted.html */; };
+		D4F21580118E9A760041F87C /* share.html in Resources */ = {isa = PBXBuildFile; fileRef = D4F2157E118E9A760041F87C /* share.html */; };
+		D4F21581118E9A760041F87C /* faq.html in Resources */ = {isa = PBXBuildFile; fileRef = D4F2157F118E9A760041F87C /* faq.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -349,6 +356,14 @@
 		D4F21390118E0C2C0041F87C /* BFRefreshBriefCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BFRefreshBriefCell.xib; path = Classes/BFRefreshBriefCell.xib; sourceTree = "<group>"; };
 		D4F21398118E0DC70041F87C /* Brief-tablecell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Brief-tablecell.png"; path = "images/Brief-tablecell.png"; sourceTree = "<group>"; };
 		D4F21467118E46AC0041F87C /* refresh-accessory-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "refresh-accessory-disabled.png"; path = "images/toolbar/refresh-accessory-disabled.png"; sourceTree = "<group>"; };
+		D4F214D4118E6D0B0041F87C /* BFHelpSystemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFHelpSystemViewController.h; sourceTree = "<group>"; };
+		D4F214D5118E6D0B0041F87C /* BFHelpSystemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFHelpSystemViewController.m; sourceTree = "<group>"; };
+		D4F214D6118E6D0B0041F87C /* BFHelpSystemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BFHelpSystemViewController.xib; path = Classes/BFHelpSystemViewController.xib; sourceTree = "<group>"; };
+		D4F21535118E7E9A0041F87C /* starter-kit.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "starter-kit.zip"; sourceTree = "<group>"; };
+		D4F21543118E7FBE0041F87C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		D4F21570118E99790041F87C /* gettingstarted.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = gettingstarted.html; path = html/gettingstarted.html; sourceTree = "<group>"; };
+		D4F2157E118E9A760041F87C /* share.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = share.html; path = html/share.html; sourceTree = "<group>"; };
+		D4F2157F118E9A760041F87C /* faq.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = faq.html; path = html/faq.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -361,6 +376,7 @@
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				D4AF1A341147312400D1B3B5 /* CoreData.framework in Frameworks */,
 				D43CE71F1158811700DA07D5 /* QuartzCore.framework in Frameworks */,
+				D4F21544118E7FBE0041F87C /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +420,7 @@
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				D43CE71E1158811700DA07D5 /* QuartzCore.framework */,
+				D4F21543118E7FBE0041F87C /* MessageUI.framework */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -422,6 +439,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D4F2156D118E99190041F87C /* html */,
+				D4F21535118E7E9A0041F87C /* starter-kit.zip */,
 				D463E8BE106D6C580075CCCE /* My Briefs */,
 				76FD02EB104CAF4E002E96FA /* nib */,
 				D472009510A110FE00601755 /* images */,
@@ -455,6 +474,7 @@
 		76FD02EB104CAF4E002E96FA /* nib */ = {
 			isa = PBXGroup;
 			children = (
+				D4F214D9118E6D660041F87C /* help */,
 				D4F211AF118D08EB0041F87C /* table cells */,
 				D4A0C34F116D91930088E5F6 /* loading views */,
 				D43CE396115465CE00DA07D5 /* BFPreviewBriefViewController.xib */,
@@ -690,6 +710,8 @@
 				D4A0C33C116D84360088E5F6 /* BFRemoteBriefViewController.m */,
 				D4D4BB2811710AAA009D70D0 /* BFRemoteBriefSaver.h */,
 				D4D4BB2911710AAA009D70D0 /* BFRemoteBriefSaver.m */,
+				D4F214D4118E6D0B0041F87C /* BFHelpSystemViewController.h */,
+				D4F214D5118E6D0B0041F87C /* BFHelpSystemViewController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -879,6 +901,24 @@
 			name = "table cells";
 			sourceTree = "<group>";
 		};
+		D4F214D9118E6D660041F87C /* help */ = {
+			isa = PBXGroup;
+			children = (
+				D4F214D6118E6D0B0041F87C /* BFHelpSystemViewController.xib */,
+			);
+			name = help;
+			sourceTree = "<group>";
+		};
+		D4F2156D118E99190041F87C /* html */ = {
+			isa = PBXGroup;
+			children = (
+				D4F2157E118E9A760041F87C /* share.html */,
+				D4F2157F118E9A760041F87C /* faq.html */,
+				D4F21570118E99790041F87C /* gettingstarted.html */,
+			);
+			name = html;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1012,6 +1052,11 @@
 				D4F21391118E0C2C0041F87C /* BFRefreshBriefCell.xib in Resources */,
 				D4F21399118E0DC70041F87C /* Brief-tablecell.png in Resources */,
 				D4F21468118E46AC0041F87C /* refresh-accessory-disabled.png in Resources */,
+				D4F214D8118E6D0B0041F87C /* BFHelpSystemViewController.xib in Resources */,
+				D4F21536118E7E9A0041F87C /* starter-kit.zip in Resources */,
+				D4F21571118E99790041F87C /* gettingstarted.html in Resources */,
+				D4F21580118E9A760041F87C /* share.html in Resources */,
+				D4F21581118E9A760041F87C /* faq.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1078,6 +1123,7 @@
 				D4D4BC9B11728150009D70D0 /* UINavigationBar+CustomBackground.m in Sources */,
 				D4F210F9118C72750041F87C /* BFMainViewDefaultController.m in Sources */,
 				D4F2123D118D222E0041F87C /* BFRefreshBriefCellController.m in Sources */,
+				D4F214D7118E6D0B0041F87C /* BFHelpSystemViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
