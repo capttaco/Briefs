@@ -150,6 +150,8 @@
 		D4F21581118E9A760041F87C /* faq.html in Resources */ = {isa = PBXBuildFile; fileRef = D4F2157F118E9A760041F87C /* faq.html */; };
 		D4F21597118FA7530041F87C /* CellRefreshLoad.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F21596118FA7530041F87C /* CellRefreshLoad.xib */; };
 		D4F215D3118FADA80041F87C /* pop-slider-bg-gray.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F215D2118FADA80041F87C /* pop-slider-bg-gray.png */; };
+		D4F21687118FF50C0041F87C /* TransitionsGallery.brieflist in Resources */ = {isa = PBXBuildFile; fileRef = D4F21685118FF50C0041F87C /* TransitionsGallery.brieflist */; };
+		D4F21688118FF50C0041F87C /* sampler.brieflist in Resources */ = {isa = PBXBuildFile; fileRef = D4F21686118FF50C0041F87C /* sampler.brieflist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -360,6 +362,8 @@
 		D4F2157F118E9A760041F87C /* faq.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = faq.html; path = html/faq.html; sourceTree = "<group>"; };
 		D4F21596118FA7530041F87C /* CellRefreshLoad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CellRefreshLoad.xib; path = Classes/CellRefreshLoad.xib; sourceTree = "<group>"; };
 		D4F215D2118FADA80041F87C /* pop-slider-bg-gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pop-slider-bg-gray.png"; path = "images/bg/pop-slider-bg-gray.png"; sourceTree = "<group>"; };
+		D4F21685118FF50C0041F87C /* TransitionsGallery.brieflist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = TransitionsGallery.brieflist; path = briefs/TransitionsGallery.brieflist; sourceTree = "<group>"; };
+		D4F21686118FF50C0041F87C /* sampler.brieflist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = sampler.brieflist; path = briefs/sampler.brieflist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -651,6 +655,8 @@
 		D463E8BE106D6C580075CCCE /* My Briefs */ = {
 			isa = PBXGroup;
 			children = (
+				D4F21685118FF50C0041F87C /* TransitionsGallery.brieflist */,
+				D4F21686118FF50C0041F87C /* sampler.brieflist */,
 			);
 			name = "My Briefs";
 			sourceTree = "<group>";
@@ -1049,6 +1055,8 @@
 				D4F21581118E9A760041F87C /* faq.html in Resources */,
 				D4F21597118FA7530041F87C /* CellRefreshLoad.xib in Resources */,
 				D4F215D3118FADA80041F87C /* pop-slider-bg-gray.png in Resources */,
+				D4F21687118FF50C0041F87C /* TransitionsGallery.brieflist in Resources */,
+				D4F21688118FF50C0041F87C /* sampler.brieflist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
