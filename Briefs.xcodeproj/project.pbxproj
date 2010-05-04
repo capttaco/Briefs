@@ -152,6 +152,8 @@
 		D4F21571118E99790041F87C /* gettingstarted.html in Resources */ = {isa = PBXBuildFile; fileRef = D4F21570118E99790041F87C /* gettingstarted.html */; };
 		D4F21580118E9A760041F87C /* share.html in Resources */ = {isa = PBXBuildFile; fileRef = D4F2157E118E9A760041F87C /* share.html */; };
 		D4F21581118E9A760041F87C /* faq.html in Resources */ = {isa = PBXBuildFile; fileRef = D4F2157F118E9A760041F87C /* faq.html */; };
+		D4F21597118FA7530041F87C /* CellRefreshLoad.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F21596118FA7530041F87C /* CellRefreshLoad.xib */; };
+		D4F215D3118FADA80041F87C /* pop-slider-bg-gray.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F215D2118FADA80041F87C /* pop-slider-bg-gray.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -364,6 +366,8 @@
 		D4F21570118E99790041F87C /* gettingstarted.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = gettingstarted.html; path = html/gettingstarted.html; sourceTree = "<group>"; };
 		D4F2157E118E9A760041F87C /* share.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = share.html; path = html/share.html; sourceTree = "<group>"; };
 		D4F2157F118E9A760041F87C /* faq.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = faq.html; path = html/faq.html; sourceTree = "<group>"; };
+		D4F21596118FA7530041F87C /* CellRefreshLoad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CellRefreshLoad.xib; path = Classes/CellRefreshLoad.xib; sourceTree = "<group>"; };
+		D4F215D2118FADA80041F87C /* pop-slider-bg-gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pop-slider-bg-gray.png"; path = "images/bg/pop-slider-bg-gray.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -567,6 +571,7 @@
 		D43CE16C114F0DC800DA07D5 /* backgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				D4F215D2118FADA80041F87C /* pop-slider-bg-gray.png */,
 				D4F210D2118BD5E20041F87C /* root-menu-bg.png */,
 				D4A459D81172DCDD00D9C1DF /* cell-bottom-sel.png */,
 				D4A459D91172DCDD00D9C1DF /* cell-top-sel.png */,
@@ -759,6 +764,7 @@
 		D4A0C34F116D91930088E5F6 /* loading views */ = {
 			isa = PBXGroup;
 			children = (
+				D4F21596118FA7530041F87C /* CellRefreshLoad.xib */,
 				D4D4BC38117255A2009D70D0 /* PreviewRefreshLoad.xib */,
 				D4A0C33D116D84360088E5F6 /* FullPageRemoteLoad.xib */,
 				D4A0C261116AD85C0088E5F6 /* BFLoadingViewController.xib */,
@@ -1057,6 +1063,8 @@
 				D4F21571118E99790041F87C /* gettingstarted.html in Resources */,
 				D4F21580118E9A760041F87C /* share.html in Resources */,
 				D4F21581118E9A760041F87C /* faq.html in Resources */,
+				D4F21597118FA7530041F87C /* CellRefreshLoad.xib in Resources */,
+				D4F215D3118FADA80041F87C /* pop-slider-bg-gray.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

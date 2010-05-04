@@ -45,15 +45,21 @@
 
     // setup the loading controller
     NSString *location = self.brief.fromURL;
-    BFLoadingViewController *loadingController = [[BFLoadingViewController alloc] initWithNibName:nil bundle:nil];
-    loadingController.view.frame = CGRectMake(10.0f, 0, 300.0f, 50.0f);
+    BFLoadingViewController *loadingController = [[BFLoadingViewController alloc] initWithNibName:@"CellRefreshLoad" bundle:nil];
+    loadingController.view.frame = CGRectOffset(loadingController.view.frame, 60.0f, 5.0f);
     
     loadingController.view.alpha = 0.0;
     [cell addSubview:[loadingController view]];
     [UIView beginAnimations:@"fade-in refresh view" context:nil];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
     [UIView setAnimationDuration:0.5f];
+    
+    name.alpha = 0.0f;
+    desc.alpha = 0.0f;
+    [(UIButton *)cell.accessoryView setEnabled:NO];
+    
     loadingController.view.alpha = 1.0f;
+    
     [UIView commitAnimations];
     
     [loadingController setDelegate:self];
@@ -74,7 +80,12 @@
     [UIView setAnimationDuration:0.5f];
     [UIView setAnimationDelegate:self];
     [UIView setAnimationDidStopSelector:@selector(loadingFadeDidStop:finished:context:)];
+    
+    name.alpha = 1.0f;
+    desc.alpha = 1.0f;
     controller.view.alpha = 0.0f;
+    [(UIButton *)cell.accessoryView setEnabled:YES];
+    
     [UIView commitAnimations];
 }
 
