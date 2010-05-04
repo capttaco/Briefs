@@ -7,16 +7,93 @@
             width:          300px; 
             padding:        10px; 
             margin:         0;
-            font-size:      16px;
+            font-size:      14px;
             font-family:    "Helvetica", "Arial", sans-serif;
-            background:     url("main-bg.png") top left no-repeat;
         }
         
     </style>
 </head>
+
 <body>
-    <h1>Share your Briefs</h1>
-    <p>Blah, blah, blah. Blah, blah, blah. Blah, blah, blah. Blah, blah, blah.</p>
-        
+<h1>Getting Started</h1>
+
+<p>Click the action button below to email yourself a copy of the starter kit. This contains the <code>bs</code> parser, as well as the <code>compact-briefs</code> script. You'll also find example briefs that demonstrate the capabilities of the platform.</p>
+<p>To get started:</p>
+
+<h2>1. Write a Brief</h2>
+
+<p>The following code fragment is from a <code>.bs</code> file:</p>
+
+<pre><code>start: Springboard
+defaultImage: imgs/blank.png
+
+scene: Springboard
+image: imgs/0-springboard.png
+
+    actor: Pick SMS App    
+        position: 19, 25 
+            size: 55, 55   
+          action: goto(Main)
+</code></pre>
+
+<p>Then compile the script (in the example, we're assuming the name <code>idea.bs</code>) running the following in <code>terminal.app</code>:</p>
+
+<pre><code>bs idea.bs &gt; idea.source
+</code></pre>
+
+<p>This will compile your script into a <code>idea.source</code> file.</p>
+
+<h2>2. Compact the Brief</h2>
+
+<p>If you examine the file, you'll notice image references. In order for the brieflist to be portable, as a single file, we must compact the images and embed them inside of a <code>.brieflist</code> file. Go back to the <code>terminal.app</code> and run:</p>
+
+<pre><code>compact-briefs idea.source idea.brieflist
+</code></pre>
+
+<p>This will create a single file <code>foo.brieflist</code> that contains all of the raw image data.</p>
+
+<h2>3. Copy onto a Web Server (or Dropbox public folder)</h2>
+
+<p>In order to load the <code>.brieflist</code> into Briefs, you must first copy that onto a web-accessible location. You can use any server you wish, but if you have a Dropbox account it's simple. Just copy the <code>.brieflist</code> into your Public folder, then right click that file and select "Copy Public Link" from the Dropbox menu.</p>
+
+<p>Once you have the public link copied to your clipboard, simply paste that link in an email, replacing the "http://" protocol with a custom protocol that Briefs recognizes: "brief://". So, if your link is the following:</p>
+
+<pre><code>http://dl.dropbox.com/u/144323/idea.brieflist</code></pre>
+
+<p>Then simply replace the protocol so it reads:</p>
+
+<pre><code>brief://dl.dropbox.com/u/144323/idea.brieflist</code></pre>
+
+<p>Copy the substituted link into an email, then open the link on your iPhone. The app will load the brief directly on the phone. Once you exit the brief, you'll be given the option to save a copy of the brief on your phone.</p>
+
+<p>You can use other apps, such as PasteBot (LINK HERE!!!) to paste the link onto your phone. This is also a handy way to keep the link for sharing with others.
+
+<h2>Optionally, Create a Briefcast</h2>
+
+<p>Using the code below as a reference, change the relevant information and include references to your briefs inside the <code>items</code> section. It is important that you include a fully qualified path to your brief!</p>
+
+<pre><code>&lt;?xml version="1.0"?&gt;
+&lt;rss version="2.0"&gt;
+    &lt;channel&gt;
+        &lt;title&gt;Briefcast Demo&lt;/title&gt;
+        &lt;link&gt;http://giveabrief.com/briefcast/&lt;/link&gt;
+        &lt;description&gt; Demonstrate how awesome it is to use a briefcast to get briefs on the iPhone.&lt;/description&gt;
+        &lt;language&gt;en-us&lt;/language&gt;
+        &lt;pubDate&gt;Thu, 12 Nov 2009 03:05:00 GMT&lt;/pubDate&gt;
+        &lt;lastBuildDate&gt;Thu, 12 Nov 2009 03:05:00 GMT&lt;/lastBuildDate&gt;
+        &lt;item&gt;
+            &lt;title&gt;Kitchen Shopping Sketch&lt;/title&gt;
+            &lt;enclosure url="http://giveabrief.com/cast/shopping.brieflist" length="29230" type="application/brief" /&gt;
+            &lt;description&gt;An example brief showing how you can use scanned-in pencil sketches.&lt;/description&gt;
+            &lt;pubDate&gt;Sun, 13 Sep 2009 03:05:00 GMT&lt;/pubDate&gt;
+            &lt;guid&gt;http://giveabrief.com/cast/1#item1&lt;/guid&gt;
+        &lt;/item&gt;
+    &lt;/channel&gt;
+&lt;/rss&gt;
+</code></pre>
+
+<p>Copy this <code>.xml</code> file to your server (or Dropbox public folder) in a publicly accessible location, along with any referenced briefs. Then you can use the optional <code>briefcast://</code> protocol to send a reference to your phone and others. An example of such a url:</p>
+
+<pre><code>briefcast://giveabrief.com/cast/briefcast.xml</code></pre>
 </body>
 </html>
