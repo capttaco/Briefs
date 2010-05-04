@@ -1,0 +1,109 @@
+# Sampler Platter (installed by default in Briefs.app)
+# author: Rob Rhyne
+#
+start: Welcome
+
+
+################################################################
+# Welcome Scene
+
+scene: Welcome
+image: images/welcome/bg.png
+    actor: Next button
+        size: 42,40
+        position: 271,437
+        action: goto(Simulated Login, pushLeft)
+    
+    actor: Tap Me Button
+        image: images/welcome/tapme.png
+        size: 201,51
+        position: 56,282
+        action: show(Actor Callout)
+        
+    actor: Actor Callout
+        image: images/welcome/callout.png
+        size: 140,104
+        position: 83,151
+        visible: false
+
+
+
+################################################################
+# Login Workflow
+           
+scene: Simulated Login
+image: images/login/bg.png
+    actor: Show Keyboard
+        size: 280,80
+    position: 20,127
+      action: move(Keyboard, 0, 220)
+
+    actor: Keyboard
+       image: images/login/keyboard.png
+        size: 320,259
+    position: 0,480
+      action: goto(Password Entered)
+
+      
+scene: Password Entered
+image: images/login/bg-filled.png
+    actor: Login Button
+        size: 201,51
+    position: 59,251
+      action: goto(Actor Arcade, flipLeft)
+
+    actor: Keyboard
+       image: images/login/keyboard.png
+        size: 320,259
+    position: 0,220
+      action: move(Keyboard, 0, 480)
+
+
+
+
+################################################################
+# Actor Arcade Scene 
+
+scene: Actor Arcade
+image: images/arcade/bg.png
+    actor: Next button
+        size: 42,40
+        position: 271,437
+        action: goto(Scrollable Magic, curlUp)
+
+    actor: Invader
+        image: images/arcade/invader.png
+        size: 99,105
+        position: 110,149
+        
+    actor: Move Button
+        size: 100, 51
+        position: 59, 310
+        action: move(Invader, 110, 100)
+        
+    actor: Resize Button
+        size: 100, 51
+        position: 160, 310
+        action: resize(Invader, 50, 57)
+        
+
+
+################################################################
+# Scrollable Magic Scene
+ 
+scene: Scrollable Magic
+image: images/scrollable/bg.png
+    actor: Scrollable Actor
+        image: images/scrollable/scrollable-actor.png
+        size: 237,251
+        scrollable: true
+        position: 42,54
+        action: toggle(Toggle Button)
+
+    actor: Toggle Button
+        image: images/scrollable/enabled-actor.png
+        disabled: images/scrollable/disabled-actor.png
+        size: 201,51
+        position: 60,394
+        action: goto(Welcome, zoomOut)
+   

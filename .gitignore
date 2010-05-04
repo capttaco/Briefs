@@ -1,3 +1,5 @@
 build
 *.xcodeproj/*.pbxuser
 *.xcodeproj/*.perspectivev3
+starter-kit/examples/sampler platter/sampler.brieflist
+starter-kit/examples/sampler platter/sampler.source

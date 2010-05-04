@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0005E52D10E83C99006D44A2 /* TransitionsGallery.brieflist in Resources */ = {isa = PBXBuildFile; fileRef = 0005E52C10E83C99006D44A2 /* TransitionsGallery.brieflist */; };
 		1D3623260D0F684500981E51 /* BriefsAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* BriefsAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -60,7 +59,6 @@
 		D43CE958115FC77E00DA07D5 /* install-button.png in Resources */ = {isa = PBXBuildFile; fileRef = D43CE956115FC77E00DA07D5 /* install-button.png */; };
 		D43CE959115FC77E00DA07D5 /* update-button.png in Resources */ = {isa = PBXBuildFile; fileRef = D43CE957115FC77E00DA07D5 /* update-button.png */; };
 		D43CEAB11160376500DA07D5 /* BFArrayBriefDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D43CEAB01160376500DA07D5 /* BFArrayBriefDataSource.m */; };
-		D43CEB121160468F00DA07D5 /* howto.brieflist in Resources */ = {isa = PBXBuildFile; fileRef = D46414191069AB25001522F6 /* howto.brieflist */; };
 		D43CEC36116061CD00DA07D5 /* BriefRef.m in Sources */ = {isa = PBXBuildFile; fileRef = D43CEC35116061CD00DA07D5 /* BriefRef.m */; };
 		D43CEF6F1162E3EC00DA07D5 /* already-button.png in Resources */ = {isa = PBXBuildFile; fileRef = D43CEF6E1162E3EC00DA07D5 /* already-button.png */; };
 		D463E8FF107310170075CCCE /* BFBriefcastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D463E8FE107310170075CCCE /* BFBriefcastViewController.m */; };
@@ -70,7 +68,6 @@
 		D4641313106879AF001522F6 /* BFAddBriefcastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4641311106879AF001522F6 /* BFAddBriefcastViewController.m */; };
 		D4641314106879AF001522F6 /* BFAddBriefcastViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4641312106879AF001522F6 /* BFAddBriefcastViewController.xib */; };
 		D464133E10695048001522F6 /* BFTextCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = D464133D10695048001522F6 /* BFTextCellController.m */; };
-		D46A15D310D1FF1000B92FDF /* actions-sample.brieflist in Resources */ = {isa = PBXBuildFile; fileRef = D46A15D210D1FF1000B92FDF /* actions-sample.brieflist */; };
 		D47200A810A1139500601755 /* 37-suitcase.png in Resources */ = {isa = PBXBuildFile; fileRef = D47200A710A1139500601755 /* 37-suitcase.png */; };
 		D47200BA10A11A0500601755 /* small-gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = D47200B910A11A0500601755 /* small-gradient.png */; };
 		D472018F10A294BA00601755 /* 58-bookmark.png in Resources */ = {isa = PBXBuildFile; fileRef = D472018E10A294BA00601755 /* 58-bookmark.png */; };
@@ -120,7 +117,6 @@
 		D4AF1DC8114B61A600D1B3B5 /* BFBrowseBriefcastViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4AF1DC7114B61A600D1B3B5 /* BFBrowseBriefcastViewController.xib */; };
 		D4AF1DCF114BFE2300D1B3B5 /* BFBriefInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AF1DCE114BFE2300D1B3B5 /* BFBriefInfo.m */; };
 		D4AF1E03114C093300D1B3B5 /* NSDictionary+BFAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AF1E02114C093300D1B3B5 /* NSDictionary+BFAdditions.m */; };
-		D4C0F3A810C7710A008E8DE5 /* transition-sample.brieflist in Resources */ = {isa = PBXBuildFile; fileRef = D4C0F3A710C7710A008E8DE5 /* transition-sample.brieflist */; };
 		D4CA29381076F60500AA84FE /* BFBriefcastViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CA29351076F60500AA84FE /* BFBriefcastViewController.xib */; };
 		D4CA29391076F60500AA84FE /* BFBrowseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CA29361076F60500AA84FE /* BFBrowseViewController.xib */; };
 		D4CA293A1076F60500AA84FE /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CA29371076F60500AA84FE /* MainWindow.xib */; };
@@ -157,7 +153,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0005E52C10E83C99006D44A2 /* TransitionsGallery.brieflist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = TransitionsGallery.brieflist; path = sample/TransitionsGallery.brieflist; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* BriefsAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BriefsAppDelegate.h; path = Classes/BriefsAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* BriefsAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BriefsAppDelegate.m; path = Classes/BriefsAppDelegate.m; sourceTree = "<group>"; };
@@ -257,8 +252,6 @@
 		D4641312106879AF001522F6 /* BFAddBriefcastViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BFAddBriefcastViewController.xib; path = Classes/BFAddBriefcastViewController.xib; sourceTree = "<group>"; };
 		D464133C10695048001522F6 /* BFTextCellController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFTextCellController.h; sourceTree = "<group>"; };
 		D464133D10695048001522F6 /* BFTextCellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFTextCellController.m; sourceTree = "<group>"; };
-		D46414191069AB25001522F6 /* howto.brieflist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = howto.brieflist; path = sample/briefcasts/howto.brieflist; sourceTree = "<group>"; };
-		D46A15D210D1FF1000B92FDF /* actions-sample.brieflist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = "actions-sample.brieflist"; path = "sample/actions-sample.brieflist"; sourceTree = "<group>"; };
 		D46B799310A6239900CCD698 /* BFBriefcastEventDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFBriefcastEventDelegate.h; sourceTree = "<group>"; };
 		D47200A710A1139500601755 /* 37-suitcase.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "37-suitcase.png"; path = "images/37-suitcase.png"; sourceTree = "<group>"; };
 		D47200B910A11A0500601755 /* small-gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "small-gradient.png"; path = "images/small-gradient.png"; sourceTree = "<group>"; };
@@ -330,7 +323,6 @@
 		D4AF1DCE114BFE2300D1B3B5 /* BFBriefInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFBriefInfo.m; sourceTree = "<group>"; };
 		D4AF1E01114C093300D1B3B5 /* NSDictionary+BFAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+BFAdditions.h"; sourceTree = "<group>"; };
 		D4AF1E02114C093300D1B3B5 /* NSDictionary+BFAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+BFAdditions.m"; sourceTree = "<group>"; };
-		D4C0F3A710C7710A008E8DE5 /* transition-sample.brieflist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = "transition-sample.brieflist"; path = "sample/transition-sample.brieflist"; sourceTree = "<group>"; };
 		D4CA29351076F60500AA84FE /* BFBriefcastViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BFBriefcastViewController.xib; path = Classes/BFBriefcastViewController.xib; sourceTree = "<group>"; };
 		D4CA29361076F60500AA84FE /* BFBrowseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BFBrowseViewController.xib; path = Classes/BFBrowseViewController.xib; sourceTree = "<group>"; };
 		D4CA29371076F60500AA84FE /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainWindow.xib; path = Classes/MainWindow.xib; sourceTree = "<group>"; };
@@ -659,10 +651,6 @@
 		D463E8BE106D6C580075CCCE /* My Briefs */ = {
 			isa = PBXGroup;
 			children = (
-				D46A15D210D1FF1000B92FDF /* actions-sample.brieflist */,
-				D4C0F3A710C7710A008E8DE5 /* transition-sample.brieflist */,
-				0005E52C10E83C99006D44A2 /* TransitionsGallery.brieflist */,
-				D46414191069AB25001522F6 /* howto.brieflist */,
 			);
 			name = "My Briefs";
 			sourceTree = "<group>";
@@ -986,7 +974,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D43CEB121160468F00DA07D5 /* howto.brieflist in Resources */,
 				D4641314106879AF001522F6 /* BFAddBriefcastViewController.xib in Resources */,
 				D4309743106AC10B00C1EC5E /* Briefs-data.plist in Resources */,
 				D4CA29381076F60500AA84FE /* BFBriefcastViewController.xib in Resources */,
@@ -995,9 +982,6 @@
 				D47200A810A1139500601755 /* 37-suitcase.png in Resources */,
 				D47200BA10A11A0500601755 /* small-gradient.png in Resources */,
 				D472018F10A294BA00601755 /* 58-bookmark.png in Resources */,
-				D4C0F3A810C7710A008E8DE5 /* transition-sample.brieflist in Resources */,
-				D46A15D310D1FF1000B92FDF /* actions-sample.brieflist in Resources */,
-				0005E52D10E83C99006D44A2 /* TransitionsGallery.brieflist in Resources */,
 				D482E4FE10EEECC700678404 /* BFMainViewController.xib in Resources */,
 				D4A394BA1130F926004971E9 /* flag.png in Resources */,
 				D4A39819113C6DBB004971E9 /* app-icon.png in Resources */,

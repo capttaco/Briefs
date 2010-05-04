@@ -1,0 +1,43 @@
+
+This is a bundle geared towards aspiring briefs authors. Below is a description of each
+of the folders in this kit. As you may already know, Briefs are authored on a Mac desktop
+or laptop. 
+
+While not required, there are resources that are specific to certain applications
+that are found in a typical designer's arsenal. If you find support for your particular tool
+of choice is not included, I will update this kit to include any additional resources you 
+provide. You can contact me using the various methods listed below.
+
+Rob Rhyne
+rob@robrhyne.com
+http://twitter.com/capttaco
+
+Follow briefs on twitter at http://twitter.com/briefsapp
+
+----------------------------------------------------------------------------------------------
+
+examples/
+=========
+In this folder you'll find the source, including photoshop files, for the briefs that come 
+installed as part of the application. The sampler platter is a multi-scene brief that 
+demonstrates various capabilities of the briefs system. I encourage you to consult that source 
+to get a feel for the platform.
+
+
+extras/
+=======
+This folder contains sample images, including a springboard PSD that can be use to place your
+sample app icon inside of an opening scene. There is also a textmate plugin for the .bs files.
+The plugin allows you to drag images onto the editor to create scenes and actors directly. It
+also offers syntax highlighting for the entire language.
+
+
+scripts/
+========
+Contained in this folder are the two scripts essential to compiling and building briefs. Both
+should be copied to a location on your path. (I suggest /usr/local/bin/) The first, `BS`, is
+the parser for .bs script files. The output of this parser is a source file with file references
+to the images. The second script, `compact-briefs` will serialize each image reference into the 
+source file, outputting a .brieflist as a single file. This compacted .brieflist can then be
+referenced in a briefcast or put on a web server (like a dropbox public folder) to load into 
+the app.
