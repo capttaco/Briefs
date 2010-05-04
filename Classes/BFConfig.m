@@ -34,6 +34,8 @@
 
 + (NSString *)shortDateStringFromDate:(NSDate *)date;
 {
+    if (date == nil) return @"";
+    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
     [dateFormatter setDateStyle:NSDateFormatterShortStyle];
@@ -42,6 +44,8 @@
 
 + (NSString *)shortTimeStringFromDate:(NSDate *)date
 {
+    if (date == nil) return @"";
+    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterNoStyle];
     [dateFormatter setTimeStyle:NSDateFormatterShortStyle];

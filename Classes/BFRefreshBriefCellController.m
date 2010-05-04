@@ -121,7 +121,13 @@
     }
     
     name.text = [self.brief title];
-    desc.text = [NSString stringWithFormat:@"%@ scenes, last opened %@", 
+    
+    // check for null date
+    if (self.brief.dateLastOpened == nil)
+        desc.text = [NSString stringWithFormat:@"%@ scenes, never been opened", self.brief.totalNumberOfScenes];
+        
+    else
+        desc.text = [NSString stringWithFormat:@"%@ scenes, last opened %@", 
                                  self.brief.totalNumberOfScenes, [BFConfig shortDateStringFromDate:self.brief.dateLastOpened]];
     
     
@@ -172,6 +178,9 @@
 
 - (void)tableView:(UITableView *)tv didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self.brief setDateLastOpened:[NSDate date]];
+    [[BFDataManager sharedBFDataManager] save];
+    
     NSString *pathToDictionary = [[[BFDataManager sharedBFDataManager] documentDirectory] stringByAppendingPathComponent:[self.brief filePath]];
     BFSceneManager *manager = [[BFSceneManager alloc] initWithPathToDictionary:pathToDictionary];
     BFSceneViewController *sceneController = [[BFSceneViewController alloc] initWithSceneManager:manager];
