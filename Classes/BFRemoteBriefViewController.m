@@ -105,11 +105,13 @@
 - (void)loadingView:(BFLoadingViewController *)controller didNotCompleteWithError:(NSError *)error
 {
     // TODO: handle error
+    [loadingController.view removeFromSuperview];
 }
 
 - (void)loadingView:(BFLoadingViewController *)controller didCancelConnection:(NSString *)url
 {
     // TODO: handle cancelation
+    [loadingController.view removeFromSuperview];
 }
 
 - (void)briefShowDidStop:(NSString *)animationId finished:(NSNumber *)finished context:(void *)context

@@ -291,11 +291,13 @@
 - (void)loadingView:(BFLoadingViewController *)controller didNotCompleteWithError:(NSError *)error
 {
     // TODO: handle error
+    [self performSelector:@selector(beginLoadingFadeOutAnimation:) withObject:controller afterDelay:1.0f];
 }
 
 - (void)loadingView:(BFLoadingViewController *)controller didCancelConnection:(NSString *)url
 {
     // TODO: handle cancelation
+    [self performSelector:@selector(beginLoadingFadeOutAnimation:) withObject:controller afterDelay:1.0f];
 }
 
 
