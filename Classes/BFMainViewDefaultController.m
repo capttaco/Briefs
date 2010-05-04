@@ -89,7 +89,7 @@
     
     // get last opened briefcast
     NSArray *lastOpenedBriefcast = [[BFDataManager sharedBFDataManager] briefcastsSortedAs:BFDataManagerSortByDateOpened limitTo:1];
-    if (lastOpenedBriefcast != nil) {
+    if (lastOpenedBriefcast != nil && [lastOpenedBriefcast count] > 0) {
         BFBriefcastCellController *controller = [[[BFBriefcastCellController alloc] initWithBriefcast:[lastOpenedBriefcast objectAtIndex:0]] autorelease];
         controller.delegate = navigation;
         [briefcastController addObject:controller];

@@ -139,7 +139,7 @@
     [refresh setImage:[UIImage imageNamed:@"refresh-accessory-disabled.png"] forState:UIControlStateDisabled];
     
     // disable if the brief is local
-    if ([brief.briefcast isEqual:[[BFDataManager sharedBFDataManager] localBriefcastRefMarker]])
+    if ([brief.fromURL isEqual:kBFLocallyStoredBriefURLString])
         [refresh setEnabled:NO];
     
     cell.accessoryView = refresh;
