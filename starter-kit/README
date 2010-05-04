@@ -41,3 +41,6 @@ to the images. The second script, `compact-briefs` will serialize each image ref
 source file, outputting a .brieflist as a single file. This compacted .brieflist can then be
 referenced in a briefcast or put on a web server (like a dropbox public folder) to load into 
 the app.
+
+For a reference on the .bs syntax, take a look at the cheatsheet.pdf file at the top of this 
+bundle.

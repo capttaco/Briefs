@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>actor:${1:New Actor}		image:${2:actor.png}		size:${3:320},${4:480}		position:${5:0},${6:0}		action:${7:hide(New Actor)}
+</string>
+	<key>name</key>
+	<string>Actor</string>
+	<key>scope</key>
+	<string>source.briefscript</string>
+	<key>tabTrigger</key>
+	<string>ac</string>
+	<key>uuid</key>
+	<string>E5E9DED4-EB2F-4DDC-9726-F055985C2D13</string>
+</dict>
+</plist>

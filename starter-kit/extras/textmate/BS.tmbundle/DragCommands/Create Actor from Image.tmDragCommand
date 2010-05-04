@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>	x="$TM_DROPPED_FILE"
+	y="${x%.*}"
+	BS_ACTOR="${y##*/}"
+
+	echo -ne "actor:$BS_ACTOR		"
+	echo -ne "image:$TM_DROPPED_FILE		"
+
+	sips -g pixelWidth -g pixelHeight "$TM_DROPPED_FILE" | awk '/pixelWidth/  { printf("size:%d,", $2) } /pixelHeight/ { printf("%d		", $2) }'
+
+	echo -ne "position:\${4:0},\${5:0}		"
+	echo -ne "action:\${8:hide($BS_ACTOR)}\n"
+
+
+
+
+</string>
+	<key>draggedFileExtensions</key>
+	<array>
+		<string>png</string>
+		<string>jpg</string>
+		<string>jpeg</string>
+		<string>gif</string>
+	</array>
+	<key>input</key>
+	<string>selection</string>
+	<key>name</key>
+	<string>Create Actor from Image</string>
+	<key>output</key>
+	<string>insertAsSnippet</string>
+	<key>scope</key>
+	<string>source.briefscript</string>
+	<key>uuid</key>
+	<string>D0A402AC-8BA3-4FE2-AC8F-26019305573B</string>
+</dict>
+</plist>

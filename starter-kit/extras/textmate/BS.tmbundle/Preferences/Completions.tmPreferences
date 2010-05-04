@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Completions</string>
+	<key>scope</key>
+	<string>source.briefscript</string>
+	<key>settings</key>
+	<dict>
+		<key>completions</key>
+		<array>
+			<string>action</string>
+			<string>actor</string>
+			<string>blankImage</string>
+			<string>bounds</string>
+			<string>coverUp</string>
+			<string>coverDown</string>
+			<string>coverLeft</string>
+			<string>coverRight</string>
+			<string>curlUp</string>
+			<string>curlDown</string>
+			<string>defaultImage</string>
+			<string>flipLeft</string>
+			<string>flipRight</string>
+			<string>goto</string>
+			<string>height</string>
+			<string>hide</string>
+			<string>h</string>
+			<string>image</string>
+			<string>left</string>
+			<string>move</string>
+			<string>position</string>
+			<string>pos</string>
+			<string>pushLeft</string>
+			<string>pushRight</string>
+			<string>pushUp</string>
+			<string>pushDown</string>
+			<string>resize</string>
+			<string>revealDown</string>
+			<string>revealUp</string>
+			<string>revealLeft</string>
+			<string>revealRight</string>
+			<string>scene</string>
+			<string>show</string>
+			<string>size</string>
+			<string>slideBottom</string>
+			<string>slideTop</string>
+			<string>start</string>
+			<string>toggle</string>
+			<string>top</string>
+			<string>width</string>
+			<string>w</string>
+			<string>wh</string>
+			<string>x</string>
+			<string>xy</string>
+			<string>xywh</string>
+			<string>y</string>
+			<string>zoomIn</string>
+			<string>zoomOut</string>
+		</array>
+	</dict>
+	<key>uuid</key>
+	<string>681009BF-1AD9-4232-BF47-1BD3CA0057B7</string>
+</dict>
+</plist>

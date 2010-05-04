@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>comment</key>
+	<string>BriefScript Syntax: version 0.2</string>
+	<key>fileTypes</key>
+	<array>
+		<string>bs</string>
+		<string>briefscript</string>
+	</array>
+	<key>foldingStartMarker</key>
+	<string>scene:</string>
+	<key>foldingStopMarker</key>
+	<string>^\s*$</string>
+	<key>keyEquivalent</key>
+	<string>^~B</string>
+	<key>name</key>
+	<string>BriefScript</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>match</key>
+			<string>\b(action|actor|blankImage|bounds|defaultImage|height|h|image|left|position|pos|scene|size|start|top|width|w|wh|x|xy|xywh|y):</string>
+			<key>name</key>
+			<string>keyword.bs</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b[0-9]+\b</string>
+			<key>name</key>
+			<string>constant.numeric.bs</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(goto|toggle|resize|move|hide|show)</string>
+			<key>name</key>
+			<string>support.function.bs</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(coverUp|coverDown|coverLeft|coverRight|curlUp|curlDown|flipLeft|flipRight|pushLeft|pushRight|pushUp|pushDown|revealDown|revealUp|revealLeft|revealRight|zoomIn|zoomOut)</string>
+			<key>name</key>
+			<string>support.constant.bs</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>#.*$</string>
+			<key>name</key>
+			<string>comment.bs</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>"</string>
+			<key>end</key>
+			<string>"</string>
+			<key>name</key>
+			<string>string.quoted.double.untitled</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\\.</string>
+					<key>name</key>
+					<string>constant.character.escape.untitled</string>
+				</dict>
+			</array>
+		</dict>
+	</array>
+	<key>scopeName</key>
+	<string>source.briefscript</string>
+	<key>uuid</key>
+	<string>5A8C1C75-3E2C-44ED-A902-3837C02D16E1</string>
+</dict>
+</plist>

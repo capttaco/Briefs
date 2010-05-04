@@ -1,0 +1,646 @@
+#!/usr/bin/env ruby 
+
+=begin
+# == Synopsis 
+#   This is a compiler for .bs script files. BS is a concise
+#   format for describing .brieflist files. This compiler takes
+#   one or more .bs scripts and outputs a single .brieflist, in
+#   an xml file format that conforms to the spec for Briefs.app.
+#
+# == Examples
+#   This command parses the .bs script and outputs the
+#   brief as a .plist.
+#
+#     bs foo.bs
+#
+#   Other examples:
+#     bs -q bar.bs -o bar.brieflist
+#     bs --verbose foo.bs
+#
+# == Usage 
+#   bs [-qV] source_file [ -o | --output | > your_output.brieflist ]  
+#
+#   For help use: bs -h
+#
+# == Options
+#   -h, --help          Displays help message
+#   -v, --version       Display the version, then exit
+#   -q, --quiet         Output as little as possible, overrides verbose
+#   -V, --verbose       Verbose output
+#   -o, --output        Direct output to the path specified
+#
+# == Authors
+#   Jose Vazquez & Rob Rhyne
+#   http://giveabrief.com/
+#
+# == Copyright
+#   Created by Rob Rhyne & Jose Vazquez.
+#   Copyright (c) 2009 Digital Arch Design, Little Mustard LLC. 
+#   See LICENSE file for details.
+
+
+# TO DO - replace all ruby_cl_skeleton with your app name
+# TO DO - replace all YourName with your actual name
+# TO DO - update Synopsis, Examples, etc
+# TO DO - change license if necessary
+=end
+
+require 'optparse' 
+require 'rdoc/usage'
+require 'ostruct'
+require 'date'
+
+# Action Language Definition #################################################
+ACTION_ARG_PASS            = 0
+ACTION_ARG_SCENE           = 1
+ACTION_ARG_ACTOR           = 2
+ACTION_ARG_ANIMATION_STYLE = 3
+ACTION_ARG_NUMBER          = 4
+ACTION_ARG_SOUND_PATH      = 5
+
+ACTION_LANG = {
+  "goto"   => [[ACTION_ARG_SCENE],
+               [ACTION_ARG_SCENE, ACTION_ARG_ANIMATION_STYLE]],
+  "toggle" => [[ACTION_ARG_ACTOR]],
+  "move"   => [[ACTION_ARG_ACTOR, ACTION_ARG_NUMBER, ACTION_ARG_NUMBER]],
+  "resize" => [[ACTION_ARG_ACTOR, ACTION_ARG_NUMBER, ACTION_ARG_NUMBER]],
+  "play"   => [[ACTION_ARG_SOUND_PATH]],
+  "show"   => [[ACTION_ARG_ACTOR]], # ACTION_ARG_ANIMATION_STYLE]],
+  "hide"   => [[ACTION_ARG_ACTOR]], #ACTION_ARG_ANIMATION_STYLE]],
+}
+# End Action Language Definition #############################################
+
+class App
+  VERSION = '0.1'
+  
+  attr_reader :options
+
+  def initialize(arguments, stdin)
+    @arguments = arguments
+    @stdin = stdin
+    
+    # Set defaults
+    @options = OpenStruct.new
+    @options.verbose = false
+    @options.quiet = false
+    @options.outfile = nil
+    # TO DO - add additional defaults
+  end
+
+  # Parse options, check arguments, then process the command
+  def run
+        
+    if parsed_options? && arguments_valid? 
+      
+      puts "Start at #{DateTime.now}\n\n" if @options.verbose
+      
+      output_options if @options.verbose # [Optional]
+            
+      process_arguments            
+      process_command
+      
+      puts "\nFinished at #{DateTime.now}" if @options.verbose
+      
+    else
+      output_usage
+    end
+      
+  end
+  
+  protected
+  
+    def parsed_options?
+      
+      # Specify options
+      opts = OptionParser.new 
+      opts.on('-v', '--version')    { output_version ; exit 0 }
+      opts.on('-h', '--help')       { output_help }
+      opts.on('-V', '--verbose')    { @options.verbose = true }  
+      opts.on('-q', '--quiet')      { @options.quiet = true }
+      opts.on('-o', '--output', 
+              '=OUTFILE', 
+              "Output file name")   { |arg| @options.outfile = arg }
+      
+      # TO DO - add additional options
+            
+      opts.parse!(@arguments) rescue return false
+      
+      process_options
+      true      
+    end
+
+    # Performs post-parse processing on options
+    def process_options
+      @options.verbose = false if @options.quiet
+    end
+    
+    def output_options
+      puts "Options:\n"
+      
+      @options.marshal_dump.each do |name, val|        
+        puts "  #{name} = #{val}"
+      end
+    end
+
+    # True if required arguments were provided
+    def arguments_valid?
+      true if @arguments.length >= 1 
+    end
+    
+    # Setup the arguments
+    def process_arguments
+      # TO DO - place in local vars, etc
+      if @options.outfile  
+       @output_stream = File.new(@options.outfile,'w')  
+      else  
+       @output_stream = $stdout  
+      end
+
+    end
+    
+    def output_help
+      output_version
+      RDoc::usage() #exits app
+    end
+    
+    def output_usage
+      RDoc::usage('usage') # gets usage from comments above
+    end
+    
+    def output_version
+      puts "#{File.basename(__FILE__)} version #{VERSION}"
+    end
+    
+    def process_command
+      # TO DO - do whatever this app does  
+      bs = BSParser.new
+      bs.parse(0, @output_stream)
+      
+      #process_standard_input # [Optional]
+    end
+
+    def process_standard_input
+      input = @stdin.read      
+      # TO DO - process input
+      
+      # [Optional]
+      # @stdin.each do |line| 
+      #  # TO DO - process each line
+      #end
+    end
+end
+
+class BSParser
+  def initialize
+    @line = nil
+    @currentLineno = 0
+    @tempValue = ""
+    @value = ""
+    @tempKeyword = nil
+    @keyword = nil
+    @tempLineno = nil
+    @lineno = nil
+    @eof = false
+  end
+
+  # returns: eof
+  def updateLine
+    if @line.nil?
+      begin
+        @line = gets #pointing to file reference
+        @currentLineno += 1
+        if @line.nil?
+          return @eof=true
+        end
+        @line = @line.sub(/#.*/,"").strip # strip out comments
+      end while @line =~ /^$/              # ignore blank lines
+    end
+    return @eof=false
+  end
+
+  def getKeyword
+    begin
+      found = false
+      begin
+        updateLine
+        if @eof
+          @keyword = @tempKeyword
+          @lineno = @tempLineno
+          @value = @tempValue.strip          
+          return @eof
+        end
+        if @line =~ /^(\S+):\s*(.*)/
+          #puts "Keyword:" + $1 + " |  rest:" + $2
+          @keyword = @tempKeyword
+          @lineno = @tempLineno
+          @tempKeyword = $1
+          @tempLineno = @currentLineno
+          @value = @tempValue.strip
+          @tempValue = ""
+          @line = $2
+          found = true
+        elsif @line =~ /^(\S+)\s*(.*)/
+          @tempValue += $1 + " "
+          @line = $2
+          #puts "value:" + @tempValue
+        else
+          #puts "Confused:>>" + @line + "<<"
+          @line = nil
+        end
+      end while !found
+    end while @keyword.nil?
+    return @eof
+  end
+
+  def perror(msg="")
+    STDERR.puts "#{$FILENAME}:#{@lineno}: " + msg + " <#{@keyword}:#{@value}>"
+    @perror_count += 1
+  end
+
+  def parse(indent=0, out=STDOUT)
+    brieflist = BriefList.new
+    currentScene = nil
+    currentActor = nil
+    @perror_count = 0
+    begin
+      eof = getKeyword
+      #puts "Keyword:" + @keyword + " Value:>>" + @value + "<<"
+      case @keyword.downcase
+      when "start"
+        brieflist.start = @value        
+      when "blankimage", "defaultimage"
+        brieflist.blankImage = @value        
+      when "scene"
+        currentScene = Scene.new(@value.downcase, brieflist)
+        brieflist.addScene(currentScene)
+        currentActor = nil
+      when "image"
+        if !currentActor.nil?
+          currentActor.image = @value
+        elsif !currentScene.nil?
+          currentScene.image = @value
+        else
+          perror "No Scenes defined before issuing"
+        end
+      when "actor"
+        if !currentScene.nil?
+          currentActor = Actor.new(@value.downcase, brieflist, currentScene)
+          currentScene.addActor(currentActor)
+        else
+          perror "No Scenes defined before issuing"
+        end
+      when "touched"
+        if !currentActor.nil?          
+          currentActor.touched = @value
+        else
+          perror "No Actor defined before issuing"
+        end
+      when "disabled"
+        if !currentActor.nil?          
+          currentActor.disabled = @value
+        else
+          perror "No Actor defined before issuing"
+        end
+      when "visible"
+        if !currentActor.nil?          
+          currentActor.visible = @value
+        else
+          perror "No Actor defined before issuing"
+        end
+      when "scrollable"
+        if !currentActor.nil?          
+          currentActor.scrollable = @value
+        else
+          perror "No Actor defined before issuing"
+        end
+      when "x", "left"
+        if !(@value =~ /^\-?\d+$/)
+          perror "\"#{@value}\" is not a valid number"          
+        elsif !currentActor.nil?          
+          currentActor.x = @value
+        else
+          perror "No Actor defined before issuing"
+        end
+      when "y", "top"
+        if !(@value =~ /^\-?\d+$/)
+          perror "\"#{@value}\" is not a valid number"          
+        elsif !currentActor.nil?          
+          currentActor.y = @value
+        else
+          perror "No Actor defined before issuing"
+        end
+      when "w", "width"
+        if !(@value =~ /^\-?\d+$/)
+          perror "\"#{@value}\" is not a valid number"          
+        elsif !currentActor.nil?          
+          currentActor.width = @value
+        else
+          perror "No Actor defined before issuing"
+        end
+      when "h", "height"
+        if !(@value =~ /^\-?\d+$/)
+          perror "\"#{@value}\" is not a valid number"          
+        elsif !currentActor.nil?          
+          currentActor.height = @value
+        else
+          perror "No Actor defined before issuing"
+        end
+      when "xy","offset","coord", "position", "pos"
+        if !(@value =~ /^(\-?\d+)\s*,\s*(\-?\d+)$/)
+          perror "\"#{@value}\" is not a valid number pair x,y"
+        elsif !currentActor.nil?          
+          currentActor.x = $1
+          currentActor.y = $2
+        else
+          perror "No Actor defined before issuing"
+        end
+      when "wh", "size"
+        if !(@value =~ /^(\-?\d+)\s*,\s*(\-?\d+)$/)
+          perror "\"#{@value}\" is not a valid number pair x,y"
+        elsif !currentActor.nil?          
+          currentActor.width = $1
+          currentActor.height = $2
+        else
+          perror "No Actor defined before issuing"
+        end
+      when "xywh", "bounds", "frame"
+        if !(@value =~ /^(\-?\d+)\s*,\s*(\-?\d+)\s*,\s*(\-?\d+)\s*,\s*(\-?\d+)$/)
+          perror "\"#{@value}\" is not a valid bounds quartet x,y,w,h"
+        elsif !currentActor.nil?          
+          currentActor.x = $1
+          currentActor.y = $2
+          currentActor.width = $3
+          currentActor.height = $4
+        else
+          perror "No Actor defined before issuing"
+        end
+      when "action"
+        if !currentActor.nil?          
+          currentActor.action = @value
+        else
+          perror "No Actor defined before issuing"
+        end        
+      else
+        perror "Illegal keyword"
+        #STDERR.puts "#{@lineno}: Illegal keyword " + @keyword
+      end
+    end while !eof
+    STDERR.puts "#{@perror_count} errors found." if @perror_count > 0
+    brieflist.dumpBriefList(indent,out)
+  end
+end
+
+class PListNode
+  def dumpKeyValuePair(indent, key, value, out=STDOUT, type="string")
+    iputs(indent, "<key>#{key}</key>", out)
+    if (type != "boolean")
+      iputs(indent, "<#{type}>#{value}</#{type}>", out)    
+    else
+      iputs(indent, "<#{value}/>", out)
+    end
+  end
+
+  def dumpBriefList(indent=0, out=STDOUT)
+  end
+  
+  def iputs(indent, msg, out=STDOUT)
+    indent.times {out.print "\t"}
+    out.puts msg
+  end
+  
+end
+
+class BriefList < PListNode
+  attr_accessor :start
+  attr_accessor :blankImage
+  
+  def initialize
+    @scenes = []        # init as an empty array
+    @sceneIndecies = {} # init as an empty hash
+    @blankImage = ""
+    @start = 0
+  end
+  
+  def addScene(scene=nil)
+    return if scene.nil?
+    return if scene.class != Scene
+    @scenes.push(scene)
+    @sceneIndecies[scene.name] = @scenes.length-1
+  end
+  
+  def has_sceneName?(name)
+    @sceneIndecies.has_key?(name)
+  end
+  
+  def indexForSceneName(name)
+    if @sceneIndecies.has_key?(name)
+      return @sceneIndecies[name]
+    else
+      return 0
+    end
+  end
+  
+  def dumpScenes(indent=0, out=STDOUT)
+    return if @scenes.length==0
+    iputs(indent, "<key>scenes</key>", out)
+    iputs(indent, "<array>", out)
+    @scenes.each {|scene| scene.dumpBriefList(indent+1, out)}    
+    iputs(indent, "</array>", out)
+  end
+
+  def dumpBriefList(indent=0, out=STDOUT)
+    iputs(indent, "<?xml version=\"1.0\" encoding=\"UTF-8\"?>", out)
+    iputs(indent, "<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">", out)
+    iputs(indent, "<plist version=\"1.0\">", out)
+    iputs(indent, "<dict>", out)
+    dumpKeyValuePair(indent+1, "start_scene", indexForSceneName(@start), out, "integer")
+    dumpScenes(indent+1, out)
+    iputs(indent, "</dict>", out)
+    iputs(indent, "</plist>", out)
+  end
+end
+
+class Scene < PListNode
+  attr_reader   :name
+  attr_accessor :image
+
+  def initialize(name="", brieflist=nil)
+    @actors = []
+    @actorIndecies = {}
+    @name = name
+    @brieflist = brieflist
+  end
+  
+  def addActor(actor=nil)
+    return if actor.nil?
+    return if actor.class != Actor
+    @actors.push(actor)
+    @actorIndecies[actor.name] = @actors.length-1
+  end
+
+  def has_actorName?(name)
+    @actorIndecies.has_key?(name)
+  end
+  
+  def indexForActorName(name)
+    if @actorIndecies.has_key?(name)
+      return @actorIndecies[name]
+    else
+      return 0
+    end
+  end
+  
+  def dumpActors(indent=0, out=STDOUT)
+    return if @actors.length==0
+    iputs(indent, "<key>actors</key>", out)
+    iputs(indent, "<array>", out)
+    @actors.each {|actor| actor.dumpBriefList(indent+1, out)}    
+    iputs(indent, "</array>", out)
+  end
+
+  def dumpBriefList(indent=0, out=STDOUT)
+    iputs(indent, "<dict>", out)
+    dumpKeyValuePair(indent+1,"img",image, out)
+    dumpKeyValuePair(indent+1,"name",name, out)
+    dumpActors(indent+1, out)
+    iputs(indent, "</dict>", out)
+  end
+  
+end
+
+class Actor < PListNode
+  attr_reader   :name
+  attr_accessor :image
+  attr_accessor :touched
+  attr_accessor :disabled
+  attr_accessor :visible
+  attr_accessor :scrollable
+  attr_accessor :x
+  attr_accessor :y
+  attr_accessor :width
+  attr_accessor :height
+  attr_accessor :action
+
+  def initialize(name="", brieflist=nil, scene=nil)
+    @name = name
+    @image = nil
+    @touched = nil
+    @visible = true
+    @scrollable = false
+    @x = nil
+    @y = nil
+    @width = nil
+    @height = nil
+    @action = nil
+    @brieflist = brieflist
+    @scene = scene
+  end
+
+  def perror(msg="")
+    STDERR.puts "Scene:#{@scene.name} Actor:#{@name} Error: " + msg
+  end
+
+  def pverbose(msg="")
+    STDERR.puts "Scene:#{@scene.name} Actor:#{@name} " + msg if APP.options.verbose
+  end
+
+
+  def parseActions(line="")
+    return "" if line.nil?
+    newLine =""
+    pverbose "parsing \"#{line}\" ----------------"
+    while line!=""
+      if line =~ /^\s*([^\(]+)\s*\(\s*([^\)]+)\s*\)(.*)/
+        # example, if line were "firstCommand(arg1, arg2) secondCommand(arg3) ..."
+        # $1 = "firstCommand"
+        # $2 = "arg1, arg2"
+        # $3 = "secondCommand(arg3) ..."
+        command = $1.downcase.strip
+        line = $3 # gets the rest of the line
+        arguments = $2.strip.split(/\s*,\s*/) # create a list of comma separated tokens.
+        argCount = arguments.length
+        pverbose "command: #{command}"
+        
+        if !(ACTION_LANG.has_key?(command))
+          perror "command \"#{command}\" has invalid syntax"
+          continue
+        end
+        template = []
+        foundTemplate = false
+        ACTION_LANG[command].each do |argTemplate|
+          template = argTemplate
+          if argTemplate.length == argCount
+            foundTemplate = true
+            break
+          end
+        end
+        perror "Illegal number of arguments (#{argCount}) for command \"#{command}\"" if !foundTemplate
+
+        for i in 0..(argCount-1)
+          case template[i]
+          when ACTION_ARG_PASS
+            pverbose "arg#{i}: ACTION_ARG_PASS"
+          when ACTION_ARG_SCENE
+            pverbose "arg#{i}: ACTION_ARG_SCENE"
+            sceneName = arguments[i].downcase
+            if !(@brieflist.has_sceneName?(sceneName))
+              perror "No scene named \"#{sceneName}\" was found"
+            else
+              arguments[i] = @brieflist.indexForSceneName(sceneName)
+            end
+          when ACTION_ARG_ACTOR
+            pverbose "arg#{i}: ACTION_ARG_ACTOR"
+            actorName = arguments[i].downcase
+            if !(@scene.has_actorName?(actorName))
+              perror "No actor named \"#{actorName}\" was found"
+            else
+              arguments[i] = @scene.indexForActorName(actorName)
+            end
+          when ACTION_ARG_ANIMATION_STYLE
+            pverbose "arg#{i}: ACTION_ARG_ANIMATION_STYLE"
+          when ACTION_ARG_NUMBER
+            pverbose "arg#{i}: ACTION_ARG_NUMBER"
+          else
+            perror "arg#{i} Unknown action arg type"
+          end
+        end
+        # append the processed command and argument to the newLine
+        newLine += command + "(" + arguments.join(", ") + ") "
+      else
+        perror "nothing found in #{action}" # This is not necessarily an error
+        newLine += line
+        line = ""
+      end
+    end
+    newLine = newLine.strip
+    return newLine
+  end
+
+  def substituteImage
+    return @brieflist.blankImage if @image==""
+    return @brieflist.blankImage if @image.nil?
+    return @image
+  end
+
+  def dumpBriefList(indent=0, out=STDOUT)
+    iputs(indent, "<dict>", out)
+    dumpKeyValuePair(indent+1, "img",     substituteImage,  out) if !@image.nil?
+    dumpKeyValuePair(indent+1, "touched", @touched, out) if !@touched.nil?
+    dumpKeyValuePair(indent+1, "disabled",@disabled,out) if !@disabled.nil?
+    dumpKeyValuePair(indent+1, "x",           @x,           out, "integer")
+    dumpKeyValuePair(indent+1, "y",           @y,           out, "integer")
+    dumpKeyValuePair(indent+1, "width",       @width,       out, "integer")
+    dumpKeyValuePair(indent+1, "height",      @height,      out, "integer")
+    dumpKeyValuePair(indent+1, "visible",     @visible,     out, "boolean")
+    dumpKeyValuePair(indent+1, "scrollable",  @scrollable,  out, "boolean")
+    dumpKeyValuePair(indent+1, "name",        @name,        out)
+    dumpKeyValuePair(indent+1, "action", parseActions(@action), out)
+    iputs(indent, "</dict>", out)
+  end
+end
+
+
+
+# Create and run the application
+APP = App.new(ARGV, STDIN)
+APP.run

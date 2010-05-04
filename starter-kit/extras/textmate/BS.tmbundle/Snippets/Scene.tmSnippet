@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>scene:${1:New Scene}
+image:${2:background.png}
+	</string>
+	<key>name</key>
+	<string>Scene</string>
+	<key>scope</key>
+	<string>source.briefscript</string>
+	<key>tabTrigger</key>
+	<string>sc</string>
+	<key>uuid</key>
+	<string>E9810261-A865-4C89-9E4C-AD4B75915F0C</string>
+</dict>
+</plist>
