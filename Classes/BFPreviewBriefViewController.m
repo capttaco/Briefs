@@ -280,12 +280,11 @@
 
 - (void)loadingView:(BFLoadingViewController *)controller didCompleteWithData:(NSData *)data
 {    
-    [self performSelector:@selector(beginLoadingFadeOutAnimation:) withObject:controller afterDelay:1.0f];
-    
     // refresh data, reload brief-info
     briefBeingPreviewed = [[BFDataManager sharedBFDataManager] updateBrief:briefBeingPreviewed usingData:data];
     [self prepareInfoView:briefBeingPreviewed];
     
+    [self performSelector:@selector(beginLoadingFadeOutAnimation:) withObject:controller afterDelay:1.0f];
 }
 
 - (void)loadingView:(BFLoadingViewController *)controller didNotCompleteWithError:(NSError *)error

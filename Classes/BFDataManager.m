@@ -276,7 +276,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
     [self save];
     
     // write the new file
-    [data writeToFile:brief.filePath atomically:YES];
+    NSString *destination = [[self documentDirectory] stringByAppendingPathComponent:brief.filePath];
+    [data writeToFile:destination atomically:YES];
     
     return brief;
 }
