@@ -152,6 +152,7 @@
 		D4F215D3118FADA80041F87C /* pop-slider-bg-gray.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F215D2118FADA80041F87C /* pop-slider-bg-gray.png */; };
 		D4F21687118FF50C0041F87C /* TransitionsGallery.brieflist in Resources */ = {isa = PBXBuildFile; fileRef = D4F21685118FF50C0041F87C /* TransitionsGallery.brieflist */; };
 		D4F21688118FF50C0041F87C /* sampler.brieflist in Resources */ = {isa = PBXBuildFile; fileRef = D4F21686118FF50C0041F87C /* sampler.brieflist */; };
+		D4F2170B11900B630041F87C /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4F2170A11900B630041F87C /* Entitlements.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -364,6 +365,7 @@
 		D4F215D2118FADA80041F87C /* pop-slider-bg-gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pop-slider-bg-gray.png"; path = "images/bg/pop-slider-bg-gray.png"; sourceTree = "<group>"; };
 		D4F21685118FF50C0041F87C /* TransitionsGallery.brieflist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = TransitionsGallery.brieflist; path = briefs/TransitionsGallery.brieflist; sourceTree = "<group>"; };
 		D4F21686118FF50C0041F87C /* sampler.brieflist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = sampler.brieflist; path = briefs/sampler.brieflist; sourceTree = "<group>"; };
+		D4F2170A11900B630041F87C /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -421,6 +423,7 @@
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				D43CE71E1158811700DA07D5 /* QuartzCore.framework */,
 				D4F21543118E7FBE0041F87C /* MessageUI.framework */,
+				D4F2170A11900B630041F87C /* Entitlements.plist */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -1057,6 +1060,7 @@
 				D4F215D3118FADA80041F87C /* pop-slider-bg-gray.png in Resources */,
 				D4F21687118FF50C0041F87C /* TransitionsGallery.brieflist in Resources */,
 				D4F21688118FF50C0041F87C /* sampler.brieflist in Resources */,
+				D4F2170B11900B630041F87C /* Entitlements.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1247,6 +1251,60 @@
 			};
 			name = Release;
 		};
+		D4F2170111900AE60041F87C /* Ad Hoc Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Digital Arch Design Corporation";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Digital Arch Design Corporation";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				PROVISIONING_PROFILE = "C87DF4AA-ABAA-4171-B827-3A0DF0AA7E67";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C87DF4AA-ABAA-4171-B827-3A0DF0AA7E67";
+				SDKROOT = iphoneos3.0;
+			};
+			name = "Ad Hoc Distribution";
+		};
+		D4F2170211900AE60041F87C /* Ad Hoc Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Briefs_Prefix.pch;
+				INFOPLIST_FILE = "Briefs-Info.plist";
+				PRODUCT_NAME = Briefs;
+			};
+			name = "Ad Hoc Distribution";
+		};
+		D4F2170311900AE60041F87C /* Ad Hoc Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "compact-briefs";
+				SDKROOT = macosx10.5;
+				ZERO_LINK = NO;
+			};
+			name = "Ad Hoc Distribution";
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1255,6 +1313,7 @@
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
 				1D6058950D05DD3E006BFB54 /* Release */,
+				D4F2170211900AE60041F87C /* Ad Hoc Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1264,6 +1323,7 @@
 			buildConfigurations = (
 				7616283010505871008FDF67 /* Debug */,
 				7616283110505871008FDF67 /* Release */,
+				D4F2170311900AE60041F87C /* Ad Hoc Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1273,6 +1333,7 @@
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
+				D4F2170111900AE60041F87C /* Ad Hoc Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
