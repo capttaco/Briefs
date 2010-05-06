@@ -18,15 +18,17 @@
     IBOutlet UILabel                   *infoLabel;
     IBOutlet UILabel                   *dateLabel;
     IBOutlet UILabel                   *timeLabel;
+    IBOutlet UIButton                  *refreshButton;
 }
 
-@property (retain)  IBOutlet UILabel *titleLabel;
-@property (retain)  IBOutlet UILabel *authorLabel;
-@property (retain)  IBOutlet UILabel *fromLabel;
-@property (retain)  IBOutlet UILabel *numberOfScenesLabel;
-@property (retain)  IBOutlet UILabel *infoLabel;
-@property (retain)  IBOutlet UILabel *dateLabel;
-@property (retain)  IBOutlet UILabel *timeLabel;
+@property (retain)  IBOutlet UILabel    *titleLabel;
+@property (retain)  IBOutlet UILabel    *authorLabel;
+@property (retain)  IBOutlet UILabel    *fromLabel;
+@property (retain)  IBOutlet UILabel    *numberOfScenesLabel;
+@property (retain)  IBOutlet UILabel    *infoLabel;
+@property (retain)  IBOutlet UILabel    *dateLabel;
+@property (retain)  IBOutlet UILabel    *timeLabel;
+@property (retain)  IBOutlet UIButton   *refreshButton;
 
 
 

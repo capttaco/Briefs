@@ -72,6 +72,7 @@
     // check if locally stored
     if ([[ref fromURL] isEqual:kBFLocallyStoredBriefURLString]) {
         infoView.fromLabel.text = @"Built-in";
+        [infoView.refreshButton setEnabled:NO];
     }
     else infoView.fromLabel.text = [[NSURL URLWithString:[ref fromURL]] host];
     

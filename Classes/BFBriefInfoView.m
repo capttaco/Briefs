@@ -10,7 +10,7 @@
 
 
 @implementation BFBriefInfoView
-@synthesize titleLabel, authorLabel, fromLabel, numberOfScenesLabel, infoLabel, dateLabel, timeLabel;
+@synthesize titleLabel, authorLabel, fromLabel, numberOfScenesLabel, infoLabel, dateLabel, timeLabel, refreshButton;
 
 - (IBAction)returnToPreview
 {
@@ -25,7 +25,6 @@
 {
     [controller shouldReloadBrief];
 }
-
 
 
 @end
