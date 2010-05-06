@@ -94,6 +94,7 @@
         controller.delegate = navigation;
         [briefcastController addObject:controller];
     }
+    else briefcastController = nil;
     
     self.tableGroups = [NSArray arrayWithObjects:briefControllers, briefcastController, nil];
 }
