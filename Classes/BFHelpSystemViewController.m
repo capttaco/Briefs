@@ -39,15 +39,18 @@
     switch ([pageControl selectedSegmentIndex]) {
             
         case BFHelpSystemGettingStartedSelection:
-            loadURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:kBFHelpSystemGettingStarted ofType:@"html"]];
+//            loadURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:kBFHelpSystemGettingStarted ofType:@"html"]];
+            loadURL = [NSURL URLWithString:kBFHelpSystemGettingStarted];
             break;
         
         case BFHelpSystemShareSelection:
-            loadURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:kBFHelpSystemShare ofType:@"html"]];
+//            loadURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:kBFHelpSystemShare ofType:@"html"]];
+            loadURL = [NSURL URLWithString:kBFHelpSystemShare];
             break;
             
         case BFHelpSystemFAQSelection:
-            loadURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:kBFHelpSystemFAQ ofType:@"html"]];
+//            loadURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:kBFHelpSystemFAQ ofType:@"html"]];
+            loadURL = [NSURL URLWithString:kBFHelpSystemFAQ];
             break;
     }
     

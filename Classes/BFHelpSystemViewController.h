@@ -10,9 +10,9 @@
 #import <MessageUI/MFMailComposeViewController.h>
 
 
-#define kBFHelpSystemGettingStarted         @"gettingstarted"
-#define kBFHelpSystemShare                  @"share"
-#define kBFHelpSystemFAQ                    @"faq"
+#define kBFHelpSystemGettingStarted         @"http://giveabrief.com/help.html#gettingstarted"
+#define kBFHelpSystemShare                  @"http://giveabrief.com/help.html#share"
+#define kBFHelpSystemFAQ                    @"http://giveabrief.com/help.html#faq"
 
 typedef enum {
     BFHelpSystemGettingStartedSelection = 0,
