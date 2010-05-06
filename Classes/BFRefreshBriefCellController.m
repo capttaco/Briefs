@@ -115,20 +115,21 @@
 - (UITableViewCell *)tableView:(UITableView *)tv cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     cell = [tv dequeueReusableCellWithIdentifier:@"BriefsReloadCell"];
-    if (cell == nil) {
+    //if (cell == nil) {
         NSArray *nibArray = [[NSBundle mainBundle] loadNibNamed:@"BFRefreshBriefCell" owner:self options:nil];
         cell = (UITableViewCell *) [nibArray objectAtIndex:0];
-    }
+    //}
     
     name.text = [self.brief title];
     
     // check for null date
+    NSString *scenesText = ([self.brief.totalNumberOfScenes intValue] > 1) ? @"scenes" : @"scene";
     if (self.brief.dateLastOpened == nil)
-        desc.text = [NSString stringWithFormat:@"%@ scenes, never been opened", self.brief.totalNumberOfScenes];
+        desc.text = [NSString stringWithFormat:@"%@ %@, never been opened", self.brief.totalNumberOfScenes, scenesText];
         
     else
-        desc.text = [NSString stringWithFormat:@"%@ scenes, last opened %@", 
-                                 self.brief.totalNumberOfScenes, [BFConfig shortDateStringFromDate:self.brief.dateLastOpened]];
+        desc.text = [NSString stringWithFormat:@"%@ %@, last opened %@", self.brief.totalNumberOfScenes, scenesText,
+                     [BFConfig shortDateStringFromDate:self.brief.dateLastOpened]];
     
     
     // Miserable hack to get custom accessory view
@@ -239,7 +240,8 @@
     // swap brief for save view
     [controller.view removeFromSuperview];
     
-    [UIView commitAnimations];    
+    [UIView commitAnimations];
+    
 }
 
 
