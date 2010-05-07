@@ -10,6 +10,15 @@
 #import "BFConfig.h"
 
 
+@interface BFHelpSystemViewController (PrivateMethods)
+
+- (NSString *)starterKitEmailMessageBody;
+- (NSString *)fullyReferencedHelpFile:(NSString *)ref;
+
+@end
+
+
+
 @implementation BFHelpSystemViewController
 
 - (void)viewDidLoad 
@@ -38,19 +47,16 @@
     NSURL *loadURL = nil;
     switch ([pageControl selectedSegmentIndex]) {
             
-        case BFHelpSystemGettingStartedSelection:
-//            loadURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:kBFHelpSystemGettingStarted ofType:@"html"]];
-            loadURL = [NSURL URLWithString:kBFHelpSystemGettingStarted];
+        case BFHelpSystemAboutSelection:
+            loadURL = [NSURL URLWithString:[self fullyReferencedHelpFile:kBFHelpSystemAboutPath]];
             break;
         
-        case BFHelpSystemShareSelection:
-//            loadURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:kBFHelpSystemShare ofType:@"html"]];
-            loadURL = [NSURL URLWithString:kBFHelpSystemShare];
+        case BFHelpSystemBuildSelection:
+            loadURL = [NSURL URLWithString:[self fullyReferencedHelpFile:kBFHelpSystemBuildPath]];
             break;
             
-        case BFHelpSystemFAQSelection:
-//            loadURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:kBFHelpSystemFAQ ofType:@"html"]];
-            loadURL = [NSURL URLWithString:kBFHelpSystemFAQ];
+        case BFHelpSystemShareSelection:
+            loadURL = [NSURL URLWithString:[self fullyReferencedHelpFile:kBFHelpSystemSharePath]];
             break;
     }
     
@@ -68,12 +74,13 @@
     if ([MFMailComposeViewController canSendMail]) {
         MFMailComposeViewController *mail = [[MFMailComposeViewController alloc] init];
         [mail setMailComposeDelegate:self];
-        [mail setSubject:@"Attached: Briefs Starter Kit"];
+        [mail setSubject:@"Briefs Starter Kit"];
         
         // add starter kit zip file
-        NSString *pathToKit = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"starter-kit.zip"];
-        NSData *kitBlob = [NSData dataWithContentsOfFile:pathToKit];
-        [mail addAttachmentData:kitBlob mimeType:@"zip" fileName:@"starter-kit.zip"];
+//        NSString *pathToKit = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"starter-kit.zip"];
+//        NSData *kitBlob = [NSData dataWithContentsOfFile:pathToKit];
+//        [mail addAttachmentData:kitBlob mimeType:@"zip" fileName:@"starter-kit.zip"];
+        [mail setMessageBody:[self starterKitEmailMessageBody] isHTML:NO];
         
         mail.navigationBar.tintColor = [BFConfig tintColorForNavigationBar];
         
@@ -87,6 +94,17 @@
     //       ... or err, not sent.
     
     [controller dismissModalViewControllerAnimated:YES];
+}
+
+
+- (NSString *)starterKitEmailMessageBody
+{
+    return [NSString stringWithFormat:@"Start authoring briefs today. Download the starter kit below, then use the documentation to get started.\n\n%@\n\nDocumentation\n%@", kBFHelpSystemStarterKitPath, kBFHelpSystemDocumentationBasePath];
+}
+
+- (NSString *)fullyReferencedHelpFile:(NSString *)ref
+{
+    return [NSString stringWithFormat:@"%@%@", kBFHelpSystemDocumentationBasePath, ref]; 
 }
 
 @end
