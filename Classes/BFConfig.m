@@ -36,7 +36,7 @@
 {
     if (date == nil) return @"";
     
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
     [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
     [dateFormatter setDateStyle:NSDateFormatterShortStyle];
     return [dateFormatter stringFromDate:date];
@@ -46,7 +46,7 @@
 {
     if (date == nil) return @"";
     
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
     [dateFormatter setDateStyle:NSDateFormatterNoStyle];
     [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
     return [[dateFormatter stringFromDate:date] stringByReplacingOccurrencesOfString:@" " withString:@""];

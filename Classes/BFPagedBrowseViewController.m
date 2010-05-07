@@ -36,8 +36,16 @@
 
 - (id)initWithDataSource:(id<BFBriefDataSource>)ref
 {
+    return [self initWithDataSource:ref isLocal:NO];
+}
+
+- (id)initWithDataSource:(id<BFBriefDataSource>)ref isLocal:(BOOL)local
+{
     if (self = [super initWithNibName:@"BFPagedBrowseViewController" bundle:nil]) {
-        dataSource = ref;
+        self.dataSource = ref;
+        
+        if (local == YES) self.title = @"Built-in Briefs";
+        else self.title = @"Briefs";
     }
     
     return self;
@@ -241,7 +249,7 @@
 
 - (void)initializePagedView
 {
-    self.title = @"Briefs";
+//    self.title = @"Briefs";
     
     // Initialize page views
     self.pages = [NSMutableArray arrayWithCapacity:3];

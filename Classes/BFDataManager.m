@@ -340,6 +340,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
     //       defaults to lasted opened for now
     NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"dateLastOpened" ascending:NO];
     NSArray *sortDescriptors = [NSArray arrayWithObjects:sort, nil];
+    [sort release];
     
     NSMutableArray *arrayOfBriefcasts = [NSMutableArray array];
     
@@ -391,6 +392,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
     //       defaults to lasted opened for now
     NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"dateLastOpened" ascending:NO];
     NSArray *sortDescriptors = [NSArray arrayWithObjects:sort, nil];
+    [sort release];
     
     // Fetch Data from the database
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];

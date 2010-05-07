@@ -176,9 +176,8 @@
 - (void)launchHelpSystem
 {
     BFHelpSystemViewController *help = [[BFHelpSystemViewController alloc] init];
-//    UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:help];
-//    [self.navigationController presentModalViewController:navigation animated:YES];
     [self.navigationController presentModalViewController:help animated:YES];
+    [help release];
 }
 
 - (void)hideMenuWithAnimation

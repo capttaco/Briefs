@@ -12,6 +12,8 @@
 #import "BriefcastRef.h"
 #import "BFBriefcast+CoreDataAdditions.h"
 #import "BFBriefcastCellController.h"
+#import "BFArrayBriefDataSource.h"
+#import "BFPagedBrowseViewController.h"
 
 
 @implementation BFBrowseBriefcastsViewController
@@ -150,7 +152,12 @@
 
 - (IBAction)showBuiltInBriefs
 {
+    BFDataManager *dataManager = [BFDataManager sharedBFDataManager];
+    NSArray *builtInArray = [dataManager briefsFromBriefcast:[dataManager localBriefcastRefMarker] sortedAs:BFDataManagerSortByDateOpened];
+    BFArrayBriefDataSource *builtinBriefs = [[BFArrayBriefDataSource alloc] initWithArray:builtInArray];
+    [self.navigationController pushViewController:[[[BFPagedBrowseViewController alloc] initWithDataSource:builtinBriefs isLocal:YES] autorelease] animated:YES];
     
+    [builtinBriefs release];
 }
 
 @end

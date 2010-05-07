@@ -40,5 +40,6 @@
 - (void)refresh:(id<BFBriefDataSource>)source gotoIndex:(NSInteger)index;
 
 - (id)initWithDataSource:(id<BFBriefDataSource>)ref;
+- (id)initWithDataSource:(id<BFBriefDataSource>)ref isLocal:(BOOL)local;
 
 @end

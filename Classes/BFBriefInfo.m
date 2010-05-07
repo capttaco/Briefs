@@ -14,7 +14,7 @@
 
 + (id)infoForBriefData:(NSDictionary *)dictionary atPath:(NSString *)path
 {
-    return [[BFBriefInfo alloc] initWithDictionary:dictionary atPath:path];
+    return [[[BFBriefInfo alloc] initWithDictionary:dictionary atPath:path] autorelease];
 }
 
 + (id)infoForBriefAtPath:(NSString *)pathToData
