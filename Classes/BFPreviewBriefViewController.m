@@ -216,7 +216,8 @@
 {
     BFPagedBrowseViewController *controller;
     if (controller = (BFPagedBrowseViewController *)[self.parentNavigationController topViewController]) {
-        [controller refresh:[[BFDataManager sharedBFDataManager] allBriefsSortedAs:BFDataManagerSortByDateOpened] gotoIndex:pageIndex-1];
+        int gotoIndex = (pageIndex < 1) ? pageIndex : pageIndex - 1;
+        [controller refresh:[[BFDataManager sharedBFDataManager] allBriefsSortedAs:BFDataManagerSortByDateOpened] gotoIndex:gotoIndex];
     }
 }
 
