@@ -77,9 +77,6 @@
         [mail setSubject:@"Briefs Starter Kit"];
         
         // add starter kit zip file
-//        NSString *pathToKit = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"starter-kit.zip"];
-//        NSData *kitBlob = [NSData dataWithContentsOfFile:pathToKit];
-//        [mail addAttachmentData:kitBlob mimeType:@"zip" fileName:@"starter-kit.zip"];
         [mail setMessageBody:[self starterKitEmailMessageBody] isHTML:NO];
         
         mail.navigationBar.tintColor = [BFConfig tintColorForNavigationBar];
