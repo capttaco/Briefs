@@ -19,7 +19,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 
 {
-    [[BFDataManager sharedBFDataManager] load];
+    BOOL hasLaunchedBefore = [[NSUserDefaults standardUserDefaults] boolForKey:kBFHasLaunchedBefore];
+    if (!hasLaunchedBefore) {
+        
+        // if App is launching for the first time
+        
+        [[BFDataManager sharedBFDataManager] load];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kBFHasLaunchedBefore];
+    }
     
     BFMainViewController *controller = [BFMainViewController alloc];
     if (launchOptions) {
