@@ -42,6 +42,7 @@
     
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
     self.navigationController.delegate = self;
+    self.navigationController.view.backgroundColor = [UIColor blackColor];
     [window addSubview:[self.navigationController view]];
     [window makeKeyAndVisible];
     [controller release];
