@@ -149,6 +149,7 @@
 		D4F21687118FF50C0041F87C /* TransitionsGallery.brieflist in Resources */ = {isa = PBXBuildFile; fileRef = D4F21685118FF50C0041F87C /* TransitionsGallery.brieflist */; };
 		D4F21688118FF50C0041F87C /* sampler.brieflist in Resources */ = {isa = PBXBuildFile; fileRef = D4F21686118FF50C0041F87C /* sampler.brieflist */; };
 		D4F2170B11900B630041F87C /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4F2170A11900B630041F87C /* Entitlements.plist */; };
+		D4F218821193E4E70041F87C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F218811193E4E70041F87C /* Default.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -358,6 +359,7 @@
 		D4F21685118FF50C0041F87C /* TransitionsGallery.brieflist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = TransitionsGallery.brieflist; path = briefs/TransitionsGallery.brieflist; sourceTree = "<group>"; };
 		D4F21686118FF50C0041F87C /* sampler.brieflist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = sampler.brieflist; path = briefs/sampler.brieflist; sourceTree = "<group>"; };
 		D4F2170A11900B630041F87C /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
+		D4F218811193E4E70041F87C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -440,6 +442,7 @@
 				D4309742106AC10B00C1EC5E /* Briefs-data.plist */,
 				8D1107310486CEB800E47090 /* Briefs-Info.plist */,
 				D4AF1B051147362200D1B3B5 /* Briefs.xcdatamodel */,
+				D4F218811193E4E70041F87C /* Default.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1037,6 +1040,7 @@
 				D4F21687118FF50C0041F87C /* TransitionsGallery.brieflist in Resources */,
 				D4F21688118FF50C0041F87C /* sampler.brieflist in Resources */,
 				D4F2170B11900B630041F87C /* Entitlements.plist in Resources */,
+				D4F218821193E4E70041F87C /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
