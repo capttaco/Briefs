@@ -23,10 +23,11 @@ typedef enum {
 } BFHelpSystemSelectionIndex;
 
 
-@interface BFHelpSystemViewController : UIViewController<MFMailComposeViewControllerDelegate>
+@interface BFHelpSystemViewController : UIViewController <MFMailComposeViewControllerDelegate, UIActionSheetDelegate>
 {
     IBOutlet UIWebView          *contentView;
     IBOutlet UISegmentedControl *pageControl;
+
 }
 
 - (IBAction)dismiss;

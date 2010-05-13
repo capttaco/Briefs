@@ -24,7 +24,6 @@
 - (void)viewDidLoad 
 {
     [super viewDidLoad];
-    
     [self changePage];
 }
 
@@ -71,7 +70,14 @@
 
 - (IBAction)emailStarterKit
 {
-    if ([MFMailComposeViewController canSendMail]) {
+    UIActionSheet *confirmSheet = [[UIActionSheet alloc] initWithTitle:@"Prepare an email to help get you started?" delegate:self cancelButtonTitle:@"No, thank you." destructiveButtonTitle:nil otherButtonTitles:@"Yes, that would rock!", nil];
+    
+    [confirmSheet showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex 
+{
+    if ([actionSheet cancelButtonIndex] != buttonIndex && [MFMailComposeViewController canSendMail]) {
         MFMailComposeViewController *mail = [[MFMailComposeViewController alloc] init];
         [mail setMailComposeDelegate:self];
         [mail setSubject:@"Briefs Starter Kit"];
