@@ -1210,7 +1210,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -1224,7 +1223,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -1232,116 +1230,6 @@
 				SDKROOT = iphoneos4.0;
 			};
 			name = Release;
-		};
-		D4F2170111900AE60041F87C /* Ad Hoc Distribution */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Digital Arch Design Corporation";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Digital Arch Design Corporation";
-				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				PREBINDING = NO;
-				PROVISIONING_PROFILE = "B85236F2-CB38-45F5-BC49-91962E55AF21";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B85236F2-CB38-45F5-BC49-91962E55AF21";
-				SDKROOT = iphoneos4.0;
-			};
-			name = "Ad Hoc Distribution";
-		};
-		D4F2170211900AE60041F87C /* Ad Hoc Distribution */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Briefs_Prefix.pch;
-				INFOPLIST_FILE = "Briefs-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
-				PRODUCT_NAME = Briefs;
-			};
-			name = "Ad Hoc Distribution";
-		};
-		D4F2170311900AE60041F87C /* Ad Hoc Distribution */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_MODEL_TUNING = G5;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
-				INSTALL_PATH = /usr/local/bin;
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					AppKit,
-				);
-				PREBINDING = NO;
-				PRODUCT_NAME = "compact-briefs";
-				SDKROOT = macosx10.5;
-				ZERO_LINK = NO;
-			};
-			name = "Ad Hoc Distribution";
-		};
-		D4F2189B1193E7600041F87C /* App Store Distribution */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Digital Arch Design Corporation";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Digital Arch Design Corporation";
-				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				PREBINDING = NO;
-				PROVISIONING_PROFILE = "0A9A41E7-6A23-4C64-86D4-5F495425CE58";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0A9A41E7-6A23-4C64-86D4-5F495425CE58";
-				SDKROOT = iphoneos4.0;
-			};
-			name = "App Store Distribution";
-		};
-		D4F2189C1193E7600041F87C /* App Store Distribution */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Briefs_Prefix.pch;
-				INFOPLIST_FILE = "Briefs-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
-				PRODUCT_NAME = Briefs;
-			};
-			name = "App Store Distribution";
-		};
-		D4F2189D1193E7600041F87C /* App Store Distribution */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_MODEL_TUNING = G5;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
-				INSTALL_PATH = /usr/local/bin;
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					AppKit,
-				);
-				PREBINDING = NO;
-				PRODUCT_NAME = "compact-briefs";
-				SDKROOT = macosx10.5;
-				ZERO_LINK = NO;
-			};
-			name = "App Store Distribution";
 		};
 /* End XCBuildConfiguration section */
 
@@ -1351,8 +1239,6 @@
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
 				1D6058950D05DD3E006BFB54 /* Release */,
-				D4F2170211900AE60041F87C /* Ad Hoc Distribution */,
-				D4F2189C1193E7600041F87C /* App Store Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1362,8 +1248,6 @@
 			buildConfigurations = (
 				7616283010505871008FDF67 /* Debug */,
 				7616283110505871008FDF67 /* Release */,
-				D4F2170311900AE60041F87C /* Ad Hoc Distribution */,
-				D4F2189D1193E7600041F87C /* App Store Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1373,8 +1257,6 @@
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
-				D4F2170111900AE60041F87C /* Ad Hoc Distribution */,
-				D4F2189B1193E7600041F87C /* App Store Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
