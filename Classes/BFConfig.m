@@ -32,7 +32,7 @@
 }
 
 
-+ (NSString *)shortDateStringFromDate:(NSDate *)date;
++ (NSString *)shortDateStringFromDate:(NSDate *)date
 {
     if (date == nil) return @"";
     

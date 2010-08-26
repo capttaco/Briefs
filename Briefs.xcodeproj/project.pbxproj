@@ -415,8 +415,6 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				D43CE71E1158811700DA07D5 /* QuartzCore.framework */,
-				D4F21543118E7FBE0041F87C /* MessageUI.framework */,
 				D4F2170A11900B630041F87C /* Entitlements.plist */,
 			);
 			name = CustomTemplate;
@@ -450,6 +448,8 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D4F21543118E7FBE0041F87C /* MessageUI.framework */,
+				D43CE71E1158811700DA07D5 /* QuartzCore.framework */,
 				D4AF1A331147312400D1B3B5 /* CoreData.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
@@ -1137,6 +1137,7 @@
 				GCC_PREFIX_HEADER = Briefs_Prefix.pch;
 				GCC_VERSION = 4.2;
 				INFOPLIST_FILE = "Briefs-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				PRODUCT_NAME = Briefs;
 			};
 			name = Debug;
@@ -1149,6 +1150,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Briefs_Prefix.pch;
 				INFOPLIST_FILE = "Briefs-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				PRODUCT_NAME = Briefs;
 			};
 			name = Release;
@@ -1214,7 +1216,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.0;
+				SDKROOT = iphoneos4.0;
 			};
 			name = Debug;
 		};
@@ -1227,7 +1229,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.0;
+				SDKROOT = iphoneos4.0;
 			};
 			name = Release;
 		};
@@ -1244,7 +1246,7 @@
 				PREBINDING = NO;
 				PROVISIONING_PROFILE = "B85236F2-CB38-45F5-BC49-91962E55AF21";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B85236F2-CB38-45F5-BC49-91962E55AF21";
-				SDKROOT = iphoneos3.0;
+				SDKROOT = iphoneos4.0;
 			};
 			name = "Ad Hoc Distribution";
 		};
@@ -1256,6 +1258,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Briefs_Prefix.pch;
 				INFOPLIST_FILE = "Briefs-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				PRODUCT_NAME = Briefs;
 			};
 			name = "Ad Hoc Distribution";
@@ -1298,7 +1301,7 @@
 				PREBINDING = NO;
 				PROVISIONING_PROFILE = "0A9A41E7-6A23-4C64-86D4-5F495425CE58";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0A9A41E7-6A23-4C64-86D4-5F495425CE58";
-				SDKROOT = iphoneos3.0;
+				SDKROOT = iphoneos4.0;
 			};
 			name = "App Store Distribution";
 		};
@@ -1310,6 +1313,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Briefs_Prefix.pch;
 				INFOPLIST_FILE = "Briefs-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				PRODUCT_NAME = Briefs;
 			};
 			name = "App Store Distribution";
