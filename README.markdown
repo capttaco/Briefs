@@ -128,7 +128,7 @@ It's not broken, the [Briefs-Data][data] project is linked as a `git submodule`.
 Option 1: I downloaded the `.zip` file
 --------------------------------------
 
-If you downloaded the bundle, go to the Briefs-Data project, <http://github.com/capttaco/Briefs-data>, download that project and place the unzipped contents into the `/data` directory. Open up Xcode and the missing files should have returned.
+If you downloaded the bundle, go to the Briefs-Data project, <http://github.com/capttaco/Briefs-data>, download that project and place the unzipped contents into the `/Classes/Briefs-data` directory. Next, download the Briefs-sharedUI project, <http://github.com/capttaco/Briefs-sharedUI> and place it in, you guessed it, `/Classes/Briefs-sharedUI`. Open up Xcode and the missing files should have returned.
 
 Option 2: I cloned the repository
 ---------------------------------
