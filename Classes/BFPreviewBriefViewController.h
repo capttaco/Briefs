@@ -28,7 +28,7 @@
 }
 
 @property (retain)  id<BFBriefDataSource>   dataSource;
-@property           NSInteger               pageIndex;
+@property (nonatomic, readwrite, assign)  NSInteger               pageIndex;
 @property (assign)  UINavigationController  *parentNavigationController;
 
 - (void)shouldShowBriefDetails;
