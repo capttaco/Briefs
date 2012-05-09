@@ -37,10 +37,9 @@
 {
     UITableViewCell *cell = [tv dequeueReusableCellWithIdentifier:@"TextCell"];
     if (cell == nil) {
-        CGRect cellFrame = CGRectMake(0, 0, 300, 45);
         CGRect textFrame = CGRectMake(20, 10, 280, 25);
         
-        cell = [[[UITableViewCell alloc] initWithFrame:cellFrame reuseIdentifier:@"TextCell"] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TextCell"] autorelease];
         UITextField *textField = [[UITextField alloc] initWithFrame:textFrame];
         textField.placeholder = self.labelText;
         textField.text = self.savedValue;
