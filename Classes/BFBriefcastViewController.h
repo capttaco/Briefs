@@ -14,7 +14,7 @@
 
 @interface BFBriefcastViewController : BFTableViewController <BFBriefcastEventDelegate, BFLoadingViewDelegate, BFRemoteBriefViewDelegate> 
 {
-    NSMutableArray          *enclosedBriefs;
+    NSArray          *enclosedBriefs;
     NSString                *channelTitle;
     NSString                *channelLink;
     NSString                *channelDescription;
@@ -31,7 +31,7 @@
 
 }
 
-@property (nonatomic, retain) NSMutableArray    *enclosedBriefs;
+@property (nonatomic, retain) NSArray    *enclosedBriefs;
 @property (nonatomic, retain) NSString          *channelTitle;
 @property (nonatomic, retain) NSString          *channelLink;
 @property (nonatomic, retain) NSString          *channelDescription;
