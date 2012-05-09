@@ -91,7 +91,6 @@
         [tvc.navigationController pushViewController:controller animated:YES];
     }
     
-    [controller release];
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath 

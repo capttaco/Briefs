@@ -29,10 +29,6 @@
     return [self initWithNibName:nil bundle:nil];
 }
 
-- (void)dealloc 
-{
-    [super dealloc];
-}
 
 - (void)setPromptLabelText:(NSString *)prompt
 {

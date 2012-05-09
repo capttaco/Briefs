@@ -36,10 +36,10 @@
     tableFooterView.alpha = 0.0;
     
     // Edit button
-    UIBarButtonItem *editButton = [[[UIBarButtonItem alloc] initWithTitle:@"Edit" 
+    UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" 
                                                                     style:UIBarButtonItemStylePlain
                                                                    target:self 
-                                                                   action:@selector(editBriefcasts)] autorelease];
+                                                                   action:@selector(editBriefcasts)];
     self.navigationItem.rightBarButtonItem = editButton;
 }
 
@@ -60,7 +60,7 @@
     NSArray *knownBriefcasts = [[BFDataManager sharedBFDataManager] allBriefcastsSortedAs:BFDataManagerSortByDateOpened];
     for (BriefcastRef *ref in knownBriefcasts) {
         // add briefcast cell
-        BFBriefcastCellController *controller = [[[BFBriefcastCellController alloc] initWithBriefcast:ref] autorelease];
+        BFBriefcastCellController *controller = [[BFBriefcastCellController alloc] initWithBriefcast:ref];
         [allControllers addObject:controller];
     }
     
@@ -113,9 +113,9 @@
         self.navigationItem.rightBarButtonItem.style = UIBarButtonItemStyleDone;
         [self.navigationItem setHidesBackButton:YES animated:YES];
         
-        UIBarButtonItem *addButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+        UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                                                     target:self
-                                                                                    action:@selector(addBriefcast)] autorelease];
+                                                                                    action:@selector(addBriefcast)];
         [self.navigationItem setLeftBarButtonItem:addButton animated:YES];
         [self animateTableFooterView:1.0f];
     }
@@ -136,8 +136,6 @@
     UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:controller];
     [self.navigationController presentModalViewController:navigation animated:YES];
 
-    [controller release];
-    [navigation release];
 }
 
 - (void)addViewController:(BFAddBriefcastViewController *)controller didFinishWithSave:(BOOL)save
@@ -155,9 +153,8 @@
     BFDataManager *dataManager = [BFDataManager sharedBFDataManager];
     NSArray *builtInArray = [dataManager briefsFromBriefcast:[dataManager localBriefcastRefMarker] sortedAs:BFDataManagerSortByDateOpened];
     BFArrayBriefDataSource *builtinBriefs = [[BFArrayBriefDataSource alloc] initWithArray:builtInArray];
-    [self.navigationController pushViewController:[[[BFPagedBrowseViewController alloc] initWithDataSource:builtinBriefs isLocal:YES] autorelease] animated:YES];
+    [self.navigationController pushViewController:[[BFPagedBrowseViewController alloc] initWithDataSource:builtinBriefs isLocal:YES] animated:YES];
     
-    [builtinBriefs release];
 }
 
 @end

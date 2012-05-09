@@ -31,8 +31,7 @@
 
 - (void)dealloc
 {
-    [self.brief release];
-    [super dealloc];
+    self.brief;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -68,14 +67,14 @@
 
 - (void)loadingFadeDidStop:(NSString *)animationId finished:(NSNumber *)finished context:(void *)context
 {
-    BFLoadingViewController *controller = context;
+    BFLoadingViewController *controller = (__bridge BFLoadingViewController*)context;
     [[controller view] removeFromSuperview];
 }
 
 - (void)beginLoadingFadeOutAnimation:(id)loading
 {
     BFLoadingViewController *controller = loading;
-    [UIView beginAnimations:@"fade-out refresh view" context:controller];
+    [UIView beginAnimations:@"fade-out refresh view" context:(__bridge void*)controller];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
     [UIView setAnimationDuration:0.5f];
     [UIView setAnimationDelegate:self];
@@ -208,7 +207,6 @@
     
     [UIView commitAnimations];
     
-    [manager release];
 }
 
 

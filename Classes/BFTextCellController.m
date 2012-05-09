@@ -24,9 +24,8 @@
 
 - (void)dealloc 
 {
-    [self.labelText release];
-    [self.savedValue release];
-    [super dealloc];
+    self.labelText;
+    self.savedValue;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -39,7 +38,7 @@
     if (cell == nil) {
         CGRect textFrame = CGRectMake(20, 10, 280, 25);
         
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TextCell"] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TextCell"];
         UITextField *textField = [[UITextField alloc] initWithFrame:textFrame];
         textField.placeholder = self.labelText;
         textField.text = self.savedValue;

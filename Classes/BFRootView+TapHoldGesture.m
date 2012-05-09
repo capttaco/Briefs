@@ -67,7 +67,6 @@
                                                   otherButtonTitles:nil];
         sheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
         [sheet showInView:self];
-        [sheet autorelease];
     }
 }
 

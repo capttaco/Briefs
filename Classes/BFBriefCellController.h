@@ -25,7 +25,7 @@ typedef enum {
 
 @interface BFBriefCellController : NSObject<BFCellController> 
 {
-    id<BFBriefcastEventDelegate>    delegate;
+    id<BFBriefcastEventDelegate>    __unsafe_unretained delegate;
     BFBriefCellInstallType          installType;
     FPItem                          *brief;
     
@@ -52,8 +52,8 @@ typedef enum {
     UIImageView         *installButtonBg;
 }
 
-@property (nonatomic, retain) FPItem                            *brief;
-@property (nonatomic, assign) id<BFBriefcastEventDelegate>    delegate;
+@property (nonatomic) FPItem                            *brief;
+@property (nonatomic, unsafe_unretained) id<BFBriefcastEventDelegate>    delegate;
 
 - (id)initWithEnclosure:(FPItem *)item;
 

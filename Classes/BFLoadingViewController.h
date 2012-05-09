@@ -17,7 +17,7 @@
     IBOutlet UILabel        *statusLabel;
     IBOutlet UIButton       *dismissButton;
     
-    id<BFLoadingViewDelegate>    delegate;
+    id<BFLoadingViewDelegate>    __unsafe_unretained delegate;
     NSString                        *workingStatus;
     
     // Internals
@@ -27,9 +27,9 @@
     long long                       expectedSizeOfResponse;
 }
 
-@property (nonatomic, assign) id            delegate;
-@property (nonatomic, retain) NSString      *locationOfRequest;
-@property (nonatomic, retain) NSMutableData *data;
+@property (nonatomic, unsafe_unretained) id            delegate;
+@property (nonatomic) NSString      *locationOfRequest;
+@property (nonatomic) NSMutableData *data;
 
 
 - (void)load:(NSString *)location withStatus:(NSString *)status;

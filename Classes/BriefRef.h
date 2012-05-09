@@ -14,16 +14,16 @@
 {
 }
 
-@property (nonatomic, retain) NSDate * dateLastOpened;
-@property (nonatomic, retain) NSString * author;
-@property (nonatomic, retain) NSNumber * lastSceneOpened;
-@property (nonatomic, retain) NSNumber * totalNumberOfScenes;
-@property (nonatomic, retain) NSString * title;
-@property (nonatomic, retain) NSString * desc;
-@property (nonatomic, retain) NSDate * dateLastDownloaded;
-@property (nonatomic, retain) NSString * fromURL;
-@property (nonatomic, retain) NSString * filePath;
-@property (nonatomic, retain) BriefcastRef * briefcast;
+@property (nonatomic) NSDate * dateLastOpened;
+@property (nonatomic) NSString * author;
+@property (nonatomic) NSNumber * lastSceneOpened;
+@property (nonatomic) NSNumber * totalNumberOfScenes;
+@property (nonatomic) NSString * title;
+@property (nonatomic) NSString * desc;
+@property (nonatomic) NSDate * dateLastDownloaded;
+@property (nonatomic) NSString * fromURL;
+@property (nonatomic) NSString * filePath;
+@property (nonatomic) BriefcastRef * briefcast;
 
 @end
 

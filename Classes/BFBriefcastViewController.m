@@ -48,7 +48,7 @@
     
     // Load Briefcast url
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[self locationOfBriefcast]]];
-    [[[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES] autorelease];
+    [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -82,7 +82,6 @@
     
     self.modalViewController.view.frame = CGRectMake(0.0, 0.0, 320.0f, 480.0f);
     
-    [remote release];
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -138,13 +137,13 @@
 
 - (void)fadeLoadingViewDidStop:(NSString *)animationId finished:(NSNumber *)finished context:(void *)context
 {
-    UIView *view = context;
+    UIView *view = (__bridge UIView*)context;
     [view removeFromSuperview];
 }
 
 - (void)dismissLoadingViewAnimation:(UIView *)loadingView
 {
-    [UIView beginAnimations:@"dismiss loader animation" context:loadingView];
+    [UIView beginAnimations:@"dismiss loader animation" context:(__bridge void*)loadingView];
     [UIView setAnimationDelegate:self];
     [UIView setAnimationDidStopSelector:@selector(fadeLoadingViewDidStop:finished:context:)];
     loadingView.alpha = 0.0f;
@@ -170,7 +169,6 @@
             BFBriefCellController *controller = [[BFBriefCellController alloc] initWithEnclosure:item];
             controller.delegate = self;
             [groups addObject:controller];
-            [controller release];
         }
         
         self.tableGroups = [NSArray arrayWithObjects:groups, nil];
@@ -194,13 +192,12 @@
 
 - (void)dealloc 
 {
-    [self.channelLink release];
-    [self.channelTitle release];
-    [self.channelDescription release];
-    [self.enclosedBriefs release];
-    [self.locationOfBriefcast release];
-    [self.briefcast release];
-    [super dealloc];
+    self.channelLink;
+    self.channelTitle;
+    self.channelDescription;
+    self.enclosedBriefs;
+    self.locationOfBriefcast;
+    self.briefcast;
 }
 
 
@@ -215,7 +212,7 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {    
-    NSError *error = [[[NSError alloc] init] autorelease];
+    NSError *error = [[NSError alloc] init];
     FPFeed *feed = [FPParser parsedFeedWithData:self.recievedData error:&error];
     
     self.channelTitle = [feed title];

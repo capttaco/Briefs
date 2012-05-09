@@ -14,13 +14,13 @@
 {
 }
 
-@property (nonatomic, retain) NSDate * dateLastRefresh;
-@property (nonatomic, retain) NSString * fromURL;
-@property (nonatomic, retain) NSString * desc;
-@property (nonatomic, retain) NSNumber * totalNumberOfBriefcasts;
-@property (nonatomic, retain) NSString * title;
-@property (nonatomic, retain) NSDate * dateLastOpened;
-@property (nonatomic, retain) NSSet* briefs;
+@property (nonatomic) NSDate * dateLastRefresh;
+@property (nonatomic) NSString * fromURL;
+@property (nonatomic) NSString * desc;
+@property (nonatomic) NSNumber * totalNumberOfBriefcasts;
+@property (nonatomic) NSString * title;
+@property (nonatomic) NSDate * dateLastOpened;
+@property (nonatomic) NSSet* briefs;
 
 @end
 

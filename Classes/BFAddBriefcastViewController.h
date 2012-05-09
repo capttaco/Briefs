@@ -15,10 +15,10 @@
 
 @interface BFAddBriefcastViewController : BFTableViewController 
 {
-    id <BFAddBriefcastViewDelegate> delegate;
+    id <BFAddBriefcastViewDelegate> __unsafe_unretained delegate;
 }
 
-@property (nonatomic, assign) id <BFAddBriefcastViewDelegate> delegate;
+@property (nonatomic, unsafe_unretained) id <BFAddBriefcastViewDelegate> delegate;
 
 - (IBAction)save;
 - (IBAction)cancel;

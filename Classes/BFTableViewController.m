@@ -161,8 +161,7 @@
 - (void)dealloc
 {
     [self clearTableGroups];
-    [self.tableView release];
-    [super dealloc];
+    self.tableView;
 }
 
 ///////////////////////////////////////////////////////////////////////////////

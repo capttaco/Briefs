@@ -23,13 +23,13 @@
     id<BFBriefDataSource>           dataSource;
     BriefRef                        *briefBeingPreviewed;
     
-    UINavigationController          *parentNavigationController;
+    UINavigationController          *__unsafe_unretained parentNavigationController;
 
 }
 
-@property (retain)  id<BFBriefDataSource>   dataSource;
+@property   id<BFBriefDataSource>   dataSource;
 @property (nonatomic, readwrite, assign)  NSInteger               pageIndex;
-@property (assign)  UINavigationController  *parentNavigationController;
+@property (unsafe_unretained)  UINavigationController  *parentNavigationController;
 
 - (void)shouldShowBriefDetails;
 - (void)briefShouldStartPlaying;

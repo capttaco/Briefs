@@ -15,8 +15,8 @@
     NSString *labelText;
 }
 
-@property (nonatomic, retain) NSString *savedValue;
-@property (nonatomic, retain) NSString *labelText;
+@property (nonatomic) NSString *savedValue;
+@property (nonatomic) NSString *labelText;
 
 - (id)initWithLabel:(NSString *)label;
 

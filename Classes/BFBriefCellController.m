@@ -79,8 +79,7 @@
 
 - (void)dealloc
 {
-    [self.brief release];
-    [super dealloc];
+    self.brief;
 }
 
 
@@ -126,14 +125,14 @@
 
 - (void)expandButtonDidStop:(NSString *)animationId finished:(NSNumber *)finished context:(void *)context
 {
-    NSNumber *expand = context;
+    NSNumber *expand = (__bridge NSNumber*)context;
     NSString *label = ([expand boolValue]) ? @"INSTALL" : @"NEW";
     [installButton setTitle:label forState:UIControlStateNormal];
 }
 
 - (void)setInstallButtonExpanded:(BOOL)expand
 {
-    [UIView beginAnimations:@"Toggle Download Mode" context:[NSNumber numberWithBool:expand]];
+    [UIView beginAnimations:@"Toggle Download Mode" context:(__bridge void *)([NSNumber numberWithBool:expand])];
     [UIView setAnimationCurve:UIViewAnimationCurveLinear];
     [UIView setAnimationDelegate:self];
     [UIView setAnimationDidStopSelector:@selector(expandButtonDidStop:finished:context:)];

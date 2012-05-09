@@ -18,17 +18,12 @@
 - (id)initWithArray:(NSArray *)backing
 {
     if (self = [super init]) {
-        backingArray = [backing retain];
+        backingArray = backing;
     }
     
     return self;
 }
 
-- (void)dealloc
-{
-    [backingArray release];
-    [super dealloc];
-}
 
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -

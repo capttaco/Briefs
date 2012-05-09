@@ -20,10 +20,10 @@
         self.title = @"Add Briefcast";
         
         // Configure the save button.
-        UIBarButtonItem *saveButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(save)] autorelease];
+        UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(save)];
         
         // Configure the cancel button
-        UIBarButtonItem *cancelButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel)] autorelease];
+        UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel)];
         
         self.navigationItem.rightBarButtonItem = saveButton;
         self.navigationItem.leftBarButtonItem = cancelButton;
@@ -44,9 +44,9 @@
 
 - (void)constructTableGroups
 {
-    NSArray *briefcastDescriptors = [NSArray arrayWithObjects: [[[BFTextCellController alloc] initWithLabel:@"Name"] autorelease],
-            [[[BFTextCellController alloc] initWithLabel:@"URL"] autorelease],
-            [[[BFTextCellController alloc] initWithLabel:@"Description"] autorelease], nil];
+    NSArray *briefcastDescriptors = [NSArray arrayWithObjects: [[BFTextCellController alloc] initWithLabel:@"Name"],
+            [[BFTextCellController alloc] initWithLabel:@"URL"],
+            [[BFTextCellController alloc] initWithLabel:@"Description"], nil];
                                                                         
     self.tableGroups = [NSArray arrayWithObjects:briefcastDescriptors, nil];
 }
@@ -55,8 +55,8 @@
 {
     if (self.tableGroups != nil) {
         NSArray *cells = [tableGroups objectAtIndex:0];
-        BFBriefcast *briefcast = [[[BFBriefcast alloc] initWithName:[[cells objectAtIndex:0] savedValue] 
-            andURL:[[cells objectAtIndex:1] savedValue]] autorelease];
+        BFBriefcast *briefcast = [[BFBriefcast alloc] initWithName:[[cells objectAtIndex:0] savedValue] 
+            andURL:[[cells objectAtIndex:1] savedValue]];
         briefcast.description = [[cells objectAtIndex:2] savedValue];
         return briefcast;
     }

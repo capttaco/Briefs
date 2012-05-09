@@ -52,10 +52,6 @@
     return self;
 }
 
-- (void)dealloc 
-{
-    [super dealloc];
-}
 
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -
@@ -68,10 +64,10 @@
     self.title = @"Welcome";
     
     // Help button
-    UIBarButtonItem *helpButton = [[[UIBarButtonItem alloc] initWithTitle:@"Help" 
+    UIBarButtonItem *helpButton = [[UIBarButtonItem alloc] initWithTitle:@"Help" 
                                                                     style:UIBarButtonItemStylePlain
                                                                    target:self 
-                                                                   action:@selector(launchHelpSystem)] autorelease];
+                                                                   action:@selector(launchHelpSystem)];
     self.navigationItem.rightBarButtonItem = helpButton;
 }
 
@@ -95,7 +91,6 @@
                 // launch briefcast view
                 [self.navigationController pushViewController:viewer animated:YES];
                 
-                [viewer release];
             }
             
             stateUponLaunch = BFMainViewDefaultState;
@@ -166,7 +161,6 @@
     [self presentModalViewController:remote animated:YES];
     
     self.modalViewController.view.frame = CGRectMake(0.0, 0.0, 320.0f, 480.0f);
-    [remote release];
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -177,7 +171,6 @@
 {
     BFHelpSystemViewController *help = [[BFHelpSystemViewController alloc] init];
     [self.navigationController presentModalViewController:help animated:YES];
-    [help release];
 }
 
 - (void)hideMenuWithAnimation
@@ -217,7 +210,7 @@
     //       (or other folder level organization)
     
     BFArrayBriefDataSource *knownBriefs = [[BFDataManager sharedBFDataManager] allBriefsSortedAs:BFDataManagerSortByDateOpened];
-    [self.navigationController pushViewController:[[[BFPagedBrowseViewController alloc] initWithDataSource:knownBriefs] autorelease] animated:YES];
+    [self.navigationController pushViewController:[[BFPagedBrowseViewController alloc] initWithDataSource:knownBriefs] animated:YES];
 
 }
 
@@ -229,7 +222,7 @@
 
 - (void)_loadBriefcastBrowser
 {
-    [self.navigationController pushViewController:[[[BFBrowseBriefcastsViewController alloc] init] autorelease] animated:YES];
+    [self.navigationController pushViewController:[[BFBrowseBriefcastsViewController alloc] init] animated:YES];
 }
 
 ///////////////////////////////////////////////////////////////////////////////

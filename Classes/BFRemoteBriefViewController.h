@@ -23,7 +23,7 @@
     id<BFRemoteBriefViewDelegate> delegate;
 }
 
-@property (nonatomic, retain) id<BFRemoteBriefViewDelegate> delegate;
+@property (nonatomic) id<BFRemoteBriefViewDelegate> delegate;
 
 - (id)initWithLocationOfBrief:(NSString *)location;
 

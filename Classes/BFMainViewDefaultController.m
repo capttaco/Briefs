@@ -57,10 +57,6 @@
 }
 
 
-- (void)dealloc 
-{
-    [super dealloc];
-}
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -75,12 +71,12 @@
     // get most recently viewed briefs
     id<BFBriefDataSource> recentBriefs = [[BFDataManager sharedBFDataManager] briefsSortedAs:BFDataManagerSortByDateOpened limitTo:2];
     if ([recentBriefs numberOfRecords] >= 1) {
-        BFRefreshBriefCellController *controller1 = [[[BFRefreshBriefCellController alloc] initWithBrief:[recentBriefs dataForIndex:0]] autorelease];
+        BFRefreshBriefCellController *controller1 = [[BFRefreshBriefCellController alloc] initWithBrief:[recentBriefs dataForIndex:0]];
         controller1.navigation = navigation;
         [briefControllers addObject:controller1];
         
         if ([recentBriefs numberOfRecords] >= 2) {
-            BFRefreshBriefCellController *controller2 = [[[BFRefreshBriefCellController alloc] initWithBrief:[recentBriefs dataForIndex:1]] autorelease];
+            BFRefreshBriefCellController *controller2 = [[BFRefreshBriefCellController alloc] initWithBrief:[recentBriefs dataForIndex:1]];
             controller2.navigation = navigation;
             [briefControllers addObject:controller2];
         }
@@ -90,7 +86,7 @@
     // get last opened briefcast
     NSArray *lastOpenedBriefcast = [[BFDataManager sharedBFDataManager] briefcastsSortedAs:BFDataManagerSortByDateOpened limitTo:1];
     if (lastOpenedBriefcast != nil && [lastOpenedBriefcast count] > 0) {
-        BFBriefcastCellController *controller = [[[BFBriefcastCellController alloc] initWithBriefcast:[lastOpenedBriefcast objectAtIndex:0]] autorelease];
+        BFBriefcastCellController *controller = [[BFBriefcastCellController alloc] initWithBriefcast:[lastOpenedBriefcast objectAtIndex:0]];
         controller.delegate = navigation;
         [briefcastController addObject:controller];
     }

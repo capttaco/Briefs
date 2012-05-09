@@ -55,12 +55,6 @@
     }
 }
 
-- (void)dealloc 
-{
-    [loadingController release];
-    [briefData release];
-    [super dealloc];
-}
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -99,7 +93,6 @@
     
     [UIView commitAnimations];
     
-    [manager release];
 }
 
 - (void)loadingView:(BFLoadingViewController *)controller didNotCompleteWithError:(NSError *)error

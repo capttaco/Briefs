@@ -45,7 +45,6 @@
     self.navigationController.view.backgroundColor = [UIColor blackColor];
     [window addSubview:[self.navigationController view]];
     [window makeKeyAndVisible];
-    [controller release];
     
     return YES;
 }
@@ -55,12 +54,6 @@
     [[BFDataManager sharedBFDataManager] save];
 }
 
-- (void)dealloc 
-{
-    [navigationController release];
-    [window release];
-    [super dealloc];
-}
 
 
 ///////////////////////////////////////////////////////////////////////////////

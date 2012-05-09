@@ -58,7 +58,6 @@
     if (value > 0.98) {
         CGRect bgFrame = background.frame;
         [background removeFromSuperview];
-        [background release];
         
         UIImage *stretchableBG = [[UIImage imageNamed:@"pop-slider-bg-filled.png"] stretchableImageWithLeftCapWidth:8.0 topCapHeight:0.0];
         background = [[UIImageView alloc] initWithImage:stretchableBG];

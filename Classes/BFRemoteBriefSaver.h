@@ -10,10 +10,10 @@
 @interface BFRemoteBriefSaver : UIViewController 
 {
     IBOutlet UILabel                *promptLabel;
-    id<BFRemoteBriefSaverDelegate>  delegate;
+    id<BFRemoteBriefSaverDelegate>  __unsafe_unretained delegate;
 }
 
-@property (assign) id<BFRemoteBriefSaverDelegate> delegate;
+@property (unsafe_unretained) id<BFRemoteBriefSaverDelegate> delegate;
 
 - (IBAction)didFinishWithSave;
 - (IBAction)didFinishWithCancel;

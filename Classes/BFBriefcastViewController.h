@@ -31,13 +31,13 @@
 
 }
 
-@property (nonatomic, retain) NSArray    *enclosedBriefs;
-@property (nonatomic, retain) NSString          *channelTitle;
-@property (nonatomic, retain) NSString          *channelLink;
-@property (nonatomic, retain) NSString          *channelDescription;
-@property (nonatomic, retain) NSString          *locationOfBriefcast;
-@property (nonatomic, retain) BriefcastRef      *briefcast;
-@property (nonatomic, retain) NSMutableData     *recievedData;
+@property (nonatomic) NSArray    *enclosedBriefs;
+@property (nonatomic) NSString          *channelTitle;
+@property (nonatomic) NSString          *channelLink;
+@property (nonatomic) NSString          *channelDescription;
+@property (nonatomic) NSString          *locationOfBriefcast;
+@property (nonatomic) BriefcastRef      *briefcast;
+@property (nonatomic) NSMutableData     *recievedData;
 
 
 - (IBAction)reloadBriefcast;

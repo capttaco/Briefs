@@ -66,9 +66,8 @@
 
 - (void)dealloc 
 {
-    [self.pages release];
-    [self.dataSource release];
-    [super dealloc];
+    self.pages;
+    self.dataSource;
 }
 
 
@@ -260,7 +259,6 @@
         [pagedHorizontalView addSubview:controller.view];
         
         [self.pages addObject:controller];
-        [controller release];
     }
     
     // initialize the scroll view

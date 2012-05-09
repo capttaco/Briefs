@@ -31,8 +31,8 @@
     id<BFBriefDataSource>           dataSource;
 }
 
-@property (nonatomic, retain) id<BFBriefDataSource> dataSource;
-@property (nonatomic, retain) NSMutableArray        *pages;
+@property (nonatomic) id<BFBriefDataSource> dataSource;
+@property (nonatomic) NSMutableArray        *pages;
 
 
 - (IBAction)changePage:(id)sender;

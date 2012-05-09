@@ -27,8 +27,8 @@
     NSArray *tableGroups;
 }
 
-@property (nonatomic, retain) NSArray       *tableGroups;
-@property (nonatomic, retain) UITableView   *tableView;
+@property (nonatomic) NSArray       *tableGroups;
+@property (nonatomic) UITableView   *tableView;
 
 - (void)updateAndReload;
 

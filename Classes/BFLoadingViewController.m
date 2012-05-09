@@ -45,9 +45,8 @@
 
 - (void)dealloc 
 {
-    [self.data release];
-    [self.locationOfRequest release];
-    [super dealloc];
+    self.data;
+    self.locationOfRequest;
 }
 
 - (IBAction)dismissView
@@ -75,7 +74,7 @@
         [statusLabel setText:initial];
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:location]];
-    connection = [[[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES] autorelease];
+    connection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
 }
 
 

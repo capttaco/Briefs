@@ -18,11 +18,11 @@
     
     BriefRef            *brief;
     UITableViewCell     *cell;
-    UINavigationController  *navigation;
+    UINavigationController  *__unsafe_unretained navigation;
 }
 
-@property (nonatomic, retain) BriefRef      *brief;
-@property (assign) UINavigationController   *navigation;
+@property (nonatomic) BriefRef      *brief;
+@property (unsafe_unretained) UINavigationController   *navigation;
 
 - (IBAction)updateBriefData;
 

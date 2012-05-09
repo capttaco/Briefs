@@ -36,10 +36,6 @@
 }
 
 
-- (void)dealloc 
-{
-    [super dealloc];
-}
 
 - (IBAction)changePage
 {

@@ -88,7 +88,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
                     NSLog(@"ERROR! - %@", error);
             }
             
-            [error release];
         }
     }
     
@@ -111,14 +110,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
     }
 }
 
-- (void)dealloc
-{
-    [managedObjectContext release];
-    [managedObjectModel release];
-    [persistentStoreCoordinator release];
-    
-    [super dealloc];
-}
 
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -
@@ -152,7 +143,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
     if (managedObjectModel != nil) {
         return managedObjectModel;
     }
-    managedObjectModel = [[NSManagedObjectModel mergedModelFromBundles:nil] retain];    
+    managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];    
     return managedObjectModel;
 }
 
@@ -340,7 +331,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
     //       defaults to lasted opened for now
     NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"dateLastOpened" ascending:NO];
     NSArray *sortDescriptors = [NSArray arrayWithObjects:sort, nil];
-    [sort release];
     
     NSMutableArray *arrayOfBriefcasts = [NSMutableArray array];
     
@@ -359,7 +349,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
 	if (mutableFetchResults == nil) {
 		// Boom! Handle the error.
         NSLog(@"There was a problem retrieving the listing of Briefcasts");
-        [request release];
         return nil;
 	}
     
@@ -367,8 +356,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
         [arrayOfBriefcasts addObject:ref];
     }
     
-	[mutableFetchResults release];
-	[request release];
     
     return arrayOfBriefcasts;
 }
@@ -392,7 +379,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
     //       defaults to lasted opened for now
     NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"dateLastOpened" ascending:NO];
     NSArray *sortDescriptors = [NSArray arrayWithObjects:sort, nil];
-    [sort release];
     
     // Fetch Data from the database
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];
@@ -408,7 +394,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
 	if (mutableFetchResults == nil) {
 		// Boom! Handle the error.
         NSLog(@"There was a problem retrieving the listing of Briefs");
-        [request release];
         return nil;
 	}
     
@@ -416,10 +401,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
         [arrayOfBriefs addObject:ref];
     }
     
-	[mutableFetchResults release];
-	[request release];
     
-    return [[[BFArrayBriefDataSource alloc] initWithArray:arrayOfBriefs] autorelease];
+    return [[BFArrayBriefDataSource alloc] initWithArray:arrayOfBriefs];
 }
 
 - (BriefcastRef *)localBriefcastRefMarker
@@ -458,8 +441,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
     
     else refToReturn = (BriefcastRef *) [mutableFetchResults objectAtIndex:0];
     
-    [request release];
-    [mutableFetchResults release];
     
     return refToReturn;
     
@@ -478,16 +459,12 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
     NSError *error;
     NSMutableArray *mutableFetchResults = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
 	if (mutableFetchResults == nil || [mutableFetchResults count] <= 0) {
-        if (mutableFetchResults) [mutableFetchResults release];
-        [request release];
         
         return nil;
 	}
     
     BriefRef *refToReturn = (BriefRef *) [mutableFetchResults objectAtIndex:0];
     
-    [request release];
-    [mutableFetchResults release];
     
     return refToReturn;
 }

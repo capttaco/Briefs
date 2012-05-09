@@ -16,8 +16,8 @@
     IBOutlet UIImageView                *sceneView;
 }
 
-@property (nonatomic, retain) IBOutlet UILabel      *titleLabel;
-@property (nonatomic, retain) IBOutlet UIImageView  *sceneView;
+@property (nonatomic) IBOutlet UILabel      *titleLabel;
+@property (nonatomic) IBOutlet UIImageView  *sceneView;
 
 - (IBAction)shouldShowBriefInfo;
 - (IBAction)shouldLaunchBrief;

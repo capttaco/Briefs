@@ -16,11 +16,11 @@
     IBOutlet UILabel    *descLabel;
     
     BriefcastRef            *briefcast;
-    UINavigationController  *delegate;
+    UINavigationController  *__unsafe_unretained delegate;
 }
 
-@property (retain) BriefcastRef *briefcast;
-@property (assign) UINavigationController *delegate;
+@property  BriefcastRef *briefcast;
+@property (unsafe_unretained) UINavigationController *delegate;
 
 - (id)initWithBriefcast:(BriefcastRef *)bcast;
 

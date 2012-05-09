@@ -99,8 +99,6 @@
     // blit image into preview
     previewView.sceneView.image = sceneImage;
     
-    [scene release];
-    [manager release];
 }
 
 - (void)zoomViewDidStop:(NSString *)animationId finished:(NSNumber *)finished context:(void *)context
@@ -124,10 +122,8 @@
     [[BFPresentationDispatch sharedBFPresentationDispatch] setViewController:controller]; 
     [self.parentNavigationController pushViewController:[[BFPresentationDispatch sharedBFPresentationDispatch] viewController] animated:NO];
     
-    [controller release];
-    [manager release];
     
-    UIView *viewToRemove = context;
+    UIView *viewToRemove = (__bridge UIView*)context;
     [viewToRemove removeFromSuperview];
 }
 
@@ -138,10 +134,6 @@
 }
 
 
-- (void)dealloc 
-{
-    [super dealloc];
-}
 
 
 - (void)briefShouldStartPlaying
@@ -156,7 +148,7 @@
     [grandParentView addSubview:transitionView];
     
     
-    [UIView beginAnimations:@"ZoomBriefIntoView" context:transitionView];
+    [UIView beginAnimations:@"ZoomBriefIntoView" context:(__bridge void*)transitionView];
     [UIView setAnimationDelegate:self];
     [UIView setAnimationDidStopSelector:@selector(zoomViewDidStop:finished:context:)];
     [UIView setAnimationDuration:0.5f];
@@ -209,7 +201,6 @@
                                     cancelButtonTitle:@"Oops, Nevermind" 
                                     destructiveButtonTitle:@"Nuke It" otherButtonTitles:nil];
     [confirmDelete showInView:[[self.view superview] superview]];
-    [confirmDelete autorelease];
 }
 
 - (void)deleteFadeDidStop:(NSString *)animationId finished:(NSNumber *)finished context:(void *)context
@@ -264,14 +255,14 @@
 
 - (void)loadingFadeDidStop:(NSString *)animationId finished:(NSNumber *)finished context:(void *)context
 {
-    BFLoadingViewController *controller = context;
+    BFLoadingViewController *controller = (__bridge BFLoadingViewController*)context;
     [[controller view] removeFromSuperview];
 }
 
 - (void)beginLoadingFadeOutAnimation:(id)loading
 {
     BFLoadingViewController *controller = loading;
-    [UIView beginAnimations:@"fade-out refresh view" context:controller];
+    [UIView beginAnimations:@"fade-out refresh view" context:(__bridge void*)controller];
         [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
         [UIView setAnimationDuration:0.5f];
         [UIView setAnimationDelegate:self];
