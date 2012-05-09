@@ -43,7 +43,14 @@
         isInstallButtonExpanded = NO;
         
         // determine install type
-        NSDate *dateBriefLastInstalled = [[BFDataManager sharedBFDataManager] briefFromURLWasInstalledOnDate:self.brief.enclosure.url];
+        NSString *url = nil;
+        if ([brief.enclosures count] > 0)
+        {
+            FPEnclosure *enclosure = [brief.enclosures objectAtIndex:0];
+            url = enclosure.url;  
+        }
+
+        NSDate *dateBriefLastInstalled = [[BFDataManager sharedBFDataManager] briefFromURLWasInstalledOnDate:url];
         if (dateBriefLastInstalled == nil)
             installType = BFBriefCellInstallTypeNewInstall;
         else if ([dateBriefLastInstalled compare:self.brief.pubDate] == NSOrderedAscending)
@@ -83,7 +90,13 @@
 
 - (IBAction)shouldBeginRemotePlay
 {
-    [self.delegate shouldLaunchBrief:self atURL:brief.enclosure.url];
+    NSString *url = nil;
+    if ([brief.enclosures count] > 0)
+    {
+        FPEnclosure *enclosure = [brief.enclosures objectAtIndex:0];
+        url = enclosure.url;  
+    }
+    [self.delegate shouldLaunchBrief:self atURL:url];
 }
 
 - (IBAction)shouldStartDownloadingBrief
@@ -100,8 +113,13 @@
         
         // if already in download mode, then
         // download the brief to local storage
-        
-        [self.delegate shouldDownloadBrief:self atURL:brief.enclosure.url];
+        NSString *url = nil;
+        if ([brief.enclosures count] > 0)
+        {
+            FPEnclosure *enclosure = [brief.enclosures objectAtIndex:0];
+            url = enclosure.url;  
+        }
+        [self.delegate shouldDownloadBrief:self atURL:url];
         
     }
 }
