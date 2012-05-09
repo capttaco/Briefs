@@ -3,3 +3,32 @@ build
 *.xcodeproj/*.perspectivev3
 starter-kit/examples/sampler platter/sampler.brieflist
 starter-kit/examples/sampler platter/sampler.source
+build/*
+.DS_Store
+.Spotlight-V100
+*.hidden
+*.Trash
+/tmp/**
+*.hotfiles.btree
+/.vol
+.svn
+.svn/*
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+*.xcworkspace
+!default.xcworkspace
+xcuserdata
+*DerivedData*
+profile
+*.moved-aside
+.dropbox
+**.xcodeproj/project.xcworkspace/contents.xcworkspacedata
+**.xcodeproj/project.xcworkspace/xcuserdata/*.xcuserdatad/WorkspaceState.xcuserstate
+**.xcodeproj/xcuserdata/*.xcuserdatad/xcschemes/*.xcscheme
+**.xcodeproj/xcuserdata/*.xcuserdatad/xcschemes/xcschememanagement.plist
+*.pbxuser
