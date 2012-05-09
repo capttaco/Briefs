@@ -21,7 +21,7 @@
 {
     CFStringRef errorString;
     CFPropertyListRef propertyListRef = CFPropertyListCreateFromXMLData (kCFAllocatorDefault, (__bridge CFDataRef) data, kCFPropertyListImmutable, &errorString);
-    
+    CFBridgingRelease(propertyListRef);
     if (errorString != NULL) {
         NSLog(@"The following error occured while converting the incoming data: %@", errorString); 
         return nil;
