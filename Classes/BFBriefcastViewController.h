@@ -37,7 +37,7 @@
 @property (nonatomic) NSString          *channelDescription;
 @property (nonatomic) NSString          *locationOfBriefcast;
 @property (nonatomic) BriefcastRef      *briefcast;
-@property (nonatomic) NSMutableData     *recievedData;
+@property (strong, nonatomic) NSMutableData     *recievedData;
 
 
 - (IBAction)reloadBriefcast;

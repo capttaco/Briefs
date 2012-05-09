@@ -48,7 +48,8 @@
     
     // Load Briefcast url
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[self locationOfBriefcast]]];
-    [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
+    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
+    [conn start];
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -189,16 +190,6 @@
     }
 }
 
-
-- (void)dealloc 
-{
-    self.channelLink;
-    self.channelTitle;
-    self.channelDescription;
-    self.enclosedBriefs;
-    self.locationOfBriefcast;
-    self.briefcast;
-}
 
 
 ///////////////////////////////////////////////////////////////////////////////

@@ -29,7 +29,7 @@
 
 @property (nonatomic, unsafe_unretained) id            delegate;
 @property (nonatomic) NSString      *locationOfRequest;
-@property (nonatomic) NSMutableData *data;
+@property (strong, nonatomic) NSMutableData *data;
 
 
 - (void)load:(NSString *)location withStatus:(NSString *)status;

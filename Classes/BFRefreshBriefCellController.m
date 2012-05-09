@@ -29,11 +29,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    self.brief;
-}
-
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -
 #pragma mark BFLoadingViewDelegate Methods

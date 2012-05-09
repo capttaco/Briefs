@@ -64,13 +64,6 @@
 	// e.g. self.myOutlet = nil;
 }
 
-- (void)dealloc 
-{
-    self.pages;
-    self.dataSource;
-}
-
-
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.

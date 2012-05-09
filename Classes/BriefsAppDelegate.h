@@ -14,7 +14,7 @@
     UIWindow                        *window;
 }
 
-@property (nonatomic) IBOutlet UINavigationController *navigationController;
+@property (strong, nonatomic) IBOutlet UINavigationController *navigationController;
 @property (nonatomic) IBOutlet UIWindow *window;
 
 

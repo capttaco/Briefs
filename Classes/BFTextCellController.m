@@ -22,11 +22,6 @@
     return self;
 }
 
-- (void)dealloc 
-{
-    self.labelText;
-    self.savedValue;
-}
 
 ///////////////////////////////////////////////////////////////////////////////
 #pragma mark -

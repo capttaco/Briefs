@@ -43,12 +43,6 @@
 }
 
 
-- (void)dealloc 
-{
-    self.data;
-    self.locationOfRequest;
-}
-
 - (IBAction)dismissView
 {
     if (delegate)
