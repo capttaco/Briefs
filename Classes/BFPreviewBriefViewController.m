@@ -214,8 +214,8 @@
 
 - (void)deleteFadeDidStop:(NSString *)animationId finished:(NSNumber *)finished context:(void *)context
 {
-    BFPagedBrowseViewController *controller;
-    if (controller = (BFPagedBrowseViewController *)[self.parentNavigationController topViewController]) {
+    BFPagedBrowseViewController *controller = (BFPagedBrowseViewController *)[self.parentNavigationController topViewController];
+    if (controller) {
         int gotoIndex = (pageIndex < 1) ? pageIndex : pageIndex - 1;
         [controller refresh:[[BFDataManager sharedBFDataManager] allBriefsSortedAs:BFDataManagerSortByDateOpened] gotoIndex:gotoIndex];
     }
