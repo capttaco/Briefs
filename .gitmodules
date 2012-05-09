@@ -4,3 +4,6 @@
 [submodule "Classes/Briefs-sharedUI"]
 	path = Classes/Briefs-sharedUI
 	url = git://github.com/capttaco/Briefs-sharedUI.git
+[submodule "vendor/FeedParser"]
+	path = vendor/FeedParser
+	url = git://github.com/kballard/feedparser.git

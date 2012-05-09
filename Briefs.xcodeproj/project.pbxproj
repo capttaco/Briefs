@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,20 +11,20 @@
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		28493ADE155AC73600F58924 /* NSDate_FeedParserExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 28493AC1155AC73600F58924 /* NSDate_FeedParserExtensions.m */; };
+		28493ADF155AC73600F58924 /* NSString_extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 28493AC3155AC73600F58924 /* NSString_extensions.m */; };
+		28493AE0155AC73600F58924 /* FPEnclosure.m in Sources */ = {isa = PBXBuildFile; fileRef = 28493AC6155AC73600F58924 /* FPEnclosure.m */; };
+		28493AE1155AC73600F58924 /* FPFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 28493AC9155AC73600F58924 /* FPFeed.m */; };
+		28493AE2155AC73600F58924 /* FPItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 28493ACB155AC73600F58924 /* FPItem.m */; };
+		28493AE3155AC73600F58924 /* FPLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 28493ACD155AC73600F58924 /* FPLink.m */; };
+		28493AE4155AC73600F58924 /* FPParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 28493ACF155AC73600F58924 /* FPParser.m */; };
+		28493AE5155AC73600F58924 /* FPXMLPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 28493AD3155AC73600F58924 /* FPXMLPair.m */; };
+		28493AE6155AC73600F58924 /* FPXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 28493AD5155AC73600F58924 /* FPXMLParser.m */; };
+		28493AE7155AC73600F58924 /* FPExtensionElementNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 28493AD9155AC73600F58924 /* FPExtensionElementNode.m */; };
+		28493AE8155AC73600F58924 /* FPExtensionNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 28493ADB155AC73600F58924 /* FPExtensionNode.m */; };
+		28493AE9155AC73600F58924 /* FPExtensionTextNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 28493ADD155AC73600F58924 /* FPExtensionTextNode.m */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		7616293B105061EF008FDF67 /* brief-compact.m in Sources */ = {isa = PBXBuildFile; fileRef = 7616293210506098008FDF67 /* brief-compact.m */; };
-		D415B20D105C7BD8008A3541 /* NSDate_FeedParserExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D415B1F0105C7BD8008A3541 /* NSDate_FeedParserExtensions.m */; };
-		D415B20E105C7BD8008A3541 /* NSString_extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D415B1F2105C7BD8008A3541 /* NSString_extensions.m */; };
-		D415B20F105C7BD8008A3541 /* FPEnclosure.m in Sources */ = {isa = PBXBuildFile; fileRef = D415B1F5105C7BD8008A3541 /* FPEnclosure.m */; };
-		D415B210105C7BD8008A3541 /* FPFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = D415B1F8105C7BD8008A3541 /* FPFeed.m */; };
-		D415B211105C7BD8008A3541 /* FPItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D415B1FA105C7BD8008A3541 /* FPItem.m */; };
-		D415B212105C7BD8008A3541 /* FPLink.m in Sources */ = {isa = PBXBuildFile; fileRef = D415B1FC105C7BD8008A3541 /* FPLink.m */; };
-		D415B213105C7BD8008A3541 /* FPParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D415B1FE105C7BD8008A3541 /* FPParser.m */; };
-		D415B214105C7BD8008A3541 /* FPXMLPair.m in Sources */ = {isa = PBXBuildFile; fileRef = D415B202105C7BD8008A3541 /* FPXMLPair.m */; };
-		D415B215105C7BD8008A3541 /* FPXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D415B204105C7BD8008A3541 /* FPXMLParser.m */; };
-		D415B216105C7BD8008A3541 /* FPExtensionElementNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D415B208105C7BD8008A3541 /* FPExtensionElementNode.m */; };
-		D415B217105C7BD8008A3541 /* FPExtensionNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D415B20A105C7BD8008A3541 /* FPExtensionNode.m */; };
-		D415B218105C7BD8008A3541 /* FPExtensionTextNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D415B20C105C7BD8008A3541 /* FPExtensionTextNode.m */; };
 		D4309741106AB75B00C1EC5E /* BFDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D4309740106AB75B00C1EC5E /* BFDataManager.m */; };
 		D4309743106AC10B00C1EC5E /* Briefs-data.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4309742106AC10B00C1EC5E /* Briefs-data.plist */; };
 		D43CE16E114F0DD900DA07D5 /* pop-up-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D43CE16D114F0DD900DA07D5 /* pop-up-bg.png */; };
@@ -158,39 +158,39 @@
 		1D3623250D0F684500981E51 /* BriefsAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BriefsAppDelegate.m; path = Classes/BriefsAppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* Briefs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Briefs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		28493AC0155AC73600F58924 /* NSDate_FeedParserExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDate_FeedParserExtensions.h; sourceTree = "<group>"; };
+		28493AC1155AC73600F58924 /* NSDate_FeedParserExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDate_FeedParserExtensions.m; sourceTree = "<group>"; };
+		28493AC2155AC73600F58924 /* NSString_extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSString_extensions.h; sourceTree = "<group>"; };
+		28493AC3155AC73600F58924 /* NSString_extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSString_extensions.m; sourceTree = "<group>"; };
+		28493AC4155AC73600F58924 /* FeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedParser.h; sourceTree = "<group>"; };
+		28493AC5155AC73600F58924 /* FPEnclosure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPEnclosure.h; sourceTree = "<group>"; };
+		28493AC6155AC73600F58924 /* FPEnclosure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPEnclosure.m; sourceTree = "<group>"; };
+		28493AC7155AC73600F58924 /* FPErrors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPErrors.h; sourceTree = "<group>"; };
+		28493AC8155AC73600F58924 /* FPFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPFeed.h; sourceTree = "<group>"; };
+		28493AC9155AC73600F58924 /* FPFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPFeed.m; sourceTree = "<group>"; };
+		28493ACA155AC73600F58924 /* FPItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPItem.h; sourceTree = "<group>"; };
+		28493ACB155AC73600F58924 /* FPItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPItem.m; sourceTree = "<group>"; };
+		28493ACC155AC73600F58924 /* FPLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPLink.h; sourceTree = "<group>"; };
+		28493ACD155AC73600F58924 /* FPLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPLink.m; sourceTree = "<group>"; };
+		28493ACE155AC73600F58924 /* FPParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPParser.h; sourceTree = "<group>"; };
+		28493ACF155AC73600F58924 /* FPParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPParser.m; sourceTree = "<group>"; };
+		28493AD1155AC73600F58924 /* FPExtensionElementNode_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPExtensionElementNode_Private.h; sourceTree = "<group>"; };
+		28493AD2155AC73600F58924 /* FPXMLPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPXMLPair.h; sourceTree = "<group>"; };
+		28493AD3155AC73600F58924 /* FPXMLPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPXMLPair.m; sourceTree = "<group>"; };
+		28493AD4155AC73600F58924 /* FPXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPXMLParser.h; sourceTree = "<group>"; };
+		28493AD5155AC73600F58924 /* FPXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPXMLParser.m; sourceTree = "<group>"; };
+		28493AD6155AC73600F58924 /* FPXMLParserProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPXMLParserProtocol.h; sourceTree = "<group>"; };
+		28493AD8155AC73600F58924 /* FPExtensionElementNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPExtensionElementNode.h; sourceTree = "<group>"; };
+		28493AD9155AC73600F58924 /* FPExtensionElementNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPExtensionElementNode.m; sourceTree = "<group>"; };
+		28493ADA155AC73600F58924 /* FPExtensionNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPExtensionNode.h; sourceTree = "<group>"; };
+		28493ADB155AC73600F58924 /* FPExtensionNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPExtensionNode.m; sourceTree = "<group>"; };
+		28493ADC155AC73600F58924 /* FPExtensionTextNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPExtensionTextNode.h; sourceTree = "<group>"; };
+		28493ADD155AC73600F58924 /* FPExtensionTextNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPExtensionTextNode.m; sourceTree = "<group>"; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Briefs_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Briefs_Prefix.pch; sourceTree = "<group>"; };
 		7616293210506098008FDF67 /* brief-compact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "brief-compact.m"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Briefs-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Briefs-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
-		D415B1EF105C7BD8008A3541 /* NSDate_FeedParserExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDate_FeedParserExtensions.h; sourceTree = "<group>"; };
-		D415B1F0105C7BD8008A3541 /* NSDate_FeedParserExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDate_FeedParserExtensions.m; sourceTree = "<group>"; };
-		D415B1F1105C7BD8008A3541 /* NSString_extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSString_extensions.h; sourceTree = "<group>"; };
-		D415B1F2105C7BD8008A3541 /* NSString_extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSString_extensions.m; sourceTree = "<group>"; };
-		D415B1F3105C7BD8008A3541 /* FeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedParser.h; sourceTree = "<group>"; };
-		D415B1F4105C7BD8008A3541 /* FPEnclosure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPEnclosure.h; sourceTree = "<group>"; };
-		D415B1F5105C7BD8008A3541 /* FPEnclosure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPEnclosure.m; sourceTree = "<group>"; };
-		D415B1F6105C7BD8008A3541 /* FPErrors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPErrors.h; sourceTree = "<group>"; };
-		D415B1F7105C7BD8008A3541 /* FPFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPFeed.h; sourceTree = "<group>"; };
-		D415B1F8105C7BD8008A3541 /* FPFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPFeed.m; sourceTree = "<group>"; };
-		D415B1F9105C7BD8008A3541 /* FPItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPItem.h; sourceTree = "<group>"; };
-		D415B1FA105C7BD8008A3541 /* FPItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPItem.m; sourceTree = "<group>"; };
-		D415B1FB105C7BD8008A3541 /* FPLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPLink.h; sourceTree = "<group>"; };
-		D415B1FC105C7BD8008A3541 /* FPLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPLink.m; sourceTree = "<group>"; };
-		D415B1FD105C7BD8008A3541 /* FPParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPParser.h; sourceTree = "<group>"; };
-		D415B1FE105C7BD8008A3541 /* FPParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPParser.m; sourceTree = "<group>"; };
-		D415B200105C7BD8008A3541 /* FPExtensionElementNode_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPExtensionElementNode_Private.h; sourceTree = "<group>"; };
-		D415B201105C7BD8008A3541 /* FPXMLPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPXMLPair.h; sourceTree = "<group>"; };
-		D415B202105C7BD8008A3541 /* FPXMLPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPXMLPair.m; sourceTree = "<group>"; };
-		D415B203105C7BD8008A3541 /* FPXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPXMLParser.h; sourceTree = "<group>"; };
-		D415B204105C7BD8008A3541 /* FPXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPXMLParser.m; sourceTree = "<group>"; };
-		D415B205105C7BD8008A3541 /* FPXMLParserProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPXMLParserProtocol.h; sourceTree = "<group>"; };
-		D415B207105C7BD8008A3541 /* FPExtensionElementNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPExtensionElementNode.h; sourceTree = "<group>"; };
-		D415B208105C7BD8008A3541 /* FPExtensionElementNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPExtensionElementNode.m; sourceTree = "<group>"; };
-		D415B209105C7BD8008A3541 /* FPExtensionNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPExtensionNode.h; sourceTree = "<group>"; };
-		D415B20A105C7BD8008A3541 /* FPExtensionNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPExtensionNode.m; sourceTree = "<group>"; };
-		D415B20B105C7BD8008A3541 /* FPExtensionTextNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPExtensionTextNode.h; sourceTree = "<group>"; };
-		D415B20C105C7BD8008A3541 /* FPExtensionTextNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPExtensionTextNode.m; sourceTree = "<group>"; };
 		D430973F106AB75B00C1EC5E /* BFDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFDataManager.h; sourceTree = "<group>"; };
 		D4309740106AB75B00C1EC5E /* BFDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFDataManager.m; sourceTree = "<group>"; };
 		D4309742106AC10B00C1EC5E /* Briefs-data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Briefs-data.plist"; sourceTree = "<group>"; };
@@ -406,6 +406,66 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		28493ABE155AC73600F58924 /* FeedParser */ = {
+			isa = PBXGroup;
+			children = (
+				28493ABF155AC73600F58924 /* Extensions */,
+				28493AC4155AC73600F58924 /* FeedParser.h */,
+				28493AC5155AC73600F58924 /* FPEnclosure.h */,
+				28493AC6155AC73600F58924 /* FPEnclosure.m */,
+				28493AC7155AC73600F58924 /* FPErrors.h */,
+				28493AC8155AC73600F58924 /* FPFeed.h */,
+				28493AC9155AC73600F58924 /* FPFeed.m */,
+				28493ACA155AC73600F58924 /* FPItem.h */,
+				28493ACB155AC73600F58924 /* FPItem.m */,
+				28493ACC155AC73600F58924 /* FPLink.h */,
+				28493ACD155AC73600F58924 /* FPLink.m */,
+				28493ACE155AC73600F58924 /* FPParser.h */,
+				28493ACF155AC73600F58924 /* FPParser.m */,
+				28493AD0155AC73600F58924 /* Internal */,
+				28493AD7155AC73600F58924 /* XML Extensions */,
+			);
+			name = FeedParser;
+			path = vendor/FeedParser/FeedParser;
+			sourceTree = SOURCE_ROOT;
+		};
+		28493ABF155AC73600F58924 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				28493AC0155AC73600F58924 /* NSDate_FeedParserExtensions.h */,
+				28493AC1155AC73600F58924 /* NSDate_FeedParserExtensions.m */,
+				28493AC2155AC73600F58924 /* NSString_extensions.h */,
+				28493AC3155AC73600F58924 /* NSString_extensions.m */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		28493AD0155AC73600F58924 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				28493AD1155AC73600F58924 /* FPExtensionElementNode_Private.h */,
+				28493AD2155AC73600F58924 /* FPXMLPair.h */,
+				28493AD3155AC73600F58924 /* FPXMLPair.m */,
+				28493AD4155AC73600F58924 /* FPXMLParser.h */,
+				28493AD5155AC73600F58924 /* FPXMLParser.m */,
+				28493AD6155AC73600F58924 /* FPXMLParserProtocol.h */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
+		28493AD7155AC73600F58924 /* XML Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				28493AD8155AC73600F58924 /* FPExtensionElementNode.h */,
+				28493AD9155AC73600F58924 /* FPExtensionElementNode.m */,
+				28493ADA155AC73600F58924 /* FPExtensionNode.h */,
+				28493ADB155AC73600F58924 /* FPExtensionNode.m */,
+				28493ADC155AC73600F58924 /* FPExtensionTextNode.h */,
+				28493ADD155AC73600F58924 /* FPExtensionTextNode.m */,
+			);
+			path = "XML Extensions";
+			sourceTree = "<group>";
+		};
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
@@ -499,65 +559,6 @@
 				D4A39797113B7591004971E9 /* BFScene.m */,
 			);
 			name = models;
-			sourceTree = "<group>";
-		};
-		D415B1ED105C7BD8008A3541 /* FeedParser */ = {
-			isa = PBXGroup;
-			children = (
-				D415B1EE105C7BD8008A3541 /* Extensions */,
-				D415B1F3105C7BD8008A3541 /* FeedParser.h */,
-				D415B1F4105C7BD8008A3541 /* FPEnclosure.h */,
-				D415B1F5105C7BD8008A3541 /* FPEnclosure.m */,
-				D415B1F6105C7BD8008A3541 /* FPErrors.h */,
-				D415B1F7105C7BD8008A3541 /* FPFeed.h */,
-				D415B1F8105C7BD8008A3541 /* FPFeed.m */,
-				D415B1F9105C7BD8008A3541 /* FPItem.h */,
-				D415B1FA105C7BD8008A3541 /* FPItem.m */,
-				D415B1FB105C7BD8008A3541 /* FPLink.h */,
-				D415B1FC105C7BD8008A3541 /* FPLink.m */,
-				D415B1FD105C7BD8008A3541 /* FPParser.h */,
-				D415B1FE105C7BD8008A3541 /* FPParser.m */,
-				D415B1FF105C7BD8008A3541 /* Internal */,
-				D415B206105C7BD8008A3541 /* XML Extensions */,
-			);
-			path = FeedParser;
-			sourceTree = "<group>";
-		};
-		D415B1EE105C7BD8008A3541 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				D415B1EF105C7BD8008A3541 /* NSDate_FeedParserExtensions.h */,
-				D415B1F0105C7BD8008A3541 /* NSDate_FeedParserExtensions.m */,
-				D415B1F1105C7BD8008A3541 /* NSString_extensions.h */,
-				D415B1F2105C7BD8008A3541 /* NSString_extensions.m */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		D415B1FF105C7BD8008A3541 /* Internal */ = {
-			isa = PBXGroup;
-			children = (
-				D415B200105C7BD8008A3541 /* FPExtensionElementNode_Private.h */,
-				D415B201105C7BD8008A3541 /* FPXMLPair.h */,
-				D415B202105C7BD8008A3541 /* FPXMLPair.m */,
-				D415B203105C7BD8008A3541 /* FPXMLParser.h */,
-				D415B204105C7BD8008A3541 /* FPXMLParser.m */,
-				D415B205105C7BD8008A3541 /* FPXMLParserProtocol.h */,
-			);
-			path = Internal;
-			sourceTree = "<group>";
-		};
-		D415B206105C7BD8008A3541 /* XML Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				D415B207105C7BD8008A3541 /* FPExtensionElementNode.h */,
-				D415B208105C7BD8008A3541 /* FPExtensionElementNode.m */,
-				D415B209105C7BD8008A3541 /* FPExtensionNode.h */,
-				D415B20A105C7BD8008A3541 /* FPExtensionNode.m */,
-				D415B20B105C7BD8008A3541 /* FPExtensionTextNode.h */,
-				D415B20C105C7BD8008A3541 /* FPExtensionTextNode.m */,
-			);
-			path = "XML Extensions";
 			sourceTree = "<group>";
 		};
 		D43CE16C114F0DC800DA07D5 /* backgrounds */ = {
@@ -828,7 +829,7 @@
 		D4AF19FF11460EBA00D1B3B5 /* vendor */ = {
 			isa = PBXGroup;
 			children = (
-				D415B1ED105C7BD8008A3541 /* FeedParser */,
+				28493ABE155AC73600F58924 /* FeedParser */,
 			);
 			name = vendor;
 			sourceTree = "<group>";
@@ -946,11 +947,16 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = "Digital Arch Design";
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Briefs" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1053,18 +1059,6 @@
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* BriefsAppDelegate.m in Sources */,
-				D415B20D105C7BD8008A3541 /* NSDate_FeedParserExtensions.m in Sources */,
-				D415B20E105C7BD8008A3541 /* NSString_extensions.m in Sources */,
-				D415B20F105C7BD8008A3541 /* FPEnclosure.m in Sources */,
-				D415B210105C7BD8008A3541 /* FPFeed.m in Sources */,
-				D415B211105C7BD8008A3541 /* FPItem.m in Sources */,
-				D415B212105C7BD8008A3541 /* FPLink.m in Sources */,
-				D415B213105C7BD8008A3541 /* FPParser.m in Sources */,
-				D415B214105C7BD8008A3541 /* FPXMLPair.m in Sources */,
-				D415B215105C7BD8008A3541 /* FPXMLParser.m in Sources */,
-				D415B216105C7BD8008A3541 /* FPExtensionElementNode.m in Sources */,
-				D415B217105C7BD8008A3541 /* FPExtensionNode.m in Sources */,
-				D415B218105C7BD8008A3541 /* FPExtensionTextNode.m in Sources */,
 				D464117110606DDE001522F6 /* BFTableViewController.m in Sources */,
 				D46411931065CF8C001522F6 /* BFBriefCellController.m in Sources */,
 				D46411971065D59D001522F6 /* BFBriefcastCellController.m in Sources */,
@@ -1108,6 +1102,18 @@
 				D4F210F9118C72750041F87C /* BFMainViewDefaultController.m in Sources */,
 				D4F2123D118D222E0041F87C /* BFRefreshBriefCellController.m in Sources */,
 				D4F214D7118E6D0B0041F87C /* BFHelpSystemViewController.m in Sources */,
+				28493ADE155AC73600F58924 /* NSDate_FeedParserExtensions.m in Sources */,
+				28493ADF155AC73600F58924 /* NSString_extensions.m in Sources */,
+				28493AE0155AC73600F58924 /* FPEnclosure.m in Sources */,
+				28493AE1155AC73600F58924 /* FPFeed.m in Sources */,
+				28493AE2155AC73600F58924 /* FPItem.m in Sources */,
+				28493AE3155AC73600F58924 /* FPLink.m in Sources */,
+				28493AE4155AC73600F58924 /* FPParser.m in Sources */,
+				28493AE5155AC73600F58924 /* FPXMLPair.m in Sources */,
+				28493AE6155AC73600F58924 /* FPXMLParser.m in Sources */,
+				28493AE7155AC73600F58924 /* FPExtensionElementNode.m in Sources */,
+				28493AE8155AC73600F58924 /* FPExtensionNode.m in Sources */,
+				28493AE9155AC73600F58924 /* FPExtensionTextNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1135,7 +1141,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Briefs_Prefix.pch;
-				GCC_VERSION = 4.2;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "Briefs-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				PRODUCT_NAME = Briefs;
@@ -1149,6 +1155,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Briefs_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "Briefs-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				PRODUCT_NAME = Briefs;
@@ -1162,7 +1169,6 @@
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1175,9 +1181,8 @@
 					"-framework",
 					AppKit,
 				);
-				PREBINDING = NO;
 				PRODUCT_NAME = "compact-briefs";
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -1188,7 +1193,6 @@
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
@@ -1199,9 +1203,8 @@
 					"-framework",
 					AppKit,
 				);
-				PREBINDING = NO;
 				PRODUCT_NAME = "compact-briefs";
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -1214,8 +1217,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PREBINDING = NO;
-				SDKROOT = iphoneos4.0;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -1226,8 +1228,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				PREBINDING = NO;
-				SDKROOT = iphoneos4.0;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
