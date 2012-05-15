@@ -261,7 +261,14 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(BFDataManager);
 - (BriefRef *)updateBrief:(BriefRef *)brief usingData:(NSData *)data
 {
     // update the brief meta data
-    BFBriefInfo *info = [BFBriefInfo infoForBriefData:[NSDictionary dictionaryFromData:data] atPath:brief.filePath];
+    //NB the functions in the dictionaryFromData category do not work on the device as of iOS 5.1
+    //they just return an empty dictionary so we're writing to a temp file and reading it back in
+    NSString *plistPath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"RemoteBrief.plist"];
+    [data writeToFile:plistPath atomically:YES];
+    //NSDictionary *dict = [NSDictionary dictionaryFromData:briefData];
+    
+    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:plistPath];
+    BFBriefInfo *info = [BFBriefInfo infoForBriefData:dict atPath:brief.filePath];
     brief = [info mergeInfoIntoBrief:brief];
     [brief setDateLastDownloaded:[NSDate date]];
     [self save];
