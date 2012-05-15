@@ -70,7 +70,14 @@
     // ================
     // setup scene view controller
     
-    BFSceneManager *manager = [[BFSceneManager alloc] initWithDictionary:[NSDictionary dictionaryFromData:briefData]];
+    //NB the functions in the dictionaryFromData category do not work on the device as of iOS 5.1
+    //they just return an empty dictionary so we're writing to a temp file and reading it back in
+    NSString *plistPath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"RemoteBrief.plist"];
+    [briefData writeToFile:plistPath atomically:YES];
+    //NSDictionary *dict = [NSDictionary dictionaryFromData:briefData];
+    
+    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:plistPath];
+    BFSceneManager *manager = [[BFSceneManager alloc] initWithDictionary:dict];
     BFSceneViewController *sceneController = [[BFSceneViewController alloc] initWithSceneManager:manager];
    
     // wire dispatch
