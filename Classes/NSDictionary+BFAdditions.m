@@ -19,14 +19,14 @@
 
 + (NSDictionary *)dictionaryFromData:(NSData *)data
 {
-    CFStringRef errorString;
-    CFPropertyListRef propertyListRef = CFPropertyListCreateFromXMLData (kCFAllocatorDefault, (__bridge CFDataRef) data, kCFPropertyListImmutable, &errorString);
+    CFStringRef errorString = NULL;
+    CFDataRef dataRef = (__bridge CFDataRef) data;
+    CFPropertyListRef propertyListRef = CFPropertyListCreateFromXMLData(kCFAllocatorDefault, dataRef, kCFPropertyListImmutable, &errorString);
     CFBridgingRelease(propertyListRef);
     if (errorString != NULL) {
         NSLog(@"The following error occured while converting the incoming data: %@", errorString); 
         return nil;
     }
-    
     else return (__bridge NSDictionary *) propertyListRef;
 }
 
