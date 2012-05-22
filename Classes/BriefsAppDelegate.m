@@ -54,6 +54,22 @@
     [[BFDataManager sharedBFDataManager] save];
 }
 
+- (BOOL) application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    [self.navigationController popToRootViewControllerAnimated:NO];
+    BFMainViewController *controller = [[BFMainViewController alloc] initWithExternalURL:url];
+    [self.navigationController pushViewController:controller animated:YES];
+    return YES;
+}
+
+- (BOOL) application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    [self.navigationController popToRootViewControllerAnimated:NO];
+    BFMainViewController *controller = [[BFMainViewController alloc] initWithExternalURL:url];
+    [self.navigationController pushViewController:controller animated:YES];
+    return YES;
+}
+
 
 
 ///////////////////////////////////////////////////////////////////////////////
